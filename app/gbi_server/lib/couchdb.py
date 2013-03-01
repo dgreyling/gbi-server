@@ -215,7 +215,8 @@ class CouchDBBox(CouchDB):
               "map": "function(doc) { if (doc.layer) emit(doc.layer, {'_rev': doc._rev}) }"
             },
             "distinct": {
-              "map": "function(doc) { if (doc._id.indexOf('schema_') == 0 && doc.title) { emit(doc.layer, doc.title); } else if (doc._id.indexOf('schema_') == 0) { emit(doc.layer, doc.layer); } }"
+              "map": "function(doc) { if (doc._id.indexOf('schema_') == 0 && doc.title) { emit(doc.layer, doc.title); } else if (doc._id.indexOf('schema_') == 0) { emit(doc.layer, doc.layer); } }",
+              "reduce": "function(keys, values) { return values[0]; }"
             }
           }
         }
@@ -251,10 +252,14 @@ class CouchDBBox(CouchDB):
                 yield geocouch_feature_to_geojson(feature)
 
     def get_layer_names(self):
-        resp = self.session.get(self.couchdb_url + '/_design/layers/_view/distinct')
+        resp = self.session.get(self.couchdb_url + '/_design/layers/_view/distinct?group=true')
         data = resp.json()
         for row in data.get('rows', []):
-            yield (row['key'], row['value'])
+            if row['value'] is True:
+                # for old distinct map reduce
+                yield (row['key'], row['key'])
+            else:
+                yield (row['key'], row['value'])
 
     def layer_extent(self, layer=None):
         """
