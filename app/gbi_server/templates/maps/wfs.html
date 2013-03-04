@@ -27,7 +27,7 @@
         var search_min_length = {{search_min_length}};
         var search_prefix = "{{search_prefix}}";
         $(document).ready(function() {
-            base_map = init_map();
+            var base_map = init_map();
             init_wfs(base_map);
             base_map.zoomToExtent(new OpenLayers.Bounds{{data_extent}});
         });

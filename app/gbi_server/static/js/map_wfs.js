@@ -1,5 +1,3 @@
-var selected_feature = false;
-var selected_features = [];
 var draw_controls = false;
 
 function zoom_to_data_extent() {
@@ -97,19 +95,78 @@ function create_attribute_input(read_only_layer) {
     });
 }
 
-function unselect_features() {
-    if(selected_feature || selected_features.length) {
-        if(draw_controls['edit'].feature) {
-            draw_controls['edit'].unselectFeature(selected_feature);
+function check_selections(map, write_layer) {
+    var ro_features = [];
+    var rw_features = write_layer.selectedFeatures;
+    $.each(draw_controls['select'].layers, function(idx, layer) {
+        if(layer != write_layer) {
+            ro_features = ro_features.concat(layer.selectedFeatures)
         }
-        $('#edit_feature').removeClass('btn-success');
-        selected_feature = false;
-        selected_features = [];
-        draw_controls['select'].unselectAll();
+    });
+    //XOR
+    if(rw_features.length == 1 ? !ro_features.length == 1 : ro_features.length == 1) {
+        var feature = rw_features.length == 1 ? rw_features[0] : ro_features[0];
+        var target = $('#feature_attributes');
+
+        target.empty().append(feature.layer.attributes_input);
+
+        $.each(target.find('input'), function(idx, input) {
+            $(input).val('');
+        });
+
+        $.each(feature.attributes, function(name, value) {
+            $('#feature_attributes #'+name).val(value);
+        });
+        if(rw_features.length == 1) {
+            var validator = target.validate({
+                rules: feature.layer.input_rules,
+                showErrors: function(errorMap, errorList) {
+                    if(this.numberOfInvalids() > 0) {
+                        $('#edit_attributes_button').attr('disabled', 'disabled');
+                    } else {
+                        $('#edit_attributes_button').removeAttr('disabled');
+                    }
+                    this.defaultShowErrors();
+                }
+            });
+            $('#edit_feature').removeAttr('disabled');
+            $('#feature_attributes input').removeAttr('disabled');
+            $('#edit_attributes_button').removeAttr('disabled');
+        } else {
+            $('#edit_feature').attr('disabled', 'disabled');
+            $('#feature_attributes input').attr('disabled', 'disabled');
+            $('#edit_attributes_button').attr('disabled', 'disabled');
+        }
+    } else {
+        $('#edit_feature').attr('disabled', 'disabled');
+        $('#feature_attributes input').attr('disabled', 'disabled');
+        $('#edit_attributes_button').attr('disabled', 'disabled');
+        $('#feature_attributes').empty();
+    }
+
+    if(rw_features.length > 0) {
+        $('#delete_feature').removeAttr('disabled');
+    } else {
+        $('#delete_feature').attr('disabled', 'disabled');
+    }
+
+    if(ro_features.length > 0) {
+        $('#copy_feature').removeAttr('disabled');
+    } else {
+        $('#copy_feature').attr('disabled', 'disabled');
     }
 }
 
-function update_feature_attributes(map) {
+function unselect_features() {
+    if(draw_controls['edit'].feature) {
+        draw_controls['edit'].unselectFeature(draw_controls['edit'].feature);
+    }
+    $('#edit_feature').removeClass('btn-success');
+    draw_controls['select'].unselectAll();
+}
+
+function update_feature_attributes(map, write_layer) {
+    var selected_feature = write_layer.selectedFeatures[0];
     $.each($('#feature_attributes input'), function(idx, input) {
         if(!$(input).val()) {
             selected_feature.attributes[input.id] = null;
@@ -126,8 +183,8 @@ function update_feature_attributes(map) {
     unselect_features()
 }
 
-function edit_feature(map) {
-    var write_layer = map.getLayersByName(write_layer_name)[0];
+function edit_feature(map, write_layer) {
+    var selected_feature = write_layer.selectedFeatures[0];
     if(selected_feature == draw_controls['edit'].feature) {
         draw_controls['edit'].unselectFeature(selected_feature);
         $('#edit_feature').removeClass('btn-success');
@@ -137,16 +194,25 @@ function edit_feature(map) {
     }
 }
 
-function delete_feature(map) {
-    var write_layer = map.getLayersByName(write_layer_name)[0];
-    var to_delete = selected_features;
+function delete_feature(map, write_layer) {
+    var to_delete = write_layer.selectedFeatures;
+    var unselect = draw_controls['select'].onUnselect;
+    draw_controls['select'].events.un('nselect')
     $.each(to_delete, function(idx, feature) {
         draw_controls['del'].deleteFeature(feature);
     });
+    write_layer.selectedFeatures = [];
+    draw_controls['select'].events.on('unselect', unselect)
 }
 
-function copy_feature(map) {
-    var write_layer = map.getLayersByName(write_layer_name)[0];
+function copy_feature(map, write_layer) {
+    var selected_features = [];
+    $.each(draw_controls['select'].layers, function(idx, layer) {
+        if(layer != write_layer) {
+            selected_features = selected_features.concat(layer.selectedFeatures);
+            layer.selectedFeatures = [];
+        }
+    });
     var new_features = [];
     $.each(selected_features, function(idx, feature) {
         var geometry = feature.geometry.clone();
@@ -156,14 +222,13 @@ function copy_feature(map) {
             new_feature.attributes[k] = v;
         });
         new_features.push(new_feature);
+        draw_controls['select'].unselect(feature);
     });
-    unselect_features();
     write_layer.addFeatures(new_features);
 }
 
-function save_changes(map) {
+function save_changes(map, write_layer) {
     unselect_features();
-    var write_layer = map.getLayersByName(write_layer_name)[0];
     $.each(write_layer.strategies, function(idx, strategy) {
         if(strategy.CLASS_NAME == 'OpenLayers.Strategy.Save') {
             strategy.save();
@@ -181,7 +246,6 @@ var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
         );
     },
     deleteFeature: function(feature) {
-        unselect_features();
         if(feature.fid == undefined) {
             this.layer.destroyFeatures([feature]);
         } else {
@@ -229,53 +293,20 @@ function init_draw_controls(map, layers, write_layer) {
     var select = new OpenLayers.Control.SelectFeature(layers, {
         title: "Select Feature",
         displayClass: "olControlSelectFeature",
-        multiple: true,
-        onSelect: function (feature) {
-            var target = $('#feature_attributes');
-            target.empty().append(feature.layer.attributes_input);
-            var validator = target.validate({
-                rules: feature.layer.input_rules,
-                showErrors: function(errorMap, errorList) {
-                    if(this.numberOfInvalids() > 0) {
-                        $('#edit_attributes_button').attr('disabled', 'disabled');
-                    } else {
-                        $('#edit_attributes_button').removeAttr('disabled');
-                    }
-                    this.defaultShowErrors();
-                }
-            });
-            selected_feature = feature;
-            selected_features.push(feature);
-            if(feature.layer != write_layer) {
-                $('#copy_feature').removeAttr('disabled');
-            } else {
-                $('#delete_feature').removeAttr('disabled');
-                if(selected_features.length == 1) {
-                    $('#edit_feature').removeAttr('disabled');
-                } else {
-                    $('#edit_feature').attr('disabled', 'disabled');
-                }
-            }
-            $.each(feature.attributes, function(name, value) {
-                $('#feature_attributes #'+name).val(value);
-            });
-            if(feature.layer.writable) {
-                $('#feature_attributes input').removeAttr('disabled');
-                $('#edit_attributes_button').removeAttr('disabled');
-            }
+        multiple: false,
+        toggleKey: "shiftKey",
+        multipleKey: "shiftKey",
+        onSelect: function() {
+            check_selections(map, write_layer);
         },
         onUnselect: function() {
-            $('#feature_attributes input').val('');
-            $('#feature_attributes').validate().resetForm();
-            $('#feature_attributes').empty();
-            unselect_features();
-            $('#edit_attributes_button').attr('disabled', 'disabled');
-            $('.feature_control').attr('disabled', 'disabled');
+            check_selections(map, write_layer);
         }
     });
     select.events.on({
         deactivate: function(e) {
             unselect_features();
+            check_selections(map, write_layer);
         }
     });
 
@@ -313,7 +344,6 @@ function init_wfs(map) {
                     unselect_features();
                 },
                 featureadded: function(e) {
-                    draw_controls['select'].select(e.feature);
                     $('#save_changes').removeAttr('disabled').addClass('btn-success');
                 },
                 afterfeaturemodified: function(e) {
@@ -330,27 +360,27 @@ function init_wfs(map) {
     create_attribute_input(read_only_layer);
     $('#edit_attributes_button')
         .click(function() {
-            update_feature_attributes(map);
+            update_feature_attributes(map, write_layer);
         })
         .attr('disabled', 'disabled');
     $('#edit_feature')
         .click(function() {
-            edit_feature(map);
+            edit_feature(map, write_layer);
         })
         .attr('disabled', 'disabled');
     $('#delete_feature')
         .click(function() {
-            delete_feature(map);
+            delete_feature(map, write_layer);
         })
         .attr('disabled', 'disabled');
     $('#copy_feature')
         .click(function() {
-            copy_feature(map);
+            copy_feature(map, write_layer);
         })
         .attr('disabled', 'disabled');
     $('#save_changes')
         .click(function() {
-            save_changes(map);
+            save_changes(map, write_layer);
         })
         .attr('disabled', 'disabled')
         .removeClass('btn-success');
