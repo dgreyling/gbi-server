@@ -107,7 +107,12 @@ function check_selections(map, write_layer) {
     if(rw_features.length == 1 ? !ro_features.length == 1 : ro_features.length == 1) {
         var feature = rw_features.length == 1 ? rw_features[0] : ro_features[0];
         var target = $('#feature_attributes');
+
         target.empty().append(feature.layer.attributes_input);
+
+        $.each(target.find('input'), function(idx, input) {
+            $(input).val('');
+        });
 
         $.each(feature.attributes, function(name, value) {
             $('#feature_attributes #'+name).val(value);
