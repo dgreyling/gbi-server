@@ -208,6 +208,9 @@ def write_back(layer=None, ajax=True):
     couch.store_features(layer, tmp_db.load_features(), delete_missing=tmp_db.imported_feature_ids())
     connection.close()
 
+    # write changes back to PostGIS to prevent multiple inserts
+    create_wfs(user, [layer])
+
     signals.features_updated.send(user, layer=layer)
 
     if ajax:

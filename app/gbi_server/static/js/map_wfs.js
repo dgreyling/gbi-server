@@ -33,8 +33,9 @@ function wfs_save_success(response) {
     var map = response.object.layer.map;
     $.get(write_back_url)
     wfs_msg_handler('success');
-    $('#save_changes').attr('disabled', 'disabled').removeClass('btn-success');
     map.baseLayer.redraw();
+    response.object.layer.refresh({'force': true});
+    $('#save_changes').attr('disabled', 'disabled').removeClass('btn-success');
 }
 
 function wfs_save_fail(response) {
@@ -235,6 +236,7 @@ function save_changes(map, write_layer) {
             return false;
         }
     })
+    write_layer.refresh();
 }
 
 var DeleteFeature = OpenLayers.Class(OpenLayers.Control, {
@@ -338,6 +340,11 @@ function init_wfs(map) {
     var write_layer = map.getLayersByName(write_layer_name)[0];
     write_layer.setVisibility(true);
     write_layer.events.on({
+        loadstart: function(e) {
+            write_layer.events.remove('beforefeatureadded');
+            write_layer.events.remove('featureadded');
+            write_layer.events.remove('afterfeaturemodified');
+        },
         loadend: function(e) {
             write_layer.events.on({
                 beforefeatureadded: function(e) {
