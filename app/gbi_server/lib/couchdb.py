@@ -414,10 +414,11 @@ def init_user_boxes(user, couchdb_url):
     couch.update_user(username, password)
     couch.update_auth_doc(username, writable=True, read_roles=['consultants'])
 
-    customer_couch = CouchFileBox(couchdb_url, '%s_%s' % (SystemConfig.CUSTOMER_BOX_NAME, user.id))
-    customer_couch.create()
-    customer_couch.update_auth_doc(username, writable=True, read_roles=[])
+    if current_app.config['FEATURE_DOC_BOXES']:
+        customer_couch = CouchFileBox(couchdb_url, '%s_%s' % (SystemConfig.CUSTOMER_BOX_NAME, user.id))
+        customer_couch.create()
+        customer_couch.update_auth_doc(username, writable=True, read_roles=[])
 
-    consultant_couch = CouchFileBox(couchdb_url, '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, user.id))
-    consultant_couch.create()
-    consultant_couch.update_auth_doc(username, writable=False, read_roles=['consultants'], write_roles=['consultants'])
+        consultant_couch = CouchFileBox(couchdb_url, '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, user.id))
+        consultant_couch.create()
+        consultant_couch.update_auth_doc(username, writable=False, read_roles=['consultants'], write_roles=['consultants'])
