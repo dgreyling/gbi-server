@@ -20,7 +20,9 @@
             {{ input(form.type) }}
             {{ input(form.password) }}
             {{ input(form.password2) }}
-            {{ input(form.florlp_name) }}
+            {% if config['FEATURE_CUSTOMER_USERS'] %}
+                {{ input(form.florlp_name) }}
+            {% endif %}
             {{ input(form.verified) }}
             {{ input(form.activate) }}
             {{ button(_('create'), True) }}
