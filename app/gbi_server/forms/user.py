@@ -17,7 +17,6 @@ from flask.ext.wtf import TextField, validators, PasswordField, SelectField, Boo
 from flask.ext.babel import lazy_gettext as _l
 from .base import Form
 
-from gbi_server.model import User
 from .validator import username_unique, username_exists, check_password_length
 
 class LoginForm(Form):
@@ -34,11 +33,7 @@ class EditAddressForm(Form):
 
 class NewUserForm(EditAddressForm):
     florlp_password = PasswordField(_l('florlp_password'))
-    type = SelectField(_l('type'), coerce=int, choices=[
-        (User.Type.CUSTOMER, _l('customer')),
-        (User.Type.SERVICE_PROVIDER, _l('service_provider')),
-        # (User.Type.CONSULTANT, _l('consultant')),
-    ])
+    type = SelectField(_l('type'), coerce=int)
     email = TextField(_l('email'), [validators.Required(), username_unique, validators.Email()])
     password = PasswordField(_l('password'), [
         validators.Required(),

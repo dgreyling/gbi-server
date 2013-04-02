@@ -93,6 +93,14 @@ def activate_user(id):
 @admin.route('/admin/create_user', methods=["GET", "POST"])
 def create_user():
     form = CreateUserForm()
+    form.type.choices = []
+    if current_app.config['FEATURE_CUSTOMER_USERS']:
+        form.type.choices.append((User.Type.CUSTOMER, _('customer')))
+    form.type.choices.append((User.Type.SERVICE_PROVIDER, _('service_provider')))
+    if current_app.config['FEATURE_CONSULTANT_USERS']:
+        form.type.choices.append((User.Type.CONSULTANT, _('consultant')))
+    form.type.choices.append((User.Type.ADMIN, _('admin')))
+
     if form.validate_on_submit():
         user = User(form.data['email'], form.data['password'])
         user.realname = form.data['realname']

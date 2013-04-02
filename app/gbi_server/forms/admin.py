@@ -18,16 +18,10 @@ from flask.ext.babel import lazy_gettext as _l
 
 from .base import Form
 
-from gbi_server.model import User
 from user import NewUserForm
 
 class CreateUserForm(NewUserForm):
-    type = SelectField(_l('type'), coerce=int, choices=[
-        (User.Type.CUSTOMER, _l('customer')),
-        (User.Type.SERVICE_PROVIDER, _l('service_provider')),
-        (User.Type.CONSULTANT, _l('consultant')),
-        (User.Type.ADMIN, _l('admin'))]
-    )
+    type = SelectField(_l('type'), coerce=int)
     verified = BooleanField(_l('verified'), default=False)
     activate = BooleanField(_l('active'), default=False)
     terms_of_use = BooleanField(_l('terms of use'), default=True)

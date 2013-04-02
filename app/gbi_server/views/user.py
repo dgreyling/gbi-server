@@ -88,6 +88,11 @@ def logout():
 @user.route("/user/new", methods=["GET", "POST"])
 def new():
     form = NewUserForm()
+    form.type.choices = []
+    if current_app.config['FEATURE_CUSTOMER_USERS']:
+        form.type.choices.append((User.Type.CUSTOMER, _('customer')))
+    form.type.choices.append((User.Type.SERVICE_PROVIDER, _('service_provider')))
+
     if form.validate_on_submit():
         florlp_session = False
         user_type = form.data['type']
