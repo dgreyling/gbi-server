@@ -19,7 +19,7 @@
         {% endif %}
         sources[{{ layer.id }}] = new OpenLayers.Layer.WMTS({
             name: '{{ layer.title }}',
-            url: '{{ url_for('authproxy.tile_proxy') }}',
+            url: '{{ layer.client_url() }}',
             getURL: tileUrl,
             layer: '{{ layer.layer }}',
             matrixSet: '{{ layer.matrix_set }}',

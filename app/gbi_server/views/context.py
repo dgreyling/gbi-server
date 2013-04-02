@@ -85,7 +85,7 @@ def get_context_document():
         response['wmts_sources'].append({
             "name": wmts.name,
             "title": wmts.title,
-            "url": url_for('authproxy.tile_proxy', user_token=g.user.authproxy_token, _external=True).rstrip('/') + '/',
+            "url": wmts.client_url(external=True),
             "layer": wmts.layer,
             "tile_matrix": wmts.matrix_set,
             "format": wmts.format,
@@ -106,25 +106,28 @@ def get_context_document():
             }
         })
 
-    response['couchdb_sources'].append({
-        "name": _('area box'),
-        "url": current_app.config['COUCH_DB_URL'],
-        "dbname": '%s_%s' % (SystemConfig.AREA_BOX_NAME, g.user.id),
-        "username": 'user_%d' % g.user.id,
-        "password": g.user.authproxy_token,
-        "writable": True,
-        "dbname_user":  SystemConfig.AREA_BOX_NAME_LOCAL,
-    })
 
-    response['couchdb_sources'].append({
-        "name": _('consultant box'),
-        "url": current_app.config['COUCH_DB_URL'],
-        "dbname": '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, g.user.id),
-        "username": 'user_%d' % g.user.id,
-        "password": g.user.authproxy_token,
-        "writable": False,
-        "dbname_user":  SystemConfig.CONSULTANT_BOX_NAME_LOCAL,
-    })
+    if current_app.config['FEATURE_AREA_BOXES']:
+        response['couchdb_sources'].append({
+            "name": _('area box'),
+            "url": current_app.config['COUCH_DB_URL'],
+            "dbname": '%s_%s' % (SystemConfig.AREA_BOX_NAME, g.user.id),
+            "username": 'user_%d' % g.user.id,
+            "password": g.user.authproxy_token,
+            "writable": True,
+            "dbname_user":  SystemConfig.AREA_BOX_NAME_LOCAL,
+        })
+
+    if current_app.config['FEATURE_DOC_BOXES']:
+        response['couchdb_sources'].append({
+            "name": _('consultant box'),
+            "url": current_app.config['COUCH_DB_URL'],
+            "dbname": '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, g.user.id),
+            "username": 'user_%d' % g.user.id,
+            "password": g.user.authproxy_token,
+            "writable": False,
+            "dbname_user":  SystemConfig.CONSULTANT_BOX_NAME_LOCAL,
+        })
 
     response['logging'] = {
         'url': url_for('logserv.log', user_token=g.user.authproxy_token, _external=True),

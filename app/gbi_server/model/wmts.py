@@ -16,6 +16,7 @@
 from geoalchemy import GeometryColumn, Polygon, GeometryDDL
 from geoalchemy.postgis import PGComparator
 
+from flask import g, url_for
 from gbi_server.extensions import db
 
 class WMTS(db.Model):
@@ -44,6 +45,7 @@ class WMTS(db.Model):
     is_transparent = db.Column(db.Boolean(), default=True)
     is_visible = db.Column(db.Boolean(), default=True)
     is_public = db.Column(db.Boolean(), default=False)
+    is_accessible = db.Column(db.Boolean(), default=False)
 
     @classmethod
     def by_id(cls, id):
@@ -54,5 +56,15 @@ class WMTS(db.Model):
     def by_name(cls, name):
         q = cls.query.filter(cls.name == name)
         return q.first_or_404()
+
+    def client_url(self, external=False):
+        if self.is_public and self.is_accessible:
+            return self.url.rstrip('/') + '/'
+
+        if external:
+            return url_for('authproxy.tile_proxy', user_token=g.user.authproxy_token, _external=True).rstrip('/') + '/'
+
+        return url_for('authproxy.tile_proxy').rstrip('/') + '/'
+
 
 GeometryDDL(WMTS.__table__)
