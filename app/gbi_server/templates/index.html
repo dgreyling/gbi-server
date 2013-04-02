@@ -21,12 +21,14 @@
                     <p class="help-block"> {{ _('info text boxesoverview') }}</p>
                 </li>
                 {% endif %}
+                {% if config['FEATURE_DOC_BOXES'] %}
                 <li><a href="{{ url_for('boxes.files', box_name='consultant') }}">{{ _('consultantbox') }}</a>
                    <p class="help-block"> {{ _('info text consultantbox') }}</p>
                 </li>
                 <li><a href="{{ url_for('boxes.files', box_name='customer') }}">{{ _('customerbox') }}</a>
                    <p class="help-block"> {{ _('info text customerbox') }}</p>
                 </li>
+                {% endif %}
                 <li><a href="{{ config.get('GBI_CLIENT_DOWNLOAD_URL')}}">{{ _('gbi client download') }}</a>
                    <p class="help-block"> {{ _('info text gbi client download') }}</p>
                 </li>

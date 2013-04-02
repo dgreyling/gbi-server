@@ -42,8 +42,9 @@ def create_app(config=None):
     app.register_blueprint(views.maps)
     app.register_blueprint(views.proxy)
     app.register_blueprint(views.context)
-    app.register_blueprint(views.boxes)
     app.register_blueprint(views.pages)
+    if app.config['FEATURE_DOC_BOXES']:
+        app.register_blueprint(views.boxes)
 
     app.register_blueprint(logserv.blueprint)
 

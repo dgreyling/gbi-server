@@ -112,6 +112,9 @@ class DefaultConfig(object):
 
     FLORLP_SHP_SRS = 25832
 
+    # enable/disable document boxes (CUSTOMER/CONSULTANT)
+    FEATURE_DOC_BOXES = True
+
 class SystemConfig(object):
     # name of the databases on the server
     # will be suffixed by the user id
