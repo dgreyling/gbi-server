@@ -408,11 +408,12 @@ def init_user_boxes(user, couchdb_url):
     username = 'user_%d' % user.id
     password = user.authproxy_token
 
-    couch = CouchDBBox(couchdb_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
-    couch.create()
-    couch.update_layer_view_doc()
-    couch.update_user(username, password)
-    couch.update_auth_doc(username, writable=True, read_roles=['consultants'])
+    if current_app.config['FEATURE_AREA_BOXES']:
+        couch = CouchDBBox(couchdb_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
+        couch.create()
+        couch.update_layer_view_doc()
+        couch.update_user(username, password)
+        couch.update_auth_doc(username, writable=True, read_roles=['consultants'])
 
     if current_app.config['FEATURE_DOC_BOXES']:
         customer_couch = CouchFileBox(couchdb_url, '%s_%s' % (SystemConfig.CUSTOMER_BOX_NAME, user.id))

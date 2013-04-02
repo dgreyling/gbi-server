@@ -114,6 +114,8 @@ class DefaultConfig(object):
 
     # enable/disable document boxes (CUSTOMER/CONSULTANT)
     FEATURE_DOC_BOXES = True
+    # enable/disable area boxes
+    FEATURE_AREA_BOXES = True
 
     # allow CUSTOMER accounts
     FEATURE_CUSTOMER_USERS = True
