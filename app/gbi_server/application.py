@@ -39,10 +39,13 @@ def create_app(config=None):
     from . import views
     app.register_blueprint(views.user)
     app.register_blueprint(views.admin)
-    app.register_blueprint(views.maps)
     app.register_blueprint(views.proxy)
     app.register_blueprint(views.context)
     app.register_blueprint(views.pages)
+
+    if app.config['FEATURE_EDITOR']:
+        app.register_blueprint(views.maps)
+
     if app.config['FEATURE_DOC_BOXES']:
         app.register_blueprint(views.boxes)
 

@@ -117,6 +117,9 @@ class DefaultConfig(object):
     # enable/disable area boxes
     FEATURE_AREA_BOXES = True
 
+    # enable WFS editor
+    FEATURE_EDITOR = True
+
     # allow CUSTOMER accounts
     FEATURE_CUSTOMER_USERS = True
     # allow CONSULTANT accounts

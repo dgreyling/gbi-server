@@ -10,12 +10,14 @@
     <div class="span12">
         {% if not g.user.is_anonymous() %}
             <ul>
+                {% if config['FEATURE_EDITOR'] %}
                 <li><a href="{{ url_for('maps.wmts') }}">{{ _('WMTS map') }}</a>
                    <p class="help-block"> {{ _('info text wmts map') }}</p>
                 </li>
                 <li><a href="{{ url_for('maps.wfs_edit') }}">{{ _('WFS Edit') }}</a>
                    <p class="help-block"> {{ _('info text wfs edit') }}</p>
                 </li>
+                {% endif %}
                 {% if user.is_consultant %}
                 <li><a href="{{ url_for('boxes.overview') }}">{{ _('overview over all boxes') }}</a>
                     <p class="help-block"> {{ _('info text boxesoverview') }}</p>
@@ -42,17 +44,21 @@
             createuser_url=url_for('user.new')) }}
         </p>
         {% endif %}
+        {% if config['FEATURE_EDITOR'] %}
         <hr>
         <div class="span11">
             <div class="map" id='map' style="height:400px; border: 1px solid black"></div>
         </div>
+        {% endif %}
     </div>
 </div>
 {% endblock %}
 
 
 {% block javascript %}
+    {% if config['FEATURE_EDITOR'] %}
     <script type="text/javascript" src="{{ url_for('static', filename='js/map_base.js') }}"></script>
+    {% endif %}
     <script type="text/javascript">
         {{ add_basic_layer() }}
         {{ add_wmts_layers(layers, current_user) }}
