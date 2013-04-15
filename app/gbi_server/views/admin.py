@@ -219,6 +219,7 @@ def wmts_edit(id=None):
         wmts.is_transparent = form.data['is_transparent']
         wmts.is_visible = form.data['is_visible']
         wmts.is_public = form.data['is_public']
+        wmts.is_accessible = form.data['is_accessible']
         try:
             db.session.commit()
             write_mapproxy_config(current_app)

@@ -45,6 +45,7 @@ class WMTSForm(Form):
     is_transparent = BooleanField(_l('wmts_transparent'))
     is_visible = BooleanField(_l('wmts_visibility'))
     is_public = BooleanField(_l('wmts_public'))
+    is_accessible = BooleanField(_l('wmts_accessible'))
 
     def validate_view_level_end(form, field):
         if form.data['view_level_start'] > field.data:
