@@ -35,6 +35,8 @@ class WMTS(db.Model):
     srs = db.Column(db.String(64), default="EPSG:3857")
     matrix_set = db.Column(db.String(64), default='GoogleMapsCompatible')
 
+    max_tiles = db.Column(db.Integer)
+
     view_coverage = GeometryColumn(Polygon(), comparator=PGComparator)
     view_level_start = db.Column(db.Integer)
     view_level_end = db.Column(db.Integer)

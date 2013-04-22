@@ -208,6 +208,8 @@ def wmts_edit(id=None):
         wmts.format = form.data['format']
         wmts.srs = form.data['srs']
         wmts.matrix_set = form.data['matrix_set']
+        wmts.max_tiles = form.data['max_tiles'] or None
+
         geom = asShape(loads(form.data['view_coverage']))
         wmts.view_coverage = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='POLYGON')
 

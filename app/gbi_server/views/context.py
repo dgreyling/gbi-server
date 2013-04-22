@@ -94,6 +94,7 @@ def get_context_document():
             "username": wmts.username,
             "password": wmts.password,
             "srs": wmts.srs,
+            "max_tiles": wmts.max_tiles,
             "view_restriction": {
                 "zoom_level_start": wmts.view_level_start,
                 "zoom_level_end": wmts.view_level_end,

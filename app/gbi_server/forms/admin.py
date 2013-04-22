@@ -36,6 +36,7 @@ class WMTSForm(Form):
     format = SelectField(_l('wmts_format'), [validators.Required()], choices=[('png', 'png'), ('jpeg', 'jpeg')])
     srs = TextField(_l('wmts_srs'), [validators.Required()])
     matrix_set = TextField(_l('wmts_matrix_set'), [validators.Required()], default='GoogleMapsCompatible')
+    max_tiles = TextField(_l('wmts_max_tiles'), [validators.Regexp('^\d*$')])
 
     view_coverage = TextAreaField(_l('wmts_view_coverage'), [validators.Required()]) #XXX kai: geojson validator?
     view_level_start = SelectField(_l('wmts_view_level_start'), coerce=int, choices=[(x, x) for x in range(21)])
