@@ -109,6 +109,7 @@ class DefaultConfig(object):
     GBI_CLIENT_DOWNLOAD_URL = "http://download.omniscale.de/geobox/dist/setup-geobox-0.2.7.exe"
 
     STATIC_PAGES_DIR = p.join(p.dirname(__file__), '..', 'pages')
+    USERMANUAL_FILENAME = 'usermanual-gbi-server.pdf'
 
     FLORLP_SHP_SRS = 25832
 

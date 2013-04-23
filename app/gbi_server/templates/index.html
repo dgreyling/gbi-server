@@ -34,10 +34,12 @@
                 <li><a href="{{ config.get('GBI_CLIENT_DOWNLOAD_URL')}}">{{ _('gbi client download') }}</a>
                    <p class="help-block"> {{ _('info text gbi client download') }}</p>
                 </li>
+                {% if config['USERMANUAL_FILENAME'] %}
                 <li>
-                    <a href="{{ url_for('pages.page', lang='de', name='usermanual-gbi-server.pdf') }}">{{ _('gbi user manual') }}</a>
+                    <a href="{{ url_for('pages.page', lang='de', name=config['USERMANUAL_FILENAME']) }}">{{ _('gbi user manual') }}</a>
                    <p class="help-block"> {{ _('user manual') }}</p>
                 </li>
+                {% endif %}
             </ul>
         {% else %}
         <p>{{ _('info text gbi client first page', login_url=url_for('user.login'),
