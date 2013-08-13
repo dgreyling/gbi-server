@@ -22,7 +22,7 @@ from setuptools import setup, find_packages
 
 setup(
     name='gbi_server',
-    version='1.0',
+    version='1.1',
     url='https://github.com/omniscale/gbi-server',
     license='Apache License 2.0',
     author='Oliver Tonnhofer',
