@@ -64,6 +64,10 @@ def get_context_document():
     sources = db.session.query(WMTS, pg_functions.geojson(WMTS.view_coverage.transform(3857))).order_by(desc(WMTS.is_background_layer)).all()
     response = {
         "version": "0.1",
+        "portal": {
+            "prefix": current_app.config['PORTAL_PREFIX'],
+            "title": current_app.config['PORTAL_TITLE'],
+        },
         "wmts_sources": [],
         "couchdb_sources": [],
     }

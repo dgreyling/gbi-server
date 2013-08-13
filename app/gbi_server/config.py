@@ -127,6 +127,10 @@ class DefaultConfig(object):
     FEATURE_CONSULTANT_USERS = True
 
 
+    PORTAL_PREFIX = "DEFAULT"
+    PORTAL_TITLE = "Unconfigured GBI-Server"
+
+
 class SystemConfig(object):
     # name of the databases on the server
     # will be suffixed by the user id
