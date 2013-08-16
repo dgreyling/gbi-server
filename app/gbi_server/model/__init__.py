@@ -15,5 +15,5 @@
 
 from .user import *
 from .log import *
-from .wmts import *
+from .sources import *
 from .wfs import *
