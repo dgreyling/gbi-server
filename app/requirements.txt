@@ -33,3 +33,6 @@ simplejson==3.0.7
 gunicorn==0.17.2
 eventlet==0.12.1
 greenlet==0.4.0
+Mako==0.8.1
+MarkupSafe==0.18
+alembic==0.6.0
