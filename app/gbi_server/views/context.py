@@ -24,7 +24,7 @@ from geoalchemy.postgis import pg_functions
 import shapely.geometry
 
 from gbi_server.config import SystemConfig
-from gbi_server.model import WMTS, User
+from gbi_server.model import WMTS, WMS, User
 from gbi_server.extensions import db
 from gbi_server.lib.couchdb import CouchDBBox
 from gbi_server.lib.geometry import optimize_geometry
@@ -61,7 +61,8 @@ def requires_auth(f):
 @context.route('/context')
 @requires_auth
 def get_context_document():
-    sources = db.session.query(WMTS, pg_functions.geojson(WMTS.view_coverage.transform(3857))).order_by(desc(WMTS.is_background_layer)).all()
+    wmts_sources = db.session.query(WMTS, pg_functions.geojson(WMTS.view_coverage.transform(3857))).order_by(desc(WMTS.is_background_layer)).all()
+    wms_sources = db.session.query(WMS, pg_functions.geojson(WMS.view_coverage.transform(3857))).order_by(desc(WMS.is_background_layer)).all()
     response = {
         "version": "0.1",
         "portal": {
@@ -69,6 +70,7 @@ def get_context_document():
             "title": current_app.config['PORTAL_TITLE'],
         },
         "wmts_sources": [],
+        "wms_sources": [],
         "couchdb_sources": [],
     }
 
@@ -78,7 +80,7 @@ def get_context_document():
         user_geom = optimize_geometry(user_geom)
         user_geom = shapely.geometry.mapping(user_geom)
 
-    for source in sources:
+    for source in wmts_sources:
         wmts, view_coverage = source
         if wmts.is_public:
             geom = json.loads(view_coverage)
@@ -107,6 +109,38 @@ def get_context_document():
             "download_restriction": {
                 "zoom_level_start": wmts.view_level_start,
                 "zoom_level_end": wmts.view_level_end,
+                "geometry": geom
+            }
+        })
+
+    for source in wms_sources:
+        wms, view_coverage = source
+        if wms.is_public:
+            geom = json.loads(view_coverage)
+        elif user_geom:
+            geom = user_geom
+        else:
+            continue
+        response['wms_sources'].append({
+            "name": wms.name,
+            "title": wms.title,
+            "url": wms.url,
+            "layer": wms.layer,
+            "format": wms.format,
+            "baselayer": wms.is_baselayer,
+            "overlay": wms.is_overlay,
+            "username": wms.username,
+            "password": wms.password,
+            "srs": wms.srs,
+            "wms_version": wms.version,
+            "view_restriction": {
+                "zoom_level_start": wms.view_level_start,
+                "zoom_level_end": wms.view_level_end,
+                "geometry": geom
+            },
+            "download_restriction": {
+                "zoom_level_start": wms.view_level_start,
+                "zoom_level_end": wms.view_level_end,
                 "geometry": geom
             }
         })

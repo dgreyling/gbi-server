@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-04-22 10:33+0200\n"
+"POT-Creation-Date: 2013-08-19 09:56+0200\n"
 "PO-Revision-Date: 2013-03-01 13:36+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -44,103 +44,113 @@ msgstr "Login erforderlich"
 msgid "Please login to see this page"
 msgstr "Bitte melden Sie sich an um die Seite zu betrachten"
 
-#: gbi_server/forms/admin.py:28 gbi_server/forms/user.py:36
+#: gbi_server/forms/admin.py:24 gbi_server/forms/user.py:36
 #: gbi_server/templates/admin/user_list.html:15
 #: gbi_server/templates/macros/user.html:9
 msgid "type"
 msgstr "Benutzertyp"
 
-#: gbi_server/forms/admin.py:29 gbi_server/templates/admin/user_detail.html:19
+#: gbi_server/forms/admin.py:25 gbi_server/templates/admin/user_detail.html:19
 #: gbi_server/templates/admin/user_list.html:32
 msgid "verified"
 msgstr "Verifiziert"
 
-#: gbi_server/forms/admin.py:30 gbi_server/templates/admin/user_detail.html:17
+#: gbi_server/forms/admin.py:26 gbi_server/templates/admin/user_detail.html:17
 #: gbi_server/templates/admin/user_list.html:30
 msgid "active"
 msgstr "Aktiviert"
 
-#: gbi_server/forms/admin.py:31 gbi_server/forms/user.py:43
+#: gbi_server/forms/admin.py:27 gbi_server/forms/user.py:43
 msgid "terms of use"
 msgstr "<a href=\"/page/de/nutzungsbedingungen.html\">Nutzungsbedingungen</a>"
 
-#: gbi_server/forms/admin.py:34 gbi_server/templates/admin/wmts_list.html:14
-msgid "wmts_url"
-msgstr "WMTS URL"
+#: gbi_server/forms/admin.py:30 gbi_server/templates/admin/wms_list.html:14
+#: gbi_server/templates/admin/wmts_list.html:14
+msgid "rastersource_url"
+msgstr "URL"
 
-#: gbi_server/forms/admin.py:35
-msgid "wmts_username"
+#: gbi_server/forms/admin.py:31
+msgid "rastersource_username"
 msgstr "Benutzername"
 
-#: gbi_server/forms/admin.py:36
-msgid "wmts_password"
+#: gbi_server/forms/admin.py:32
+msgid "rastersource_password"
 msgstr "Passwort"
 
-#: gbi_server/forms/admin.py:37
-msgid "wmts_name"
+#: gbi_server/forms/admin.py:33
+msgid "rastersource_name"
 msgstr "Name"
 
-#: gbi_server/forms/admin.py:38 gbi_server/templates/admin/wmts_list.html:13
-msgid "wmts_title"
+#: gbi_server/forms/admin.py:34 gbi_server/templates/admin/wms_list.html:13
+#: gbi_server/templates/admin/wmts_list.html:13
+msgid "rastersource_title"
 msgstr "Titel"
 
-#: gbi_server/forms/admin.py:39 gbi_server/templates/admin/wmts_list.html:15
-msgid "wmts_layer"
+#: gbi_server/forms/admin.py:35 gbi_server/templates/admin/wms_list.html:15
+#: gbi_server/templates/admin/wmts_list.html:15
+msgid "rastersource_layer"
 msgstr "Layer"
 
-#: gbi_server/forms/admin.py:40 gbi_server/templates/admin/wmts_list.html:16
-msgid "wmts_format"
+#: gbi_server/forms/admin.py:36 gbi_server/templates/admin/wms_list.html:16
+#: gbi_server/templates/admin/wmts_list.html:16
+msgid "rastersource_format"
 msgstr "Format"
 
-#: gbi_server/forms/admin.py:41
-msgid "wmts_srs"
+#: gbi_server/forms/admin.py:37
+msgid "rastersource_srs"
 msgstr "SRS"
 
-#: gbi_server/forms/admin.py:42
-msgid "wmts_matrix_set"
-msgstr "Matrix Set"
-
-#: gbi_server/forms/admin.py:43
-msgid "wmts_max_tiles"
+#: gbi_server/forms/admin.py:38
+msgid "rastersource_max_tiles"
 msgstr "Max. Kacheln/Import"
 
-#: gbi_server/forms/admin.py:45
-msgid "wmts_view_coverage"
+#: gbi_server/forms/admin.py:40
+msgid "rastersource_view_coverage"
 msgstr "Anzeigebereich"
 
-#: gbi_server/forms/admin.py:46 gbi_server/templates/admin/wmts_list.html:17
-msgid "wmts_view_level_start"
+#: gbi_server/forms/admin.py:41 gbi_server/templates/admin/wms_list.html:17
+#: gbi_server/templates/admin/wmts_list.html:17
+msgid "rastersource_view_level_start"
 msgstr "Start-Level"
 
-#: gbi_server/forms/admin.py:47 gbi_server/templates/admin/wmts_list.html:18
-msgid "wmts_view_level_end"
+#: gbi_server/forms/admin.py:42 gbi_server/templates/admin/wms_list.html:18
+#: gbi_server/templates/admin/wmts_list.html:18
+msgid "rastersource_view_level_end"
 msgstr "End-Level"
 
-#: gbi_server/forms/admin.py:49
-msgid "wmts_background_layer"
+#: gbi_server/forms/admin.py:44
+msgid "rastersource_background_layer"
 msgstr "Hintergrundlayer"
 
-#: gbi_server/forms/admin.py:50
-msgid "wmts_transparent"
+#: gbi_server/forms/admin.py:45
+msgid "rastersource_transparent"
 msgstr "Transparent"
 
-#: gbi_server/forms/admin.py:51
-msgid "wmts_visibility"
+#: gbi_server/forms/admin.py:46
+msgid "rastersource_visibility"
 msgstr "Sichtbar"
 
-#: gbi_server/forms/admin.py:52
-msgid "wmts_public"
+#: gbi_server/forms/admin.py:47
+msgid "rastersource_public"
 msgstr "Unbeschränkter Zugriff"
 
-#: gbi_server/forms/admin.py:53
-msgid "wmts_accessible"
-msgstr "Direkter WMTS Zugriff"
+#: gbi_server/forms/admin.py:48
+msgid "rastersource_accessible"
+msgstr "Direkter Zugriff"
 
-#: gbi_server/forms/admin.py:57
+#: gbi_server/forms/admin.py:52
 msgid "level needs to be bigger or equal to start level"
 msgstr ""
 "Das gewählte Startlevel muss größer oder gleich dem ausgewählten Endlevel"
 " sein"
+
+#: gbi_server/forms/admin.py:55
+msgid "wmts_matrix_set"
+msgstr "Matrix Set"
+
+#: gbi_server/forms/admin.py:58
+msgid "wms_version"
+msgstr "WMS Version"
 
 #: gbi_server/forms/user.py:23 gbi_server/forms/user.py:37
 #: gbi_server/forms/user.py:49 gbi_server/templates/admin/user_list.html:14
@@ -338,15 +348,15 @@ msgstr "GBI-Client herunterladen"
 msgid "info text gbi client download"
 msgstr "Laden Sie den GBI-Client für Windows herunter"
 
-#: gbi_server/templates/index.html:38
+#: gbi_server/templates/index.html:39
 msgid "gbi user manual"
 msgstr "Benutzerhandbuch"
 
-#: gbi_server/templates/index.html:39
+#: gbi_server/templates/index.html:40
 msgid "user manual"
 msgstr "Laden Sie hier das Benutzerhandbuch herunter"
 
-#: gbi_server/templates/index.html:43
+#: gbi_server/templates/index.html:45
 msgid "info text gbi client first page"
 msgstr ""
 "<a href='%(login_url)s'>Melden Sie sich an</a> oder erstellen Sie ein <a "
@@ -369,6 +379,7 @@ msgid "Edit user"
 msgstr "Benutzer editieren"
 
 #: gbi_server/templates/admin/edit_user.html:20
+#: gbi_server/templates/admin/wms_edit.html:48
 #: gbi_server/templates/admin/wmts_edit.html:48
 #: gbi_server/templates/user/edit_address.html:22
 #: gbi_server/templates/user/edit_password.html:16
@@ -386,8 +397,6 @@ msgid "user list"
 msgstr "Benutzerübersicht"
 
 #: gbi_server/templates/admin/index.html:16
-#: gbi_server/templates/admin/wmts_list.html:3
-#: gbi_server/templates/admin/wmts_list.html:5
 msgid "WMTS list"
 msgstr "WMTS Übersicht"
 
@@ -398,6 +407,21 @@ msgstr "WMTS Übersicht"
 msgid "create WMTS"
 msgstr "WMTS erstellen"
 
+#: gbi_server/templates/admin/index.html:20
+#: gbi_server/templates/admin/wms_list.html:3
+#: gbi_server/templates/admin/wms_list.html:5
+#: gbi_server/templates/admin/wmts_list.html:3
+#: gbi_server/templates/admin/wmts_list.html:5
+msgid "WMS list"
+msgstr "WMS Übersicht"
+
+#: gbi_server/templates/admin/index.html:21
+#: gbi_server/templates/admin/wms_edit.html:9
+#: gbi_server/templates/admin/wms_edit.html:18
+#: gbi_server/templates/admin/wms_list.html:45
+msgid "create WMS"
+msgstr "WMS erstellen"
+
 #: gbi_server/templates/admin/remove_user.html:6
 #: gbi_server/templates/admin/remove_user.html:12
 msgid "remove user"
@@ -405,6 +429,7 @@ msgstr "Benutzer löschen"
 
 #: gbi_server/templates/admin/remove_user.html:15
 #: gbi_server/templates/admin/user_detail.html:33
+#: gbi_server/templates/admin/wms_list.html:39
 #: gbi_server/templates/admin/wmts_list.html:39
 msgid "remove"
 msgstr "Löschen"
@@ -472,6 +497,7 @@ msgid "verify"
 msgstr "Verifizieren"
 
 #: gbi_server/templates/admin/user_detail.html:30
+#: gbi_server/templates/admin/wms_list.html:38
 #: gbi_server/templates/admin/wmts_list.html:38
 msgid "edit"
 msgstr "Editieren"
@@ -542,22 +568,30 @@ msgstr "Aktualisiert"
 msgid "geometry"
 msgstr "Geometrie"
 
+#: gbi_server/templates/admin/wms_edit.html:7
+#: gbi_server/templates/admin/wms_edit.html:16
+msgid "edit WMS"
+msgstr "WMS editieren"
+
+#: gbi_server/templates/admin/wms_list.html:19
+#: gbi_server/templates/admin/wmts_list.html:19
+msgid "rastersource_is_background_layer"
+msgstr "Hintergrundlayer"
+
+#: gbi_server/templates/admin/wms_list.html:20
+#: gbi_server/templates/admin/wmts_list.html:20
+msgid "rastersource_is_transparent"
+msgstr "Transparent"
+
+#: gbi_server/templates/admin/wms_list.html:21
+#: gbi_server/templates/admin/wmts_list.html:21
+msgid "rastersource_is_public"
+msgstr "Unbeschränkter Zugriff"
+
 #: gbi_server/templates/admin/wmts_edit.html:7
 #: gbi_server/templates/admin/wmts_edit.html:16
 msgid "edit WMTS"
 msgstr "WMTS Editieren"
-
-#: gbi_server/templates/admin/wmts_list.html:19
-msgid "wmts_is_background_layer"
-msgstr "Hintergrundlayer"
-
-#: gbi_server/templates/admin/wmts_list.html:20
-msgid "wmts_is_transparent"
-msgstr "Transparent"
-
-#: gbi_server/templates/admin/wmts_list.html:21
-msgid "wmts_is_public"
-msgstr "Öffentlich"
 
 #: gbi_server/templates/boxes/base.html:5
 msgid "box"
@@ -1069,17 +1103,29 @@ msgstr "Passwort zurückgesetzt"
 msgid "User removed"
 msgstr "Benutzer gelöscht"
 
-#: gbi_server/views/admin.py:228
+#: gbi_server/views/admin.py:229
 msgid "Saved WMTS"
 msgstr "WMTS gespeichert"
 
-#: gbi_server/views/admin.py:232
+#: gbi_server/views/admin.py:233
 msgid "WMTS with this name already exist"
 msgstr "WMTS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:241
+#: gbi_server/views/admin.py:242
 msgid "WMTS removed"
 msgstr "WMTS gelöscht"
+
+#: gbi_server/views/admin.py:297
+msgid "Saved WMS"
+msgstr "WMS gespeichert"
+
+#: gbi_server/views/admin.py:301
+msgid "WMS with this name already exist"
+msgstr "WMS mit diesem Namen existiert bereits"
+
+#: gbi_server/views/admin.py:310
+msgid "WMS removed"
+msgstr "WMS gelöscht"
 
 #: gbi_server/views/boxes.py:54
 msgid "upload success"
@@ -1093,11 +1139,11 @@ msgstr "Dateityp ist nich erlaubt"
 msgid "file deleted"
 msgstr "Datei wurde gelöscht"
 
-#: gbi_server/views/context.py:113
+#: gbi_server/views/context.py:117
 msgid "area box"
 msgstr "Flächen-Box"
 
-#: gbi_server/views/context.py:124
+#: gbi_server/views/context.py:128
 msgid "consultant box"
 msgstr "Beraterbox"
 
@@ -1355,4 +1401,31 @@ msgstr "Keine gültige Datumseingabe"
 #: /Users/olt/dev/venv/gbi-server/lib/python2.7/site-packages/wtforms/fields/core.py:649
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
+
+#~ msgid "wmts_title"
+#~ msgstr "Titel"
+
+#~ msgid "wmts_url"
+#~ msgstr "WMTS URL"
+
+#~ msgid "wmts_layer"
+#~ msgstr "Layer"
+
+#~ msgid "wmts_format"
+#~ msgstr "Format"
+
+#~ msgid "wmts_view_level_start"
+#~ msgstr "Start-Level"
+
+#~ msgid "wmts_view_level_end"
+#~ msgstr "End-Level"
+
+#~ msgid "wmts_is_background_layer"
+#~ msgstr "Hintergrundlayer"
+
+#~ msgid "wmts_is_transparent"
+#~ msgstr "Transparent"
+
+#~ msgid "wmts_is_public"
+#~ msgstr "Öffentlich"
 

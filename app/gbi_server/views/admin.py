@@ -26,8 +26,8 @@ from shapely.geometry import asShape
 from json import loads
 
 from gbi_server.extensions import db
-from gbi_server.model import User, EmailVerification, Log, WMTS
-from gbi_server.forms.admin import CreateUserForm, WMTSForm
+from gbi_server.model import User, EmailVerification, Log, WMTS, WMS
+from gbi_server.forms.admin import CreateUserForm, WMTSForm, WMSForm
 from gbi_server.forms.user import RecoverSetForm, EditAddressForm
 from gbi_server.lib.helper import send_mail
 from gbi_server.lib.couchdb import init_user_boxes
@@ -207,8 +207,9 @@ def wmts_edit(id=None):
         wmts.layer = form.data['layer']
         wmts.format = form.data['format']
         wmts.srs = form.data['srs']
-        wmts.matrix_set = form.data['matrix_set']
         wmts.max_tiles = form.data['max_tiles'] or None
+
+        wmts.matrix_set = form.data['matrix_set']
 
         geom = asShape(loads(form.data['view_coverage']))
         wmts.view_coverage = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='POLYGON')
@@ -240,3 +241,75 @@ def wmts_remove(id):
         db.session.commit()
         flash( _('WMTS removed'), 'success')
     return redirect(url_for('admin.wmts_list'))
+
+
+@admin.route('/admin/wms/list', methods=["GET"])
+def wms_list():
+    return render_template('admin/wms_list.html', wms=WMS.query.all())
+
+@admin.route('/admin/wms/edit', methods=["GET", "POST"])
+@admin.route('/admin/wms/edit/<int:id>', methods=["GET", "POST"])
+def wms_edit(id=None):
+
+    wms = db.session.query(WMS, pg_functions.geojson(WMS.view_coverage.transform(3857))).filter_by(id=id).first() if id else None
+    if wms:
+        wms[0].view_coverage = wms[1]
+        wms = wms[0]
+        form = WMSForm(request.form, wms)
+    else:
+        form = WMSForm(request.form)
+
+    if form.validate_on_submit():
+        if not wms:
+            wms = WMS()
+            db.session.add(wms)
+        if form.data['is_background_layer']:
+            old_background_layer = WMS.query.filter_by(is_background_layer=True).first()
+            if old_background_layer:
+                old_background_layer.is_background_layer = False
+        wms.url = form.data['url']
+        wms.username = form.data['username']
+        wms.password = form.data['password']
+        wms.name = form.data['name']
+        wms.title = form.data['title']
+        wms.layer = form.data['layer']
+        wms.format = form.data['format']
+        wms.srs = form.data['srs']
+        wms.max_tiles = form.data['max_tiles'] or None
+
+        wms.version = form.data['version']
+
+        geom = asShape(loads(form.data['view_coverage']))
+        wms.view_coverage = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='POLYGON')
+
+        wms.view_level_start = form.data['view_level_start']
+        wms.view_level_end = form.data['view_level_end']
+        wms.is_background_layer = form.data['is_background_layer']
+        wms.is_baselayer = not form.data['is_transparent']
+        wms.is_overlay = form.data['is_transparent']
+        wms.is_transparent = form.data['is_transparent']
+        wms.is_visible = form.data['is_visible']
+        wms.is_public = form.data['is_public']
+
+        # we only support WMS with direct access
+        wms.is_accessible = True
+
+        try:
+            db.session.commit()
+            write_mapproxy_config(current_app)
+            flash( _('Saved WMS'), 'success')
+            return redirect(url_for('admin.wms_list'))
+        except IntegrityError, ex:
+            print ex
+            db.session.rollback()
+            flash(_('WMS with this name already exist'), 'error')
+    return render_template('admin/wms_edit.html', form=form, id=id)
+
+@admin.route('/admin/wms/remove/<int:id>', methods=["GET"])
+def wms_remove(id):
+    wms = WMS.by_id(id)
+    if wms:
+        db.session.delete(wms)
+        db.session.commit()
+        flash( _('WMS removed'), 'success')
+    return redirect(url_for('admin.wms_list'))

@@ -26,28 +26,34 @@ class CreateUserForm(NewUserForm):
     activate = BooleanField(_l('active'), default=False)
     terms_of_use = BooleanField(_l('terms of use'), default=True)
 
-class WMTSForm(Form):
-    url = TextField(_l('wmts_url'), [validators.Required()])
-    username = TextField(_l('wmts_username'))
-    password = PasswordField(_l('wmts_password'))
-    name = TextField(_l('wmts_name'), [validators.Required(), validators.Regexp('[a-zA-Z0-9_-]+$')])
-    title = TextField(_l('wmts_title'), [validators.Required()])
-    layer = TextField(_l('wmts_layer'), [validators.Required()])
-    format = SelectField(_l('wmts_format'), [validators.Required()], choices=[('png', 'png'), ('jpeg', 'jpeg')])
-    srs = TextField(_l('wmts_srs'), [validators.Required()])
-    matrix_set = TextField(_l('wmts_matrix_set'), [validators.Required()], default='GoogleMapsCompatible')
-    max_tiles = TextField(_l('wmts_max_tiles'), [validators.Regexp('^\d*$')])
+class RasterSourceForm(Form):
+    url = TextField(_l('rastersource_url'), [validators.Required()])
+    username = TextField(_l('rastersource_username'))
+    password = PasswordField(_l('rastersource_password'))
+    name = TextField(_l('rastersource_name'), [validators.Required(), validators.Regexp('[a-zA-Z0-9_-]+$')])
+    title = TextField(_l('rastersource_title'), [validators.Required()])
+    layer = TextField(_l('rastersource_layer'), [validators.Required()])
+    format = SelectField(_l('rastersource_format'), [validators.Required()], choices=[('png', 'png'), ('jpeg', 'jpeg')])
+    srs = TextField(_l('rastersource_srs'), [validators.Required()])
+    max_tiles = TextField(_l('rastersource_max_tiles'), [validators.Regexp('^\d*$')])
 
-    view_coverage = TextAreaField(_l('wmts_view_coverage'), [validators.Required()]) #XXX kai: geojson validator?
-    view_level_start = SelectField(_l('wmts_view_level_start'), coerce=int, choices=[(x, x) for x in range(21)])
-    view_level_end = SelectField(_l('wmts_view_level_end'), coerce=int, choices=[(x, x) for x in range(21)])
+    view_coverage = TextAreaField(_l('rastersource_view_coverage'), [validators.Required()]) #XXX kai: geojson validator?
+    view_level_start = SelectField(_l('rastersource_view_level_start'), coerce=int, choices=[(x, x) for x in range(21)])
+    view_level_end = SelectField(_l('rastersource_view_level_end'), coerce=int, choices=[(x, x) for x in range(21)])
 
-    is_background_layer = BooleanField(_l('wmts_background_layer'))
-    is_transparent = BooleanField(_l('wmts_transparent'))
-    is_visible = BooleanField(_l('wmts_visibility'))
-    is_public = BooleanField(_l('wmts_public'))
-    is_accessible = BooleanField(_l('wmts_accessible'))
+    is_background_layer = BooleanField(_l('rastersource_background_layer'))
+    is_transparent = BooleanField(_l('rastersource_transparent'))
+    is_visible = BooleanField(_l('rastersource_visibility'))
+    is_public = BooleanField(_l('rastersource_public'))
+    is_accessible = BooleanField(_l('rastersource_accessible'))
 
     def validate_view_level_end(form, field):
         if form.data['view_level_start'] > field.data:
             raise validators.ValidationError(_l('level needs to be bigger or equal to start level'))
+
+class WMTSForm(RasterSourceForm):
+    matrix_set = TextField(_l('wmts_matrix_set'), [validators.Required()], default='GoogleMapsCompatible')
+
+class WMSForm(RasterSourceForm):
+    version = SelectField(_l('wms_version'), choices=[('1.1.1', '1.1.1'), ('1.3.0', '1.3.0')],
+        validators=[validators.Required()])

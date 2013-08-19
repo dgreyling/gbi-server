@@ -68,5 +68,45 @@ class WMTS(db.Model):
 
         return url_for('authproxy.tile_proxy').rstrip('/') + '/'
 
-
 GeometryDDL(WMTS.__table__)
+
+
+class WMS(db.Model):
+    __tablename__ = 'wms'
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    name = db.Column(db.String, nullable=False, unique=True)
+
+    url = db.Column(db.String(256), nullable=False)
+    username = db.Column(db.String(64))
+    password = db.Column(db.String(64))
+    title = db.Column(db.String)
+    layer = db.Column(db.String(256), nullable=False)
+    format = db.Column(db.String, nullable=False)
+    srs = db.Column(db.String(64), default="EPSG:3857")
+    version = db.Column(db.String, default="1.1.1")
+
+    view_coverage = GeometryColumn(Polygon(), comparator=PGComparator)
+    view_level_start = db.Column(db.Integer)
+    view_level_end = db.Column(db.Integer)
+
+    is_background_layer = db.Column(db.Boolean(), default=False)
+    is_baselayer = db.Column(db.Boolean(), default=False)
+    is_overlay = db.Column(db.Boolean(), default=True)
+    is_transparent = db.Column(db.Boolean(), default=True)
+    is_visible = db.Column(db.Boolean(), default=True)
+    is_public = db.Column(db.Boolean(), default=False)
+    is_accessible = db.Column(db.Boolean(), default=True)
+
+    @classmethod
+    def by_id(cls, id):
+        q = cls.query.filter(cls.id == id)
+        return q.first_or_404()
+
+    @classmethod
+    def by_name(cls, name):
+        q = cls.query.filter(cls.name == name)
+        return q.first_or_404()
+
+GeometryDDL(WMS.__table__)
