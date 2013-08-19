@@ -49,13 +49,13 @@ def init_db_command(app=None):
     db.drop_all()
     db.create_all()
 
-def fixtures_command():
+def fixtures_command(florlp=True):
     app = create_app()
     init_db_command(app)
     db.session.add_all(fixtures.db_objects())
     db.session.commit()
     with app.test_request_context():
-        fixtures.init_couchdb(app.config)
+        fixtures.init_couchdb(app.config, florlp)
 
 def runserver_command(host='127.0.0.1', port=5000):
     app = create_app()
