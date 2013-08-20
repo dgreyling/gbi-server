@@ -1,0 +1,220 @@
+.customEditingToolbar {
+    float: right;
+    left: 30px;
+    height: 30px;
+    width: 256px;
+}
+
+.customEditingToolbar div {
+    float: right;
+    margin: 5px;
+    width: 24px;
+    height: 24px;
+}
+
+.olControlNavigationItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -103px -23px;
+}
+
+.olControlNavigationItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -103px -0px;
+}
+
+.olControlDrawFeaturePointItemInactive {
+    background-image: url(../img/openlayers/draw_point_off.png);
+    background-repeat: no-repeat;
+}
+
+.olControlDrawFeaturePointItemActive {
+    background-image: url(../img/openlayers/draw_point_on.png);
+    background-repeat: no-repeat;
+}
+
+.olControlDrawFeatureLineItemInactive {
+    background-image: url(../img/openlayers/draw_line_off.png);
+    background-repeat: no-repeat;
+}
+
+.olControlDrawFeatureLineItemActive {
+    background-image: url(../img/openlayers/draw_line_on.png);
+    background-repeat: no-repeat;
+}
+
+.olControlDrawFeaturePolygonItemInactive {
+    background-image: url(../img/openlayers/draw_polygon_off.png);
+    background-repeat: no-repeat;
+}
+
+.olControlDrawFeaturePolygonItemActive {
+    background-image: url(../img/openlayers/draw_polygon_on.png);
+    background-repeat: no-repeat;
+}
+
+.olControlModifyFeatureItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -128px -23px;
+}
+
+.olControlModifyFeatureItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -128px 0px;
+}
+
+.olControlDrawFeatureRectItemInactive {
+    background-image: url(../img/openlayers/draw_rectangle_off.png);
+    background-repeat: no-repeat;
+}
+
+.olControlDrawFeatureRectItemActive {
+    background-image: url(../img/openlayers/draw_rectangle_on.png);
+    background-repeat: no-repeat;
+}
+
+.olControlSplitFeatureItemActive {
+    background-image: url(../img/openlayers/cut_on.png);
+    background-repeat: no-repeat;
+}
+
+.olControlSplitFeatureItemInactive {
+    background-image: url(../img/openlayers/cut_off.png);
+    background-repeat: no-repeat;
+}
+
+.olControlSplitFeatureItemInactive.itemDisabled {
+    background-image: url(../img/openlayers/cut_disabled.png);
+    background-repeat: no-repeat;
+}
+
+.olControlMergeFeatureItemInactive.itemDisabled {
+    background-image: url(../img/openlayers/union_disabled.png);
+    background-repeat: no-repeat;
+}
+
+.olControlMergeFeatureItemInactive.unmergeActive {
+    background-image: url(../img/openlayers/union_split.png);
+    background-repeat: no-repeat;
+}
+
+.olControlMergeFeatureItemInactive {
+    background-image: url(../img/openlayers/union_off.png);
+    background-repeat: no-repeat;
+}
+
+.olControlMergeFeatureItemActive {
+    background-image: url(../img/openlayers/union_on.png);
+    background-repeat: no-repeat;
+}
+
+div.olControlCopyFeaturesItemActive {
+    background-image: url(../img/openlayers/copy_on.png);
+    background-repeat: no-repeat;
+}
+
+div.olControlCopyFeaturesItemInactive {
+    background-image: url(../img/openlayers/copy_off.png);
+    background-repeat: no-repeat;
+}
+
+.olControlCopyFeaturesItemInactive.itemDisabled {
+    background-image: url(../img/openlayers/copy_disabled.png);
+    background-repeat: no-repeat;
+}
+
+.olControlDeleteFeatureItemActive {
+    background-image: url(../img/openlayers/delete_on.png);
+    background-repeat: no-repeat;
+}
+
+.olControlDeleteFeatureItemInactive.itemDisabled {
+    background-image: url(../img/openlayers/delete_disabled.png);
+    background-repeat: no-repeat;
+}
+
+.olControlDeleteFeatureItemInactive {
+    background-image: url(../img/openlayers/delete_off.png);
+    background-repeat: no-repeat;
+}
+
+div.olControlMeasureLineItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -228px -23px
+}
+
+div.olControlMeasureLineItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -228px 0px;
+}
+
+div.olControlMeasurePointItemInactive {
+    background-image: url(../img/openlayers/measure_point_off.png);
+    background-repeat: no-repeat;
+}
+
+div.olControlMeasurePointItemActive {
+    background-image: url(../img/openlayers/measure_point_on.png);
+    background-repeat: no-repeat;
+}
+
+div.olControlMeasurePolygonItemInactive {
+    background-image: url(../img/openlayers/measure_polygon_off.png);
+    background-repeat: no-repeat;
+}
+
+div.olControlMeasurePolygonItemActive {
+    background-image: url(../img/openlayers/measure_polygon_on.png);
+    background-repeat: no-repeat;
+}
+
+div.olControlSaveFeaturesItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -178px -23px;
+}
+
+div.olControlSaveFeaturesItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -178px 0px;
+}
+
+div.olControlSelectFeatureItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -253px -23px;
+}
+
+div.olControlSelectFeatureItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -253px 0px;
+}
+
+div.olControlCopyFeatureItemActive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -77px -23px;
+}
+
+div.olControlCopyFeatureItemInactive {
+    background-image: url(../img/openlayers/multi_toolbar.png);
+    background-repeat: no-repeat;
+    background-position: -77px 0px;
+}
+
+div.olControlSnappItemActive {
+    background-image: url(../img/openlayers/missing_on.png);
+    background-repeat: no-repeat;
+}
+
+div.olControlSnappItemInactive {
+    background-image: url(../img/openlayers/missing_off.png);
+    background-repeat: no-repeat;
+}
