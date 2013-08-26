@@ -67,7 +67,7 @@ msgstr "<a href=\"/page/de/nutzungsbedingungen.html\">Nutzungsbedingungen</a>"
 #: gbi_server/forms/admin.py:30 gbi_server/templates/admin/wms_list.html:14
 #: gbi_server/templates/admin/wmts_list.html:14
 msgid "rastersource_url"
-msgstr ""
+msgstr "URL"
 
 #: gbi_server/forms/admin.py:31
 msgid "rastersource_username"
@@ -1205,21 +1205,19 @@ msgstr "WMTS gelöscht"
 
 #: gbi_server/views/admin.py:258
 msgid "Need url for capabilities"
-msgstr ""
+msgstr "URL für Capabilities wird benötigt"
 
 #: gbi_server/views/admin.py:327
 msgid "Saved WMS"
 msgstr "WMS wurde gespeichert"
 
 #: gbi_server/views/admin.py:332
-#, fuzzy
 msgid "WMS with this name already exist"
-msgstr "WMTS mit diesem Namen existiert bereits"
+msgstr "WMS mit diesem Namen existiert bereits"
 
 #: gbi_server/views/admin.py:341
-#, fuzzy
 msgid "WMS removed"
-msgstr "Benutzer gelöscht"
+msgstr "WMS gelöscht"
 
 #: gbi_server/views/boxes.py:54
 msgid "upload success"
