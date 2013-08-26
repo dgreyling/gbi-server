@@ -17,7 +17,7 @@ import os
 import re
 import uuid
 
-from flask import render_template, Blueprint, flash, redirect, url_for, current_app, abort, request, Response
+from flask import render_template, Blueprint, flash, redirect, url_for, current_app, abort, request, Response, make_response
 import psycopg2
 
 from flask.ext.babel import gettext as _
@@ -39,6 +39,12 @@ from gbi_server.util import ensure_dir
 from gbi_server.config import SystemConfig
 
 maps = Blueprint("maps", __name__, template_folder="../templates")
+
+@maps.route('/js/gbi_translations.js')
+def javascript_translation():
+    response = make_response(render_template('js/translation.js'))
+    response.headers['Content-type'] = 'application/javascript'
+    return response
 
 @maps.route('/maps/wmts', methods=['GET'])
 @login_required

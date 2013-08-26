@@ -47,7 +47,7 @@ def home():
         layers = WMTS.query.filter_by(is_public=True).all()
     else:
         layers = WMTS.query.all()
-    return render_template('index.html', user=current_user, layers=layers)
+    return render_template('index.html', user=current_user, layers=layers, florlp_active=current_app.config['FLORLP_ACTIVE'])
 
 @user.route("/user", methods=["GET"])
 @login_required
@@ -97,7 +97,7 @@ def new():
         florlp_session = False
         user_type = form.data['type']
         layers = [(current_app.config.get('USER_READONLY_LAYER'), current_app.config['USER_READONLY_LAYER_TITLE']), (current_app.config.get('USER_WORKON_LAYER'), current_app.config['USER_WORKON_LAYER_TITLE'])]
-        if user_type == User.Type.CUSTOMER:
+        if current_app.config['FLORLP_ACTIVE'] and user_type == User.Type.CUSTOMER:
             try:
                 florlp_session = create_florlp_session(form.data['florlp_name'], form.data['florlp_password'])
             except FLOrlpUnauthenticated:
@@ -130,7 +130,7 @@ def new():
             # and initialize security
             init_user_boxes(user, couch_url)
 
-        if florlp_session:
+        if current_app.config['FLORLP_ACTIVE'] and florlp_session:
             couch = CouchDBBox(couch_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
             try:
                 schema, feature_collection = latest_flursteuck_features(florlp_session)
@@ -148,7 +148,7 @@ def new():
 
         return redirect(url_for(".verify_wait", id=user.id))
 
-    return render_template("user/new.html", form=form, customer_id=User.Type.CUSTOMER)
+    return render_template("user/new.html", form=form, customer_id=User.Type.CUSTOMER, florlp_active=current_app.config['FLORLP_ACTIVE'])
 
 @user.route("/user/remove", methods=["GET", "POST"])
 @login_required

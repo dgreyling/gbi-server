@@ -5,17 +5,20 @@
 {% block title %}{{ _('WFS Edit') }}{% endblock %}
 
 {% block javascript %}
-    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/openlayers.wfst_ordered.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('maps.javascript_translation') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/gbi-editor/src/gbi.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/widgets/layermanager.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/widgets/attributeeditor.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/map_base.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/map_wfs.js') }}"></script>
     <script type="text/javascript">
-        {{ add_basic_layer() }}
+        var sources = [];
         {{ add_wmts_layers(layers, user) }}
         {{ add_wfs_layers(wfs) }}
+
         var SAVE_FAILED_MSG = "{{ _('save feautre not possible') }}"
         var SAVE_SUCCESSFULL_MSG = "{{ _('save feature successfull') }}"
         var read_only_layer_name = {{read_only_layer_name|tojson|safe}};
-        var featurecollection = {
+        var featureCollection = {
               "type": "FeatureCollection",
               "features":{{read_only_features|tojson|safe}}
         };
@@ -26,10 +29,89 @@
         var search_property = "{{search_property}}";
         var search_min_length = {{search_min_length}};
         var search_prefix = "{{search_prefix}}";
+
         $(document).ready(function() {
-            var base_map = init_map();
-            init_wfs(base_map);
-            base_map.zoomToExtent(new OpenLayers.Bounds{{data_extent}});
+            var editor, writeLayer, toolbar;
+
+            $('#save_success').hide();
+            $('#remove_search').attr('disabled', 'disabled');
+
+            $('#save_changes')
+                .attr('disabled', 'disabled')
+                .click(function() {
+                    toolbar.deactivateAllControls();
+                    $('#save_changes').attr('disabled', 'disabled').removeClass('btn-success');
+                    writeLayer.save();
+                });
+            $('#add_search').click(function() {
+                var value = $('#search_value').val().replace(/-/g, '').replace(/\//g, '');
+                var searchLayer = editor.layerManager.layerByName(search_layer_name);
+                searchLayer.filter(search_property, value);
+                $('#remove_search').removeAttr('disabled');
+            });
+            $('#remove_search').click(function() {
+                var searchLayer = editor.layerManager.layerByName(search_layer_name);
+                searchLayer.removeFilter();
+            })
+
+            editor = new gbi.Editor({
+                imgPath: openlayers_image_path,
+                layers: sources,
+                "map": {
+                    element: 'map',
+                    projection: new OpenLayers.Projection('EPSG:3857'),
+                    units: 'm',
+                    maxResolution: 156543.0339,
+                    maxExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34),
+                    numZoomLevels: zoom_levels,
+                    theme: openlayers_theme_url,
+                    blankImagePath: openlayers_blank_image,
+                    restrictedExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34)
+                }
+            });
+            editor.zoomToMaxExtent();
+
+            writeLayer = editor.layerManager.layerByName(write_layer_name);
+            editor.layerManager.active(writeLayer);
+            writeLayer.registerCallback('changes', function(unsavedChanges) {
+                if(unsavedChanges) {
+                    $('#save_changes').removeAttr('disabled').addClass('btn-success');
+                }
+            });
+            writeLayer.registerCallback('success', function() {
+                $.get(write_back_url)
+                $('#save_success').show().fadeOut(3000);
+            });
+            writeLayer.registerEvent('loadend', null, function() {
+                writeLayer.zoomToDataExtent();
+                attributeEditor.setAttributes(writeLayer.attributes());
+            });
+
+            var read_only_layer = new gbi.Layers.GeoJSON({
+                name: read_only_layer_name,
+                projection: new OpenLayers.Projection('EPSG:3857'),
+                styleMap: ro_style_map,
+                writable: false,
+                visibility: false,
+                featureCollection: featureCollection
+            });
+            editor.addLayer(read_only_layer);
+
+            toolbar = new gbi.Toolbar(editor, {
+                tools: {
+                    select: true,
+                    drawPolygon: true,
+                    edit: true,
+                    'delete': true,
+                    copy: true
+                }
+            });
+
+            var layermanager = new gbi.widgets.LayerManager(editor, {
+                showActiveLayer: false
+            });
+
+            var attributeEditor = new gbi.widgets.AttributeEditor(editor);
         });
     </script>
 {% endblock %}
@@ -58,14 +140,13 @@
             <button class="btn btn-small" id="remove_search">{{_('remove search')}}</button>
             <hr>
             <h2><small>{{ _('feature settings') }}</small></h2>
-                {{ _('feature help text', logo_url=url_for('static', filename='img/select_hand.png')) }}</small></p>
-            <h4><small>{{ _('feature operations') }}</small>
-            {{ tooltip(_('tooltip - feature operations'))}}
-            </h4>
-            <button class="btn btn-small feature_control" id="copy_feature">{{ _('copy feature') }}</button>
-            <button class="btn btn-small feature_control" id="edit_feature">{{ _('edit feature') }}</button>
-            <button class="btn btn-small feature_control" id="delete_feature">{{ _('delete feature') }}</button>
+            <p><small>{{ _('feature select help text', logo_url=url_for('static', filename='img/select_hand.png')) }}</small></p>
+            <p><small>{{ _('feature draw help text', logo_url=url_for('static', filename='img/draw_polygon.png')) }}</small></p>
+            <p><small>{{ _('feature modify help text', logo_url=url_for('static', filename='img/modify.png')) }}</small></p>
+            <p><small>{{ _('feature copy help text', logo_url=url_for('static', filename='img/copy.png')) }}</small></p>
+            <p><small>{{ _('feature delete help text', logo_url=url_for('static', filename='img/delete.png')) }}</small></p>
             <hr>
+            <div id="save_success" class="alert alert-success">{{ _('successfull saved') }}</div>
             <button class="btn btn-small" id="save_changes">{{ _('save changes') }}
                 {{ tooltip(_('tooltip - button save changes')) }} </button>
             <hr>
@@ -76,8 +157,7 @@
             <h4>{{ _('attributes') }}
                 {{ tooltip(_('tooltip - attrbibutes')) }}
             </h4>
-            <form id='feature_attributes' class="form-horizontal"></form>
-            <button class="btn btn-small" id="edit_attributes_button">{{ _('save attributes') }}</button>
+            <div id="attributeeditor"></div>
         </div>
     </div>
 {% endblock %}

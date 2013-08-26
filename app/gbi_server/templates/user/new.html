@@ -33,7 +33,7 @@
     var customer_id = {{ customer_id }};
     $(document).ready(function() {
         $("#type").change(function(){
-            if ($(this).val() == customer_id) {
+            if ({{ florlp_active | tojson }} && $(this).val() == customer_id) {
                 $("#florlp_name").parent().parent().show();
                 $("#florlp_password").parent().parent().show();
             } else {
