@@ -21,6 +21,21 @@
 {% endblock %}
 
 {% block content %}
+    <div class="row-fluid">
+        <div class="span12">
+            <p>{{ _('infotext wms load via url') }}</p>
+            <div class="input-append">
+                <input class="span3" id="capabilities_url" type="text">
+                <button class="btn" id="getCapabilites" type="button">{{ _('load wms') }}</button>
+            </div>
+            <span id="wms-capabilities-info" class="alert hide"></span>
+            <div>
+                <button class="btn btn-small" id="previewMap" disabled=disabled>{{ _('preview map') }}</button>
+            </div>
+            <hr>
+        </div>
+    </div>
+
 <div class="row-fluid">
     <form method="POST" class="form-horizontal">
     {{ form.csrf }}
@@ -28,9 +43,26 @@
             {{ input(form.name) }}
             {{ input(form.title) }}
             {{ input(form.url) }}
+            <hr>
+            <div class="control-group">
+                <label class="control-label" for="layers_select"><span>{{ _('layers_select') }}:</span></label>
+                <div class="controls">
+                    <select id="layers_select" name="layers_select" multiple='true' disabled=disabled></select>
+                    {{ tooltip(_('tooltip - select layer')) }}
+                </div>
+            </div>
             {{ input(form.layer) }}
-            {{ input(form.format) }}
+            <hr>
+            <div class="control-group">
+                <label class="control-label" for="srs_select"><span>{{ _('select srs') }}:</span></label>
+                <div class="controls">
+                    <select id="srs_select" name="srs_select" disabled=disabled></select>
+                    {{ tooltip(_('tooltip - select srs')) }}
+                </div>
+            </div>
             {{ input(form.srs) }}
+            <hr>
+            {{ input(form.format) }}
             {{ input(form.version) }}
             {{ input(form.is_visible) }}
         </fieldset>
@@ -41,10 +73,155 @@
             {{ input(form.max_tiles) }}
             {{ input(form.is_transparent) }}
             {{ input(form.is_public) }}
-        </fieldset>
-        <fieldset class="span9 pagination-centered">
-            {{ button(_('save'), True) }}
+            {{ button(_('save'), True, btn_class='success') }}
         </fieldset>
     </form>
+    <div class="span11">
+        <hr>
+        <h3>{{ _('preview map') }}</h3>
+        <p>{{ _('infotext preview map only if on selct srs is selcted') }}</p>
+        <div class="alert hide span5" id="wms-preview-info"></div>
+        <div class="map hide span5" id='map' style="width: 500px; height: 500px;"></div>
+    </div>
+
 </div>
+
+
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+    var loadCapabilitiesURL = "{{ url_for('admin.wms_capabilities') }}";
+       var activeLayer;
+    var editor;
+    var capa;
+    $(document).ready(function() {
+        editor = new OpenLayers.Map('map', {
+            theme: openlayers_theme_url,
+            controls: [
+                new OpenLayers.Control.Navigation({
+                documentDrag: true,
+                dragPanOptions: {
+                    interval: 1,
+                    enableKinetic: true
+                    }
+                }),
+                new OpenLayers.Control.PanZoomBar()
+            ]
+        });
+        OpenLayers.ImgPath = openlayers_image_path;
+
+
+        $("#layers_select").change(function() {
+            $("#layer").val($(this).val());
+        });
+
+        $("#srs_select").change(function() {
+            $("#srs").val($(this).val());
+        });
+
+        $("#srs_select").prop('disabled', 'disabled')
+        $("#layers_select").prop('disabled', 'disabled')
+        $("#previewMap").prop('disabled', 'disabled')
+
+
+        $("#getCapabilites").click(function() {
+            var url = $("#capabilities_url").val();
+            if (url) {
+                $.ajax({
+                  type: 'GET',
+                  async: true,
+                  url: loadCapabilitiesURL,
+                  data: { url: url },
+                  success: function(response) {
+                     $("#wms-capabilities-info").empty();
+                    if (response.data.error) {
+                        $("#wms-capabilities-info").html(response.data.error).show().fadeOut(4000)
+                        return false;
+                    } else {
+                        $("#wms-capabilities-info").html(OpenLayers.i18n('load wms capabilities')).show().fadeOut(4000);
+                    }
+
+                    // Input values
+                    $("#title").val(response.data.title)
+                    $("#name").val(response.data.name);
+                    $("#url").val(response.data.url)
+
+                    // Layers
+                    $('#layers_select').empty();
+                    $.each(response.data.layer.layers, function(key, value) {
+                        $('#layers_select').append('<option value="'+ value['name'] +'">'+ value['name'] +'</option>');
+                    });
+                    // SRS
+                    $('#srs_select').empty();
+                    $.each(response.data.layer.srs, function(key, value) {
+                        var hasBBOX = false;
+                        if (response.data.layer.bbox[value]) {
+                            hasBBOX = true;
+                        }
+                        var option;
+                        if (hasBBOX) {
+                            option = '<option value="'+ value +'">**'+ value +'**</option>';
+                        } else {
+                            option = '<option value="'+ value +'">'+ value +'</option>';
+                        }
+                        $('#srs_select').append(option);
+                    });
+                    $("#srs").val( $('#srs_select').val());
+
+                    $("#view_coverage").val(response.data.layer.llbbox )
+                    capa = response.data
+
+                    $("#srs_select").prop('disabled', '')
+                    $("#layers_select").prop('disabled', '')
+                    $("#previewMap").prop('disabled', '')
+
+                  }
+                });
+            }
+            return false;
+        });
+
+        $("#previewMap").click(function() {
+            var url = $("#url").val()
+            var title = $("#title").val();
+            var layers = $("#layer").val();
+            var srs = $("#srs").val();
+            var format = $("#format").val();
+
+            if (activeLayer) {
+                editor.removeLayer(activeLayer)
+            }
+
+            var bboxArray = capa.layer.bbox
+            bbox = bboxArray[srs]
+            $("#wms-preview-info").empty().hide();
+            if (bbox && layers) {
+                editor.maxExtent = new OpenLayers.Bounds(bbox[0], bbox[1], bbox[2], bbox[3])
+            } else {
+                $("#wms-preview-info").html(OpenLayers.i18n('preview not possible')).show().fadeOut(5000);
+                return false;
+            }
+
+            var projection = new OpenLayers.Projection(srs);
+            editor.projection = projection;
+
+            activeLayer = new OpenLayers.Layer.WMS( title,
+                url, {
+                    layers: layers,
+                    srs : srs
+                },
+                {
+                    singleTile: true,
+                    ratio: 1.0
+                }
+            );
+            editor.addLayer(activeLayer)
+            editor.zoomToMaxExtent();
+            $("#map").show();
+            return false;
+        });
+
+    });
+</script>
 {% endblock %}

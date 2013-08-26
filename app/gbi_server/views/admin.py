@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask import render_template, Blueprint, flash, redirect, url_for, request, current_app, session
+from flask import render_template, Blueprint, flash, redirect, url_for, request, current_app, session, jsonify
 from flask.ext.login import current_user, login_user
 from flask.ext.babel import gettext as _
 from werkzeug.exceptions import Unauthorized, Forbidden
@@ -21,7 +21,7 @@ from sqlalchemy.exc import IntegrityError
 
 from geoalchemy import WKTSpatialElement
 from geoalchemy.postgis import pg_functions
-from shapely.geometry import asShape
+from shapely.geometry import asShape, box
 
 from json import loads
 
@@ -32,7 +32,8 @@ from gbi_server.forms.user import RecoverSetForm, EditAddressForm
 from gbi_server.lib.helper import send_mail
 from gbi_server.lib.couchdb import init_user_boxes
 from gbi_server.lib.external_wms import write_mapproxy_config
-
+from gbi_server.lib.capabilites import parse_capabilities_url
+from gbi_server.lib.transform import transform_bbox
 
 admin = Blueprint("admin", __name__, template_folder="../templates")
 
@@ -211,9 +212,16 @@ def wmts_edit(id=None):
 
         wmts.matrix_set = form.data['matrix_set']
 
-        geom = asShape(loads(form.data['view_coverage']))
-        wmts.view_coverage = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='POLYGON')
+        view_coverage = form.data['view_coverage']
+        # load geometry to load string as  json - if not possible then try to use string as bbox
+        try:
+            geom = asShape(loads(view_coverage))
+        except ValueError:
+            bbox = [float(x) for x in view_coverage.split(",")]
+            transfomed_bbox = transform_bbox('4326', '3857', bbox)
+            geom = box(transfomed_bbox[0], transfomed_bbox[1], transfomed_bbox[2], transfomed_bbox[3])
 
+        wmts.view_coverage = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='POLYGON')
         wmts.view_level_start = form.data['view_level_start']
         wmts.view_level_end = form.data['view_level_end']
         wmts.is_background_layer = form.data['is_background_layer']
@@ -241,6 +249,19 @@ def wmts_remove(id):
         db.session.commit()
         flash( _('WMTS removed'), 'success')
     return redirect(url_for('admin.wmts_list'))
+
+
+@admin.route('/admin/wms/capabilities', methods=["GET"])
+def wms_capabilities():
+    url = request.args.get('url', False)
+    if not url:
+        return jsonify(error=_('Need url for capabilities'))
+
+    try:
+        data = parse_capabilities_url(url)
+    except:
+        data = {'error': 'load capabilities not possible'}
+    return jsonify(data=data)
 
 
 @admin.route('/admin/wms/list', methods=["GET"])
@@ -276,12 +297,18 @@ def wms_edit(id=None):
         wms.format = form.data['format']
         wms.srs = form.data['srs']
         wms.max_tiles = form.data['max_tiles'] or None
-
         wms.version = form.data['version']
 
-        geom = asShape(loads(form.data['view_coverage']))
-        wms.view_coverage = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='POLYGON')
+        view_coverage = form.data['view_coverage']
+        # load geometry to load string as  json - if not possible then try to use string as bbox
+        try:
+            geom = asShape(loads(view_coverage))
+        except ValueError:
+            bbox = [float(x) for x in view_coverage.split(",")]
+            transfomed_bbox = transform_bbox('4326', '3857', bbox)
+            geom = box(transfomed_bbox[0], transfomed_bbox[1], transfomed_bbox[2], transfomed_bbox[3])
 
+        wms.view_coverage = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='POLYGON')
         wms.view_level_start = form.data['view_level_start']
         wms.view_level_end = form.data['view_level_end']
         wms.is_background_layer = form.data['is_background_layer']

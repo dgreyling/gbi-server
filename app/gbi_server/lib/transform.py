@@ -14,6 +14,7 @@
 # limitations under the License.
 
 from mapproxy.srs import SRS
+from mapproxy.util.coverage import BBOXCoverage
 
 def transform_features(from_srs, to_srs, features):
     """
@@ -26,6 +27,13 @@ def transform_features(from_srs, to_srs, features):
 
     return features
 
+def transform_bbox(from_srs, to_srs, bbox):
+    """
+    Transform list of `features`. Modifies `features` in-place.
+    """
+    bbox_coverage = BBOXCoverage(bbox, SRS(from_srs))
+    coverage_transformed = bbox_coverage.transform_to(SRS(to_srs))
+    return coverage_transformed.bbox
 
 def transform_geojson(from_srs, to_srs, geojson):
     """
