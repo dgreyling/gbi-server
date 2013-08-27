@@ -49,7 +49,7 @@ def init_db_command(app=None):
     db.drop_all()
     db.create_all()
 
-def fixtures_command(florlp=True):
+def fixtures_command(florlp=False):
     app = create_app()
     init_db_command(app)
     db.session.add_all(fixtures.db_objects())
