@@ -112,6 +112,7 @@ class DefaultConfig(object):
     USERMANUAL_FILENAME = 'usermanual-gbi-server.pdf'
 
     FLORLP_SHP_SRS = 25832
+    FLORLP_ACTIVE = True
 
     # enable/disable document boxes (CUSTOMER/CONSULTANT)
     FEATURE_DOC_BOXES = True
