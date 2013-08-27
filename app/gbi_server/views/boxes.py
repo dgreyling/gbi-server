@@ -73,6 +73,8 @@ def get_couch_box_db(user, box_name):
         return '%s_%s' % (SystemConfig.CUSTOMER_BOX_NAME, user.id)
     elif box_name == 'consultant':
         return '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, user.id)
+    elif box_name == 'file':
+        return '%s_%s' % (SystemConfig.FILE_BOX_NAME, user.id)
     else:
         raise NotFound()
 

@@ -107,7 +107,6 @@ def init_couchdb(config, florlp_active=True):
     init_user_boxes(user, config.get('COUCH_DB_URL'))
     couch = CouchDBBox(config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
     layers = [(config.get('USER_READONLY_LAYER'), config.get('USER_READONLY_LAYER_TITLE')), (config.get('USER_WORKON_LAYER'), config.get('USER_WORKON_LAYER_TITLE'))]
-    print layers
 
     if florlp_active:
         florlp_session = create_florlp_session("demo", "demo")
@@ -158,3 +157,7 @@ def init_couchdb(config, florlp_active=True):
 
     user = model.User.by_email('dienstleister@example.org')
     init_user_boxes(user, config.get('COUCH_DB_URL'))
+
+    user = model.User.by_email('berater@example.org')
+    init_user_boxes(user, config.get('COUCH_DB_URL'))
+

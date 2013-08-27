@@ -138,8 +138,10 @@ class SystemConfig(object):
     AREA_BOX_NAME = 'gbi_flaechenbox'
     CUSTOMER_BOX_NAME = 'gbi_customerbox'
     CONSULTANT_BOX_NAME = 'gbi_consultantbox'
+    FILE_BOX_NAME = 'gbi_filebox'
 
     # name of the databases on the client
     AREA_BOX_NAME_LOCAL = 'flaechen-box'
     CUSTOMER_BOX_NAME_LOCAL = 'beratungs-inbox'
     CONSULTANT_BOX_NAME_LOCAL = 'beratungs-outbox'
+    FILE_BOX_NAME_LOCAL = 'filebox'

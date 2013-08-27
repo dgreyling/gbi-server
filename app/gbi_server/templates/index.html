@@ -24,12 +24,18 @@
                 </li>
                 {% endif %}
                 {% if config['FEATURE_DOC_BOXES'] %}
-                <li><a href="{{ url_for('boxes.files', box_name='consultant') }}">{{ _('consultantbox') }}</a>
-                   <p class="help-block"> {{ _('info text consultantbox') }}</p>
-                </li>
-                <li><a href="{{ url_for('boxes.files', box_name='customer') }}">{{ _('customerbox') }}</a>
-                   <p class="help-block"> {{ _('info text customerbox') }}</p>
-                </li>
+                    {% if not user.is_consultant %}
+                    <li><a href="{{ url_for('boxes.files', box_name='consultant') }}">{{ _('consultantbox') }}</a>
+                       <p class="help-block"> {{ _('info text consultantbox') }}</p>
+                    </li>
+                    <li><a href="{{ url_for('boxes.files', box_name='customer') }}">{{ _('customerbox') }}</a>
+                       <p class="help-block"> {{ _('info text customerbox') }}</p>
+                    </li>
+                    {% else %}
+                    <li><a href="{{ url_for('boxes.files', box_name='file') }}">{{ _('filebox') }}</a>
+                       <p class="help-block"> {{ _('info text filebox') }}</p>
+                    </li>
+                    {% endif %}
                 {% endif %}
                 <li><a href="{{ config.get('GBI_CLIENT_DOWNLOAD_URL')}}">{{ _('gbi client download') }}</a>
                    <p class="help-block"> {{ _('info text gbi client download') }}</p>

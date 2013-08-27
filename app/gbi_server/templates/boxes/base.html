@@ -7,7 +7,8 @@
 {% block content %}
     {% if (current_user.is_customer and box_name == 'customer') or
           (current_user.is_service_provider and box_name == 'customer') or
-          (current_user.is_consultant and box_name == 'consultant')
+          (current_user.is_consultant and box_name == 'consultant') or
+          (current_user.is_consultant and box_name == 'file')
     %}
     <div class="span6">
         <h2>{{_('upload file')}}</h2>
@@ -50,7 +51,8 @@
                     <td>
                     {% if (current_user.is_customer and box_name == 'customer') or
                           (current_user.is_service_provider and box_name == 'customer') or
-                          (current_user.is_consultant and box_name == 'consultant')
+                          (current_user.is_consultant and box_name == 'consultant') or
+                          (current_user.is_consultant and box_name == 'file')
                     %}
                     <a href="{{ url_for('boxes.delete_file', box_name=box_name, user_id=user.id, id=file.id, rev=file.rev) }}">{{ _('delete') }}</a>
                     {% endif %}
