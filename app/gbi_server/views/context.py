@@ -158,15 +158,6 @@ def get_context_document():
         })
 
     if current_app.config['FEATURE_DOC_BOXES']:
-        response['couchdb_sources'].append({
-            "name": _('consultant box'),
-            "url": current_app.config['COUCH_DB_URL'],
-            "dbname": '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, g.user.id),
-            "username": 'user_%d' % g.user.id,
-            "password": g.user.authproxy_token,
-            "writable": False,
-            "dbname_user":  SystemConfig.CONSULTANT_BOX_NAME_LOCAL,
-        })
         if g.user.is_consultant:
             response['couchdb_sources'].append({
                 "name": _('file box'),
@@ -177,7 +168,16 @@ def get_context_document():
                 "writable": True,
                 "dbname_user":  SystemConfig.FILE_BOX_NAME_LOCAL,
             })
-
+        else:
+            response['couchdb_sources'].append({
+                "name": _('consultant box'),
+                "url": current_app.config['COUCH_DB_URL'],
+                "dbname": '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, g.user.id),
+                "username": 'user_%d' % g.user.id,
+                "password": g.user.authproxy_token,
+                "writable": False,
+                "dbname_user":  SystemConfig.CONSULTANT_BOX_NAME_LOCAL,
+            })
 
     response['logging'] = {
         'url': url_for('logserv.log', user_token=g.user.authproxy_token, _external=True),
