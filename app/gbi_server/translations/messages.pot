@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-08-26 15:45+0200\n"
+"POT-Creation-Date: 2013-08-27 16:42+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,7 @@ msgstr ""
 msgid "Please login to see this page"
 msgstr ""
 
-#: gbi_server/forms/admin.py:24 gbi_server/forms/user.py:36
+#: gbi_server/forms/admin.py:24 gbi_server/forms/user.py:44
 #: gbi_server/templates/admin/user_list.html:15
 #: gbi_server/templates/macros/user.html:9
 msgid "type"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "active"
 msgstr ""
 
-#: gbi_server/forms/admin.py:27 gbi_server/forms/user.py:43
+#: gbi_server/forms/admin.py:27 gbi_server/forms/user.py:51
 msgid "terms of use"
 msgstr ""
 
@@ -150,61 +150,65 @@ msgstr ""
 msgid "wms_version"
 msgstr ""
 
-#: gbi_server/forms/user.py:23 gbi_server/forms/user.py:37
-#: gbi_server/forms/user.py:49 gbi_server/templates/admin/user_list.html:14
+#: gbi_server/forms/user.py:31 gbi_server/forms/user.py:45
+#: gbi_server/forms/user.py:57 gbi_server/templates/admin/user_list.html:14
 #: gbi_server/templates/boxes/overview.html:19
 #: gbi_server/templates/macros/user.html:6
 msgid "email"
 msgstr ""
 
-#: gbi_server/forms/user.py:24 gbi_server/forms/user.py:38
-#: gbi_server/forms/user.py:46 gbi_server/forms/user.py:52
-#: gbi_server/forms/user.py:62
+#: gbi_server/forms/user.py:32 gbi_server/forms/user.py:46
+#: gbi_server/forms/user.py:54 gbi_server/forms/user.py:60
+#: gbi_server/forms/user.py:70
 msgid "password"
 msgstr ""
 
-#: gbi_server/forms/user.py:27
+#: gbi_server/forms/user.py:35 gbi_server/forms/user.py:77
 msgid "florlp_username"
 msgstr ""
 
-#: gbi_server/forms/user.py:28
+#: gbi_server/forms/user.py:36
 msgid "realname"
 msgstr ""
 
-#: gbi_server/forms/user.py:29
+#: gbi_server/forms/user.py:37
 msgid "street"
 msgstr ""
 
-#: gbi_server/forms/user.py:30
+#: gbi_server/forms/user.py:38
 msgid "housenumber"
 msgstr ""
 
-#: gbi_server/forms/user.py:31
+#: gbi_server/forms/user.py:39
 msgid "zipcode"
 msgstr ""
 
-#: gbi_server/forms/user.py:32
+#: gbi_server/forms/user.py:40
 msgid "city"
 msgstr ""
 
-#: gbi_server/forms/user.py:35
+#: gbi_server/forms/user.py:43
 msgid "florlp_password"
 msgstr ""
 
-#: gbi_server/forms/user.py:40 gbi_server/forms/user.py:54
+#: gbi_server/forms/user.py:48 gbi_server/forms/user.py:62
 msgid "Passwords must match"
 msgstr ""
 
-#: gbi_server/forms/user.py:42 gbi_server/forms/user.py:56
+#: gbi_server/forms/user.py:50 gbi_server/forms/user.py:64
 msgid "password repeat"
 msgstr ""
 
-#: gbi_server/forms/user.py:59
+#: gbi_server/forms/user.py:67
 msgid "old password"
 msgstr ""
 
-#: gbi_server/forms/user.py:65
+#: gbi_server/forms/user.py:73
 msgid "file"
+msgstr ""
+
+#: gbi_server/forms/user.py:78
+msgid "select coverage"
 msgstr ""
 
 #: gbi_server/forms/validator.py:22
@@ -316,41 +320,49 @@ msgstr ""
 msgid "info text boxesoverview"
 msgstr ""
 
-#: gbi_server/templates/index.html:27
+#: gbi_server/templates/index.html:28
 #: gbi_server/templates/boxes/consultant.html:11
 msgid "consultantbox"
 msgstr ""
 
-#: gbi_server/templates/index.html:28
+#: gbi_server/templates/index.html:29
 msgid "info text consultantbox"
 msgstr ""
 
-#: gbi_server/templates/index.html:30
+#: gbi_server/templates/index.html:31
 #: gbi_server/templates/boxes/customer.html:11
 msgid "customerbox"
 msgstr ""
 
-#: gbi_server/templates/index.html:31
+#: gbi_server/templates/index.html:32
 msgid "info text customerbox"
 msgstr ""
 
-#: gbi_server/templates/index.html:34
-msgid "gbi client download"
-msgstr ""
-
 #: gbi_server/templates/index.html:35
-msgid "info text gbi client download"
+msgid "filebox"
 msgstr ""
 
-#: gbi_server/templates/index.html:39
-msgid "gbi user manual"
+#: gbi_server/templates/index.html:36
+msgid "info text filebox"
 msgstr ""
 
 #: gbi_server/templates/index.html:40
-msgid "user manual"
+msgid "gbi client download"
+msgstr ""
+
+#: gbi_server/templates/index.html:41
+msgid "info text gbi client download"
 msgstr ""
 
 #: gbi_server/templates/index.html:45
+msgid "gbi user manual"
+msgstr ""
+
+#: gbi_server/templates/index.html:46
+msgid "user manual"
+msgstr ""
+
+#: gbi_server/templates/index.html:51
 msgid "info text gbi client first page"
 msgstr ""
 
@@ -612,51 +624,64 @@ msgstr ""
 msgid "box"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:13
+#: gbi_server/templates/boxes/base.html:14
 msgid "upload file"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:19
+#: gbi_server/templates/boxes/base.html:20
 msgid "upload help text"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:20
+#: gbi_server/templates/boxes/base.html:21
 msgid "Upload"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:30
+#: gbi_server/templates/boxes/base.html:31
 msgid "file overview"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:34
+#: gbi_server/templates/boxes/base.html:35
 msgid "filename"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:35
+#: gbi_server/templates/boxes/base.html:36
 msgid "date"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:36
+#: gbi_server/templates/boxes/base.html:37
 msgid "size"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:55
+#: gbi_server/templates/boxes/base.html:57
 msgid "delete"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:67
-msgid "help text file exists, are you sure you want to overwrite it?"
+#: gbi_server/templates/boxes/base.html:61
+msgid "copy"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:69
+#: gbi_server/templates/boxes/base.html:73
+msgid "help copy file to box from customer"
+msgstr ""
+
+#: gbi_server/templates/boxes/base.html:82
+#: gbi_server/templates/boxes/base.html:90
 msgid "abort"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:70
+#: gbi_server/templates/boxes/base.html:83
+msgid "start copy"
+msgstr ""
+
+#: gbi_server/templates/boxes/base.html:88
+msgid "help text file exists, are you sure you want to overwrite it?"
+msgstr ""
+
+#: gbi_server/templates/boxes/base.html:91
 msgid "ok"
 msgstr ""
 
-#: gbi_server/templates/boxes/base.html:76
+#: gbi_server/templates/boxes/base.html:97
 msgid "file is uploading..."
 msgstr ""
 
@@ -690,6 +715,14 @@ msgstr ""
 
 #: gbi_server/templates/boxes/customer.html:11
 msgid "tooltip - customerbox for customer "
+msgstr ""
+
+#: gbi_server/templates/boxes/file.html:3
+msgid "filebox title"
+msgstr ""
+
+#: gbi_server/templates/boxes/file.html:7
+msgid "filebox for consultant"
 msgstr ""
 
 #: gbi_server/templates/boxes/overview.html:18
@@ -1114,23 +1147,35 @@ msgstr ""
 msgid "WMS removed"
 msgstr ""
 
-#: gbi_server/views/boxes.py:54
+#: gbi_server/views/boxes.py:56
 msgid "upload success"
 msgstr ""
 
-#: gbi_server/views/boxes.py:56
+#: gbi_server/views/boxes.py:58
 msgid "file type not allowed"
 msgstr ""
 
-#: gbi_server/views/boxes.py:109
+#: gbi_server/views/boxes.py:114
 msgid "file deleted"
+msgstr ""
+
+#: gbi_server/views/boxes.py:130
+msgid "copy not possible"
+msgstr ""
+
+#: gbi_server/views/boxes.py:148
+msgid "file copied"
 msgstr ""
 
 #: gbi_server/views/context.py:151
 msgid "area box"
 msgstr ""
 
-#: gbi_server/views/context.py:162
+#: gbi_server/views/context.py:163
+msgid "file box"
+msgstr ""
+
+#: gbi_server/views/context.py:173
 msgid "consultant box"
 msgstr ""
 
