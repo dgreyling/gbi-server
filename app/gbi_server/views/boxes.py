@@ -14,6 +14,7 @@
 # limitations under the License.
 
 import urllib
+import datetime
 from sqlalchemy import or_
 from werkzeug.exceptions import NotFound, Forbidden
 from flask import (render_template, Blueprint, flash,
@@ -27,7 +28,7 @@ from gbi_server.lib.couchdb import CouchFileBox
 from gbi_server.lib.file_validation import get_file_information
 from gbi_server.model import User
 
-from gbi_server.forms.user import UploadForm
+from gbi_server.forms.user import UploadForm, CopyFileForm
 boxes = Blueprint("boxes", __name__, template_folder="../templates")
 
 @boxes.route("/box/<box_name>", methods=["GET", "POST"])
@@ -35,6 +36,7 @@ boxes = Blueprint("boxes", __name__, template_folder="../templates")
 @login_required
 def files(box_name, user_id=None):
     form = UploadForm()
+    copy_form = CopyFileForm()
     user = current_user
     if user_id:
         if not current_user.is_consultant:
@@ -59,7 +61,8 @@ def files(box_name, user_id=None):
     for f in files:
         f['download_link'] = couchid_to_authproxy_url(f['id'], couch_box=couch_box)
 
-    return render_template("boxes/%s.html" % box_name, form=form, user=user, files=files, box_name=box_name, user_id=user_id)
+    return render_template("boxes/%s.html" % box_name, form=form, copy_form=copy_form,
+        user=user, files=files, box_name=box_name, user_id=user_id)
 
 def couchid_to_authproxy_url(filename, couch_box):
     if isinstance(filename, unicode):
@@ -110,6 +113,41 @@ def delete_file(box_name, id, rev, user_id):
     couch.delete(id, rev)
     flash(_("file deleted"), 'success')
     return redirect(url_for("boxes.files", box_name=box_name, user_id=user_id))
+
+@boxes.route('/box/<box_name>/<user_id>/copy/<id>/<rev>', methods=["POST"])
+@login_required
+def copy_file(box_name, id, rev, user_id):
+    user = current_user
+    if user_id == str(current_user.id):
+        user_id = None
+    else:
+        if not current_user.is_consultant:
+            raise Forbidden()
+        user = User.by_id(user_id)
+
+    filename = request.form.get('filename', False)
+    if (not filename):
+        flash(_("copy not possible"), 'error')
+        return redirect(url_for("boxes.files", box_name=box_name, user_id=user_id))
+
+    customer_id = request.form.get('boxes', False)
+    if customer_id:
+        customer = User.by_id(customer_id)
+        user = current_user
+        couch_box = get_couch_box_db(user, 'file')
+        target_box_name = get_couch_box_db(customer, 'consultant')
+    else:
+        customer = current_user
+        user = User.by_id(user_id)
+        couch_box = get_couch_box_db(user, 'customer')
+        target_box_name = get_couch_box_db(customer, 'file')
+
+    user_couch = CouchFileBox(current_app.config.get('COUCH_DB_URL'), couch_box)
+    user_couch.copy(id, filename, target_box_name=target_box_name)
+
+    flash(_("file copied"), 'success')
+    return redirect(url_for("boxes.files", box_name=box_name, user_id=user_id))
+
 
 @boxes.route("/box/overview", methods=["GET", "POST"])
 @login_required

@@ -56,12 +56,31 @@
                     %}
                     <a href="{{ url_for('boxes.delete_file', box_name=box_name, user_id=user.id, id=file.id, rev=file.rev) }}">{{ _('delete') }}</a>
                     {% endif %}
-
+                    {% if current_user.is_consultant and box_name == 'file' or
+                        current_user.is_consultant and box_name == 'customer' %}
+                        <a href="{{ url_for('boxes.copy_file', box_name=box_name, user_id=user.id, id=file.id, rev=file.rev) }}" class="copy_file">{{ _('copy') }}</a>
+                     {% endif %}
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
+    </div>
+</div>
+
+<div id="copy_dialog" class="modal hide">
+    <div class="modal-body">
+        <p>{{ _('help copy file to box from customer') }}</p>
+        <form id="copyForm" action="" method="POST">
+            {{ input(copy_form.filename) }}
+            {% if not (current_user.is_consultant and box_name == 'customer') %}
+                {{ input(copy_form.boxes) }}
+            {% endif %}
+        </form>
+    </div>
+    <div class="modal-footer">
+        <a href="#" class="btn primary" id="abort">{{_('abort')}}</a>
+        <a href="#" class="btn primary" id="ok">{{_('start copy')}}</a>
     </div>
 </div>
 
@@ -132,6 +151,33 @@ $(document).ready(function() {
         }
         return false;
     });
+
+    $("#copy_dialog").on("show", function() {
+        $("#copy_dialog a.btn#ok").on("click", function(e) {
+            $("#copy_dialog").modal('hide');
+            $("#copyForm").submit();
+        });
+
+        $("#copy_dialog a.btn#abort").on("click", function(e) {
+            $("#copy_dialog").modal('hide');
+        });
+
+    });
+    $("#copy_dialog").modal({
+        "backdrop" : "static",
+        "keyboard" : true,
+        "show" : false
+    });
+
+    $(".copy_file").click(function() {
+        copylink = $(this).prop('href');
+        $("#copyForm").prop("action", copylink)
+        $("#copy_dialog").modal('show');
+        return false;
+    });
+
+
+
 });
 
 </script>

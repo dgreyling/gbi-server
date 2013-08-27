@@ -101,6 +101,19 @@ class CouchDB(object):
                 % (resp.status_code, doc_url, resp.content)
             )
 
+    def get_with_attachments(self, doc_id):
+        doc_url = self.couchdb_url + '/' + doc_id + '?attachments=true'
+        resp = self.session.get(doc_url,
+            headers={'Accept': 'aplication/json'},
+        )
+        if resp.ok:
+            return resp.json()
+        elif resp.status_code != 404:
+            raise CouchDBError(
+                'got unexpected resp (%d) from CouchDB for %s: %s'
+                % (resp.status_code, doc_url, resp.content)
+            )
+
     def put(self, doc_id, doc):
         doc_url = self.couchdb_url + '/' + doc_id
         resp = self.session.put(doc_url,
@@ -130,6 +143,26 @@ class CouchDB(object):
             if 'error' in row:
                 errors[row['id']] = row['error']
         return errors
+
+    def copy(self, doc_id, doc_id_new, target_box_name):
+        # load file from couch
+        file_doc = self.get_with_attachments(doc_id)
+
+        # connect to new couch
+        new_couch = CouchFileBox(current_app.config.get('COUCH_DB_URL'), target_box_name)
+        existing_doc = new_couch.get(doc_id_new)
+
+        # update file settings
+        if existing_doc:
+            file_doc['_rev'] = existing_doc['_rev']
+        else:
+            del file_doc['_rev']
+        file_doc['_id'] = doc_id_new
+        file_doc['datetime'] = datetime.datetime.now().strftime('%d.%m.%Y %H:%M:%S ')
+
+        # save new file
+        resp = new_couch.put(doc_id_new, file_doc)
+        return resp
 
     def update_user(self, user_id, password):
         user_doc = {

@@ -13,11 +13,19 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask.ext.wtf import TextField, validators, PasswordField, SelectField, BooleanField, FileField, HiddenField
+from sqlalchemy import or_
+
+from flask.ext.wtf import TextField, validators, PasswordField, SelectField, BooleanField, FileField, HiddenField, QuerySelectField
 from flask.ext.babel import lazy_gettext as _l
 from .base import Form
 
 from .validator import username_unique, username_exists, check_password_length
+from gbi_server.model import User
+
+
+def query_all_user_boxes():
+     users = User.query.filter(or_(User.type == User.Type.CUSTOMER, User.type == User.Type.SERVICE_PROVIDER)).all()
+     return users
 
 class LoginForm(Form):
     email = TextField(_l('email'), [validators.Required(), validators.Email()])
@@ -64,3 +72,8 @@ class RefreshFlorlpForm(Form):
 class UploadForm(Form):
     file = FileField(_l('file'), [validators.Required()])
     overwrite = HiddenField('overwrite', default=False)
+
+class CopyFileForm(Form):
+    filename = TextField(_l('florlp_username'), [validators.Required()])
+    boxes = QuerySelectField(_l('select coverage'), [validators.Required()], query_factory=query_all_user_boxes, get_label='email')
+
