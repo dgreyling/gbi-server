@@ -25,11 +25,11 @@
                 {% endif %}
                 {% if config['FEATURE_DOC_BOXES'] %}
                     {% if not user.is_consultant %}
-                    <li><a href="{{ url_for('boxes.files', box_name='consultant') }}">{{ _('consultantbox') }}</a>
-                       <p class="help-block"> {{ _('info text consultantbox') }}</p>
+                    <li><a href="{{ url_for('boxes.files', box_name='download') }}">{{ _('downloadbox') }}</a>
+                       <p class="help-block"> {{ _('info text downloadbox') }}</p>
                     </li>
-                    <li><a href="{{ url_for('boxes.files', box_name='customer') }}">{{ _('customerbox') }}</a>
-                       <p class="help-block"> {{ _('info text customerbox') }}</p>
+                    <li><a href="{{ url_for('boxes.files', box_name='upload') }}">{{ _('uploadbox') }}</a>
+                       <p class="help-block"> {{ _('info text uploadboxbox') }}</p>
                     </li>
                     {% else %}
                     <li><a href="{{ url_for('boxes.files', box_name='file') }}">{{ _('filebox') }}</a>

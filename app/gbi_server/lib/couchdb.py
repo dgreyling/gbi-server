@@ -455,11 +455,11 @@ def init_user_boxes(user, couchdb_url):
             file_couch.update_auth_doc(username, writable=True, read_roles=['consultants'], write_roles=['consultants'])
 
         else:
-            customer_couch = CouchFileBox(couchdb_url, '%s_%s' % (SystemConfig.CUSTOMER_BOX_NAME, user.id))
+            customer_couch = CouchFileBox(couchdb_url, '%s_%s' % (SystemConfig.UPLOAD_BOX_NAME, user.id))
             customer_couch.create()
             customer_couch.update_auth_doc(username, writable=True, read_roles=[])
 
-            consultant_couch = CouchFileBox(couchdb_url, '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, user.id))
+            consultant_couch = CouchFileBox(couchdb_url, '%s_%s' % (SystemConfig.DOWNLOAD_BOX_NAME, user.id))
             consultant_couch.create()
             consultant_couch.update_auth_doc(username, writable=False, read_roles=['consultants'], write_roles=['consultants'])
 

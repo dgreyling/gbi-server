@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-08-27 16:42+0200\n"
+"POT-Creation-Date: 2013-08-27 17:28+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -321,21 +321,20 @@ msgid "info text boxesoverview"
 msgstr ""
 
 #: gbi_server/templates/index.html:28
-#: gbi_server/templates/boxes/consultant.html:11
-msgid "consultantbox"
+#: gbi_server/templates/boxes/download.html:11
+msgid "downloadbox"
 msgstr ""
 
 #: gbi_server/templates/index.html:29
-msgid "info text consultantbox"
+msgid "info text downloadbox"
 msgstr ""
 
 #: gbi_server/templates/index.html:31
-#: gbi_server/templates/boxes/customer.html:11
-msgid "customerbox"
+msgid "uploadbox"
 msgstr ""
 
 #: gbi_server/templates/index.html:32
-msgid "info text customerbox"
+msgid "info text uploadboxbox"
 msgstr ""
 
 #: gbi_server/templates/index.html:35
@@ -685,36 +684,20 @@ msgstr ""
 msgid "file is uploading..."
 msgstr ""
 
-#: gbi_server/templates/boxes/consultant.html:3
+#: gbi_server/templates/boxes/download.html:3
 msgid "consultantbox title"
 msgstr ""
 
-#: gbi_server/templates/boxes/consultant.html:8
-msgid "consultantbox for"
+#: gbi_server/templates/boxes/download.html:8
+msgid "downloadbox for"
 msgstr ""
 
-#: gbi_server/templates/boxes/consultant.html:9
-msgid "tooltip - consultantbox for consultant "
+#: gbi_server/templates/boxes/download.html:9
+msgid "tooltip - downloadbox for consultant "
 msgstr ""
 
-#: gbi_server/templates/boxes/consultant.html:11
-msgid "tooltip - consultantbox for customer "
-msgstr ""
-
-#: gbi_server/templates/boxes/customer.html:3
-msgid "customerbox title"
-msgstr ""
-
-#: gbi_server/templates/boxes/customer.html:8
-msgid "customerbox for"
-msgstr ""
-
-#: gbi_server/templates/boxes/customer.html:9
-msgid "tooltip - customerbox for consultant "
-msgstr ""
-
-#: gbi_server/templates/boxes/customer.html:11
-msgid "tooltip - customerbox for customer "
+#: gbi_server/templates/boxes/download.html:11
+msgid "tooltip - downloadbox for customer "
 msgstr ""
 
 #: gbi_server/templates/boxes/file.html:3
@@ -730,11 +713,31 @@ msgid "name"
 msgstr ""
 
 #: gbi_server/templates/boxes/overview.html:30
-msgid "goto customer box"
+msgid "goto download box"
 msgstr ""
 
 #: gbi_server/templates/boxes/overview.html:33
-msgid "goto consultant box"
+msgid "goto upload box"
+msgstr ""
+
+#: gbi_server/templates/boxes/upload.html:3
+msgid "customerbox title"
+msgstr ""
+
+#: gbi_server/templates/boxes/upload.html:8
+msgid "customerbox for"
+msgstr ""
+
+#: gbi_server/templates/boxes/upload.html:9
+msgid "tooltip - customerbox for consultant "
+msgstr ""
+
+#: gbi_server/templates/boxes/upload.html:11
+msgid "customerbox"
+msgstr ""
+
+#: gbi_server/templates/boxes/upload.html:11
+msgid "tooltip - customerbox for customer "
 msgstr ""
 
 #: gbi_server/templates/errors/500.html:2

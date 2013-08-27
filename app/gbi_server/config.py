@@ -136,12 +136,12 @@ class SystemConfig(object):
     # name of the databases on the server
     # will be suffixed by the user id
     AREA_BOX_NAME = 'gbi_flaechenbox'
-    CUSTOMER_BOX_NAME = 'gbi_customerbox'
-    CONSULTANT_BOX_NAME = 'gbi_consultantbox'
+    UPLOAD_BOX_NAME = 'gbi_uploadbox'
+    DOWNLOAD_BOX_NAME = 'gbi_downloadbox'
     FILE_BOX_NAME = 'gbi_filebox'
 
     # name of the databases on the client
     AREA_BOX_NAME_LOCAL = 'flaechen-box'
-    CUSTOMER_BOX_NAME_LOCAL = 'beratungs-inbox'
-    CONSULTANT_BOX_NAME_LOCAL = 'beratungs-outbox'
+    UPLOAD_BOX_NAME_LOCAL = 'upload-box'
+    DOWNLOAD_BOX_NAME_LOCAL = 'download-box'
     FILE_BOX_NAME_LOCAL = 'filebox'

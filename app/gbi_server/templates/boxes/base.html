@@ -5,9 +5,9 @@
 {% block title %}{{ _('box') }}{% endblock %}
 
 {% block content %}
-    {% if (current_user.is_customer and box_name == 'customer') or
-          (current_user.is_service_provider and box_name == 'customer') or
-          (current_user.is_consultant and box_name == 'consultant') or
+    {% if (current_user.is_customer and box_name == 'upload') or
+          (current_user.is_service_provider and box_name == 'upload') or
+          (current_user.is_consultant and box_name == 'download') or
           (current_user.is_consultant and box_name == 'file')
     %}
     <div class="span6">
@@ -49,15 +49,15 @@
                     <td>{{ file.date }}</td>
                     <td>{{ (file.size/1024/1024)|round(precision=2)}} MB</td>
                     <td>
-                    {% if (current_user.is_customer and box_name == 'customer') or
-                          (current_user.is_service_provider and box_name == 'customer') or
-                          (current_user.is_consultant and box_name == 'consultant') or
+                    {% if (current_user.is_customer and box_name == 'upload') or
+                          (current_user.is_service_provider and box_name == 'upload') or
+                          (current_user.is_consultant and box_name == 'download') or
                           (current_user.is_consultant and box_name == 'file')
                     %}
                     <a href="{{ url_for('boxes.delete_file', box_name=box_name, user_id=user.id, id=file.id, rev=file.rev) }}">{{ _('delete') }}</a>
                     {% endif %}
                     {% if current_user.is_consultant and box_name == 'file' or
-                        current_user.is_consultant and box_name == 'customer' %}
+                        current_user.is_consultant and box_name == 'upload' %}
                         <a href="{{ url_for('boxes.copy_file', box_name=box_name, user_id=user.id, id=file.id, rev=file.rev) }}" class="copy_file">{{ _('copy') }}</a>
                      {% endif %}
                     </td>
@@ -73,7 +73,7 @@
         <p>{{ _('help copy file to box from customer') }}</p>
         <form id="copyForm" action="" method="POST">
             {{ input(copy_form.filename) }}
-            {% if not (current_user.is_consultant and box_name == 'customer') %}
+            {% if not (current_user.is_consultant and box_name == 'upload') %}
                 {{ input(copy_form.boxes) }}
             {% endif %}
         </form>

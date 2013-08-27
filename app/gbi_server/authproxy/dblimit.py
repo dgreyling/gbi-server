@@ -39,17 +39,17 @@ class CouchDBLimiter(LimiterCache):
         if user.is_customer or user.is_service_provider:
             if dbname in (
                 '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id),
-                '%s_%s' % (SystemConfig.CUSTOMER_BOX_NAME, user.id),
+                '%s_%s' % (SystemConfig.UPLOAD_BOX_NAME, user.id),
             ):
                 return 'rw'
             if dbname in (
-                '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, user.id),
+                '%s_%s' % (SystemConfig.DOWNLOAD_BOX_NAME, user.id),
             ):
                 return 'r'
         elif user.is_admin or user.is_consultant:
-            if dbname.startswith('%s_' % (SystemConfig.CONSULTANT_BOX_NAME, )):
+            if dbname.startswith('%s_' % (SystemConfig.DOWNLOAD_BOX_NAME, )):
                 return 'rw'
-            elif dbname.startswith('%s_' % (SystemConfig.CUSTOMER_BOX_NAME, )):
+            elif dbname.startswith('%s_' % (SystemConfig.UPLOAD_BOX_NAME, )):
                 return 'r'
 
         return 'no'

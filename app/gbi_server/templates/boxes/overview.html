@@ -27,10 +27,10 @@
                     <td>{{ user.realname }}</td>
                     <td>{{ user.email }}</td>
                     <td>
-                        <a href="{{ url_for('boxes.files', box_name='customer', user_id=user.id) }}">{{ _('goto customer box') }}</a>
+                        <a href="{{ url_for('boxes.files', box_name='download', user_id=user.id) }}">{{ _('goto download box') }}</a>
                     </td>
                     <td>
-                        <a href="{{ url_for('boxes.files', box_name='consultant', user_id=user.id) }}">{{ _('goto consultant box') }}</a>
+                        <a href="{{ url_for('boxes.files', box_name='upload', user_id=user.id) }}">{{ _('goto upload box') }}</a>
                     </td>
                 </tr>
                 {% endfor %}

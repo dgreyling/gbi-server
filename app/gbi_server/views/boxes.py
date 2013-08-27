@@ -14,7 +14,7 @@
 # limitations under the License.
 
 import urllib
-import datetime
+
 from sqlalchemy import or_
 from werkzeug.exceptions import NotFound, Forbidden
 from flask import (render_template, Blueprint, flash,
@@ -72,10 +72,10 @@ def couchid_to_authproxy_url(filename, couch_box):
     )
 
 def get_couch_box_db(user, box_name):
-    if box_name == 'customer':
-        return '%s_%s' % (SystemConfig.CUSTOMER_BOX_NAME, user.id)
-    elif box_name == 'consultant':
-        return '%s_%s' % (SystemConfig.CONSULTANT_BOX_NAME, user.id)
+    if box_name == 'upload':
+        return '%s_%s' % (SystemConfig.UPLOAD_BOX_NAME, user.id)
+    elif box_name == 'download':
+        return '%s_%s' % (SystemConfig.DOWNLOAD_BOX_NAME, user.id)
     elif box_name == 'file':
         return '%s_%s' % (SystemConfig.FILE_BOX_NAME, user.id)
     else:
@@ -135,11 +135,11 @@ def copy_file(box_name, id, rev, user_id):
         customer = User.by_id(customer_id)
         user = current_user
         couch_box = get_couch_box_db(user, 'file')
-        target_box_name = get_couch_box_db(customer, 'consultant')
+        target_box_name = get_couch_box_db(customer, 'download')
     else:
         customer = current_user
         user = User.by_id(user_id)
-        couch_box = get_couch_box_db(user, 'customer')
+        couch_box = get_couch_box_db(user, 'upload')
         target_box_name = get_couch_box_db(customer, 'file')
 
     user_couch = CouchFileBox(current_app.config.get('COUCH_DB_URL'), couch_box)

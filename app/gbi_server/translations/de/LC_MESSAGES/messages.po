@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-08-27 16:42+0200\n"
+"POT-Creation-Date: 2013-08-27 17:28+0200\n"
 "PO-Revision-Date: 2013-08-20 13:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -323,34 +323,29 @@ msgid "info text boxesoverview"
 msgstr "Übersicht über alle Boxen"
 
 #: gbi_server/templates/index.html:28
-#: gbi_server/templates/boxes/consultant.html:11
-msgid "consultantbox"
-msgstr "Beraterbox"
+#: gbi_server/templates/boxes/download.html:11
+msgid "downloadbox"
+msgstr "Downloadbox"
 
 #: gbi_server/templates/index.html:29
-msgid "info text consultantbox"
-msgstr ""
-"Dokumente die Ihnen vom Berater zur Verfügung gestellt wurden finden Sie "
-"hier"
+msgid "info text downloadbox"
+msgstr "Dokumente die Ihnen vom Berater zur Verfügung gestellt wurden finden Sie hier"
 
 #: gbi_server/templates/index.html:31
-#: gbi_server/templates/boxes/customer.html:11
-msgid "customerbox"
-msgstr "Dokumentenbox"
+msgid "uploadbox"
+msgstr "Uploadbox"
 
 #: gbi_server/templates/index.html:32
-msgid "info text customerbox"
-msgstr ""
-"In der Dokumentenbox können Sie Ihrem Berater Dokumente zur Verfügung "
-"stellen"
+msgid "info text uploadboxbox"
+msgstr "In der Uploadboxbox können Sie Ihre Dokumente verwalten."
 
 #: gbi_server/templates/index.html:35
 msgid "filebox"
-msgstr "Dokumentenbox"
+msgstr "Beraterbox"
 
 #: gbi_server/templates/index.html:36
 msgid "info text filebox"
-msgstr "In der Dokumentenbox können Sie Ihre Dokumente verwalten."
+msgstr "In der Beraterbox können Sie Ihre Dokumente verwalten."
 
 #: gbi_server/templates/index.html:40
 msgid "gbi client download"
@@ -694,7 +689,10 @@ msgstr ""
 
 #: gbi_server/templates/boxes/base.html:73
 msgid "help copy file to box from customer"
-msgstr "Kopieren Sie die Datei in die ausgewählte Box. Geben Sie hierfür einen Dateinamen an. Bitte beachten Sie: Vorhandene Dateien werden überschrieben."
+msgstr ""
+"Kopieren Sie die Datei in die ausgewählte Box. Geben Sie hierfür einen "
+"Dateinamen an. Bitte beachten Sie: Vorhandene Dateien werden "
+"überschrieben."
 
 #: gbi_server/templates/boxes/base.html:82
 #: gbi_server/templates/boxes/base.html:90
@@ -719,63 +717,69 @@ msgstr "Ja, überschreiben"
 msgid "file is uploading..."
 msgstr "Datei wird hochgeladen..."
 
-#: gbi_server/templates/boxes/consultant.html:3
+#: gbi_server/templates/boxes/download.html:3
 msgid "consultantbox title"
 msgstr "Beraterbox"
 
-#: gbi_server/templates/boxes/consultant.html:8
-msgid "consultantbox for"
-msgstr "Beraterbox für"
+#: gbi_server/templates/boxes/download.html:8
+msgid "downloadbox for"
+msgstr "Downloadbox für"
 
-#: gbi_server/templates/boxes/consultant.html:9
-msgid "tooltip - consultantbox for consultant "
-msgstr "Beraterbox für den Landwirt. Dieser kann Dokumente von hier herunterladen."
+#: gbi_server/templates/boxes/download.html:9
+msgid "tooltip - downloadbox for consultant "
+msgstr ""
+"Dokumentenbox für den Landwirt. Dieser kann Dokumente von hier "
+"herunterladen."
 
-#: gbi_server/templates/boxes/consultant.html:11
-msgid "tooltip - consultantbox for customer "
+#: gbi_server/templates/boxes/download.html:11
+msgid "tooltip - downloadbox for customer "
 msgstr ""
 "Dies ist die Dokumentenbox in dem die Berater Ihnen Dokumente zur "
 "Verfügung stellen können"
 
-#: gbi_server/templates/boxes/customer.html:3
-msgid "customerbox title"
-msgstr "Dokumentenbox"
-
-#: gbi_server/templates/boxes/customer.html:8
-msgid "customerbox for"
-msgstr "Dokumentenbox von"
-
-#: gbi_server/templates/boxes/customer.html:9
-msgid "tooltip - customerbox for consultant "
-msgstr ""
-"Dokumentenbox des Landwirts. Hier kann er Ihnen Dokumente zur Verfügung "
-"stellen."
-
-#: gbi_server/templates/boxes/customer.html:11
-msgid "tooltip - customerbox for customer "
-msgstr ""
-"Ihre Dokumentenbox - hier können Sie Dokumente hochladen und dem Berater "
-"zur Verfügung stellen."
-
 #: gbi_server/templates/boxes/file.html:3
 msgid "filebox title"
-msgstr "Dokumentenbox"
+msgstr "Beraterbox"
 
 #: gbi_server/templates/boxes/file.html:7
 msgid "filebox for consultant"
-msgstr "Berater-Dokumentenbox"
+msgstr "Beraterbox"
 
 #: gbi_server/templates/boxes/overview.html:18
 msgid "name"
 msgstr "Name"
 
 #: gbi_server/templates/boxes/overview.html:30
-msgid "goto customer box"
-msgstr "Zur Dokumentenbox"
+msgid "goto download box"
+msgstr "Zur Downloadbox"
 
 #: gbi_server/templates/boxes/overview.html:33
-msgid "goto consultant box"
-msgstr "Zur Beraterbox"
+msgid "goto upload box"
+msgstr "Zur Uploadbox"
+
+#: gbi_server/templates/boxes/upload.html:3
+msgid "customerbox title"
+msgstr "Dokumentenbox"
+
+#: gbi_server/templates/boxes/upload.html:8
+msgid "customerbox for"
+msgstr "Dokumentenbox von"
+
+#: gbi_server/templates/boxes/upload.html:9
+msgid "tooltip - customerbox for consultant "
+msgstr ""
+"Dokumentenbox des Landwirts. Hier kann er Ihnen Dokumente zur Verfügung "
+"stellen."
+
+#: gbi_server/templates/boxes/upload.html:11
+msgid "customerbox"
+msgstr "Dokumentenbox"
+
+#: gbi_server/templates/boxes/upload.html:11
+msgid "tooltip - customerbox for customer "
+msgstr ""
+"Ihre Dokumentenbox - hier können Sie Dokumente hochladen und dem Berater "
+"zur Verfügung stellen."
 
 #: gbi_server/templates/errors/500.html:2
 #: gbi_server/templates/errors/500.html:4
@@ -1550,4 +1554,3 @@ msgstr "Keine gültige Datumseingabe"
 #: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:649
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
-
