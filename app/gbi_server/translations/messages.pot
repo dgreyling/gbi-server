@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-08-27 17:28+0200\n"
+"POT-Creation-Date: 2013-08-28 08:12+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -329,7 +329,7 @@ msgstr ""
 msgid "info text downloadbox"
 msgstr ""
 
-#: gbi_server/templates/index.html:31
+#: gbi_server/templates/index.html:31 gbi_server/templates/boxes/upload.html:11
 msgid "uploadbox"
 msgstr ""
 
@@ -685,7 +685,7 @@ msgid "file is uploading..."
 msgstr ""
 
 #: gbi_server/templates/boxes/download.html:3
-msgid "consultantbox title"
+msgid "downloadbox title"
 msgstr ""
 
 #: gbi_server/templates/boxes/download.html:8
@@ -721,23 +721,19 @@ msgid "goto upload box"
 msgstr ""
 
 #: gbi_server/templates/boxes/upload.html:3
-msgid "customerbox title"
+msgid "uploadbox title"
 msgstr ""
 
 #: gbi_server/templates/boxes/upload.html:8
-msgid "customerbox for"
+msgid "uploadbox for"
 msgstr ""
 
 #: gbi_server/templates/boxes/upload.html:9
-msgid "tooltip - customerbox for consultant "
+msgid "tooltip - uploadbox for consultant "
 msgstr ""
 
 #: gbi_server/templates/boxes/upload.html:11
-msgid "customerbox"
-msgstr ""
-
-#: gbi_server/templates/boxes/upload.html:11
-msgid "tooltip - customerbox for customer "
+msgid "tooltip - uploadbox for customer "
 msgstr ""
 
 #: gbi_server/templates/errors/500.html:2
