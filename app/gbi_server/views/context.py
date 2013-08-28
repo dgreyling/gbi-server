@@ -183,4 +183,10 @@ def get_context_document():
         'url': url_for('logserv.log', user_token=g.user.authproxy_token, _external=True),
     }
 
+    response['user'] = {
+        'email': g.user.email,
+        'type': g.user.type,
+        'type_name': g.user.type_name,
+    }
+
     return json.dumps(response)
