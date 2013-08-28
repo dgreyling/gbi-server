@@ -57,3 +57,10 @@ class WMTSForm(RasterSourceForm):
 class WMSForm(RasterSourceForm):
     version = SelectField(_l('wms_version'), choices=[('1.1.1', '1.1.1'), ('1.3.0', '1.3.0')],
         validators=[validators.Required()])
+
+class WFSForm(Form):
+    url = TextField(_l('vectorsource_url'), [validators.Required()])
+    username = TextField(_l('rvectorsource_username'))
+    password = PasswordField(_l('vectorsource_password'))
+    name = TextField(_l('vectorsourcee_name'), [validators.Required(), validators.Regexp('[a-zA-Z0-9_-]+$')])
+    attribute = TextField(_l('vectorsource_attribute'))

@@ -36,3 +36,25 @@ class WFSSession(db.Model):
 
     def update(self):
         self.last_update = datetime.utcnow()
+
+
+class WFS(db.Model):
+    __tablename__ = 'wfs'
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String, nullable=False, unique=True)
+    url = db.Column(db.String(256), nullable=False)
+
+    username = db.Column(db.String(64))
+    password = db.Column(db.String(64))
+
+    attribute = db.Column(db.String)
+
+    @classmethod
+    def by_id(cls, id):
+        q = cls.query.filter(cls.id == id)
+        return q.first_or_404()
+
+    @classmethod
+    def by_name(cls, name):
+        q = cls.query.filter(cls.name == name)
+        return q.first_or_404()

@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+
+{% from "macros/forms.html" import input, textarea, button %}
+
+{% block title %}
+    {% if id %}
+        {{_('edit WFS')}}
+    {% else %}
+        {{_('create WFS')}}
+    {% endif %}
+{% endblock %}
+
+{% block content_head %}
+    <h1>
+        {% if id %}
+            {{_('edit WFS')}}
+        {% else %}
+            {{_('create WFS')}}
+        {% endif %}
+    </h1>
+{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <form method="POST" class="form-horizontal">
+    {{ form.csrf }}
+        <fieldset class="span5 offset1">
+            {{ input(form.name) }}
+            {{ input(form.url) }}
+            {{ input(form.attribute) }}
+            {{ input(form.username) }}
+            {{ input(form.password) }}
+        </fieldset>
+        <fieldset class="span9 pagination-centered">
+            {{ button(_('save'), True) }}
+        </fieldset>
+    </form>
+</div>
+{% endblock %}

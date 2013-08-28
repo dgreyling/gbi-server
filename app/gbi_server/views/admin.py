@@ -26,8 +26,8 @@ from shapely.geometry import asShape, box
 from json import loads
 
 from gbi_server.extensions import db
-from gbi_server.model import User, EmailVerification, Log, WMTS, WMS
-from gbi_server.forms.admin import CreateUserForm, WMTSForm, WMSForm
+from gbi_server.model import User, EmailVerification, Log, WMTS, WMS, WFS
+from gbi_server.forms.admin import CreateUserForm, WMTSForm, WMSForm, WFSForm
 from gbi_server.forms.user import RecoverSetForm, EditAddressForm
 from gbi_server.lib.helper import send_mail
 from gbi_server.lib.couchdb import init_user_boxes
@@ -339,4 +339,43 @@ def wms_remove(id):
         db.session.delete(wms)
         db.session.commit()
         flash( _('WMS removed'), 'success')
-    return redirect(url_for('admin.wms_list'))
+
+@admin.route('/admin/wfs/list', methods=["GET"])
+def wfs_list():
+    return render_template('admin/wfs_list.html', wfs=WFS.query.all())
+
+@admin.route('/admin/wfs/edit', methods=["GET", "POST"])
+@admin.route('/admin/wfs/edit/<int:id>', methods=["GET", "POST"])
+def wfs_edit(id=None):
+    wfs = db.session.query(WFS).filter_by(id=id).first() if id else None
+    form = WFSForm(request.form, wfs)
+
+    if form.validate_on_submit():
+        if not wfs:
+            wfs = WFS()
+            db.session.add(wfs)
+        wfs.name = form.data['name']
+        wfs.url = form.data['url']
+        wfs.attribute = form.data['attribute']
+        wfs.username = form.data['username']
+        wfs.password = form.data['password']
+
+        try:
+            db.session.commit()
+            flash( _('Saved WFS'), 'success')
+            return redirect(url_for('admin.wfs_list'))
+        except IntegrityError:
+            db.session.rollback()
+            flash(_('WFS with this name already exist'), 'error')
+
+    return render_template('admin/wfs_edit.html', form=form, id=id)
+
+
+@admin.route('/admin/wfs/remove/<int:id>', methods=["GET"])
+def wfs_remove(id):
+    wfs = WFS.by_id(id)
+    if wfs:
+        db.session.delete(wfs)
+        db.session.commit()
+        flash( _('WFS removed'), 'success')
+    return redirect(url_for('admin.wfs_list'))

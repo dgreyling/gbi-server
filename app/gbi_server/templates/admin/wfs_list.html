@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %} {{_('WFS list')}} {% endblock %}
+
+{% block content_head %}<h1>{{_('WFS list')}}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>{{ _('vectorsource_name') }}</th>
+                    <th>{{ _('vectorsource_url') }}</th>
+                    <th>{{ _('vectorsource_attribute') }}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for elem in wfs %}
+                <tr>
+                    <td>{{ elem.name }}</td>
+                    <td>{{ elem.url }}</td>
+                    <td>{{ elem.attribute }}</td>
+                    <td>
+                        <a class="btn btn-small" href="{{ url_for('admin.wfs_edit', id=elem.id) }}">{{ _('edit') }}</a>
+                        <a class="btn btn-small" href="{{ url_for('admin.wfs_remove', id=elem.id) }}">{{ _('remove') }}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a class="btn btn-small" href="{{ url_for('admin.wfs_edit') }}">{{ _('create WFS') }}</a>
+    </div>
+</div>
+{% endblock %}
