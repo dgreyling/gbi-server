@@ -24,7 +24,7 @@ from geoalchemy.postgis import pg_functions
 import shapely.geometry
 
 from gbi_server.config import SystemConfig
-from gbi_server.model import WMTS, WMS, User
+from gbi_server.model import WMTS, WMS, WFS, User
 from gbi_server.extensions import db
 from gbi_server.lib.couchdb import CouchDBBox
 from gbi_server.lib.geometry import optimize_geometry
@@ -63,6 +63,8 @@ def requires_auth(f):
 def get_context_document():
     wmts_sources = db.session.query(WMTS, pg_functions.geojson(WMTS.view_coverage.transform(3857))).order_by(desc(WMTS.is_background_layer)).all()
     wms_sources = db.session.query(WMS, pg_functions.geojson(WMS.view_coverage.transform(3857))).order_by(desc(WMS.is_background_layer)).all()
+    wfs_sources = db.session.query(WFS).all()
+
     response = {
         "version": "0.1",
         "portal": {
@@ -71,6 +73,7 @@ def get_context_document():
         },
         "wmts_sources": [],
         "wms_sources": [],
+        "wfs_sources": [],
         "couchdb_sources": [],
     }
 
@@ -145,6 +148,12 @@ def get_context_document():
             }
         })
 
+    for wfs in wfs_sources:
+        response['wfs_sources'].append({
+            "name": wfs.name,
+            "url": wfs.url,
+            "attribute": wfs.attribute,
+        })
 
     if current_app.config['FEATURE_AREA_BOXES']:
         response['couchdb_sources'].append({
