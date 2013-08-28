@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-08-28 08:12+0200\n"
+"POT-Creation-Date: 2013-08-28 11:04+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -148,6 +148,26 @@ msgstr ""
 
 #: gbi_server/forms/admin.py:58
 msgid "wms_version"
+msgstr ""
+
+#: gbi_server/forms/admin.py:62 gbi_server/templates/admin/wfs_list.html:14
+msgid "vectorsource_url"
+msgstr ""
+
+#: gbi_server/forms/admin.py:63
+msgid "rvectorsource_username"
+msgstr ""
+
+#: gbi_server/forms/admin.py:64
+msgid "vectorsource_password"
+msgstr ""
+
+#: gbi_server/forms/admin.py:65
+msgid "vectorsourcee_name"
+msgstr ""
+
+#: gbi_server/forms/admin.py:66 gbi_server/templates/admin/wfs_list.html:15
+msgid "vectorsource_attribute"
 msgstr ""
 
 #: gbi_server/forms/user.py:31 gbi_server/forms/user.py:45
@@ -381,6 +401,7 @@ msgid "Edit user"
 msgstr ""
 
 #: gbi_server/templates/admin/edit_user.html:20
+#: gbi_server/templates/admin/wfs_edit.html:35
 #: gbi_server/templates/admin/wms_edit.html:76
 #: gbi_server/templates/admin/wmts_edit.html:48
 #: gbi_server/templates/user/edit_address.html:22
@@ -424,6 +445,19 @@ msgstr ""
 msgid "create WMS"
 msgstr ""
 
+#: gbi_server/templates/admin/index.html:24
+#: gbi_server/templates/admin/wfs_list.html:3
+#: gbi_server/templates/admin/wfs_list.html:5
+msgid "WFS list"
+msgstr ""
+
+#: gbi_server/templates/admin/index.html:25
+#: gbi_server/templates/admin/wfs_edit.html:9
+#: gbi_server/templates/admin/wfs_edit.html:18
+#: gbi_server/templates/admin/wfs_list.html:33
+msgid "create WFS"
+msgstr ""
+
 #: gbi_server/templates/admin/remove_user.html:6
 #: gbi_server/templates/admin/remove_user.html:12
 msgid "remove user"
@@ -431,6 +465,7 @@ msgstr ""
 
 #: gbi_server/templates/admin/remove_user.html:15
 #: gbi_server/templates/admin/user_detail.html:33
+#: gbi_server/templates/admin/wfs_list.html:27
 #: gbi_server/templates/admin/wms_list.html:37
 #: gbi_server/templates/admin/wmts_list.html:39
 msgid "remove"
@@ -491,6 +526,7 @@ msgid "verify"
 msgstr ""
 
 #: gbi_server/templates/admin/user_detail.html:30
+#: gbi_server/templates/admin/wfs_list.html:26
 #: gbi_server/templates/admin/wms_list.html:36
 #: gbi_server/templates/admin/wmts_list.html:38
 msgid "edit"
@@ -560,6 +596,15 @@ msgstr ""
 
 #: gbi_server/templates/admin/user_log.html:25
 msgid "geometry"
+msgstr ""
+
+#: gbi_server/templates/admin/wfs_edit.html:7
+#: gbi_server/templates/admin/wfs_edit.html:16
+msgid "edit WFS"
+msgstr ""
+
+#: gbi_server/templates/admin/wfs_list.html:13
+msgid "vectorsource_name"
 msgstr ""
 
 #: gbi_server/templates/admin/wms_edit.html:7
@@ -1144,6 +1189,18 @@ msgstr ""
 
 #: gbi_server/views/admin.py:341
 msgid "WMS removed"
+msgstr ""
+
+#: gbi_server/views/admin.py:365
+msgid "Saved WFS"
+msgstr ""
+
+#: gbi_server/views/admin.py:369
+msgid "WFS with this name already exist"
+msgstr ""
+
+#: gbi_server/views/admin.py:380
+msgid "WFS removed"
 msgstr ""
 
 #: gbi_server/views/boxes.py:56
