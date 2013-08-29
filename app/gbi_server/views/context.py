@@ -150,9 +150,15 @@ def get_context_document():
 
     for wfs in wfs_sources:
         response['wfs_sources'].append({
-            "name": wfs.name,
-            "url": wfs.url,
-            "attribute": wfs.attribute,
+            'id': wfs.id,
+            'name': wfs.name,
+            'layer': wfs.layer,
+            'url': wfs.url,
+            'srs': wfs.srs,
+            'geometry_field': wfs.geometry,
+            'feature_ns': wfs.ns_uri,
+            'typename': wfs.ns_prefix,
+            'search_property': wfs.search_property,
         })
 
     if current_app.config['FEATURE_AREA_BOXES']:
