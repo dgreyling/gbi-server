@@ -33,7 +33,7 @@
 
     {% for wfs_layer in wfs_layers %}
         sources.push(new gbi.Layers.WFST({
-            "name": {{ wfs_layer['name']|tojson|safe }},
+            "name": "{{ wfs_layer['name'] }}",
             "url": "{{ wfs_layer['url']|safe }}",
             "featureNS":  "{{ wfs_layer['feature_ns'] }}",
             "featureType": "{{ wfs_layer['layer'] }}",
@@ -43,7 +43,12 @@
             {% endif %}
             "typename": '{{ wfs_layer['typename'] }}',
             "styleMap": {% if wfs_layer['writable'] %}rw_style_map{% else %}ro_style_map{% endif %},
-            "writable": {{ wfs_layer['writable'] | tojson }}
+            "writable": {{ wfs_layer['writable']|tojson|safe }},
+            displayInLayerSwitcher: {{ wfs_layer['display_in_layerswitcher']|tojson }},
+            visibility: false,
+            {% if wfs_layer['search_property'] %}
+            "searchProperty": '{{ wfs_layer['search_property'] }}',
+            {% endif %}
         }));
     {% endfor %}
 {%- endmacro %}

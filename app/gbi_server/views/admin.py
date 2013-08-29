@@ -354,9 +354,17 @@ def wfs_edit(id=None):
         if not wfs:
             wfs = WFS()
             db.session.add(wfs)
+
         wfs.name = form.data['name']
+        wfs.host = form.data['host']
         wfs.url = form.data['url']
-        wfs.attribute = form.data['attribute']
+        wfs.geometry = form.data['geometry']
+        wfs.layer = form.data['layer']
+        wfs.srs = form.data['srs']
+        wfs.ns_prefix = form.data['ns_prefix']
+        wfs.ns_uri = form.data['ns_uri']
+        wfs.search_property = form.data['search_property']
+        wfs.max_features = form.data['max_features']
         wfs.username = form.data['username']
         wfs.password = form.data['password']
 

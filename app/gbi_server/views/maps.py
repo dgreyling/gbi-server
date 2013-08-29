@@ -29,8 +29,8 @@ from shapely.wkt import loads
 from gbi_server.lib.couchdb import extend_schema_for_couchdb, CouchDBBox, CouchDBError
 from gbi_server.lib.postgis import TempPGDB
 
-from gbi_server.model import WMTS, WFSSession
-from gbi_server.forms.wfs import WFSEditForm, WFSAddLayerForm
+from gbi_server.model import WMTS, WFSSession, WFS
+from gbi_server.forms.wfs import WFSEditForm, WFSAddLayerForm, WFSSearchForm
 
 from gbi_server import signals
 from gbi_server.extensions import db
@@ -94,6 +94,7 @@ def wfs_edit():
 @maps.route('/maps/wfs/<layer>', methods=['GET'])
 @login_required
 def wfs_edit_layer(layer=None):
+    form = WFSSearchForm()
     user = current_user
     wfs_session = WFSSession.by_active_user_layer(layer, user)
 
@@ -104,7 +105,7 @@ def wfs_edit_layer(layer=None):
     couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
 
     try:
-        wfs_layers, wfs_layer_token = create_wfs(user, [current_app.config.get('EXTERNAL_WFS_LAYER'), layer])
+        wfs_layers, wfs_layer_token = create_wfs(user, editable_layers=[layer])
     except MissingSchemaError:
         flash(_('layer unknown or without schema'))
         abort(404)
@@ -121,19 +122,16 @@ def wfs_edit_layer(layer=None):
         if result:
             data_extent = loads(result[1])
 
+
     return render_template(
         'maps/wfs.html',
+        form=form,
         wfs=wfs_layers,
         layers=WMTS.query.all(),
         read_only_features=features,
         read_only_schema=couch.layer_schema(layer)['properties'],
         read_only_layer_name=current_app.config.get('USER_READONLY_LAYER_TITLE'),
         editable_layer=layer,
-        editable_layer_name=wfs_layers[1]['name'],
-        search_layer_name=current_app.config.get('EXTERNAL_WFS_NAME'),
-        search_property=current_app.config.get('EXTERNAL_WFS_SEARCH_PROPERTY'),
-        search_min_length=current_app.config.get('EXTERNAL_WFS_SEARCH_MIN_LENGTH'),
-        search_prefix=current_app.config.get('EXTERNAL_WFS_SEARCH_PREFIX'),
         data_extent=data_extent.bounds if data_extent else None,
         user=current_user
     )
@@ -182,15 +180,11 @@ def wfs_session(layer=None):
 @login_required
 def cancel_changes(layer=None):
     user = current_user
-
     wfs_session = WFSSession.by_active_user_layer(layer, user)
     wfs_session.active=False
     wfs_session.update()
-
     db.session.commit()
-
     flash(_('wfs changes discarded'))
-
     return redirect(url_for('.wfs_edit'))
 
 @maps.route('/maps/wfs/write_back/<layer>')
@@ -238,7 +232,7 @@ def save_changes(layer=None):
 class MissingSchemaError(Exception):
     pass
 
-def create_wfs(user=None, layers=None):
+def create_wfs(user=None, editable_layers=None):
     connection = psycopg2.connect(
         database=current_app.config.get('TEMP_PG_DB'),
         host=current_app.config.get('TEMP_PG_HOST'),
@@ -246,18 +240,20 @@ def create_wfs(user=None, layers=None):
         password=current_app.config.get('TEMP_PG_PASSWORD'),
         sslmode='allow',
     )
-    couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
 
+    couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
     wfs_layer_token = uuid.uuid4().hex
 
     wfs = []
+
+    # create layer to edit
     tinyows_layers = []
     titles = dict(couch.get_layer_names())
-    for id, layer in enumerate(layers):
-        title = titles[layer] if layer in titles else layer
+
+    for layer in editable_layers:
         wfs_layer = {
             'id': id,
-            'name': title,
+            'name': titles[layer],
             'layer': layer,
             'url': url_for('.tinyows_wfs', token=wfs_layer_token, _external=True) + '?',
             'srs': 'EPSG:3857',
@@ -268,39 +264,28 @@ def create_wfs(user=None, layers=None):
             'writable': False,
             'display_in_layerswitcher': True,
         }
-        if layer == current_app.config.get('EXTERNAL_WFS_LAYER'):
-            wfs_layer['name'] = current_app.config.get('EXTERNAL_WFS_NAME')
-            wfs_layer['url'] = current_app.config.get('EXTERNAL_WFS_URL')
-            wfs_layer['layer'] = current_app.config.get('EXTERNAL_WFS_LAYER')
-            wfs_layer['srs'] = current_app.config.get('EXTERNAL_WFS_SRS')
-            wfs_layer['geometry_field'] = current_app.config.get('EXTERNAL_WFS_GEOMETRY')
-            wfs_layer['feature_ns'] = current_app.config.get('EXTERNAL_WFS_NS_URI')
-            wfs_layer['typename'] = current_app.config.get('EXTERNAL_WFS_NS_PREFIX')
-            wfs_layer['max_features'] = current_app.config.get('EXTERNAL_WFS_MAX_FEATURES')
-            wfs_layer['display_in_layerswitcher'] = False
-        else:
-            schema = couch.layer_schema(layer)
-            if not schema or 'properties' not in schema:
-                raise MissingSchemaError('no schema found for layer %s' % layer)
-            extend_schema_for_couchdb(schema)
-            # tinyows layername must not contain underscores
-            tablename = 'tmp%s%s' % (user.id, layer)
-            tmp_db = TempPGDB(connection=connection, tablename=tablename, schema=schema)
-            tmp_db.create_table()
-            tmp_db.insert_features(couch.iter_layer_features(layer))
-            # TODO remember created table in new model, store wfs_layer_token
-            # and remove old tinyows configs on update
-            wfs_layer['layer'] = tablename
-            wfs_layer['writable'] = current_app.config.get('USER_READONLY_LAYER') != layer
-            tinyows_layers.append({
-                'name': tablename,
-                'title': wfs_layer['name'],
-                'writable': '1' if wfs_layer['writable'] else '0',
-            })
+        schema = couch.layer_schema(layer)
+        if not schema or 'properties' not in schema:
+            raise MissingSchemaError('no schema found for layer %s' % layer)
+        extend_schema_for_couchdb(schema)
+        # tinyows layername must not contain underscores
+        tablename = 'tmp%s%s' % (user.id, layer)
+        tmp_db = TempPGDB(connection=connection, tablename=tablename, schema=schema)
+        tmp_db.create_table()
+        tmp_db.insert_features(couch.iter_layer_features(layer))
+        # TODO remember created table in new model, store wfs_layer_token
+        # and remove old tinyows configs on update
+        wfs_layer['layer'] = tablename
+        wfs_layer['writable'] = current_app.config.get('USER_READONLY_LAYER') != layer
+        tinyows_layers.append({
+            'name': tablename,
+            'title': wfs_layer['name'],
+            'writable': '1' if wfs_layer['writable'] else '0',
+        })
         wfs.append(wfs_layer)
+
     connection.commit()
     connection.close()
-
     ensure_dir(current_app.config.get('TINYOWS_TMP_CONFIG_DIR'))
 
     tinyows_config = os.path.join(
@@ -308,6 +293,24 @@ def create_wfs(user=None, layers=None):
         wfs_layer_token + '.xml')
 
     tinyows.build_config(current_app, tinyows_layers, wfs_layer_token, tinyows_config)
+
+    # wfs_layers for search
+    wfs_search =  db.session.query(WFS).all()
+    for layer in wfs_search:
+        wfs.append({
+            'id': layer.id,
+            'name': layer.name,
+            'layer': layer.layer,
+            'url': layer.url,
+            'srs': layer.srs,
+            'geometry_field': layer.geometry,
+            'wfs_version': '1.1.0',
+            'feature_ns': layer.ns_uri,
+            'typename': layer.ns_prefix,
+            'writable': False,
+            'search_property': layer.search_property,
+            'display_in_layerswitcher': False,
+        })
 
     return wfs, wfs_layer_token
 

@@ -24,12 +24,9 @@
         };
         var read_only_schema = {{read_only_schema|tojson|safe}};
         var write_back_url = "{{ url_for('maps.write_back', layer=editable_layer) }}";
-        var write_layer_name = {{editable_layer_name|tojson|safe}};
-        var search_layer_name = "{{ search_layer_name }}";
-        var search_property = "{{search_property}}";
-        var search_min_length = {{search_min_length}};
-        var search_prefix = "{{search_prefix}}";
+        var write_layer_name = "Basis Layer";
 
+        var activeSearchLayer;
         $(document).ready(function() {
             var editor, writeLayer, toolbar;
 
@@ -44,15 +41,34 @@
                     writeLayer.save();
                 });
             $('#add_search').click(function() {
+                if (activeSearchLayer) {
+                    activeSearchLayer.visible(false)
+                    activeSearchLayer.olLayer.filter = null
+                    activeSearchLayer.olLayer.removeAllFeatures();
+                }
+
                 var value = $('#search_value').val().replace(/-/g, '').replace(/\//g, '');
-                var searchLayer = editor.layerManager.layerByName(search_layer_name);
-                searchLayer.filter(search_property, value);
-                $('#remove_search').removeAttr('disabled');
+
+                var layername = $("#wfs_serach_layer").val()
+                activeSearchLayer = editor.layerManager.layerByName(layername);
+                activeSearchLayer.visible(true)
+                if (value) {
+                    value = value.split("\n")
+                    activeSearchLayer.filter(
+                        activeSearchLayer.olLayer.searchProperty, value
+                    );
+                    $('#remove_search').removeAttr('disabled');
+                }
+                return false;
             });
+
             $('#remove_search').click(function() {
-                var searchLayer = editor.layerManager.layerByName(search_layer_name);
-                searchLayer.removeFilter();
+                $("#search_value").val('');
+                activeSearchLayer.removeFilter();
+                return false;
             })
+
+            $("#search_value").html('')
 
             editor = new gbi.Editor({
                 imgPath: openlayers_image_path,
@@ -124,15 +140,17 @@
         <div class="span4 wfs_edit">
             <h2><small>{{ _('search features') }}</small></h2>
             <p class="help_text">
-                <small>{{ _('search help text', search_length=search_min_length) }}</small>
+                <small>{{ _('search help text') }}</small>
             </p>
             <div class="control-group">
                 <div class="control-label">
                     <label for="search_value"><span>{{ _('search_label') }}{{ tooltip(_('tooltip - search')) }}</span></label>
 
                 </div>
+                {{ form.wfs_serach_layer }}
                 <div class="controls">
-                    <input type="text" id="search_value" name="search_value" placeholder="0000-000-00000/000" />
+                    <textarea id="search_value" name="search_value">
+                    </textarea>
                 </div>
                 <div id="no_search_result" class="alert-info">{{ _('no search result') }}</div>
             </div>

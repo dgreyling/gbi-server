@@ -14,7 +14,10 @@
 # limitations under the License.
 
 import requests
-from flask import Blueprint, request, abort, current_app
+from flask import Blueprint, request, abort
+
+from gbi_server.model import WFS
+from gbi_server.extensions import db
 
 proxy = Blueprint("proxy", __name__, template_folder="../templates")
 
@@ -24,7 +27,11 @@ def proxy_action(url=None):
     if not url:
         abort(400)
 
-    allowed_hosts = [current_app.config.get('EXTERNAL_WFS_HOST')]
+    allowed_hosts = []
+    external_wfs_layers =  db.session.query(WFS).all()
+    for layer in external_wfs_layers:
+        allowed_hosts.append(layer.host)
+
     found = False
 
     for allowed_host in allowed_hosts:

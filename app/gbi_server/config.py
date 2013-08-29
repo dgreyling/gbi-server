@@ -90,19 +90,6 @@ class DefaultConfig(object):
 
     AUTHPROXY_CACHE_DIR = "/tmp/authproxy"
 
-    EXTERNAL_WFS_HOST = "www.ks.rlp.de"
-    EXTERNAL_WFS_URL = "https://www.ks.rlp.de/fc_wfs/wfs.php?user=XXXXX&password=XXXXX&"
-    EXTERNAL_WFS_GEOMETRY = "geom"
-    EXTERNAL_WFS_LAYER = 'kataster'
-    EXTERNAL_WFS_SRS = 'EPSG:3857'
-    EXTERNAL_WFS_NAME = 'GeoServer Web Feature Service'
-    EXTERNAL_WFS_NS_PREFIX = "MWKEL"
-    EXTERNAL_WFS_NS_URI = ""
-    EXTERNAL_WFS_SEARCH_PROPERTY = "flurstueckskennzeichen"
-    EXTERNAL_WFS_SEARCH_MIN_LENGTH = 7
-    EXTERNAL_WFS_SEARCH_PREFIX = '07'
-    EXTERNAL_WFS_MAX_FEATURES = 500
-
     MAPPROXY_SRS = ['EPSG:25832']
     MAPPROXY_YAML_DIR = "/tmp/"
 

@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask.ext.wtf import TextField, TextAreaField, validators, PasswordField, BooleanField, SelectField
+from flask.ext.wtf import TextField, TextAreaField, IntegerField, validators, PasswordField, BooleanField, SelectField
 from flask.ext.babel import lazy_gettext as _l
 
 from .base import Form
@@ -59,8 +59,19 @@ class WMSForm(RasterSourceForm):
         validators=[validators.Required()])
 
 class WFSForm(Form):
-    url = TextField(_l('vectorsource_url'), [validators.Required()])
+    host = TextField(_l('wfs_host'), [validators.Required()])
+    url = TextField(_l('wfs_url'), [validators.Required()])
+    geometry = TextField(_l('wfs_geometry'), [validators.Required()], default="the_geom")
+    layer = TextField(_l('wfs_layer'), [validators.Required()])
+    name = TextField(_l('wfs_name'), [validators.Required(), validators.Regexp('[a-zA-Z0-9_-]+$')])
+
+    srs = SelectField(_l('wfs_srs'), [validators.Required()], choices=[('EPSG:3857', 'EPSG:3857')])
+
+    ns_prefix = TextField(_l('wfs_ns_prefix'))
+    ns_uri = TextField(_l('wfs_ns_uri'))
+
+    search_property = TextField(_l('wfs_search_property'))
+    max_features = IntegerField(_l('wfs_max_features'))
+
     username = TextField(_l('rvectorsource_username'))
     password = PasswordField(_l('vectorsource_password'))
-    name = TextField(_l('vectorsourcee_name'), [validators.Required(), validators.Regexp('[a-zA-Z0-9_-]+$')])
-    attribute = TextField(_l('vectorsource_attribute'))

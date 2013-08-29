@@ -14,9 +14,12 @@
 # limitations under the License.
 
 from flask import request
-from flask.ext.wtf import SelectField, HiddenField, TextField, validators
+from flask.ext.wtf import QuerySelectField, SelectField, HiddenField, TextField, validators
 from flask.ext.babel import lazy_gettext as _l
 from .base import Form
+
+from gbi_server.model import WFS
+
 
 class WFSEditForm(Form):
     def is_submitted(self):
@@ -32,3 +35,10 @@ class WFSAddLayerForm(Form):
 
     new_layer = TextField(_l('wfs_new_layer_name'), validators=[validators.Required(),])
     add_form = HiddenField()
+
+def query_all_wfs():
+	return WFS.query.all()
+
+class WFSSearchForm(Form):
+    wfs_serach_layer = QuerySelectField(_l('select coverage'), [validators.Required()], query_factory=query_all_wfs,
+    	get_label='name',  get_pk=lambda a: a.name)

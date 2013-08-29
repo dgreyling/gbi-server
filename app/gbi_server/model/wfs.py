@@ -43,11 +43,20 @@ class WFS(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False, unique=True)
     url = db.Column(db.String(256), nullable=False)
+    host = db.Column(db.String(256), nullable=False)
+    geometry = db.Column(db.String(256), nullable=False)
+    layer = db.Column(db.String(256), nullable=False)
+
+    srs = db.Column(db.String(64))
+    ns_prefix = db.Column(db.String(64))
+    ns_uri = db.Column(db.String(64))
+    search_property = db.Column(db.String)
+
+    max_features = db.Column(db.Integer)
 
     username = db.Column(db.String(64))
     password = db.Column(db.String(64))
 
-    attribute = db.Column(db.String)
 
     @classmethod
     def by_id(cls, id):

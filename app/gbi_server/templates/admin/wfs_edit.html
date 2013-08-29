@@ -25,9 +25,19 @@
     <form method="POST" class="form-horizontal">
     {{ form.csrf }}
         <fieldset class="span5 offset1">
-            {{ input(form.name) }}
+            {{ input(form.host) }}
             {{ input(form.url) }}
-            {{ input(form.attribute) }}
+            {{ input(form.geometry) }}
+
+            {{ input(form.layer) }}
+            {{ input(form.name) }}
+            {{ input(form.srs) }}
+
+            {{ input(form.ns_prefix) }}
+            {{ input(form.ns_uri) }}
+            {{ input(form.search_property) }}
+            {{ input(form.max_features) }}
+
             {{ input(form.username) }}
             {{ input(form.password) }}
         </fieldset>
