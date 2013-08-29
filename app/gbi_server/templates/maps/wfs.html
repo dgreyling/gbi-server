@@ -4,6 +4,55 @@
 
 {% block title %}{{ _('WFS Edit') }}{% endblock %}
 
+{% block content_head %}<h1>{{_('WFS Edit')}}</h1>{% endblock %}
+
+{% block content %}
+    <div class="row-fluid">
+        <div class="map span8" id='map'></div>
+        <div class="span4 wfs_edit">
+            <h2><small>{{ _('search features') }}</small></h2>
+            <p class="help_text">
+                <small>{{ _('search help text') }}</small>
+            </p>
+            <div class="control-group">
+                <div class="control-label">
+                    <label for="search_value"><span>{{ _('search_label') }}{{ tooltip(_('tooltip - search')) }}</span></label>
+
+                </div>
+                {{ form.wfs_serach_layer }}
+                <div class="controls">
+                    <textarea id="search_value" name="search_value">
+                    </textarea>
+                </div>
+                <div id="no_search_result" class="alert-info">{{ _('no search result') }}</div>
+            </div>
+            <button class="btn btn-small" id="add_search">{{_('add search')}}</button>
+            <button class="btn btn-small" id="remove_search">{{_('remove search')}}</button>
+            <hr>
+            <h2><small>{{ _('feature settings') }}</small></h2>
+            <p><small>{{ _('feature select help text', logo_url=url_for('static', filename='img/select_hand.png')) }}</small></p>
+            <p><small>{{ _('feature draw help text', logo_url=url_for('static', filename='img/draw_polygon.png')) }}</small></p>
+            <p><small>{{ _('feature modify help text', logo_url=url_for('static', filename='img/modify.png')) }}</small></p>
+            <p><small>{{ _('feature copy help text', logo_url=url_for('static', filename='img/copy.png')) }}</small></p>
+            <p><small>{{ _('feature delete help text', logo_url=url_for('static', filename='img/delete.png')) }}</small></p>
+            <hr>
+            <div id="save_success" class="alert alert-success">{{ _('successfull saved') }}</div>
+            <button class="btn btn-small" id="save_changes">{{ _('save changes') }}
+                {{ tooltip(_('tooltip - button save changes')) }} </button>
+            <hr>
+
+            <div id="wfs_response" class="alert">
+                <span id="wfs_response_message"></span>
+            </div>
+            <h4>{{ _('attributes') }}
+                {{ tooltip(_('tooltip - attrbibutes')) }}
+            </h4>
+            <div id="attributeeditor"></div>
+        </div>
+    </div>
+{% endblock %}
+
+
 {% block javascript %}
     <script type="text/javascript" src="{{ url_for('maps.javascript_translation') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/lib/gbi-editor/src/gbi.js') }}"></script>
@@ -132,50 +181,4 @@
     </script>
 {% endblock %}
 
-{% block content_head %}<h1>{{_('WFS Edit')}}</h1>{% endblock %}
 
-{% block content %}
-    <div class="row-fluid">
-        <div class="map span8" id='map'></div>
-        <div class="span4 wfs_edit">
-            <h2><small>{{ _('search features') }}</small></h2>
-            <p class="help_text">
-                <small>{{ _('search help text') }}</small>
-            </p>
-            <div class="control-group">
-                <div class="control-label">
-                    <label for="search_value"><span>{{ _('search_label') }}{{ tooltip(_('tooltip - search')) }}</span></label>
-
-                </div>
-                {{ form.wfs_serach_layer }}
-                <div class="controls">
-                    <textarea id="search_value" name="search_value">
-                    </textarea>
-                </div>
-                <div id="no_search_result" class="alert-info">{{ _('no search result') }}</div>
-            </div>
-            <button class="btn btn-small" id="add_search">{{_('add search')}}</button>
-            <button class="btn btn-small" id="remove_search">{{_('remove search')}}</button>
-            <hr>
-            <h2><small>{{ _('feature settings') }}</small></h2>
-            <p><small>{{ _('feature select help text', logo_url=url_for('static', filename='img/select_hand.png')) }}</small></p>
-            <p><small>{{ _('feature draw help text', logo_url=url_for('static', filename='img/draw_polygon.png')) }}</small></p>
-            <p><small>{{ _('feature modify help text', logo_url=url_for('static', filename='img/modify.png')) }}</small></p>
-            <p><small>{{ _('feature copy help text', logo_url=url_for('static', filename='img/copy.png')) }}</small></p>
-            <p><small>{{ _('feature delete help text', logo_url=url_for('static', filename='img/delete.png')) }}</small></p>
-            <hr>
-            <div id="save_success" class="alert alert-success">{{ _('successfull saved') }}</div>
-            <button class="btn btn-small" id="save_changes">{{ _('save changes') }}
-                {{ tooltip(_('tooltip - button save changes')) }} </button>
-            <hr>
-
-            <div id="wfs_response" class="alert">
-                <span id="wfs_response_message"></span>
-            </div>
-            <h4>{{ _('attributes') }}
-                {{ tooltip(_('tooltip - attrbibutes')) }}
-            </h4>
-            <div id="attributeeditor"></div>
-        </div>
-    </div>
-{% endblock %}
