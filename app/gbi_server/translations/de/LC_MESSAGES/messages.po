@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-08-28 11:04+0200\n"
+"POT-Creation-Date: 2013-08-30 13:11+0200\n"
 "PO-Revision-Date: 2013-08-20 13:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -152,25 +152,53 @@ msgstr "Matrix Set"
 msgid "wms_version"
 msgstr "WMS Version"
 
-#: gbi_server/forms/admin.py:62 gbi_server/templates/admin/wfs_list.html:14
-msgid "vectorsource_url"
-msgstr "URL"
+#: gbi_server/forms/admin.py:62
+msgid "wfs_host"
+msgstr ""
 
 #: gbi_server/forms/admin.py:63
+msgid "wfs_url"
+msgstr "URL"
+
+#: gbi_server/forms/admin.py:64
+msgid "wfs_geometry"
+msgstr "Geometriespalte"
+
+#: gbi_server/forms/admin.py:65 gbi_server/forms/wfs.py:28
+msgid "wfs_layer"
+msgstr "Layer"
+
+#: gbi_server/forms/admin.py:66
+msgid "wfs_name"
+msgstr "Name"
+
+#: gbi_server/forms/admin.py:68
+msgid "wfs_srs"
+msgstr "SRS"
+
+#: gbi_server/forms/admin.py:70
+msgid "wfs_ns_prefix"
+msgstr "NS Prefox"
+
+#: gbi_server/forms/admin.py:71
+msgid "wfs_ns_uri"
+msgstr "NS URI"
+
+#: gbi_server/forms/admin.py:73
+msgid "wfs_search_property"
+msgstr "Suchattribut"
+
+#: gbi_server/forms/admin.py:74
+msgid "wfs_max_features"
+msgstr "Maximale Features"
+
+#: gbi_server/forms/admin.py:76
 msgid "rvectorsource_username"
 msgstr "Benutzername"
 
-#: gbi_server/forms/admin.py:64
+#: gbi_server/forms/admin.py:77
 msgid "vectorsource_password"
 msgstr "Passwort"
-
-#: gbi_server/forms/admin.py:65
-msgid "vectorsourcee_name"
-msgstr "Name"
-
-#: gbi_server/forms/admin.py:66 gbi_server/templates/admin/wfs_list.html:15
-msgid "vectorsource_attribute"
-msgstr "Such-Attribut"
 
 #: gbi_server/forms/user.py:31 gbi_server/forms/user.py:45
 #: gbi_server/forms/user.py:57 gbi_server/templates/admin/user_list.html:14
@@ -229,7 +257,7 @@ msgstr "Altes Passwort"
 msgid "file"
 msgstr "Datei"
 
-#: gbi_server/forms/user.py:78
+#: gbi_server/forms/user.py:78 gbi_server/forms/wfs.py:43
 msgid "select coverage"
 msgstr "Coverage auswhälen"
 
@@ -245,11 +273,7 @@ msgstr "E-Mail Adresse nicht vorhanden"
 msgid "Password must at least 6 characters"
 msgstr "Passwort muss eine Länge von mindestens 6 Zeichen besitzen"
 
-#: gbi_server/forms/wfs.py:25
-msgid "wfs_layer"
-msgstr "WFS Layer"
-
-#: gbi_server/forms/wfs.py:33
+#: gbi_server/forms/wfs.py:36
 msgid "wfs_new_layer_name"
 msgstr "Layer Name"
 
@@ -324,7 +348,7 @@ msgid "info text wmts map"
 msgstr "Übersicht über alle Karten und Flächen die Ihnen zur Verfügung stehen"
 
 #: gbi_server/templates/index.html:17 gbi_server/templates/maps/wfs.html:5
-#: gbi_server/templates/maps/wfs.html:119
+#: gbi_server/templates/maps/wfs.html:7
 msgid "WFS Edit"
 msgstr "Flächeneditor"
 
@@ -408,7 +432,7 @@ msgid "Edit user"
 msgstr "Benutzer editieren"
 
 #: gbi_server/templates/admin/edit_user.html:20
-#: gbi_server/templates/admin/wfs_edit.html:35
+#: gbi_server/templates/admin/wfs_edit.html:45
 #: gbi_server/templates/admin/wms_edit.html:76
 #: gbi_server/templates/admin/wmts_edit.html:48
 #: gbi_server/templates/user/edit_address.html:22
@@ -621,6 +645,14 @@ msgstr "WFS Editieren"
 #: gbi_server/templates/admin/wfs_list.html:13
 msgid "vectorsource_name"
 msgstr "Name"
+
+#: gbi_server/templates/admin/wfs_list.html:14
+msgid "vectorsource_url"
+msgstr "URL"
+
+#: gbi_server/templates/admin/wfs_list.html:15
+msgid "vectorsource_attribute"
+msgstr "Such-Attribut"
 
 #: gbi_server/templates/admin/wms_edit.html:7
 #: gbi_server/templates/admin/wms_edit.html:16
@@ -907,111 +939,73 @@ msgstr ""
 "Hier werden Ihnen alle zur Verfügung stehenden Karten und Flächen "
 "eingeblendet"
 
-#: gbi_server/templates/maps/wfs.html:18
-msgid "save feautre not possible"
-msgstr "Daten konnten nicht gespeichert werden"
+#: gbi_server/templates/maps/wfs.html:13
+msgid "search features"
+msgstr "Suchen"
+
+#: gbi_server/templates/maps/wfs.html:15
+msgid "search help text"
+msgstr "Suchen Sie nach einem oder mehreren Werten in dem ausgewählten Suchdienst. Die Anwendung zentriert die Karte automatisch auf den Treffer."
 
 #: gbi_server/templates/maps/wfs.html:19
-msgid "save feature successfull"
-msgstr "Daten erfolgreich gespeichert"
-
-#: gbi_server/templates/maps/wfs.html:125
-msgid "search features"
-msgstr "Flurstücke suchen"
-
-#: gbi_server/templates/maps/wfs.html:127
-msgid "search help text"
-msgstr ""
-"Suchen Sie hier nach dem Flurstückskennzeichen. Der Kartenausschnitt wird"
-" automatisch auf die gefundenen Flurstücke zentriert."
-
-#: gbi_server/templates/maps/wfs.html:131
 msgid "search_label"
-msgstr "Flurstückskennzeichen"
+msgstr "Suchdienst"
 
-#: gbi_server/templates/maps/wfs.html:131
+#: gbi_server/templates/maps/wfs.html:19
 msgid "tooltip - search"
-msgstr ""
-"Geben Sie das zu suchende Flurstückskennzeichen in der Form "
-"\"Gemarkungsnummer-Flurnummer-Flurstücksnummer Zähler/Flurstücksnummer "
-"Nenner\" ein."
+msgstr "Hier stehen Ihnen die Dienste zur Verfügung die vom Administrator angelegt worden sind."
 
-#: gbi_server/templates/maps/wfs.html:137
+#: gbi_server/templates/maps/wfs.html:27
 msgid "no search result"
-msgstr "Ihre Suche ergab kein Resultat"
+msgstr "Kein Suchergebnis vorhanden"
 
-#: gbi_server/templates/maps/wfs.html:139
+#: gbi_server/templates/maps/wfs.html:29
 msgid "add search"
 msgstr "Suchen"
 
-#: gbi_server/templates/maps/wfs.html:140
-msgid "remove search"
-msgstr "Suchergebnisse ausblenden"
+#: gbi_server/templates/maps/wfs.html:30
+msgid "remove search string"
+msgstr "Suchewert entfernen"
 
-#: gbi_server/templates/maps/wfs.html:142
+#: gbi_server/templates/maps/wfs.html:31
+msgid "hide searchlayer"
+msgstr "Suchergebnis ausblenden"
+
+#: gbi_server/templates/maps/wfs.html:34
 msgid "feature settings"
-msgstr "Flächen bearbeiten"
+msgstr "Geometrien bearbeiten"
 
-#: gbi_server/templates/maps/wfs.html:143
+#: gbi_server/templates/maps/wfs.html:35
 msgid "feature select help text"
-msgstr ""
-"Um sich die Attribute einer Geometrie anzeigen zu lassen und sie "
-"bearbeiten zu können, müssen Sie diese in der Karte selektieren. Bei "
-"aktiviertem Auwahlwerkezug <img src=%(logo_url)s>  klicken Sie hierfür "
-"einfach auf die gewünschte Geometrie."
+msgstr "Über die Toolbar in der Karte können Sie Geometrien zeichnen, bearbeiten, auswählen oder löschen. Ausgewählte Geometrien können mit Eigenschaften versehen werden."
 
-#: gbi_server/templates/maps/wfs.html:144
-msgid "feature draw help text"
-msgstr ""
-"Um eine Geometrie zeichnen zu können, aktivieren Sie das Zeichenwerkzeug "
-"<img src=%(logo_url)s>. Nun können Sie die Geometrie in der Karte "
-"zeichnen."
-
-#: gbi_server/templates/maps/wfs.html:145
-msgid "feature modify help text"
-msgstr ""
-"Um eine Geometrie bearbeiten zu können, aktivieren Sie das "
-"Bearbeitungswerkzeug <img src=%(logo_url)s>  und klicken einfach auf die "
-"gewünschte Geometrie. Alle Punkte der Geometrie sind nun verschiebbar."
-
-#: gbi_server/templates/maps/wfs.html:146
-msgid "feature copy help text"
-msgstr ""
-"Um eine Geometrie in Ihren Layer zu kopieren, wählen Sie diese mit dem "
-"Auswahlwerkzeug aus. Anschließend betätigen Sie das Kopieren-Werkzeug "
-"<img src=%(logo_url)s>. Nun befindet sich eine Kopie der Geometrie in "
-"Ihrem Layer."
-
-#: gbi_server/templates/maps/wfs.html:147
-msgid "feature delete help text"
-msgstr ""
-"Um eine Geometrie aus Ihren Layer zu löschen, wählen Sie diese mit dem "
-"Auswahlwerkzeug aus. Anschließend betätigen Sie das Lösch-Werkzeug <img "
-"src=%(logo_url)s>. Die Geometrie ist nun gelöscht."
-
-#: gbi_server/templates/maps/wfs.html:149
+#: gbi_server/templates/maps/wfs.html:37
 msgid "successfull saved"
 msgstr "Erfolgreich gespeichert"
 
-#: gbi_server/templates/maps/wfs.html:150
+#: gbi_server/templates/maps/wfs.html:38
 msgid "save changes"
-msgstr "Änderungen dauerhaft speichern"
+msgstr "Änderungen gespeichert"
 
-#: gbi_server/templates/maps/wfs.html:151
+#: gbi_server/templates/maps/wfs.html:39
 msgid "tooltip - button save changes"
-msgstr ""
-"Änderungen an Flächen oder Attributen müssen Sie bestätigen. Der Button "
-"wird grün dargestellt sobald Änderungen vorhanden sind die gespeichert "
-"werden können. Wenn Änderungen nicht gespeichert werden, gehen diese "
-"verloren."
+msgstr "Änderungen an Flächen oder Attributen müssen Sie bestätigen. Der Button wird grün dargestellt sobald Änderungen vorhanden sind die gespeichert werden können. Wenn Änderungen nicht gespeichert werden, gehen diese verloren."
 
-#: gbi_server/templates/maps/wfs.html:157
+#: gbi_server/templates/maps/wfs.html:45
 msgid "attributes"
 msgstr "Eigenschaften"
 
-#: gbi_server/templates/maps/wfs.html:158
+#: gbi_server/templates/maps/wfs.html:46
 msgid "tooltip - attrbibutes"
 msgstr "Geben Sie hier Werte zu den Eigenschaften der Flächen ein"
+
+#: gbi_server/templates/maps/wfs.html:65
+msgid "save feautre not possible"
+msgstr "Daten konnten nicht gespeichert werden"
+
+#: gbi_server/templates/maps/wfs.html:66
+msgid "save feature successfull"
+msgstr "Daten wurden erfolgreich gespeichert"
 
 #: gbi_server/templates/maps/wfs_edit.html:5
 #: gbi_server/templates/maps/wfs_edit.html:7
@@ -1311,15 +1305,15 @@ msgstr "WMS mit diesem Namen existiert bereits"
 msgid "WMS removed"
 msgstr "WMS gelöscht"
 
-#: gbi_server/views/admin.py:365
+#: gbi_server/views/admin.py:373
 msgid "Saved WFS"
 msgstr "WFS Speichern"
 
-#: gbi_server/views/admin.py:369
+#: gbi_server/views/admin.py:377
 msgid "WFS with this name already exist"
 msgstr "WFS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:380
+#: gbi_server/views/admin.py:388
 msgid "WFS removed"
 msgstr "WFS gelöscht"
 
@@ -1343,15 +1337,15 @@ msgstr "Daten konnten nicht kopiert werden"
 msgid "file copied"
 msgstr "Datei wurde erfolgreich kopiert"
 
-#: gbi_server/views/context.py:151
+#: gbi_server/views/context.py:169
 msgid "area box"
 msgstr "Flächen-Box"
 
-#: gbi_server/views/context.py:163
+#: gbi_server/views/context.py:181
 msgid "file box"
 msgstr "Beraterbox"
 
-#: gbi_server/views/context.py:173
+#: gbi_server/views/context.py:191
 msgid "consultant box"
 msgstr "Downloadbox"
 
@@ -1365,33 +1359,33 @@ msgstr "Layer '%(title)s' existiert bereits"
 msgid "Layer %(title)s created"
 msgstr "Layer '%(title)s' wurde erstellt"
 
-#: gbi_server/views/maps.py:101 gbi_server/views/maps.py:151
+#: gbi_server/views/maps.py:102 gbi_server/views/maps.py:149
 msgid "external edit in progress"
 msgstr "Externer Editiervorgang aktiv."
 
-#: gbi_server/views/maps.py:109 gbi_server/views/maps.py:173
+#: gbi_server/views/maps.py:110 gbi_server/views/maps.py:171
 msgid "layer unknown or without schema"
 msgstr "Unbekannter Layer oder fehlendes Layer-Schema"
 
-#: gbi_server/views/maps.py:146
+#: gbi_server/views/maps.py:144
 msgid "not allowed to remove this layer"
 msgstr "Dieser Layer darf nicht gelöscht werden"
 
-#: gbi_server/views/maps.py:157
+#: gbi_server/views/maps.py:155
 #, python-format
 msgid "Layer %(layer)s removed"
 msgstr "Layer %(layer)s gelöscht"
 
-#: gbi_server/views/maps.py:159
+#: gbi_server/views/maps.py:157
 #, python-format
 msgid "Could not remove layer %(layer)s"
 msgstr "Layer '%(layer)s' kann nicht gelöscht werden."
 
-#: gbi_server/views/maps.py:192
+#: gbi_server/views/maps.py:187
 msgid "wfs changes discarded"
 msgstr "Änderungen verworfen"
 
-#: gbi_server/views/maps.py:235
+#: gbi_server/views/maps.py:229
 msgid "wfs changes saved"
 msgstr "Änderungen gespeichert"
 
@@ -1609,4 +1603,16 @@ msgstr "Keine gültige Datumseingabe"
 #: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:649
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
+
+#~ msgid "feature draw help text"
+#~ msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
+
+#~ msgid "feature modify help text"
+#~ msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
+
+#~ msgid "feature copy help text"
+#~ msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
+
+#~ msgid "feature delete help text"
+#~ msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
 

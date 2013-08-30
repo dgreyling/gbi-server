@@ -27,14 +27,12 @@
                 <div id="no_search_result" class="alert-info">{{ _('no search result') }}</div>
             </div>
             <button class="btn btn-small" id="add_search">{{_('add search')}}</button>
-            <button class="btn btn-small" id="remove_search">{{_('remove search')}}</button>
+            <button class="btn btn-small" id="remove_search">{{_('remove search string')}}</button>
+            <button class="btn btn-small" id="hide_searchlayer">{{_('hide searchlayer')}}</button>
+
             <hr>
             <h2><small>{{ _('feature settings') }}</small></h2>
-            <p><small>{{ _('feature select help text', logo_url=url_for('static', filename='img/select_hand.png')) }}</small></p>
-            <p><small>{{ _('feature draw help text', logo_url=url_for('static', filename='img/draw_polygon.png')) }}</small></p>
-            <p><small>{{ _('feature modify help text', logo_url=url_for('static', filename='img/modify.png')) }}</small></p>
-            <p><small>{{ _('feature copy help text', logo_url=url_for('static', filename='img/copy.png')) }}</small></p>
-            <p><small>{{ _('feature delete help text', logo_url=url_for('static', filename='img/delete.png')) }}</small></p>
+            <p><small>{{ _('feature select help text') }}</small></p>
             <hr>
             <div id="save_success" class="alert alert-success">{{ _('successfull saved') }}</div>
             <button class="btn btn-small" id="save_changes">{{ _('save changes') }}
@@ -107,13 +105,22 @@
                         activeSearchLayer.olLayer.searchProperty, value
                     );
                     $('#remove_search').removeAttr('disabled');
+                } else {
+                    activeSearchLayer.removeFilter();
                 }
+                $('#hide_searchlayer').removeAttr('disabled');
                 return false;
             });
 
             $('#remove_search').click(function() {
                 $("#search_value").val('');
-                activeSearchLayer.removeFilter();
+                $(this).prop("disabled", "disabled")
+                return false;
+            })
+
+            $('#hide_searchlayer').click(function() {
+                activeSearchLayer.visible(false)
+                $(this).prop("disabled", "disabled")
                 return false;
             })
 
