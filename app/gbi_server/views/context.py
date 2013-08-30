@@ -153,12 +153,15 @@ def get_context_document():
             'id': wfs.id,
             'name': wfs.name,
             'layer': wfs.layer,
+            'host': wfs.host,
             'url': wfs.url,
             'srs': wfs.srs,
             'geometry_field': wfs.geometry,
             'feature_ns': wfs.ns_uri,
             'typename': wfs.ns_prefix,
             'search_property': wfs.search_property,
+            'username': wfs.username,
+            'password': wfs.password,
         })
 
     if current_app.config['FEATURE_AREA_BOXES']:
