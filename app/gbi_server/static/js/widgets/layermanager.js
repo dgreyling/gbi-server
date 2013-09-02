@@ -142,7 +142,7 @@ gbi.widgets.LayerManager.template = '\
                 <% for(var i=0; i<rasterLayers.length; i++) { %>\
                     <li class="gbi_layer">\
                         <input type="checkbox" id="visible_<%=rasterLayers[i].id%>" />\
-                        <span><%=rasterLayers[i].label%></span>\
+                        <span><%=rasterLayers[i].options.label%></span>\
                     </li>\
                 <% } %>\
             </ul>\
