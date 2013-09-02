@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-08-30 13:11+0200\n"
+"POT-Creation-Date: 2013-09-02 09:51+0200\n"
 "PO-Revision-Date: 2013-08-20 13:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -945,7 +945,10 @@ msgstr "Suchen"
 
 #: gbi_server/templates/maps/wfs.html:15
 msgid "search help text"
-msgstr "Suchen Sie nach einem oder mehreren Werten in dem ausgewählten Suchdienst. Die Anwendung zentriert die Karte automatisch auf den Treffer."
+msgstr ""
+"Suchen Sie nach einem oder mehreren Werten in dem ausgewählten "
+"Suchdienst. Die Anwendung zentriert die Karte automatisch auf den "
+"Treffer."
 
 #: gbi_server/templates/maps/wfs.html:19
 msgid "search_label"
@@ -953,7 +956,9 @@ msgstr "Suchdienst"
 
 #: gbi_server/templates/maps/wfs.html:19
 msgid "tooltip - search"
-msgstr "Hier stehen Ihnen die Dienste zur Verfügung die vom Administrator angelegt worden sind."
+msgstr ""
+"Hier stehen Ihnen die Dienste zur Verfügung die vom Administrator "
+"angelegt worden sind."
 
 #: gbi_server/templates/maps/wfs.html:27
 msgid "no search result"
@@ -977,7 +982,10 @@ msgstr "Geometrien bearbeiten"
 
 #: gbi_server/templates/maps/wfs.html:35
 msgid "feature select help text"
-msgstr "Über die Toolbar in der Karte können Sie Geometrien zeichnen, bearbeiten, auswählen oder löschen. Ausgewählte Geometrien können mit Eigenschaften versehen werden."
+msgstr ""
+"Über die Toolbar in der Karte können Sie Geometrien zeichnen, bearbeiten,"
+" auswählen oder löschen. Ausgewählte Geometrien können mit Eigenschaften "
+"versehen werden."
 
 #: gbi_server/templates/maps/wfs.html:37
 msgid "successfull saved"
@@ -989,7 +997,11 @@ msgstr "Änderungen gespeichert"
 
 #: gbi_server/templates/maps/wfs.html:39
 msgid "tooltip - button save changes"
-msgstr "Änderungen an Flächen oder Attributen müssen Sie bestätigen. Der Button wird grün dargestellt sobald Änderungen vorhanden sind die gespeichert werden können. Wenn Änderungen nicht gespeichert werden, gehen diese verloren."
+msgstr ""
+"Änderungen an Flächen oder Attributen müssen Sie bestätigen. Der Button "
+"wird grün dargestellt sobald Änderungen vorhanden sind die gespeichert "
+"werden können. Wenn Änderungen nicht gespeichert werden, gehen diese "
+"verloren."
 
 #: gbi_server/templates/maps/wfs.html:45
 msgid "attributes"
@@ -1603,16 +1615,4 @@ msgstr "Keine gültige Datumseingabe"
 #: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:649
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
-
-#~ msgid "feature draw help text"
-#~ msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
-
-#~ msgid "feature modify help text"
-#~ msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
-
-#~ msgid "feature copy help text"
-#~ msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
-
-#~ msgid "feature delete help text"
-#~ msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
 
