@@ -41,4 +41,5 @@ def query_all_wfs():
 
 class WFSSearchForm(Form):
     wfs_serach_layer = QuerySelectField(_l('select coverage'), [validators.Required()], query_factory=query_all_wfs,
-    	get_label='name',  get_pk=lambda a: a.name)
+        get_label=lambda a: ('%s (%s)' % (a.name, a.search_property)), get_pk=lambda a: a.name)
+
