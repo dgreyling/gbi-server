@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-09-02 09:51+0200\n"
+"POT-Creation-Date: 2013-09-05 16:04+0200\n"
 "PO-Revision-Date: 2013-08-20 13:54+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -138,67 +138,75 @@ msgstr "Unbeschränkter Zugriff"
 msgid "rastersource_accessible"
 msgstr "Direkter WMTS Zugriff"
 
-#: gbi_server/forms/admin.py:52
+#: gbi_server/forms/admin.py:49
+msgid "rastersource_protected"
+msgstr "Passwort geschützt"
+
+#: gbi_server/forms/admin.py:54
 msgid "level needs to be bigger or equal to start level"
 msgstr ""
 "Das gewählte Startlevel muss größer oder gleich dem ausgewählten Endlevel"
 " sein"
 
-#: gbi_server/forms/admin.py:55
+#: gbi_server/forms/admin.py:57
 msgid "wmts_matrix_set"
 msgstr "Matrix Set"
 
-#: gbi_server/forms/admin.py:58
+#: gbi_server/forms/admin.py:60
 msgid "wms_version"
 msgstr "WMS Version"
 
-#: gbi_server/forms/admin.py:62
+#: gbi_server/forms/admin.py:64
 msgid "wfs_host"
 msgstr ""
 
-#: gbi_server/forms/admin.py:63
+#: gbi_server/forms/admin.py:65
 msgid "wfs_url"
 msgstr "URL"
 
-#: gbi_server/forms/admin.py:64
+#: gbi_server/forms/admin.py:66
 msgid "wfs_geometry"
 msgstr "Geometriespalte"
 
-#: gbi_server/forms/admin.py:65 gbi_server/forms/wfs.py:28
+#: gbi_server/forms/admin.py:67 gbi_server/forms/wfs.py:28
 msgid "wfs_layer"
 msgstr "Layer"
 
-#: gbi_server/forms/admin.py:66
+#: gbi_server/forms/admin.py:68
 msgid "wfs_name"
 msgstr "Name"
 
-#: gbi_server/forms/admin.py:68
+#: gbi_server/forms/admin.py:70
 msgid "wfs_srs"
 msgstr "SRS"
 
-#: gbi_server/forms/admin.py:70
+#: gbi_server/forms/admin.py:72
 msgid "wfs_ns_prefix"
 msgstr "NS Prefox"
 
-#: gbi_server/forms/admin.py:71
+#: gbi_server/forms/admin.py:73
 msgid "wfs_ns_uri"
 msgstr "NS URI"
 
-#: gbi_server/forms/admin.py:73
+#: gbi_server/forms/admin.py:75
 msgid "wfs_search_property"
 msgstr "Suchattribut"
 
-#: gbi_server/forms/admin.py:74
+#: gbi_server/forms/admin.py:76
 msgid "wfs_max_features"
 msgstr "Maximale Features"
 
-#: gbi_server/forms/admin.py:76
+#: gbi_server/forms/admin.py:78
 msgid "rvectorsource_username"
 msgstr "Benutzername"
 
-#: gbi_server/forms/admin.py:77
+#: gbi_server/forms/admin.py:79
 msgid "vectorsource_password"
 msgstr "Passwort"
+
+#: gbi_server/forms/admin.py:80
+msgid "vectorsoure_protected"
+msgstr "Passwort geschützt"
 
 #: gbi_server/forms/user.py:31 gbi_server/forms/user.py:45
 #: gbi_server/forms/user.py:57 gbi_server/templates/admin/user_list.html:14
@@ -432,9 +440,9 @@ msgid "Edit user"
 msgstr "Benutzer editieren"
 
 #: gbi_server/templates/admin/edit_user.html:20
-#: gbi_server/templates/admin/wfs_edit.html:45
-#: gbi_server/templates/admin/wms_edit.html:76
-#: gbi_server/templates/admin/wmts_edit.html:48
+#: gbi_server/templates/admin/wfs_edit.html:47
+#: gbi_server/templates/admin/wms_edit.html:81
+#: gbi_server/templates/admin/wmts_edit.html:51
 #: gbi_server/templates/user/edit_address.html:22
 #: gbi_server/templates/user/edit_password.html:16
 msgid "save"
@@ -668,10 +676,10 @@ msgstr ""
 
 #: gbi_server/templates/admin/wms_edit.html:29
 msgid "load wms"
-msgstr "WMS Lade"
+msgstr "WMS Capabilities Laden"
 
 #: gbi_server/templates/admin/wms_edit.html:33
-#: gbi_server/templates/admin/wms_edit.html:81
+#: gbi_server/templates/admin/wms_edit.html:86
 msgid "preview map"
 msgstr "Vorschaukarte"
 
@@ -698,7 +706,7 @@ msgstr ""
 "wurde. Mit ** gekennzeichnte SMS können in der Kartenvorschau angezeigt "
 "werden."
 
-#: gbi_server/templates/admin/wms_edit.html:82
+#: gbi_server/templates/admin/wms_edit.html:87
 msgid "infotext preview map only if on selct srs is selcted"
 msgstr ""
 "Kartenvorschau nicht möglich. Bitte wählen Sie einen Layer und ein "
