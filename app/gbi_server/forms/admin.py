@@ -46,6 +46,8 @@ class RasterSourceForm(Form):
     is_visible = BooleanField(_l('rastersource_visibility'))
     is_public = BooleanField(_l('rastersource_public'))
     is_accessible = BooleanField(_l('rastersource_accessible'))
+    is_protected = BooleanField(_l('rastersource_protected'))
+
 
     def validate_view_level_end(form, field):
         if form.data['view_level_start'] > field.data:
@@ -75,3 +77,5 @@ class WFSForm(Form):
 
     username = TextField(_l('rvectorsource_username'))
     password = PasswordField(_l('vectorsource_password'))
+    is_protected = BooleanField(_l('vectorsoure_protected'))
+

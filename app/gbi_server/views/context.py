@@ -102,6 +102,7 @@ def get_context_document():
             "overlay": wmts.is_overlay,
             "username": wmts.username,
             "password": wmts.password,
+            "is_protected": wmts.is_protected,
             "srs": wmts.srs,
             "max_tiles": wmts.max_tiles,
             "view_restriction": {
@@ -134,6 +135,7 @@ def get_context_document():
             "overlay": wms.is_overlay,
             "username": wms.username,
             "password": wms.password,
+            "is_protected": wms.is_protected,
             "srs": wms.srs,
             "wms_version": wms.version,
             "view_restriction": {
@@ -162,6 +164,8 @@ def get_context_document():
             'search_property': wfs.search_property,
             'username': wfs.username,
             'password': wfs.password,
+            'is_protected': wfs.is_protected,
+
         })
 
     if current_app.config['FEATURE_AREA_BOXES']:

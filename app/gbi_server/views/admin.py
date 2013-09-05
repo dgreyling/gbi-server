@@ -203,6 +203,7 @@ def wmts_edit(id=None):
         wmts.url = form.data['url']
         wmts.username = form.data['username']
         wmts.password = form.data['password']
+        wmts.is_protected = form.data['is_protected']
         wmts.name = form.data['name']
         wmts.title = form.data['title']
         wmts.layer = form.data['layer']
@@ -291,6 +292,7 @@ def wms_edit(id=None):
         wms.url = form.data['url']
         wms.username = form.data['username']
         wms.password = form.data['password']
+        wms.is_protected = form.data['is_protected']
         wms.name = form.data['name']
         wms.title = form.data['title']
         wms.layer = form.data['layer']
@@ -367,6 +369,7 @@ def wfs_edit(id=None):
         wfs.max_features = form.data['max_features']
         wfs.username = form.data['username']
         wfs.password = form.data['password']
+        wfs.is_protected = form.data['is_protected']
 
         try:
             db.session.commit()

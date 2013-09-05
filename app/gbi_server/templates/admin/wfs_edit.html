@@ -37,13 +37,19 @@
             {{ input(form.ns_uri) }}
             {{ input(form.search_property) }}
             {{ input(form.max_features) }}
-
+            <hr>
+            {{ input(form.is_protected) }}
             {{ input(form.username) }}
             {{ input(form.password) }}
+            <hr>
         </fieldset>
         <fieldset class="span9 pagination-centered">
             {{ button(_('save'), True) }}
         </fieldset>
     </form>
 </div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/base.js') }}"></script>
 {% endblock %}

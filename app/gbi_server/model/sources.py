@@ -48,6 +48,7 @@ class WMTS(db.Model):
     is_visible = db.Column(db.Boolean(), default=True)
     is_public = db.Column(db.Boolean(), default=False)
     is_accessible = db.Column(db.Boolean(), default=False)
+    is_protected = db.Column(db.Boolean(), default=True)
 
     @classmethod
     def by_id(cls, id):
@@ -98,6 +99,7 @@ class WMS(db.Model):
     is_visible = db.Column(db.Boolean(), default=True)
     is_public = db.Column(db.Boolean(), default=False)
     is_accessible = db.Column(db.Boolean(), default=True)
+    is_protected = db.Column(db.Boolean(), default=True)
 
     @classmethod
     def by_id(cls, id):

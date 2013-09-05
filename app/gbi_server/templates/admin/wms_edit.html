@@ -73,6 +73,12 @@
             {{ input(form.max_tiles) }}
             {{ input(form.is_transparent) }}
             {{ input(form.is_public) }}
+            <hr>
+            {{ input(form.is_protected) }}
+
+            {{ input(form.username) }}
+            {{ input(form.password) }}
+            <hr>
             {{ button(_('save'), True, btn_class='success') }}
         </fieldset>
     </form>
@@ -224,4 +230,5 @@
 
     });
 </script>
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/base.js') }}"></script>
 {% endblock %}

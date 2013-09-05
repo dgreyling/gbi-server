@@ -33,6 +33,9 @@
             {{ input(form.srs) }}
             {{ input(form.matrix_set) }}
             {{ input(form.is_visible) }}
+            {{ input(form.is_protected) }}
+            {{ input(form.username) }}
+            {{ input(form.password) }}
         </fieldset>
         <fieldset class="span5">
             {{ textarea(form.view_coverage, rows=6, cols=6, class='span8') }}
@@ -49,4 +52,8 @@
         </fieldset>
     </form>
 </div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript" src="{{ url_for('static', filename='js/admin/base.js') }}"></script>
 {% endblock %}

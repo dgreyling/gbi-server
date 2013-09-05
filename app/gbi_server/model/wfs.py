@@ -56,6 +56,7 @@ class WFS(db.Model):
 
     username = db.Column(db.String(64))
     password = db.Column(db.String(64))
+    is_protected = db.Column(db.Boolean(), default=True)
 
 
     @classmethod
