@@ -21,7 +21,7 @@
                 <tr>
                     <td>{{ elem.name }}</td>
                     <td>{{ elem.url }}</td>
-                    <td>{{ elem.attribute }}</td>
+                    <td>{{ elem.search_property }}</td>
                     <td>
                         <a class="btn btn-small" href="{{ url_for('admin.wfs_edit', id=elem.id) }}">{{ _('edit') }}</a>
                         <a class="btn btn-small" href="{{ url_for('admin.wfs_remove', id=elem.id) }}">{{ _('remove') }}</a>
