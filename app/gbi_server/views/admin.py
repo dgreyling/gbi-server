@@ -341,6 +341,7 @@ def wms_remove(id):
         db.session.delete(wms)
         db.session.commit()
         flash( _('WMS removed'), 'success')
+    return redirect(url_for('admin.wms_list'))
 
 @admin.route('/admin/wfs/list', methods=["GET"])
 def wfs_list():
