@@ -122,7 +122,7 @@ def wfs_edit_layer(layer=None):
         if result:
             data_extent = loads(result[1])
 
-
+    titles = dict(couch.get_layer_names())
     return render_template(
         'maps/wfs.html',
         form=form,
@@ -132,6 +132,7 @@ def wfs_edit_layer(layer=None):
         read_only_schema=couch.layer_schema(layer)['properties'],
         read_only_layer_name=current_app.config.get('USER_READONLY_LAYER_TITLE'),
         editable_layer=layer,
+        editable_layer_title=titles[layer],
         data_extent=data_extent.bounds if data_extent else None,
         user=current_user
     )

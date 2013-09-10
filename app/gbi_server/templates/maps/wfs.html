@@ -71,7 +71,7 @@
         };
         var read_only_schema = {{read_only_schema|tojson|safe}};
         var write_back_url = "{{ url_for('maps.write_back', layer=editable_layer) }}";
-        var write_layer_name = "Basis Layer";
+        var write_layer_name = "{{ editable_layer_title }}";
 
         var activeSearchLayer;
         $(document).ready(function() {
