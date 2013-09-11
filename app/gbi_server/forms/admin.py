@@ -30,7 +30,7 @@ class RasterSourceForm(Form):
     url = TextField(_l('rastersource_url'), [validators.Required()])
     username = TextField(_l('rastersource_username'))
     password = PasswordField(_l('rastersource_password'))
-    name = TextField(_l('rastersource_name'), [validators.Required(), validators.Regexp('[a-zA-Z0-9_-]+$')])
+    name = TextField(_l('rastersource_name'), [validators.Required(), validators.Regexp('[a-z0-9_-]+$')])
     title = TextField(_l('rastersource_title'), [validators.Required()])
     layer = TextField(_l('rastersource_layer'), [validators.Required()])
     format = SelectField(_l('rastersource_format'), [validators.Required()], choices=[('png', 'png'), ('jpeg', 'jpeg')])
