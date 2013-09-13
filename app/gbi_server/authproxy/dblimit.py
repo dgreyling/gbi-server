@@ -51,7 +51,8 @@ class CouchDBLimiter(LimiterCache):
                 return 'rw'
             elif dbname.startswith('%s_' % (SystemConfig.UPLOAD_BOX_NAME, )):
                 return 'r'
-
+            elif dbname == '%s_%s' % (SystemConfig.FILE_BOX_NAME, user.id):
+                return 'rw'
         return 'no'
 
     def serialize(self, data):
