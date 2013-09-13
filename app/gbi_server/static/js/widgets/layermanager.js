@@ -103,17 +103,31 @@ gbi.widgets.LayerManager.prototype = {
                 });
         });
 
+        this.element.find('.gbi_widgets_LayerManager_LayerSwitcher')
+            .click(function(event) {
+                event.stopPropagation();
+            })
+            .dblclick(function(event) {
+                event.stopPropagation();
+            }).mousedown(function(event) {
+                event.stopPropagation();
+            });
+
         this.element.find('.gbi_widgets_LayerManager_Minimize').click(function(event) {
             event.stopPropagation();
             self.element.find('.gbi_widgets_LayerManager_LayerSwitcher').hide();
             self.element.find('.gbi_widgets_LayerManager_Minimize').hide();
             self.element.find('.gbi_widgets_LayerManager_Maximize').show();
+        }).dblclick(function(event) {
+            event.stopPropagation();
         }).show();
         this.element.find('.gbi_widgets_LayerManager_Maximize').click(function(event) {
             event.stopPropagation();
             self.element.find('.gbi_widgets_LayerManager_LayerSwitcher').show();
             self.element.find('.gbi_widgets_LayerManager_Minimize').show();
             self.element.find('.gbi_widgets_LayerManager_Maximize').hide();
+        }).dblclick(function(event) {
+            event.stopPropagation();
         }).hide();
 
     },
