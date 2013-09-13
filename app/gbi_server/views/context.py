@@ -200,6 +200,15 @@ def get_context_document():
                 "writable": False,
                 "dbname_user":  SystemConfig.DOWNLOAD_BOX_NAME_LOCAL,
             })
+            response['couchdb_sources'].append({
+                "name": _('uploadbox'),
+                "url": current_app.config['COUCH_DB_URL'],
+                "dbname": '%s_%s' % (SystemConfig.UPLOAD_BOX_NAME, g.user.id),
+                "username": 'user_%d' % g.user.id,
+                "password": g.user.authproxy_token,
+                "writable": True,
+                "dbname_user":  SystemConfig.UPLOAD_BOX_NAME_LOCAL,
+            })
 
     response['logging'] = {
         'url': url_for('logserv.log', user_token=g.user.authproxy_token, _external=True),
