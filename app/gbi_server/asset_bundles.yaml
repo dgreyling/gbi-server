@@ -7,6 +7,7 @@ libs-js:
     - js/lib/json2.js
     - js/lib/jquery.validate.min.js
     - js/lib/OpenLayers.js
+    - js/lib/alpaca-full.min.js
     #- js/lib/OpenLayers-2.12/lib/OpenLayers.js
 
 libs-css:
@@ -15,6 +16,8 @@ libs-css:
   contents:
     - css/bootstrap.min.css
     - css/openlayers.2.12.css
+    - css/alpaca.min.css
+    - css/alpaca-bootstrap.min.css
 
 site-css:
   filter: cssmin

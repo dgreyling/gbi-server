@@ -20,6 +20,9 @@ gbi.widgets.AttributeEditor = function(editor, options) {
     this.labelValue = undefined;
     this.renderAttributes = false;
 
+    $.alpaca.registerView(gbi.widgets.AttributeEditor.alpacaViews.edit)
+    $.alpaca.registerView(gbi.widgets.AttributeEditor.alpacaViews.display)
+
     this.registerEvents();
 
     $(gbi).on('gbi.layermanager.layer.add', function(event, layer) {
@@ -52,50 +55,66 @@ gbi.widgets.AttributeEditor.prototype = {
     render: function() {
         var self = this;
         var activeLayer = this.layerManager.active();
-        var attributes = this.renderAttributes || activeLayer.featuresAttributes();
+        var attributes = activeLayer.schemaAttributes() || [];//this.renderAttributes || activeLayer.featuresAttributes();
         var selectedFeatureAttributes = {};
         var editable = true;
+
         $.each(self.selectedFeatures, function(idx, feature) {
-            if(feature.layer != activeLayer.olLayer) {
+            if(feature.layer.id != activeLayer.olLayer.id) {
                 editable = false;
             }
-        })
-        $.each(this.selectedFeatures, function(idx, feature) {
-            $.each(attributes, function(idx, key) {
-                var equal = true;
-                var value = feature.attributes[key];
-                if(key in selectedFeatureAttributes) {
-                    equal = selectedFeatureAttributes[key].value == value;
-                    if(!equal) {
-                        selectedFeatureAttributes[key] = {'equal': false};
-                    }
-                } else {
-                    selectedFeatureAttributes[key] = {'equal': equal, 'value': value};
-                }
-            });
         });
 
         this.element.empty();
         if(this.selectedFeatures.length > 0) {
-            this.element.append(tmpl(
-                gbi.widgets.AttributeEditor.template, {
-                    attributes: attributes,
-                    selectedFeatureAttributes: selectedFeatureAttributes,
-                    editable: editable,
-                    allowNewAttributes: this.options.allowNewAttributes
-                }
-            ));
+            var schemaOptions = {"fields": {}};
+            $.each(activeLayer.jsonSchema.properties, function(name, prop) {
+                schemaOptions.fields[name] = {
+                    'id': name,
+                    'readonly': !editable
+                };
+            });
+
+            var data = {};
+            $.each(this.selectedFeatures, function(idx, feature) {
+                $.each(feature.attributes, function(key, value) {
+                    //check for different values for same attribute
+                    if(key in data && data[key] != value) {
+                        data[key] = undefined;
+                        schemaOptions.fields[key]['placeholder'] = attributeEditorLabel.sameKeyDifferentValue;
+                    } else {
+                        data[key] = value;
+                    }
+                })
+            });
+
+            this.element.append(tmpl(gbi.widgets.AttributeEditor.template))
+
+            $.alpaca('alpaca_form', {
+                schema: activeLayer.jsonSchema,
+                data: data,
+                options: schemaOptions,
+                view: editable ? 'VIEW_GBI_EDIT' : 'VIEW_GBI_DISPLAY'
+            });
 
             //bind events
             $.each(attributes, function(idx, key) {
-                $('#_'+key).change(function() {
-                    var newVal = $('#_'+key).val();
+                $('#'+key).change(function() {
+                    var newVal = $('#'+key).val();
                     self.edit(key, newVal);
                 });
                 $('#_'+key+'_label').click(function() {
                     self.label(key);
                     return false;
                 });
+                if(editable) {
+                    $('#_'+key+'_remove').click(function() {
+                        self.remove(key);
+                        return false;
+                    });
+                } else {
+                    $('#_'+key+'_remove').attr('disabled', 'disabled');
+                }
             });
         }
     },
@@ -130,6 +149,17 @@ gbi.widgets.AttributeEditor.prototype = {
             this.labelValue = key;
         }
         this.layerManager.active().setStyle(symbolizers, true)
+    },
+    remove: function(key) {
+        var self = this;
+        $.each(this.selectedFeatures, function(idx, feature) {
+            if($.inArray(key, self.featureChanges[feature.id]['removed']) == -1) {
+                self.featureChanges[feature.id]['removed'].push(key);
+            }
+        });
+        this.changed = true;
+        this._applyAttributes();
+        this.render();
     },
     setAttributes: function(attributes) {
         this.renderAttributes = attributes;
@@ -167,31 +197,39 @@ gbi.widgets.AttributeEditor.prototype = {
 };
 
 gbi.widgets.AttributeEditor.template = '\
-<% if(attributes.length == 0) { %>\
-    <span>'+attributeEditorLabel.noAttributes+'.</span>\
-<% } else { %>\
-    <% for(var key in attributes) { %>\
-        <form id="view_attributes" class="form-inline">\
-            <label class="key-label" for="_<%=attributes[key]%>"><%=attributes[key]%></label>\
-            <% if(selectedFeatureAttributes[attributes[key]]) { %>\
-                <% if(selectedFeatureAttributes[attributes[key]]["equal"]) {%>\
-                    <input class="input-medium" type="text" id="_<%=attributes[key]%>" value="<%=selectedFeatureAttributes[attributes[key]]["value"]%>" \
-                <% } else {%>\
-                    <input class="input-medium" type="text" id="_<%=attributes[key]%>" placeholder="'+attributeEditorLabel.sameKeyDifferentValue+'" \
-                <% } %>\
-            <% } else { %>\
-                <input class="input-medium" type="text" id="_<%=attributes[key]%>"\
-            <% } %>\
-            <% if(!editable) { %>\
-                disabled=disabled \
-            <% } %>\
-            />\
-            <% if(editable) { %>\
-            <button id="_<%=attributes[key]%>_label" title="label" class="btn btn-small add-label-button"> \
-                <i class="icon-eye-open"></i>\
-            </button>\
-            <% } %>\
-        </form>\
-    <% } %>\
-<% } %>\
+<div id="alpaca_form"></div>\
 ';
+
+gbi.widgets.AttributeEditor.alpacaViews = {
+    "edit": {
+        "id": "VIEW_GBI_EDIT",
+        "parent": "VIEW_BOOTSTRAP_EDIT",
+        "templates": {
+            "controlFieldContainer": "\
+            <div>\
+                {{html this.html}}\
+                <button id='_${id}_label' title='label' class='btn btn-small add-label-button'>\
+                    <i class='icon-eye-open'></i>\
+                </button>\
+                <button id='_${id}_remove' title='remove' class='btn btn-small'>\
+                    <i class='icon-trash'></i>\
+                </button>\
+            </div>"
+        }
+    },
+    "display": {
+        "id": "VIEW_GBI_DISPLAY",
+        "parent": "VIEW_GBI_EDIT",
+        "templates": {
+            "fieldSetItemContainer": '<div class="alpaca-inline-item-container control-group"></div>',
+            "controlField": "\
+                <div>\
+                    {{html Alpaca.fieldTemplate(this,'controlFieldLabel')}}\
+                    {{wrap(null, {}) Alpaca.fieldTemplate(this,'controlFieldContainer',true)}}\
+                        {{html Alpaca.fieldTemplate(this,'controlFieldHelper')}}\
+                    {{/wrap}}\
+                </div>\
+            "
+        }
+    }
+};
