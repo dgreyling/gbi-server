@@ -26,6 +26,7 @@
                 </div>
                 <div id="no_search_result" class="alert-info">{{ _('no search result') }}</div>
             </div>
+            <div id="no_features_found" class="alert alert-error" style="display: none">{{ _('No features found') }}</div>
             <button class="btn btn-small" id="add_search">{{_('add search')}}</button>
             <button class="btn btn-small" id="remove_search">{{_('remove search string')}}</button>
             <button class="btn btn-small" id="hide_searchlayer">{{_('hide searchlayer')}}</button>
@@ -101,6 +102,12 @@
                 activeSearchLayer.visible(true)
                 if (value) {
                     value = value.split("\n")
+                    $(activeSearchLayer).one('gbi.layer.WFST.filter_applied', function() {
+                        var foundFeaturesCount = activeSearchLayer.features.length;
+                        if(!foundFeaturesCount) {
+                            $('#no_features_found').show().fadeOut(3000);
+                        }
+                    });
                     activeSearchLayer.filter(
                         activeSearchLayer.olLayer.searchProperty, value
                     );
