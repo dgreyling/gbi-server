@@ -32,7 +32,12 @@
     OpenLayers.ProxyHost = "{{ url_for('proxy.proxy_action') }}";
 
     {% for wfs_layer in wfs_layers %}
+        {% if wfs_layer['search_property'] %}
+        sources.push(new gbi.Layers.WFS({
+            "searchProperty": '{{ wfs_layer['search_property'] }}',
+        {% else %}
         sources.push(new gbi.Layers.WFST({
+        {% endif %}
             "name": "{{ wfs_layer['name'] }}",
             "url": "{{ wfs_layer['url']|safe }}",
             "featureNS":  "{{ wfs_layer['feature_ns'] }}",
@@ -45,10 +50,7 @@
             "styleMap": {% if wfs_layer['writable'] %}rw_style_map{% else %}ro_style_map{% endif %},
             "writable": {{ wfs_layer['writable']|tojson|safe }},
             displayInLayerSwitcher: {{ wfs_layer['display_in_layerswitcher']|tojson }},
-            visibility: false,
-            {% if wfs_layer['search_property'] %}
-            "searchProperty": '{{ wfs_layer['search_property'] }}',
-            {% endif %}
+            visibility: false
         }));
     {% endfor %}
 {%- endmacro %}
