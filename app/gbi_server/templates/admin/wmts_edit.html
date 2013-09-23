@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% from "macros/forms.html" import input, textarea, button %}
+{% from "macros/forms.html" import input, input_tooltip, textarea, button %}
 
 {% block title %}
     {% if id %}
@@ -33,7 +33,7 @@
             {{ input(form.srs) }}
             {{ input(form.matrix_set) }}
             {{ input(form.is_visible) }}
-            {{ input(form.is_protected) }}
+            {{ input_tooltip(form.is_protected, _('tooltip - protected service')) }}
             {{ input(form.username) }}
             {{ input(form.password) }}
         </fieldset>

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-09-05 16:04+0200\n"
-"PO-Revision-Date: 2013-08-20 13:54+0100\n"
+"POT-Creation-Date: 2013-09-23 14:50+0200\n"
+"PO-Revision-Date: 2013-09-23 15:07+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -17,17 +17,20 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 0.9.6\n"
 
-#: gbi_server/application.py:166 gbi_server/templates/errors/405.html:2
+#: gbi_server/application.py:166
+#: gbi_server/templates/errors/405.html:2
 #: gbi_server/templates/errors/405.html:4
 msgid "method not allowed"
 msgstr "Methode nicht erlaubt"
 
-#: gbi_server/application.py:172 gbi_server/templates/errors/404.html:2
+#: gbi_server/application.py:172
+#: gbi_server/templates/errors/404.html:2
 #: gbi_server/templates/errors/404.html:4
 msgid "page not found"
 msgstr "Seite nicht gefunden"
 
-#: gbi_server/application.py:178 gbi_server/templates/errors/403.html:3
+#: gbi_server/application.py:178
+#: gbi_server/templates/errors/403.html:3
 #: gbi_server/templates/errors/403.html:6
 msgid "not allowed"
 msgstr "Zugriff nicht erlaubt"
@@ -44,27 +47,32 @@ msgstr "Login erforderlich"
 msgid "Please login to see this page"
 msgstr "Bitte melden Sie sich an um die Seite zu betrachten"
 
-#: gbi_server/forms/admin.py:24 gbi_server/forms/user.py:44
+#: gbi_server/forms/admin.py:24
+#: gbi_server/forms/user.py:44
 #: gbi_server/templates/admin/user_list.html:15
 #: gbi_server/templates/macros/user.html:9
 msgid "type"
 msgstr "Benutzertyp"
 
-#: gbi_server/forms/admin.py:25 gbi_server/templates/admin/user_detail.html:19
+#: gbi_server/forms/admin.py:25
+#: gbi_server/templates/admin/user_detail.html:19
 #: gbi_server/templates/admin/user_list.html:32
 msgid "verified"
 msgstr "Verifiziert"
 
-#: gbi_server/forms/admin.py:26 gbi_server/templates/admin/user_detail.html:17
+#: gbi_server/forms/admin.py:26
+#: gbi_server/templates/admin/user_detail.html:17
 #: gbi_server/templates/admin/user_list.html:30
 msgid "active"
 msgstr "Aktiviert"
 
-#: gbi_server/forms/admin.py:27 gbi_server/forms/user.py:51
+#: gbi_server/forms/admin.py:27
+#: gbi_server/forms/user.py:51
 msgid "terms of use"
 msgstr "<a href=\"/page/de/nutzungsbedingungen.html\">Nutzungsbedingungen</a>"
 
-#: gbi_server/forms/admin.py:30 gbi_server/templates/admin/wms_list.html:14
+#: gbi_server/forms/admin.py:30
+#: gbi_server/templates/admin/wms_list.html:14
 #: gbi_server/templates/admin/wmts_list.html:14
 msgid "rastersource_url"
 msgstr "URL"
@@ -81,17 +89,20 @@ msgstr "Passwort"
 msgid "rastersource_name"
 msgstr "Name"
 
-#: gbi_server/forms/admin.py:34 gbi_server/templates/admin/wms_list.html:13
+#: gbi_server/forms/admin.py:34
+#: gbi_server/templates/admin/wms_list.html:13
 #: gbi_server/templates/admin/wmts_list.html:13
 msgid "rastersource_title"
 msgstr "Titel"
 
-#: gbi_server/forms/admin.py:35 gbi_server/templates/admin/wms_list.html:15
+#: gbi_server/forms/admin.py:35
+#: gbi_server/templates/admin/wms_list.html:15
 #: gbi_server/templates/admin/wmts_list.html:15
 msgid "rastersource_layer"
 msgstr "Layer"
 
-#: gbi_server/forms/admin.py:36 gbi_server/templates/admin/wms_list.html:16
+#: gbi_server/forms/admin.py:36
+#: gbi_server/templates/admin/wms_list.html:16
 #: gbi_server/templates/admin/wmts_list.html:16
 msgid "rastersource_format"
 msgstr "Format"
@@ -108,12 +119,14 @@ msgstr "Max. Kacheln/Import"
 msgid "rastersource_view_coverage"
 msgstr "Anzeigebereich"
 
-#: gbi_server/forms/admin.py:41 gbi_server/templates/admin/wms_list.html:17
+#: gbi_server/forms/admin.py:41
+#: gbi_server/templates/admin/wms_list.html:17
 #: gbi_server/templates/admin/wmts_list.html:17
 msgid "rastersource_view_level_start"
 msgstr "Start-Level"
 
-#: gbi_server/forms/admin.py:42 gbi_server/templates/admin/wms_list.html:18
+#: gbi_server/forms/admin.py:42
+#: gbi_server/templates/admin/wms_list.html:18
 #: gbi_server/templates/admin/wmts_list.html:18
 msgid "rastersource_view_level_end"
 msgstr "End-Level"
@@ -144,9 +157,7 @@ msgstr "Passwort geschützt"
 
 #: gbi_server/forms/admin.py:54
 msgid "level needs to be bigger or equal to start level"
-msgstr ""
-"Das gewählte Startlevel muss größer oder gleich dem ausgewählten Endlevel"
-" sein"
+msgstr "Das gewählte Startlevel muss größer oder gleich dem ausgewählten Endlevel sein"
 
 #: gbi_server/forms/admin.py:57
 msgid "wmts_matrix_set"
@@ -158,7 +169,7 @@ msgstr "WMS Version"
 
 #: gbi_server/forms/admin.py:64
 msgid "wfs_host"
-msgstr ""
+msgstr "WFS Host"
 
 #: gbi_server/forms/admin.py:65
 msgid "wfs_url"
@@ -168,7 +179,8 @@ msgstr "URL"
 msgid "wfs_geometry"
 msgstr "Geometriespalte"
 
-#: gbi_server/forms/admin.py:67 gbi_server/forms/wfs.py:28
+#: gbi_server/forms/admin.py:67
+#: gbi_server/forms/wfs.py:28
 msgid "wfs_layer"
 msgstr "Layer"
 
@@ -182,7 +194,7 @@ msgstr "SRS"
 
 #: gbi_server/forms/admin.py:72
 msgid "wfs_ns_prefix"
-msgstr "NS Prefox"
+msgstr "NS Prefix"
 
 #: gbi_server/forms/admin.py:73
 msgid "wfs_ns_uri"
@@ -208,20 +220,24 @@ msgstr "Passwort"
 msgid "vectorsoure_protected"
 msgstr "Passwort geschützt"
 
-#: gbi_server/forms/user.py:31 gbi_server/forms/user.py:45
-#: gbi_server/forms/user.py:57 gbi_server/templates/admin/user_list.html:14
+#: gbi_server/forms/user.py:31
+#: gbi_server/forms/user.py:45
+#: gbi_server/forms/user.py:57
+#: gbi_server/templates/admin/user_list.html:14
 #: gbi_server/templates/boxes/overview.html:19
 #: gbi_server/templates/macros/user.html:6
 msgid "email"
 msgstr "E-Mail Adresse"
 
-#: gbi_server/forms/user.py:32 gbi_server/forms/user.py:46
-#: gbi_server/forms/user.py:54 gbi_server/forms/user.py:60
+#: gbi_server/forms/user.py:32
+#: gbi_server/forms/user.py:46
+#: gbi_server/forms/user.py:54
+#: gbi_server/forms/user.py:60
 #: gbi_server/forms/user.py:70
 msgid "password"
 msgstr "Passwort"
 
-#: gbi_server/forms/user.py:35 gbi_server/forms/user.py:77
+#: gbi_server/forms/user.py:35
 msgid "florlp_username"
 msgstr "FLOrlp Benutzername"
 
@@ -249,11 +265,13 @@ msgstr "Stadt"
 msgid "florlp_password"
 msgstr "FLOrlp Passwort"
 
-#: gbi_server/forms/user.py:48 gbi_server/forms/user.py:62
+#: gbi_server/forms/user.py:48
+#: gbi_server/forms/user.py:62
 msgid "Passwords must match"
 msgstr "Passwörter müssen übereinsteimmen"
 
-#: gbi_server/forms/user.py:50 gbi_server/forms/user.py:64
+#: gbi_server/forms/user.py:50
+#: gbi_server/forms/user.py:64
 msgid "password repeat"
 msgstr "Passwort wiederholen"
 
@@ -265,9 +283,14 @@ msgstr "Altes Passwort"
 msgid "file"
 msgstr "Datei"
 
-#: gbi_server/forms/user.py:78 gbi_server/forms/wfs.py:43
-msgid "select coverage"
-msgstr "Coverage auswhälen"
+#: gbi_server/forms/user.py:77
+#: gbi_server/templates/boxes/base.html:35
+msgid "filename"
+msgstr "Dateiname"
+
+#: gbi_server/forms/user.py:78
+msgid "select target user"
+msgstr "Speichern in der Download-Box des Benutzers"
 
 #: gbi_server/forms/validator.py:22
 msgid "email already exists."
@@ -285,25 +308,33 @@ msgstr "Passwort muss eine Länge von mindestens 6 Zeichen besitzen"
 msgid "wfs_new_layer_name"
 msgstr "Layer Name"
 
+#: gbi_server/forms/wfs.py:43
+msgid "select coverage"
+msgstr "Coverage auswhälen"
+
 #: gbi_server/lib/external_wms.py:78
 msgid "external_wms_title"
 msgstr "GBI WMS"
 
-#: gbi_server/model/user.py:70 gbi_server/views/admin.py:99
+#: gbi_server/model/user.py:70
+#: gbi_server/views/admin.py:99
 #: gbi_server/views/user.py:93
 msgid "customer"
 msgstr "Landwirt"
 
-#: gbi_server/model/user.py:70 gbi_server/views/admin.py:100
+#: gbi_server/model/user.py:70
+#: gbi_server/views/admin.py:100
 #: gbi_server/views/user.py:94
 msgid "service_provider"
 msgstr "Dienstleister"
 
-#: gbi_server/model/user.py:70 gbi_server/views/admin.py:102
+#: gbi_server/model/user.py:70
+#: gbi_server/views/admin.py:102
 msgid "consultant"
 msgstr "Berater"
 
-#: gbi_server/model/user.py:70 gbi_server/templates/admin/index.html:5
+#: gbi_server/model/user.py:70
+#: gbi_server/templates/admin/index.html:5
 #: gbi_server/views/admin.py:103
 msgid "admin"
 msgstr "Administrator"
@@ -312,7 +343,8 @@ msgstr "Administrator"
 msgid "GBI Server"
 msgstr "GBI Server"
 
-#: gbi_server/templates/base.html:26 gbi_server/templates/index.html:4
+#: gbi_server/templates/base.html:26
+#: gbi_server/templates/index.html:4
 msgid "home"
 msgstr "Übersicht"
 
@@ -320,7 +352,8 @@ msgstr "Übersicht"
 msgid "create account"
 msgstr "Konto erstellen"
 
-#: gbi_server/templates/base.html:31 gbi_server/templates/user/login.html:5
+#: gbi_server/templates/base.html:31
+#: gbi_server/templates/user/login.html:5
 #: gbi_server/templates/user/login.html:7
 #: gbi_server/templates/user/login.html:16
 msgid "login"
@@ -355,7 +388,8 @@ msgstr "Kartenansicht"
 msgid "info text wmts map"
 msgstr "Übersicht über alle Karten und Flächen die Ihnen zur Verfügung stehen"
 
-#: gbi_server/templates/index.html:17 gbi_server/templates/maps/wfs.html:5
+#: gbi_server/templates/index.html:17
+#: gbi_server/templates/maps/wfs.html:5
 #: gbi_server/templates/maps/wfs.html:7
 msgid "WFS Edit"
 msgstr "Flächeneditor"
@@ -381,11 +415,11 @@ msgstr "Downloadbox"
 
 #: gbi_server/templates/index.html:29
 msgid "info text downloadbox"
-msgstr ""
-"Dokumente die Ihnen vom Berater zur Verfügung gestellt wurden finden Sie "
-"hier"
+msgstr "Dokumente die Ihnen vom Berater zur Verfügung gestellt wurden finden Sie hier"
 
-#: gbi_server/templates/index.html:31 gbi_server/templates/boxes/upload.html:11
+#: gbi_server/templates/index.html:31
+#: gbi_server/templates/boxes/upload.html:11
+#: gbi_server/views/context.py:204
 msgid "uploadbox"
 msgstr "Uploadbox"
 
@@ -419,10 +453,7 @@ msgstr "Laden Sie hier das Benutzerhandbuch herunter"
 
 #: gbi_server/templates/index.html:51
 msgid "info text gbi client first page"
-msgstr ""
-"<a href='%(login_url)s'>Melden Sie sich an</a> oder erstellen Sie ein <a "
-"href='%(createuser_url)s'>neues Konto</a> um die GeoBox im vollen Umfang "
-"nutzen zu können."
+msgstr "<a href='%(login_url)s'>Melden Sie sich an</a> oder erstellen Sie ein <a href='%(createuser_url)s'>neues Konto</a> um die GeoBox im vollen Umfang nutzen zu können."
 
 #: gbi_server/templates/admin/create_user.html:5
 #: gbi_server/templates/admin/create_user.html:7
@@ -441,7 +472,7 @@ msgstr "Benutzer editieren"
 
 #: gbi_server/templates/admin/edit_user.html:20
 #: gbi_server/templates/admin/wfs_edit.html:47
-#: gbi_server/templates/admin/wms_edit.html:81
+#: gbi_server/templates/admin/wms_edit.html:82
 #: gbi_server/templates/admin/wmts_edit.html:51
 #: gbi_server/templates/user/edit_address.html:22
 #: gbi_server/templates/user/edit_password.html:16
@@ -459,6 +490,7 @@ msgid "user list"
 msgstr "Benutzerübersicht"
 
 #: gbi_server/templates/admin/index.html:16
+#: gbi_server/templates/admin/wmts_list.html:5
 msgid "WMTS list"
 msgstr "WMTS Übersicht"
 
@@ -473,7 +505,6 @@ msgstr "WMTS erstellen"
 #: gbi_server/templates/admin/wms_list.html:3
 #: gbi_server/templates/admin/wms_list.html:5
 #: gbi_server/templates/admin/wmts_list.html:3
-#: gbi_server/templates/admin/wmts_list.html:5
 msgid "WMS list"
 msgstr "WMS Liste"
 
@@ -520,8 +551,7 @@ msgstr "Neues Passwort setzen"
 msgid "activate user mail intro"
 msgstr ""
 "Guten Tag,\n"
-" es hat sich ein neuer Benuzter in der Anwendung angemeldet. Klicken Sie "
-"auf den Link um den Benutzer zu aktivieren oder zu bearbeiten."
+" es hat sich ein neuer Benuzter in der Anwendung angemeldet. Klicken Sie auf den Link um den Benutzer zu aktivieren oder zu bearbeiten."
 
 #: gbi_server/templates/admin/user_activate_mail.txt:5
 #: gbi_server/templates/user/activated_mail.txt:5
@@ -650,6 +680,12 @@ msgstr "Geometrie"
 msgid "edit WFS"
 msgstr "WFS Editieren"
 
+#: gbi_server/templates/admin/wfs_edit.html:41
+#: gbi_server/templates/admin/wms_edit.html:77
+#: gbi_server/templates/admin/wmts_edit.html:36
+msgid "tooltip - protected service"
+msgstr "Wird der Dienst \"Passwort geschützt\" eingebunden, muss jeder Benutzer die Zugangsdaten zu diesem Dienst selbst eingeben."
+
 #: gbi_server/templates/admin/wfs_list.html:13
 msgid "vectorsource_name"
 msgstr "Name"
@@ -669,17 +705,14 @@ msgstr "WMS Editieren"
 
 #: gbi_server/templates/admin/wms_edit.html:26
 msgid "infotext wms load via url"
-msgstr ""
-"Sie können die WMS-Details vom System abfragen lassen. Tragen Sie hierfür"
-" die URL in das Feld ein. Bitte beachten Sie, die manuell getroffenen "
-"Einstellungen in dem Layer werden evtl. überschrieben."
+msgstr "Sie können die WMS-Details vom System abfragen lassen. Tragen Sie hierfür die URL in das Feld ein. Bitte beachten Sie, die manuell getroffenen Einstellungen in dem Layer werden evtl. überschrieben."
 
 #: gbi_server/templates/admin/wms_edit.html:29
 msgid "load wms"
 msgstr "WMS Capabilities Laden"
 
 #: gbi_server/templates/admin/wms_edit.html:33
-#: gbi_server/templates/admin/wms_edit.html:86
+#: gbi_server/templates/admin/wms_edit.html:87
 msgid "preview map"
 msgstr "Vorschaukarte"
 
@@ -689,28 +722,21 @@ msgstr "Layerauswahl"
 
 #: gbi_server/templates/admin/wms_edit.html:51
 msgid "tooltip - select layer"
-msgstr ""
-"Wählen Sie hier Layer aus die Sie dem WMS hinzufügen möchten. Die Layer "
-"stehen Ihnen nur zur Vergügung wenn der Dienst vom System abgerufen "
-"wurde."
+msgstr "Wählen Sie hier Layer aus die Sie dem WMS hinzufügen möchten. Die Layer stehen Ihnen nur zur Vergügung wenn der Dienst vom System abgerufen wurde."
 
 #: gbi_server/templates/admin/wms_edit.html:57
+#: gbi_server/templates/macros/forms.html:23
 msgid "select srs"
 msgstr "SRS auswhälen"
 
 #: gbi_server/templates/admin/wms_edit.html:60
+#: gbi_server/templates/macros/forms.html:26
 msgid "tooltip - select srs"
-msgstr ""
-"Wählen Sie hier ein SRS aus über den Sie den WMS abrufen möchten. Die SRS"
-" stehen Ihnen nur zur Vergügung wenn der Dienst vom System abgerufen "
-"wurde. Mit ** gekennzeichnte SMS können in der Kartenvorschau angezeigt "
-"werden."
+msgstr "Wählen Sie hier ein SRS aus über den Sie den WMS abrufen möchten. Die SRS stehen Ihnen nur zur Vergügung wenn der Dienst vom System abgerufen wurde. Mit ** gekennzeichnte SMS können in der Kartenvorschau angezeigt werden."
 
-#: gbi_server/templates/admin/wms_edit.html:87
+#: gbi_server/templates/admin/wms_edit.html:88
 msgid "infotext preview map only if on selct srs is selcted"
-msgstr ""
-"Kartenvorschau nicht möglich. Bitte wählen Sie einen Layer und ein "
-"Koordiantensystem was mit ** gekennzeichnet ist."
+msgstr "Kartenvorschau nicht möglich. Bitte wählen Sie einen Layer und ein Koordiantensystem was mit ** gekennzeichnet ist."
 
 #: gbi_server/templates/admin/wms_list.html:19
 #: gbi_server/templates/admin/wmts_list.html:20
@@ -727,6 +753,11 @@ msgstr "Öffentlich"
 msgid "edit WMTS"
 msgstr "WMTS Editieren"
 
+#: gbi_server/templates/admin/wmts_edit.html:34
+#, fuzzy
+msgid "tooltip - matrix set"
+msgstr "Hier werden Ihnen alle zur Verfügung stehenden Karten und Flächen eingeblendet"
+
 #: gbi_server/templates/admin/wmts_list.html:19
 msgid "rastersource_is_background_layer"
 msgstr "Hintergrundlayer"
@@ -741,10 +772,7 @@ msgstr "Datei hochladen"
 
 #: gbi_server/templates/boxes/base.html:20
 msgid "upload help text"
-msgstr ""
-"Bitte wählen Sie eine Datei aus die Sie in Ihre Box hochladen können. Es "
-"werden Bilddateien (jpeg, png, tif) sowie Textdateien (csv, xml, json) "
-"und PDF vom System unterstützt."
+msgstr "Bitte wählen Sie eine Datei aus die Sie in Ihre Box hochladen können. Es werden Bilddateien (jpeg, png, tif) sowie Textdateien (csv, xml, json) und PDF vom System unterstützt."
 
 #: gbi_server/templates/boxes/base.html:21
 msgid "Upload"
@@ -753,10 +781,6 @@ msgstr "Hochladen"
 #: gbi_server/templates/boxes/base.html:31
 msgid "file overview"
 msgstr "Dateiübersicht"
-
-#: gbi_server/templates/boxes/base.html:35
-msgid "filename"
-msgstr "Dateiname"
 
 #: gbi_server/templates/boxes/base.html:36
 msgid "date"
@@ -772,14 +796,11 @@ msgstr "Löschen"
 
 #: gbi_server/templates/boxes/base.html:61
 msgid "copy"
-msgstr ""
+msgstr "Kopieren"
 
 #: gbi_server/templates/boxes/base.html:73
 msgid "help copy file to box from customer"
-msgstr ""
-"Kopieren Sie die Datei in die ausgewählte Box. Geben Sie hierfür einen "
-"Dateinamen an. Bitte beachten Sie: Vorhandene Dateien werden "
-"überschrieben."
+msgstr "Kopieren Sie die Datei in die ausgewählte Box. Geben Sie hierfür einen Dateinamen an. Bitte beachten Sie: Vorhandene Dateien werden überschrieben."
 
 #: gbi_server/templates/boxes/base.html:82
 #: gbi_server/templates/boxes/base.html:90
@@ -792,9 +813,7 @@ msgstr "Kopieren"
 
 #: gbi_server/templates/boxes/base.html:88
 msgid "help text file exists, are you sure you want to overwrite it?"
-msgstr ""
-"Eine Datei mit diesem Dateinamen existiert bereits. Wollen Sie die Datei "
-"überschreiben?"
+msgstr "Eine Datei mit diesem Dateinamen existiert bereits. Wollen Sie die Datei überschreiben?"
 
 #: gbi_server/templates/boxes/base.html:91
 msgid "ok"
@@ -814,15 +833,11 @@ msgstr "Downloadbox für"
 
 #: gbi_server/templates/boxes/download.html:9
 msgid "tooltip - downloadbox for consultant "
-msgstr ""
-"Dokumentenbox für den Landwirt. Dieser kann Dokumente von hier "
-"herunterladen."
+msgstr "Dokumentenbox für den Landwirt. Dieser kann Dokumente von hier herunterladen."
 
 #: gbi_server/templates/boxes/download.html:11
 msgid "tooltip - downloadbox for customer "
-msgstr ""
-"Dies ist die Dokumentenbox in dem die Berater Ihnen Dokumente zur "
-"Verfügung stellen können"
+msgstr "Dies ist die Dokumentenbox in dem die Berater Ihnen Dokumente zur Verfügung stellen können"
 
 #: gbi_server/templates/boxes/file.html:3
 msgid "filebox title"
@@ -854,15 +869,11 @@ msgstr "Uploadbox für"
 
 #: gbi_server/templates/boxes/upload.html:9
 msgid "tooltip - uploadbox for consultant "
-msgstr ""
-"Uploadbox für den Landwirt. Dieser kann hier Dokumente zur Verfügng "
-"stellen."
+msgstr "Uploadbox für den Landwirt. Dieser kann hier Dokumente zur Verfügng stellen."
 
 #: gbi_server/templates/boxes/upload.html:11
 msgid "tooltip - uploadbox for customer "
-msgstr ""
-"Dies ist die Box in dem Sie Ihrem Berater Dokumente zur Verfügung stellen"
-" können"
+msgstr "Dies ist die Box in dem Sie Ihrem Berater Dokumente zur Verfügung stellen können"
 
 #: gbi_server/templates/errors/500.html:2
 #: gbi_server/templates/errors/500.html:4
@@ -943,9 +954,7 @@ msgstr "Kartenübersicht"
 
 #: gbi_server/templates/maps/map.html:47
 msgid "tooltip - map overivew "
-msgstr ""
-"Hier werden Ihnen alle zur Verfügung stehenden Karten und Flächen "
-"eingeblendet"
+msgstr "Hier werden Ihnen alle zur Verfügung stehenden Karten und Flächen eingeblendet"
 
 #: gbi_server/templates/maps/wfs.html:13
 msgid "search features"
@@ -953,10 +962,7 @@ msgstr "Suchen"
 
 #: gbi_server/templates/maps/wfs.html:15
 msgid "search help text"
-msgstr ""
-"Suchen Sie nach einem oder mehreren Werten in dem ausgewählten "
-"Suchdienst. Die Anwendung zentriert die Karte automatisch auf den "
-"Treffer."
+msgstr "Suchen Sie nach einem oder mehreren Werten in dem ausgewählten Suchdienst. Die Anwendung zentriert die Karte automatisch auf den Treffer."
 
 #: gbi_server/templates/maps/wfs.html:19
 msgid "search_label"
@@ -964,66 +970,61 @@ msgstr "Suchdienst"
 
 #: gbi_server/templates/maps/wfs.html:19
 msgid "tooltip - search"
-msgstr ""
-"Hier stehen Ihnen die Dienste zur Verfügung die vom Administrator "
-"angelegt worden sind."
+msgstr "Hier stehen Ihnen die Dienste zur Verfügung die vom Administrator angelegt worden sind."
 
 #: gbi_server/templates/maps/wfs.html:27
 msgid "no search result"
 msgstr "Kein Suchergebnis vorhanden"
 
 #: gbi_server/templates/maps/wfs.html:29
+msgid "No features found"
+msgstr "Keine Ergebnisse gefunden"
+
+#: gbi_server/templates/maps/wfs.html:30
 msgid "add search"
 msgstr "Suchen"
 
-#: gbi_server/templates/maps/wfs.html:30
+#: gbi_server/templates/maps/wfs.html:31
 msgid "remove search string"
 msgstr "Suchewert entfernen"
 
-#: gbi_server/templates/maps/wfs.html:31
+#: gbi_server/templates/maps/wfs.html:32
 msgid "hide searchlayer"
 msgstr "Suchergebnis ausblenden"
 
-#: gbi_server/templates/maps/wfs.html:34
+#: gbi_server/templates/maps/wfs.html:35
 msgid "feature settings"
 msgstr "Geometrien bearbeiten"
 
-#: gbi_server/templates/maps/wfs.html:35
+#: gbi_server/templates/maps/wfs.html:36
 msgid "feature select help text"
-msgstr ""
-"Über die Toolbar in der Karte können Sie Geometrien zeichnen, bearbeiten,"
-" auswählen oder löschen. Ausgewählte Geometrien können mit Eigenschaften "
-"versehen werden."
+msgstr "Über die Toolbar in der Karte können Sie Geometrien zeichnen, bearbeiten, auswählen oder löschen. Ausgewählte Geometrien können mit Eigenschaften versehen werden."
 
-#: gbi_server/templates/maps/wfs.html:37
+#: gbi_server/templates/maps/wfs.html:38
 msgid "successfull saved"
 msgstr "Erfolgreich gespeichert"
 
-#: gbi_server/templates/maps/wfs.html:38
+#: gbi_server/templates/maps/wfs.html:39
 msgid "save changes"
 msgstr "Änderungen gespeichert"
 
-#: gbi_server/templates/maps/wfs.html:39
+#: gbi_server/templates/maps/wfs.html:40
 msgid "tooltip - button save changes"
-msgstr ""
-"Änderungen an Flächen oder Attributen müssen Sie bestätigen. Der Button "
-"wird grün dargestellt sobald Änderungen vorhanden sind die gespeichert "
-"werden können. Wenn Änderungen nicht gespeichert werden, gehen diese "
-"verloren."
+msgstr "Änderungen an Flächen oder Attributen müssen Sie bestätigen. Der Button wird grün dargestellt sobald Änderungen vorhanden sind die gespeichert werden können. Wenn Änderungen nicht gespeichert werden, gehen diese verloren."
 
-#: gbi_server/templates/maps/wfs.html:45
+#: gbi_server/templates/maps/wfs.html:46
 msgid "attributes"
 msgstr "Eigenschaften"
 
-#: gbi_server/templates/maps/wfs.html:46
+#: gbi_server/templates/maps/wfs.html:47
 msgid "tooltip - attrbibutes"
 msgstr "Geben Sie hier Werte zu den Eigenschaften der Flächen ein"
 
-#: gbi_server/templates/maps/wfs.html:65
+#: gbi_server/templates/maps/wfs.html:66
 msgid "save feautre not possible"
 msgstr "Daten konnten nicht gespeichert werden"
 
-#: gbi_server/templates/maps/wfs.html:66
+#: gbi_server/templates/maps/wfs.html:67
 msgid "save feature successfull"
 msgstr "Daten wurden erfolgreich gespeichert"
 
@@ -1034,11 +1035,7 @@ msgstr "Flächeneditor wählen"
 
 #: gbi_server/templates/maps/wfs_edit.html:12
 msgid "wfs editor choice infotext"
-msgstr ""
-"Bitte wählen Sie aus wie Sie die Fläche bearbeiten wollen. Sie können "
-"Flächen in dieser Anwendung editieren oder diesen Dienst in ein externes "
-"GIS-Programm laden und dort über den WFS-Standard einbinden und "
-"bearbeiten."
+msgstr "Bitte wählen Sie aus wie Sie die Fläche bearbeiten wollen. Sie können Flächen in dieser Anwendung editieren oder diesen Dienst in ein externes GIS-Programm laden und dort über den WFS-Standard einbinden und bearbeiten."
 
 #: gbi_server/templates/maps/wfs_edit.html:20
 msgid "edit internal"
@@ -1054,11 +1051,7 @@ msgstr "Ausgewählten Layer löschen"
 
 #: gbi_server/templates/maps/wfs_edit.html:26
 msgid "create wfs layer infotext"
-msgstr ""
-"Hier können Sie einen neuen Zeichenlayer anlegen. Der von Ihnen "
-"angegebene Layer wird erstellt und steht Ihnen danach in der Layerauswahl"
-" zur Verfügung. Für den Namen des Layers sind ausschließlich "
-"Kleinbuchstaben und Zahlen zulässig."
+msgstr "Hier können Sie einen neuen Zeichenlayer anlegen. Der von Ihnen angegebene Layer wird erstellt und steht Ihnen danach in der Layerauswahl zur Verfügung. Für den Namen des Layers sind ausschließlich Kleinbuchstaben und Zahlen zulässig."
 
 #: gbi_server/templates/maps/wfs_edit.html:31
 msgid "add layer"
@@ -1071,24 +1064,15 @@ msgstr "Flächen extern bearbeiten"
 
 #: gbi_server/templates/maps/wfs_session.html:12
 msgid " wfs external editor info_text_1"
-msgstr ""
-"Um die Flächen in einem externen Editor bearbeiten zu können stehen ihnen"
-" die Geometrien nun über einen WFS-Dienst zur Verfügung. Über diesen "
-"Dienst können Sie die Flächen in einem GIS-Programm Ihrer Wahl "
-"bearbeiten. Die dazu benötigte WFS-URL und den vom System angebotenen "
-"Layer, finden Sie weiter unten"
+msgstr "Um die Flächen in einem externen Editor bearbeiten zu können stehen ihnen die Geometrien nun über einen WFS-Dienst zur Verfügung. Über diesen Dienst können Sie die Flächen in einem GIS-Programm Ihrer Wahl bearbeiten. Die dazu benötigte WFS-URL und den vom System angebotenen Layer, finden Sie weiter unten"
 
 #: gbi_server/templates/maps/wfs_session.html:14
 msgid " wfs external editor info_text_2 - not interneal"
-msgstr ""
-"Bitte beachten Sie, dass Sie während der Nutzung des externen Editors "
-"nicht im internen Flächeneditor arbeiten können"
+msgstr "Bitte beachten Sie, dass Sie während der Nutzung des externen Editors nicht im internen Flächeneditor arbeiten können"
 
 #: gbi_server/templates/maps/wfs_session.html:17
 msgid " wfs external editor info_text_3 - save"
-msgstr ""
-"Um Änderungen zu übernehmen die im externen Editor gemacht wurden, "
-"beenden Sie bitte anschließend hier den Bearbeitungsmodus"
+msgstr "Um Änderungen zu übernehmen die im externen Editor gemacht wurden, beenden Sie bitte anschließend hier den Bearbeitungsmodus"
 
 #: gbi_server/templates/maps/wfs_session.html:28
 msgid "save and end wfs session"
@@ -1161,7 +1145,8 @@ msgstr "Aktualisieren Sie hier Ihre FLOrlp Daten."
 msgid "lost password?"
 msgstr "Passwort vergessen?"
 
-#: gbi_server/templates/user/login.html:19 gbi_server/templates/user/new.html:5
+#: gbi_server/templates/user/login.html:19
+#: gbi_server/templates/user/new.html:5
 #: gbi_server/templates/user/new.html:7
 msgid "create new account"
 msgstr "Neues Konto einrichten"
@@ -1192,22 +1177,17 @@ msgid "password recover mail intro"
 msgstr ""
 "Guten Tag,\n"
 "\n"
-"Sie haben Ihr Passwort zur GBI-Anwendung vergessen? Sie können es mit dem"
-" unten stehenden Link neusetzen. Wenn Sie diese E-Mail nicht angefordert "
-"haben, dann ignorieren Sie bitte diese E-Mail."
+"Sie haben Ihr Passwort zur GBI-Anwendung vergessen? Sie können es mit dem unten stehenden Link neusetzen. Wenn Sie diese E-Mail nicht angefordert haben, dann ignorieren Sie bitte diese E-Mail."
 
 #: gbi_server/templates/user/recover_mail.txt:3
 msgid "password recover mail instructions"
 msgstr ""
-"Um ein neues Passwort für Ihren Zugang zu setzen, klicken Sie auf den "
-"folgenden Link. Der Link ist 24 Stunden gültig.\n"
+"Um ein neues Passwort für Ihren Zugang zu setzen, klicken Sie auf den folgenden Link. Der Link ist 24 Stunden gültig.\n"
 "%(url)s"
 
 #: gbi_server/templates/user/recover_sent.html:9
 msgid "recover mail sent"
-msgstr ""
-"Eine E-Mail zum Wiederherstellen Ihres Passworts wurde versendet. Bitte "
-"folgen Sie den Anweisungen in dieser E-Mail."
+msgstr "Eine E-Mail zum Wiederherstellen Ihres Passworts wurde versendet. Bitte folgen Sie den Anweisungen in dieser E-Mail."
 
 #: gbi_server/templates/user/recover_sent.html:10
 #: gbi_server/templates/user/verify_wait.html:11
@@ -1216,36 +1196,26 @@ msgstr "Zur Anmeldung"
 
 #: gbi_server/templates/user/remove.html:12
 msgid "remove account notes"
-msgstr ""
-"Achtung! Sie sind dabei Ihr Benutzerkonto vollständig zu löschen. Alle "
-"Daten gehen hierbei verloren. Ein wiederherstellen des Kontos nicht nicht"
-" möglich."
+msgstr "Achtung! Sie sind dabei Ihr Benutzerkonto vollständig zu löschen. Alle Daten gehen hierbei verloren. Ein wiederherstellen des Kontos nicht nicht möglich."
 
 #: gbi_server/templates/user/verify_mail.txt:1
 msgid "mail verify intro"
 msgstr ""
 "Willkommen beim GBI-Dienst! \n"
 "\n"
-"Sie haben sich erfolgreich mit folgendem Benutzernamen angemeldet: "
-"%(email)s"
+"Sie haben sich erfolgreich mit folgendem Benutzernamen angemeldet: %(email)s"
 
 #: gbi_server/templates/user/verify_mail.txt:3
 msgid "mail verify instructions"
 msgstr ""
-"Bitte klicken Sie jetzt auf folgenden Link, um die Anmeldung "
-"abzuschließen:\n"
+"Bitte klicken Sie jetzt auf folgenden Link, um die Anmeldung abzuschließen:\n"
 "%(verify_url)s \n"
 "\n"
-"Dieser Link ist 24 Stunden lang gültig. Falls Sie die Anmeldung "
-"innerhalbdieser Zeit nicht abschließen können, melden Sie sich bitte "
-"erneut an."
+"Dieser Link ist 24 Stunden lang gültig. Falls Sie die Anmeldung innerhalbdieser Zeit nicht abschließen können, melden Sie sich bitte erneut an."
 
 #: gbi_server/templates/user/verify_mail.txt:6
 msgid "mail verify activate info"
-msgstr ""
-"Bitte beachten Sie, dass Ihr Zugang erst noch von einem Administrator "
-"freigeschaltet werden muss. Dieser wurder per E-Mail bereits über Ihre "
-"Anmeldung informiert."
+msgstr "Bitte beachten Sie, dass Ihr Zugang erst noch von einem Administrator freigeschaltet werden muss. Dieser wurder per E-Mail bereits über Ihre Anmeldung informiert."
 
 #: gbi_server/templates/user/verify_wait.html:3
 msgid "Email verification"
@@ -1257,12 +1227,7 @@ msgstr "E-Mail-Adresse bestätigen"
 
 #: gbi_server/templates/user/verify_wait.html:10
 msgid "email for verification sent"
-msgstr ""
-"Um Ihre Anmeldung abzuschließen, müssen Sie Ihre E-Mail Adresse "
-"verifizieren. In wenigen Minuten erhalten Sie eine E-Mail an Ihre "
-"angegebene Adresse. Bitte folgen Sie den Anweisungen in dieser E-Mail um "
-"die Anmeldung abzuschließen.<p>Mail nicht erhalten? <a "
-"href=\"%(verify_url)s\">Fordern Sie hier einen erneute E-Mail an.</a></p>"
+msgstr "Um Ihre Anmeldung abzuschließen, müssen Sie Ihre E-Mail Adresse verifizieren. In wenigen Minuten erhalten Sie eine E-Mail an Ihre angegebene Adresse. Bitte folgen Sie den Anweisungen in dieser E-Mail um die Anmeldung abzuschließen.<p>Mail nicht erhalten? <a href=\"%(verify_url)s\">Fordern Sie hier einen erneute E-Mail an.</a></p>"
 
 #: gbi_server/views/admin.py:68
 msgid "User verified"
@@ -1276,7 +1241,8 @@ msgstr "GBI-Konto aktiviert"
 msgid "User activated"
 msgstr "Konto aktiviert"
 
-#: gbi_server/views/admin.py:118 gbi_server/views/user.py:122
+#: gbi_server/views/admin.py:118
+#: gbi_server/views/user.py:122
 #: gbi_server/views/user.py:177
 msgid "Email verification mail subject"
 msgstr "E-Mail-Adresse bestätigen"
@@ -1297,43 +1263,43 @@ msgstr "Passwort zurückgesetzt"
 msgid "User removed"
 msgstr "Benutzer gelöscht"
 
-#: gbi_server/views/admin.py:237
+#: gbi_server/views/admin.py:238
 msgid "Saved WMTS"
 msgstr "WMTS gespeichert"
 
-#: gbi_server/views/admin.py:241
+#: gbi_server/views/admin.py:242
 msgid "WMTS with this name already exist"
 msgstr "WMTS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:250
+#: gbi_server/views/admin.py:251
 msgid "WMTS removed"
 msgstr "WMTS gelöscht"
 
-#: gbi_server/views/admin.py:258
+#: gbi_server/views/admin.py:259
 msgid "Need url for capabilities"
 msgstr "URL für Capabilities wird benötigt"
 
-#: gbi_server/views/admin.py:327
+#: gbi_server/views/admin.py:329
 msgid "Saved WMS"
 msgstr "WMS wurde gespeichert"
 
-#: gbi_server/views/admin.py:332
+#: gbi_server/views/admin.py:334
 msgid "WMS with this name already exist"
 msgstr "WMS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:341
+#: gbi_server/views/admin.py:343
 msgid "WMS removed"
 msgstr "WMS gelöscht"
 
-#: gbi_server/views/admin.py:373
+#: gbi_server/views/admin.py:377
 msgid "Saved WFS"
 msgstr "WFS Speichern"
 
-#: gbi_server/views/admin.py:377
+#: gbi_server/views/admin.py:381
 msgid "WFS with this name already exist"
 msgstr "WFS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:388
+#: gbi_server/views/admin.py:392
 msgid "WFS removed"
 msgstr "WFS gelöscht"
 
@@ -1357,15 +1323,15 @@ msgstr "Daten konnten nicht kopiert werden"
 msgid "file copied"
 msgstr "Datei wurde erfolgreich kopiert"
 
-#: gbi_server/views/context.py:169
+#: gbi_server/views/context.py:173
 msgid "area box"
 msgstr "Flächen-Box"
 
-#: gbi_server/views/context.py:181
+#: gbi_server/views/context.py:185
 msgid "file box"
 msgstr "Beraterbox"
 
-#: gbi_server/views/context.py:191
+#: gbi_server/views/context.py:195
 msgid "consultant box"
 msgstr "Downloadbox"
 
@@ -1379,33 +1345,35 @@ msgstr "Layer '%(title)s' existiert bereits"
 msgid "Layer %(title)s created"
 msgstr "Layer '%(title)s' wurde erstellt"
 
-#: gbi_server/views/maps.py:102 gbi_server/views/maps.py:149
+#: gbi_server/views/maps.py:102
+#: gbi_server/views/maps.py:150
 msgid "external edit in progress"
 msgstr "Externer Editiervorgang aktiv."
 
-#: gbi_server/views/maps.py:110 gbi_server/views/maps.py:171
+#: gbi_server/views/maps.py:110
+#: gbi_server/views/maps.py:172
 msgid "layer unknown or without schema"
 msgstr "Unbekannter Layer oder fehlendes Layer-Schema"
 
-#: gbi_server/views/maps.py:144
+#: gbi_server/views/maps.py:145
 msgid "not allowed to remove this layer"
 msgstr "Dieser Layer darf nicht gelöscht werden"
 
-#: gbi_server/views/maps.py:155
+#: gbi_server/views/maps.py:156
 #, python-format
 msgid "Layer %(layer)s removed"
 msgstr "Layer %(layer)s gelöscht"
 
-#: gbi_server/views/maps.py:157
+#: gbi_server/views/maps.py:158
 #, python-format
 msgid "Could not remove layer %(layer)s"
 msgstr "Layer '%(layer)s' kann nicht gelöscht werden."
 
-#: gbi_server/views/maps.py:187
+#: gbi_server/views/maps.py:188
 msgid "wfs changes discarded"
 msgstr "Änderungen verworfen"
 
-#: gbi_server/views/maps.py:229
+#: gbi_server/views/maps.py:230
 msgid "wfs changes saved"
 msgstr "Änderungen gespeichert"
 
@@ -1415,9 +1383,7 @@ msgstr "Bentuzername oder Passwort sind nicht korrekt"
 
 #: gbi_server/views/user.py:68
 msgid "account not activated"
-msgstr ""
-"Ihr Zugang ist noch nicht freigeschaltet. Die Administratoren sind "
-"bereits über Ihre Anmeldung informiert."
+msgstr "Ihr Zugang ist noch nicht freigeschaltet. Die Administratoren sind bereits über Ihre Anmeldung informiert."
 
 #: gbi_server/views/user.py:74
 msgid "Logged in successfully."
@@ -1467,160 +1433,160 @@ msgstr "Falsches FLOrlp Passwort"
 msgid "Refreshed florlp data"
 msgstr "FLOrlp Daten wurde aktualisiert"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:55
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:55
 #, python-format
 msgid "Invalid field name '%s'."
 msgstr "Ungültiger Feldname '%s'."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:62
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:62
 #, python-format
 msgid "Field must be equal to %(other_name)s."
 msgstr "Das Feld muss mit dem %(other_name)s übereinstimmen."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:94
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:94
 #, python-format
 msgid "Field must be at least %(min)d character long."
 msgid_plural "Field must be at least %(min)d characters long."
 msgstr[0] "Feld muss mindestens %(min)d Zeichen lang sein"
 msgstr[1] "Feld muss mindestens %(min)d Zeichen lang sein"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:97
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:97
 #, python-format
 msgid "Field cannot be longer than %(max)d character."
 msgid_plural "Field cannot be longer than %(max)d characters."
 msgstr[0] "Der Inhalt kann nicht länger als %(max)d Buchstabe sein."
 msgstr[1] "Der Inhalt kann nicht länger als %(max)d Buchstaben sein."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:100
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:100
 #, python-format
 msgid "Field must be between %(min)d and %(max)d characters long."
 msgstr "Eingabe muss zwischen %(min)d und %(max)d Zeichen lang sein."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:135
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:135
 #, python-format
 msgid "Number must be greater than %(min)s."
 msgstr "Die Zahl muss größer als %(min)s sein "
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:137
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:137
 #, python-format
 msgid "Number must be less than %(max)s."
 msgstr "Zahl muss kleiner sein als %(max)s"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:139
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:139
 #, python-format
 msgid "Number must be between %(min)s and %(max)s."
 msgstr "Die Zahl muss zwischen %(min)s und %(max)s liegen"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:188
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:221
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:188
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:221
 msgid "This field is required."
 msgstr "Dieses Feld muss ausgefüllt werden."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:249
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:249
 msgid "Invalid input."
 msgstr "Ungültige Eingabe."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:268
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:268
 msgid "Invalid email address."
 msgstr "Ungültige E-Mail-Adresse"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:297
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:297
 msgid "Invalid IP address."
 msgstr "Ungültige IP Adresse."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:345
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:345
 msgid "Invalid Mac address."
 msgstr "Ungültige MAC-Adresse"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:370
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:370
 msgid "Invalid URL."
 msgstr "Ungültige URL."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:388
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:388
 msgid "Invalid UUID."
 msgstr "Ungültige UUID."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:415
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:415
 #, python-format
 msgid "Invalid value, must be one of: %(values)s."
 msgstr "Ungültiger Wert. Der Wert muss eines der folgenen sein: %(values)s."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/validators.py:442
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:442
 #, python-format
 msgid "Invalid value, can't be any of: %(values)s."
 msgstr "Ungültiger Wert: %(values)s sind nicht möglich."
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:90
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/django/fields.py:89
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:125
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:175
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:180
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:419
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:90
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/django/fields.py:89
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:125
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:175
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:180
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:419
 msgid "Not a valid choice"
 msgstr "Keine gültige Auswahl"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:109
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:109
 msgid "Not a valid list"
 msgstr "Keine gültige Liste"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:47
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:47
 msgid "Invalid CSRF Token"
 msgstr "Ungültiger CSRF Token"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:57
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:57
 msgid "CSRF token missing"
 msgstr "CSRF Token fehlt"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:65
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:65
 msgid "CSRF failed"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:70
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:70
 msgid "CSRF token expired"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:50
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:50
 msgid "Please input a date/time value"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:62
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:62
 msgid "Invalid date/time input"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/validators.py:33
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/validators.py:33
 msgid "Already exists."
 msgstr "E-Mail Adresse exisitert bereits"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:412
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:412
 msgid "Invalid Choice: could not coerce"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:445
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:445
 msgid "Invalid choice(s): one or more data inputs could not be coerced"
 msgstr ""
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:452
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:452
 #, python-format
 msgid "'%(value)s' is not a valid choice for this field"
-msgstr "'%(value)' ist keine gültige Auswahl für dieses Feld"
+msgstr "'%(value)s' ist keine gültige Auswahl für dieses Feld"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:507
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:507
 msgid "Not a valid integer value"
 msgstr "Kein gültiger Zahlenwert"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:554
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:554
 msgid "Not a valid decimal value"
 msgstr "Kein gültiger Zahlenwert"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:581
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:581
 msgid "Not a valid float value"
 msgstr "Kein gültiger Gleitkommawert"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:632
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:632
 msgid "Not a valid datetime value"
 msgstr "Keine gültige Datumseingabe"
 
-#: /Users/dominikhelle/Documents/venv/igreen-server/lib/python2.7/site-packages/wtforms/fields/core.py:649
+#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:649
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
 

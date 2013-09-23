@@ -74,6 +74,6 @@ class UploadForm(Form):
     overwrite = HiddenField('overwrite', default=False)
 
 class CopyFileForm(Form):
-    filename = TextField(_l('florlp_username'), [validators.Required()])
-    boxes = QuerySelectField(_l('select coverage'), [validators.Required()], query_factory=query_all_user_boxes, get_label='email')
+    filename = TextField(_l('filename'), [validators.Required()])
+    boxes = QuerySelectField(_l('select target user'), [validators.Required()], query_factory=query_all_user_boxes, get_label='email')
 
