@@ -90,7 +90,6 @@
                 });
             $('#add_search').click(function() {
                 if (activeSearchLayer) {
-                    activeSearchLayer.visible(false)
                     activeSearchLayer.olLayer.filter = null
                     activeSearchLayer.olLayer.removeAllFeatures();
                 }
@@ -99,17 +98,16 @@
 
                 var layername = $("#wfs_serach_layer").val()
                 activeSearchLayer = editor.layerManager.layerByName(layername);
-                activeSearchLayer.visible(true)
                 if (value) {
                     value = value.split("\n")
-                    $(activeSearchLayer).one('gbi.layer.WFST.filter_applied', function() {
+                    $(activeSearchLayer).one('gbi.layer.WFS.filter_applied', function() {
                         var foundFeaturesCount = activeSearchLayer.features.length;
                         if(!foundFeaturesCount) {
                             $('#no_features_found').show().fadeOut(3000);
                         }
                     });
                     activeSearchLayer.filter(
-                        activeSearchLayer.olLayer.searchProperty, value
+                        activeSearchLayer.olLayer.searchProperty, value, 'like', true
                     );
                     $('#remove_search').removeAttr('disabled');
                 } else {
