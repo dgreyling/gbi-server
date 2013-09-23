@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-09-23 14:50+0200\n"
-"PO-Revision-Date: 2013-09-23 15:07+0100\n"
+"POT-Creation-Date: 2013-09-23 17:15+0200\n"
+"PO-Revision-Date: 2013-09-23 17:17+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -472,7 +472,7 @@ msgstr "Benutzer editieren"
 
 #: gbi_server/templates/admin/edit_user.html:20
 #: gbi_server/templates/admin/wfs_edit.html:47
-#: gbi_server/templates/admin/wms_edit.html:82
+#: gbi_server/templates/admin/wms_edit.html:90
 #: gbi_server/templates/admin/wmts_edit.html:51
 #: gbi_server/templates/user/edit_address.html:22
 #: gbi_server/templates/user/edit_password.html:16
@@ -681,8 +681,7 @@ msgid "edit WFS"
 msgstr "WFS Editieren"
 
 #: gbi_server/templates/admin/wfs_edit.html:41
-#: gbi_server/templates/admin/wms_edit.html:77
-#: gbi_server/templates/admin/wmts_edit.html:36
+#: gbi_server/templates/admin/wms_edit.html:81
 msgid "tooltip - protected service"
 msgstr "Wird der Dienst \"Passwort geschützt\" eingebunden, muss jeder Benutzer die Zugangsdaten zu diesem Dienst selbst eingeben."
 
@@ -707,36 +706,44 @@ msgstr "WMS Editieren"
 msgid "infotext wms load via url"
 msgstr "Sie können die WMS-Details vom System abfragen lassen. Tragen Sie hierfür die URL in das Feld ein. Bitte beachten Sie, die manuell getroffenen Einstellungen in dem Layer werden evtl. überschrieben."
 
-#: gbi_server/templates/admin/wms_edit.html:29
+#: gbi_server/templates/admin/wms_edit.html:27
+msgid "load wms capabilities"
+msgstr "WMS Capabilities geladen"
+
+#: gbi_server/templates/admin/wms_edit.html:31
 msgid "load wms"
 msgstr "WMS Capabilities Laden"
 
-#: gbi_server/templates/admin/wms_edit.html:33
-#: gbi_server/templates/admin/wms_edit.html:87
+#: gbi_server/templates/admin/wms_edit.html:35
+msgid "infotext preview map only if on selct srs is selcted"
+msgstr "Kartenvorschau nicht möglich. Bitte wählen Sie einen Layer und ein Koordiantensystem was mit ** gekennzeichnet ist."
+
+#: gbi_server/templates/admin/wms_edit.html:36
+msgid "preview not possible"
+msgstr "Die Vorschau ist nicht möglich. Prüfen Sie bitte Ihre Eingaben."
+
+#: gbi_server/templates/admin/wms_edit.html:38
+#: gbi_server/templates/admin/wms_edit.html:99
 msgid "preview map"
 msgstr "Vorschaukarte"
 
-#: gbi_server/templates/admin/wms_edit.html:48
+#: gbi_server/templates/admin/wms_edit.html:52
 msgid "layers_select"
 msgstr "Layerauswahl"
 
-#: gbi_server/templates/admin/wms_edit.html:51
+#: gbi_server/templates/admin/wms_edit.html:55
 msgid "tooltip - select layer"
 msgstr "Wählen Sie hier Layer aus die Sie dem WMS hinzufügen möchten. Die Layer stehen Ihnen nur zur Vergügung wenn der Dienst vom System abgerufen wurde."
 
-#: gbi_server/templates/admin/wms_edit.html:57
+#: gbi_server/templates/admin/wms_edit.html:61
 #: gbi_server/templates/macros/forms.html:23
 msgid "select srs"
 msgstr "SRS auswhälen"
 
-#: gbi_server/templates/admin/wms_edit.html:60
+#: gbi_server/templates/admin/wms_edit.html:64
 #: gbi_server/templates/macros/forms.html:26
 msgid "tooltip - select srs"
 msgstr "Wählen Sie hier ein SRS aus über den Sie den WMS abrufen möchten. Die SRS stehen Ihnen nur zur Vergügung wenn der Dienst vom System abgerufen wurde. Mit ** gekennzeichnte SMS können in der Kartenvorschau angezeigt werden."
-
-#: gbi_server/templates/admin/wms_edit.html:88
-msgid "infotext preview map only if on selct srs is selcted"
-msgstr "Kartenvorschau nicht möglich. Bitte wählen Sie einen Layer und ein Koordiantensystem was mit ** gekennzeichnet ist."
 
 #: gbi_server/templates/admin/wms_list.html:19
 #: gbi_server/templates/admin/wmts_list.html:20
@@ -752,11 +759,6 @@ msgstr "Öffentlich"
 #: gbi_server/templates/admin/wmts_edit.html:16
 msgid "edit WMTS"
 msgstr "WMTS Editieren"
-
-#: gbi_server/templates/admin/wmts_edit.html:34
-#, fuzzy
-msgid "tooltip - matrix set"
-msgstr "Hier werden Ihnen alle zur Verfügung stehenden Karten und Flächen eingeblendet"
 
 #: gbi_server/templates/admin/wmts_list.html:19
 msgid "rastersource_is_background_layer"
@@ -1433,160 +1435,164 @@ msgstr "Falsches FLOrlp Passwort"
 msgid "Refreshed florlp data"
 msgstr "FLOrlp Daten wurde aktualisiert"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:55
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:55
 #, python-format
 msgid "Invalid field name '%s'."
 msgstr "Ungültiger Feldname '%s'."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:62
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:62
 #, python-format
 msgid "Field must be equal to %(other_name)s."
 msgstr "Das Feld muss mit dem %(other_name)s übereinstimmen."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:94
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:94
 #, python-format
 msgid "Field must be at least %(min)d character long."
 msgid_plural "Field must be at least %(min)d characters long."
 msgstr[0] "Feld muss mindestens %(min)d Zeichen lang sein"
 msgstr[1] "Feld muss mindestens %(min)d Zeichen lang sein"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:97
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:97
 #, python-format
 msgid "Field cannot be longer than %(max)d character."
 msgid_plural "Field cannot be longer than %(max)d characters."
 msgstr[0] "Der Inhalt kann nicht länger als %(max)d Buchstabe sein."
 msgstr[1] "Der Inhalt kann nicht länger als %(max)d Buchstaben sein."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:100
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:100
 #, python-format
 msgid "Field must be between %(min)d and %(max)d characters long."
 msgstr "Eingabe muss zwischen %(min)d und %(max)d Zeichen lang sein."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:135
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:135
 #, python-format
 msgid "Number must be greater than %(min)s."
 msgstr "Die Zahl muss größer als %(min)s sein "
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:137
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:137
 #, python-format
 msgid "Number must be less than %(max)s."
 msgstr "Zahl muss kleiner sein als %(max)s"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:139
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:139
 #, python-format
 msgid "Number must be between %(min)s and %(max)s."
 msgstr "Die Zahl muss zwischen %(min)s und %(max)s liegen"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:188
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:221
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:188
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:221
 msgid "This field is required."
 msgstr "Dieses Feld muss ausgefüllt werden."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:249
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:249
 msgid "Invalid input."
 msgstr "Ungültige Eingabe."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:268
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:268
 msgid "Invalid email address."
 msgstr "Ungültige E-Mail-Adresse"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:297
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:297
 msgid "Invalid IP address."
 msgstr "Ungültige IP Adresse."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:345
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:345
 msgid "Invalid Mac address."
 msgstr "Ungültige MAC-Adresse"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:370
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:370
 msgid "Invalid URL."
 msgstr "Ungültige URL."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:388
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:388
 msgid "Invalid UUID."
 msgstr "Ungültige UUID."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:415
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:415
 #, python-format
 msgid "Invalid value, must be one of: %(values)s."
 msgstr "Ungültiger Wert. Der Wert muss eines der folgenen sein: %(values)s."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/validators.py:442
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/validators.py:442
 #, python-format
 msgid "Invalid value, can't be any of: %(values)s."
 msgstr "Ungültiger Wert: %(values)s sind nicht möglich."
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:90
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/django/fields.py:89
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:125
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:175
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:180
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:419
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:90
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/django/fields.py:89
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:125
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:175
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:180
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/fields/core.py:419
 msgid "Not a valid choice"
 msgstr "Keine gültige Auswahl"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:109
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:109
 msgid "Not a valid list"
 msgstr "Keine gültige Liste"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:47
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:47
 msgid "Invalid CSRF Token"
 msgstr "Ungültiger CSRF Token"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:57
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:57
 msgid "CSRF token missing"
 msgstr "CSRF Token fehlt"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:65
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:65
 msgid "CSRF failed"
 msgstr ""
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:70
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:70
 msgid "CSRF token expired"
 msgstr ""
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:50
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:50
 msgid "Please input a date/time value"
 msgstr ""
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:62
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:62
 msgid "Invalid date/time input"
 msgstr ""
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/validators.py:33
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/validators.py:33
 msgid "Already exists."
 msgstr "E-Mail Adresse exisitert bereits"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:412
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/fields/core.py:412
 msgid "Invalid Choice: could not coerce"
 msgstr ""
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:445
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/fields/core.py:445
 msgid "Invalid choice(s): one or more data inputs could not be coerced"
 msgstr ""
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:452
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/fields/core.py:452
 #, python-format
 msgid "'%(value)s' is not a valid choice for this field"
 msgstr "'%(value)s' ist keine gültige Auswahl für dieses Feld"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:507
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/fields/core.py:507
 msgid "Not a valid integer value"
 msgstr "Kein gültiger Zahlenwert"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:554
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/fields/core.py:554
 msgid "Not a valid decimal value"
 msgstr "Kein gültiger Zahlenwert"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:581
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/fields/core.py:581
 msgid "Not a valid float value"
 msgstr "Kein gültiger Gleitkommawert"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:632
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/fields/core.py:632
 msgid "Not a valid datetime value"
 msgstr "Keine gültige Datumseingabe"
 
-#: /home/kai/.virtualenvs/test/local/lib/python2.7/site-packages/wtforms/fields/core.py:649
+#: /home/kai/.virtualenvs/cust-igreen-gbi-server/local/lib/python2.7/site-packages/wtforms/fields/core.py:649
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
 
+#~ msgid "tooltip - matrix set"
+#~ msgstr ""
+#~ "Hier werden Ihnen alle zur Verfügung "
+#~ "stehenden Karten und Flächen eingeblendet"
