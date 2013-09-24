@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-09-23 17:15+0200\n"
-"PO-Revision-Date: 2013-09-23 17:17+0100\n"
+"POT-Creation-Date: 2013-09-24 09:01+0200\n"
+"PO-Revision-Date: 2013-09-24 09:01+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -982,51 +982,55 @@ msgstr "Kein Suchergebnis vorhanden"
 msgid "No features found"
 msgstr "Keine Ergebnisse gefunden"
 
-#: gbi_server/templates/maps/wfs.html:30
+#: gbi_server/templates/maps/wfs.html:32
+msgid "search request is being processed"
+msgstr "Suchanfrage wird bearbeitet"
+
+#: gbi_server/templates/maps/wfs.html:34
 msgid "add search"
 msgstr "Suchen"
 
-#: gbi_server/templates/maps/wfs.html:31
+#: gbi_server/templates/maps/wfs.html:35
 msgid "remove search string"
 msgstr "Suchewert entfernen"
 
-#: gbi_server/templates/maps/wfs.html:32
+#: gbi_server/templates/maps/wfs.html:36
 msgid "hide searchlayer"
 msgstr "Suchergebnis ausblenden"
 
-#: gbi_server/templates/maps/wfs.html:35
+#: gbi_server/templates/maps/wfs.html:39
 msgid "feature settings"
 msgstr "Geometrien bearbeiten"
 
-#: gbi_server/templates/maps/wfs.html:36
+#: gbi_server/templates/maps/wfs.html:40
 msgid "feature select help text"
 msgstr "Über die Toolbar in der Karte können Sie Geometrien zeichnen, bearbeiten, auswählen oder löschen. Ausgewählte Geometrien können mit Eigenschaften versehen werden."
 
-#: gbi_server/templates/maps/wfs.html:38
+#: gbi_server/templates/maps/wfs.html:42
 msgid "successfull saved"
 msgstr "Erfolgreich gespeichert"
 
-#: gbi_server/templates/maps/wfs.html:39
+#: gbi_server/templates/maps/wfs.html:43
 msgid "save changes"
 msgstr "Änderungen gespeichert"
 
-#: gbi_server/templates/maps/wfs.html:40
+#: gbi_server/templates/maps/wfs.html:44
 msgid "tooltip - button save changes"
 msgstr "Änderungen an Flächen oder Attributen müssen Sie bestätigen. Der Button wird grün dargestellt sobald Änderungen vorhanden sind die gespeichert werden können. Wenn Änderungen nicht gespeichert werden, gehen diese verloren."
 
-#: gbi_server/templates/maps/wfs.html:46
+#: gbi_server/templates/maps/wfs.html:50
 msgid "attributes"
 msgstr "Eigenschaften"
 
-#: gbi_server/templates/maps/wfs.html:47
+#: gbi_server/templates/maps/wfs.html:51
 msgid "tooltip - attrbibutes"
 msgstr "Geben Sie hier Werte zu den Eigenschaften der Flächen ein"
 
-#: gbi_server/templates/maps/wfs.html:66
+#: gbi_server/templates/maps/wfs.html:70
 msgid "save feautre not possible"
 msgstr "Daten konnten nicht gespeichert werden"
 
-#: gbi_server/templates/maps/wfs.html:67
+#: gbi_server/templates/maps/wfs.html:71
 msgid "save feature successfull"
 msgstr "Daten wurden erfolgreich gespeichert"
 
@@ -1592,7 +1596,3 @@ msgstr "Keine gültige Datumseingabe"
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
 
-#~ msgid "tooltip - matrix set"
-#~ msgstr ""
-#~ "Hier werden Ihnen alle zur Verfügung "
-#~ "stehenden Karten und Flächen eingeblendet"

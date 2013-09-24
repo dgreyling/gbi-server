@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-09-23 17:15+0200\n"
+"POT-Creation-Date: 2013-09-24 09:01+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -946,51 +946,55 @@ msgstr ""
 msgid "No features found"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:30
+#: gbi_server/templates/maps/wfs.html:32
+msgid "search request is being processed"
+msgstr ""
+
+#: gbi_server/templates/maps/wfs.html:34
 msgid "add search"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:31
+#: gbi_server/templates/maps/wfs.html:35
 msgid "remove search string"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:32
+#: gbi_server/templates/maps/wfs.html:36
 msgid "hide searchlayer"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:35
+#: gbi_server/templates/maps/wfs.html:39
 msgid "feature settings"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:36
+#: gbi_server/templates/maps/wfs.html:40
 msgid "feature select help text"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:38
+#: gbi_server/templates/maps/wfs.html:42
 msgid "successfull saved"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:39
+#: gbi_server/templates/maps/wfs.html:43
 msgid "save changes"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:40
+#: gbi_server/templates/maps/wfs.html:44
 msgid "tooltip - button save changes"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:46
+#: gbi_server/templates/maps/wfs.html:50
 msgid "attributes"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:47
+#: gbi_server/templates/maps/wfs.html:51
 msgid "tooltip - attrbibutes"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:66
+#: gbi_server/templates/maps/wfs.html:70
 msgid "save feautre not possible"
 msgstr ""
 
-#: gbi_server/templates/maps/wfs.html:67
+#: gbi_server/templates/maps/wfs.html:71
 msgid "save feature successfull"
 msgstr ""
 
