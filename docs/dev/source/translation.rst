@@ -1,11 +1,11 @@
 Translation
 ===========
 
-GBI-Server uses `Babel <http://babel.edgewall.org/>`_ for i18n support. The default language of the application is German.
+GeoBox-Server uses `Babel <http://babel.edgewall.org/>`_ for i18n support. The default language of the application is German.
 
 Babel uses ``babel.cfg`` as the configuration file.
 
-To initalize, update or compile the tranlsation files you have to use the :ref:`manage tool <manage_script>` from the GBI-Server.
+To initalize, update or compile the tranlsation files you have to use the :ref:`manage tool <manage_script>` from the GeoBox-Server.
 
 To initialize a new language use this command, where ``en`` is the language code::
 

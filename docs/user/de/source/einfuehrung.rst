@@ -31,10 +31,10 @@ Nach erfolgreicher Anmeldung gelangen Sie auf die Startseite. Hier können Sie d
 
   - Kartenansicht
   - Flächeneditor
-  - Beraterbox
-  - Dokumentenbox
-  - GBI-Client herunterladen
+  - Downloadbox
+  - Uploadbox
+  - GeoBox-Client herunterladen
 
-Durch betätigen der Auswahl `GBI-Client herunterladen` können Sie den GBI-Client herunterladen um ihn auf Ihren PC zu installieren.
+Durch betätigen der Auswahl `GeoBox-Client herunterladen` können Sie den GeoBox-Client herunterladen um ihn auf Ihren PC zu installieren.
 
 Die weiteren Funktionen werden in der Benutzerdokumentation näher erläutert.
