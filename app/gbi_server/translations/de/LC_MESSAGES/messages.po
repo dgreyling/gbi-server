@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-09-24 09:01+0200\n"
-"PO-Revision-Date: 2013-09-24 09:01+0100\n"
+"POT-Creation-Date: 2013-09-26 17:56+0200\n"
+"PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
 "Plural-Forms: nplurals=2; plural=(n != 1)\n"
@@ -340,8 +340,8 @@ msgid "admin"
 msgstr "Administrator"
 
 #: gbi_server/templates/base.html:23
-msgid "GBI Server"
-msgstr "GBI Server"
+msgid "GeoBox Server"
+msgstr "GeoBox Server"
 
 #: gbi_server/templates/base.html:26
 #: gbi_server/templates/index.html:4
@@ -377,7 +377,7 @@ msgid "logged in as"
 msgstr "Angemeldet als"
 
 #: gbi_server/templates/index.html:6
-msgid "Welcome to GBI Server"
+msgid "Welcome to GeoBox Server"
 msgstr "Willkommen"
 
 #: gbi_server/templates/index.html:14
@@ -436,15 +436,15 @@ msgid "info text filebox"
 msgstr "In der Beraterbox können Sie Ihre Dokumente verwalten."
 
 #: gbi_server/templates/index.html:40
-msgid "gbi client download"
-msgstr "GBI-Client herunterladen"
+msgid "geobox client download"
+msgstr "GeoBox-Client herunterladen"
 
 #: gbi_server/templates/index.html:41
-msgid "info text gbi client download"
-msgstr "Laden Sie den GBI-Client für Windows herunter"
+msgid "info text geobox client download"
+msgstr "Laden Sie den GeoBox-Client für Windows herunter"
 
 #: gbi_server/templates/index.html:45
-msgid "gbi user manual"
+msgid "geobox server user manual"
 msgstr "Benutzerhandbuch"
 
 #: gbi_server/templates/index.html:46
@@ -452,7 +452,7 @@ msgid "user manual"
 msgstr "Laden Sie hier das Benutzerhandbuch herunter"
 
 #: gbi_server/templates/index.html:51
-msgid "info text gbi client first page"
+msgid "info text geobox client first page"
 msgstr "<a href='%(login_url)s'>Melden Sie sich an</a> oder erstellen Sie ein <a href='%(createuser_url)s'>neues Konto</a> um die GeoBox im vollen Umfang nutzen zu können."
 
 #: gbi_server/templates/admin/create_user.html:5
@@ -1297,15 +1297,15 @@ msgstr "WMS mit diesem Namen existiert bereits"
 msgid "WMS removed"
 msgstr "WMS gelöscht"
 
-#: gbi_server/views/admin.py:377
+#: gbi_server/views/admin.py:381
 msgid "Saved WFS"
 msgstr "WFS Speichern"
 
-#: gbi_server/views/admin.py:381
+#: gbi_server/views/admin.py:385
 msgid "WFS with this name already exist"
 msgstr "WFS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:392
+#: gbi_server/views/admin.py:396
 msgid "WFS removed"
 msgstr "WFS gelöscht"
 
@@ -1596,3 +1596,5 @@ msgstr "Keine gültige Datumseingabe"
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
 
+#~ msgid "GBI Server"
+#~ msgstr "GBI Server"

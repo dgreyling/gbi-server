@@ -14,7 +14,7 @@
 # limitations under the License.
 
 """
-Example script for database initalization for GBI-Server.
+Example script for database initalization for GeoBox-Server.
 
 Creates all necessary tables and inserts initial admin user.
 """

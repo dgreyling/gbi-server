@@ -59,7 +59,7 @@ class DefaultConfig(object):
     MAIL_USERNAME = 'gbi_server@example.org'
     MAIL_PASSWORD = 'XXXXX'
     MAIL_DEBUG = DEBUG
-    DEFAULT_MAIL_SENDER = "GBI Server <gbi_server@example.org>"
+    DEFAULT_MAIL_SENDER = "GeoBox Server <gbi_server@example.org>"
 
     TINYOWS_NAME = "TinyOWS Server"
     TINYOWS_TITLE = "TinyOWS Server - Demo Service"
@@ -85,7 +85,7 @@ class DefaultConfig(object):
     COUCH_DB_URL = "http://127.0.0.1:5984"
     # user name and password for db admin that is allowed to
     # create new user boxes
-    COUCH_DB_ADMIN_USER = 'gbi'
+    COUCH_DB_ADMIN_USER = 'admin'
     COUCH_DB_ADMIN_PASSWORD = 'secure'
 
     AUTHPROXY_CACHE_DIR = "/tmp/authproxy"
@@ -116,7 +116,7 @@ class DefaultConfig(object):
 
 
     PORTAL_PREFIX = "DEFAULT"
-    PORTAL_TITLE = "Unconfigured GBI-Server"
+    PORTAL_TITLE = "Unconfigured GeoBox-Server"
 
 
 class SystemConfig(object):

@@ -14,20 +14,20 @@
 # limitations under the License.
 
 """
-GBI Server
+GeoBox Server
 ----------
 
 """
 from setuptools import setup, find_packages
 
 setup(
-    name='gbi_server',
+    name='geobox_server',
     version='1.1',
     url='https://github.com/omniscale/gbi-server',
     license='Apache License 2.0',
     author='Oliver Tonnhofer',
     author_email='support@omniscale.de',
-    description='GBI-Server application',
+    description='GeoBox-Server application',
     long_description=__doc__,
     packages=find_packages(),
     zip_safe=False,
