@@ -1,0 +1,3 @@
+[submodule "app/gbi_server/static/js/lib/gbi-editor"]
+	path = app/gbi_server/static/js/lib/gbi-editor
+	url = git@bitbucket.org:Omniscale/gbi-editor.git
