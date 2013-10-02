@@ -29,7 +29,7 @@ ProxyCouch = namedtuple('ProxyCouch', ['url', 'dbname'])
 
 tile_proxy_urls = [
     (
-        re.compile('^GoogleMapsCompatible-(?P<z>[^/]+)-(?P<x>[^/]+)-(?P<y>[^/]+)/tile$'),
+        re.compile('http://igreendemo.omniscale.net/wmts/(?P<layer>[^/]+)/GoogleMapsCompatible-(?P<z>[^/]+)-(?P<x>[^/]+)-(?P<y>[^/]+)/tile$'),
         'http://igreendemo.omniscale.net/wmts/%(layer)s/GoogleMapsCompatible-%(z)s-%(x)s-%(y)s/tile'
         # 'http://localhost:8099/%(layer)s/GoogleMapsCompatible-%(z)s-%(x)s-%(y)s/tile'
     ),
@@ -188,8 +188,8 @@ class TileProxy(object):
     def __init__(self, tile_coverages=None):
         self.tile_coverages = tile_coverages
 
-    def on_proxy(self, request, user_token, layer, url):
-        proxy_tile = self.proxy_url_and_coords(url, layer)
+    def on_proxy(self, request, user_token, url):
+        proxy_tile = self.proxy_url_and_coords(url)
         if not proxy_tile:
             raise exceptions.BadRequest('unknown proxy url')
 
@@ -197,7 +197,7 @@ class TileProxy(object):
             raise exceptions.MethodNotAllowed(valid_methods=['GET', 'HEAD'])
 
         try:
-            if not self.tile_coverages.is_permitted(user_token, layer, proxy_tile.tile_coord):
+            if not self.tile_coverages.is_permitted(user_token, proxy_tile.layer, proxy_tile.tile_coord):
                 raise exceptions.Forbidden()
 
         except InvalidUserToken:
@@ -213,12 +213,11 @@ class TileProxy(object):
         headers = end_to_end_headers(resp.headers)
         return Response(response_iterator(resp), headers=headers, status=resp.status_code)
 
-    def proxy_url_and_coords(self, req_url, layer):
+    def proxy_url_and_coords(self, req_url):
         for req_url_re, target_url_template in tile_proxy_urls:
             match = req_url_re.match(req_url)
             if match:
                 params = match.groupdict()
-                params['layer'] = layer
                 target_url = target_url_template % params
                 tile_coord = int(params['x']), int(params['y']), int(params['z'])
                 return ProxyTile(target_url, params['layer'], tile_coord)

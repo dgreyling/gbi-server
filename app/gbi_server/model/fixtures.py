@@ -66,11 +66,9 @@ def db_objects():
     wmts = [
         model.WMTS(
             name='omniscale_osm',
-            url='http://igreendemo.omniscale.net/wmts/',
+            url='http://igreendemo.omniscale.net/wmts/omniscale_osm/GoogleMapsCompatible-{TileMatrix}-{TileCol}-{TileRow}/tile',
             title='Omniscale OSM',
-            layer='omniscale_osm',
             format='png',
-            srs='EPSG:3857',
             view_coverage=WKTSpatialElement(asShape(loads("""{
                 "type":"Polygon",
                 "coordinates":[[

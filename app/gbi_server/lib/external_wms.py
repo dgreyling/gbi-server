@@ -40,7 +40,7 @@ class MapProxyConfiguration(object):
         for wmts, view_coverage in public_wmts:
             self.sources['%s_source' % wmts.name] = {
                 'type': 'tile',
-                'url': wmts.url + wmts.layer + '/GoogleMapsCompatible-%(z)s-%(x)s-%(y)s/tile' ,
+                'url': wmts.url,
                 'grid': 'GoogleMapsCompatible',
                 'coverage': {
                     'srs': 'EPSG:3857',
@@ -49,7 +49,7 @@ class MapProxyConfiguration(object):
             }
             self.caches['%s_cache' % wmts.name] = {
                 'sources': ['%s_source' % wmts.name],
-                'grids': [wmts.matrix_set],
+                'grids': ['GoogleMapsCompatible'],
                 'disable_storage': True
             }
             self.layers.append({

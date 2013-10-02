@@ -30,10 +30,7 @@ class WMTS(db.Model):
     username = db.Column(db.String(64))
     password = db.Column(db.String(64))
     title = db.Column(db.String)
-    layer = db.Column(db.String(256), nullable=False)
     format = db.Column(db.String, nullable=False)
-    srs = db.Column(db.String(64), default="EPSG:3857")
-    matrix_set = db.Column(db.String(64), default='GoogleMapsCompatible')
 
     max_tiles = db.Column(db.Integer)
 
@@ -65,9 +62,9 @@ class WMTS(db.Model):
             return self.url.rstrip('/') + '/'
 
         if external:
-            return url_for('authproxy.tile_proxy', user_token=g.user.authproxy_token, _external=True).rstrip('/') + '/'
+            return url_for('authproxy.tile_proxy', user_token=g.user.authproxy_token, _external=True).rstrip('/') + '/'  + self.url
 
-        return url_for('authproxy.tile_proxy').rstrip('/') + '/'
+        return url_for('authproxy.tile_proxy').rstrip('/') + '/' + self.url
 
 GeometryDDL(WMTS.__table__)
 

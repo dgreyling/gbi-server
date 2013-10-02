@@ -206,12 +206,8 @@ def wmts_edit(id=None):
         wmts.is_protected = form.data['is_protected']
         wmts.name = form.data['name']
         wmts.title = form.data['title']
-        wmts.layer = form.data['layer']
         wmts.format = form.data['format']
-        wmts.srs = form.data['srs']
         wmts.max_tiles = form.data['max_tiles'] or None
-
-        wmts.matrix_set = form.data['matrix_set']
 
         view_coverage = form.data['view_coverage']
         # load geometry to load string as  json - if not possible then try to use string as bbox

@@ -9,10 +9,8 @@
         sources.push(new gbi.Layers.WMTS({
             label: '{{ layer.title }}',
             url: '{{ layer.client_url() }}',
-            layer: '{{ layer.layer }}',
-            matrixSet: '{{ layer.matrix_set }}',
+            layer: '{{ layer.name }}',
             format: '{{ layer.format }}',
-            style: 'default',
             {% if layer.bbox %}
                 restrictedExtent: new OpenLayers.Bounds{{ layer.bbox }},
             {% endif %}

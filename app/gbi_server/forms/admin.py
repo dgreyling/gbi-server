@@ -54,7 +54,8 @@ class RasterSourceForm(Form):
             raise validators.ValidationError(_l('level needs to be bigger or equal to start level'))
 
 class WMTSForm(RasterSourceForm):
-    matrix_set = TextField(_l('wmts_matrix_set'), [validators.Required()], default='GoogleMapsCompatible')
+    layer = None
+    srs = None
 
 class WMSForm(RasterSourceForm):
     version = SelectField(_l('wms_version'), choices=[('1.1.1', '1.1.1'), ('1.3.0', '1.3.0')],
