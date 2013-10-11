@@ -66,7 +66,7 @@ def get_context_document():
     wfs_sources = db.session.query(WFS).all()
 
     response = {
-        "version": "0.1",
+        "version": "0.2",
         "portal": {
             "prefix": current_app.config['PORTAL_PREFIX'],
             "title": current_app.config['PORTAL_TITLE'],
