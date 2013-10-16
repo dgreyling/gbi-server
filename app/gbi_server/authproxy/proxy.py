@@ -211,6 +211,8 @@ class TileProxy(object):
             raise exceptions.BadGateway('source returned: %s' % ex)
 
         headers = end_to_end_headers(resp.headers)
+        headers.append(('Access-Control-Allow-Origin', '*'))
+
         return Response(response_iterator(resp), headers=headers, status=resp.status_code)
 
     def proxy_url_and_coords(self, req_url, layer):
