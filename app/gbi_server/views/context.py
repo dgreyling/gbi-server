@@ -68,7 +68,7 @@ def get_context_document():
     wfs_sources = db.session.query(WFS).all()
 
     response = {
-        "version": "0.1",
+        "version": "0.2",
         "portal": {
             "prefix": current_app.config['PORTAL_PREFIX'],
             "title": current_app.config['PORTAL_TITLE'],
@@ -97,15 +97,12 @@ def get_context_document():
             "name": wmts.name,
             "title": wmts.title,
             "url": wmts.client_url(external=True),
-            "layer": wmts.layer,
-            "tile_matrix": wmts.matrix_set,
             "format": wmts.format,
             "baselayer": wmts.is_baselayer,
             "overlay": wmts.is_overlay,
             "username": wmts.username,
             "password": wmts.password,
             "is_protected": wmts.is_protected,
-            "srs": wmts.srs,
             "max_tiles": wmts.max_tiles,
             "view_restriction": {
                 "zoom_level_start": wmts.view_level_start,

@@ -40,13 +40,13 @@ def couchdb_proxy_file(url):
 
 
 @authproxy.route('/authproxy/tiles/', build_only=True)
-@authproxy.route('/authproxy/tiles/<string:layer>/<path:url>', methods=['GET', 'POST'])
+@authproxy.route('/authproxy/tiles/<path:url>', methods=['GET', 'POST'])
 @authproxy.route('/authproxy/<string:user_token>/tiles/', build_only=True)
-@authproxy.route('/authproxy/<string:user_token>/tiles/<string:layer>/<path:url>', methods=['GET', 'POST'])
-@authproxy.route('/authproxy/<string:user_token>/tiles//<string:layer>/<path:url>', methods=['GET', 'POST'])
-def tile_proxy(layer, url, user_token=None):
+@authproxy.route('/authproxy/<string:user_token>/tiles/<path:url>', methods=['GET', 'POST'])
+@authproxy.route('/authproxy/<string:user_token>/tiles//<path:url>', methods=['GET', 'POST'])
+def tile_proxy(url, user_token=None):
     if user_token is None:
         user_token = session.get('authproxy_token')
         if user_token is None:
             abort(401)
-    return tileproxy.on_proxy(request, user_token=user_token, layer=layer, url=url)
+    return tileproxy.on_proxy(request, user_token=user_token, url=url)
