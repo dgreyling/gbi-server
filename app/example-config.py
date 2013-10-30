@@ -14,10 +14,10 @@
 # limitations under the License.
 
 """
-Example deployment file for GBI-Server.
+Example deployment file for GeoBox-Server.
 
 Includes local configuration, logging configuration and
-the setup of the GBI-Server ``application`` itself for the use
+the setup of the GeoBox-Server ``application`` itself for the use
 with gunicorn.
 """
 
@@ -43,7 +43,7 @@ class GBIConfig(object):
     MAIL_SERVER = "smtp.example.org"
     MAIL_USERNAME = 'gbi-admin@example.org'
     MAIL_PASSWORD = 'XXXXX'
-    DEFAULT_MAIL_SENDER = "GBI Server <gbi-admin@example.org>"
+    DEFAULT_MAIL_SENDER = "GeoBox-Server <gbi-admin@example.org>"
 
     COUCH_DB_URL = "http://gbiserver.omniscale.net/couchdb"
 

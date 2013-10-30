@@ -1,5 +1,5 @@
-GBI Server Developer Documentation
-==================================
+GeoBox Server Developer Documentation
+=====================================
 
 .. toctree::
    :maxdepth: 2

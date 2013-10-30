@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# GBI-Client documentation build configuration file, created by
+# GeoBox-Server documentation build configuration file, created by
 # sphinx-quickstart on Tue Jul 24 10:35:38 2012.
 #
 # This file is execfile()d with the current directory set to its containing dir.
@@ -40,7 +40,7 @@ source_suffix = '.rst'
 master_doc = 'index'
 
 # General information about the project.
-project = u'GBI-Server Benutzerhandbuch'
+project = u'GeoBox-Server Benutzerhandbuch'
 copyright = u'2013, Omniscale GmbH & Co. KG'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -165,7 +165,7 @@ html_static_path = ['_static']
 #html_file_suffix = None
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'gbiserveruserdoc'
+htmlhelp_basename = 'geoboxserveruserdoc'
 
 
 # -- Options for LaTeX output --------------------------------------------------
@@ -184,7 +184,7 @@ latex_elements = {
 # Grouping the document tree into LaTeX files. List of tuples
 # (source start file, target name, title, author, documentclass [howto/manual]).
 latex_documents = [
-  ('index', 'usermanual-gbi-server.tex', u'Benutzerhandbuch – GBI-Server',
+  ('index', 'usermanual-geobox-server.tex', u'Benutzerhandbuch – GeoBox-Server',
    u'Omniscale GmbH \\& Co. KG', 'manual'),
 ]
 

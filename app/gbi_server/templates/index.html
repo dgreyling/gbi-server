@@ -3,7 +3,7 @@
 
 {% block title %} {{_('home')}} {% endblock %}
 
-{% block content_head %}<h1>{{_('Welcome to GBI Server')}}</h1>{% endblock %}
+{% block content_head %}<h1>{{_('Welcome to GeoBox Server')}}</h1>{% endblock %}
 
 {% block content %}
 <div class="row-fluid">
@@ -37,18 +37,18 @@
                     </li>
                     {% endif %}
                 {% endif %}
-                <li><a href="{{ config.get('GBI_CLIENT_DOWNLOAD_URL')}}">{{ _('gbi client download') }}</a>
-                   <p class="help-block"> {{ _('info text gbi client download') }}</p>
+                <li><a href="{{ config.get('GBI_CLIENT_DOWNLOAD_URL')}}">{{ _('geobox client download') }}</a>
+                   <p class="help-block"> {{ _('info text geobox client download') }}</p>
                 </li>
                 {% if config['USERMANUAL_FILENAME'] %}
                 <li>
-                    <a href="{{ url_for('pages.page', lang='de', name=config['USERMANUAL_FILENAME']) }}">{{ _('gbi user manual') }}</a>
+                    <a href="{{ url_for('pages.page', lang='de', name=config['USERMANUAL_FILENAME']) }}">{{ _('geobox server user manual') }}</a>
                    <p class="help-block"> {{ _('user manual') }}</p>
                 </li>
                 {% endif %}
             </ul>
         {% else %}
-        <p>{{ _('info text gbi client first page', login_url=url_for('user.login'),
+        <p>{{ _('info text geobox client first page', login_url=url_for('user.login'),
             createuser_url=url_for('user.new')) }}
         </p>
         {% endif %}

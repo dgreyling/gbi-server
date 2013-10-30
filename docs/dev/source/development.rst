@@ -6,7 +6,7 @@ Development
 Manage Script
 -------------
 
-The application includes a small commandline tool that is helpful when working with web application of the GBI-Server. This commandline tool includes running a development server, scripts to set up the database and scripts to create and update the translation files.
+The application includes a small commandline tool that is helpful when working with web application of the GeoBox-Server. This commandline tool includes running a development server, scripts to set up the database and scripts to create and update the translation files.
 
 ::
 

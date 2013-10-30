@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2013-09-24 09:01+0200\n"
+"POT-Creation-Date: 2013-09-26 17:56+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -315,7 +315,7 @@ msgid "admin"
 msgstr ""
 
 #: gbi_server/templates/base.html:23
-msgid "GBI Server"
+msgid "GeoBox Server"
 msgstr ""
 
 #: gbi_server/templates/base.html:26 gbi_server/templates/index.html:4
@@ -350,7 +350,7 @@ msgid "logged in as"
 msgstr ""
 
 #: gbi_server/templates/index.html:6
-msgid "Welcome to GBI Server"
+msgid "Welcome to GeoBox Server"
 msgstr ""
 
 #: gbi_server/templates/index.html:14
@@ -407,15 +407,15 @@ msgid "info text filebox"
 msgstr ""
 
 #: gbi_server/templates/index.html:40
-msgid "gbi client download"
+msgid "geobox client download"
 msgstr ""
 
 #: gbi_server/templates/index.html:41
-msgid "info text gbi client download"
+msgid "info text geobox client download"
 msgstr ""
 
 #: gbi_server/templates/index.html:45
-msgid "gbi user manual"
+msgid "geobox server user manual"
 msgstr ""
 
 #: gbi_server/templates/index.html:46
@@ -423,7 +423,7 @@ msgid "user manual"
 msgstr ""
 
 #: gbi_server/templates/index.html:51
-msgid "info text gbi client first page"
+msgid "info text geobox client first page"
 msgstr ""
 
 #: gbi_server/templates/admin/create_user.html:5
@@ -1247,15 +1247,15 @@ msgstr ""
 msgid "WMS removed"
 msgstr ""
 
-#: gbi_server/views/admin.py:377
+#: gbi_server/views/admin.py:381
 msgid "Saved WFS"
 msgstr ""
 
-#: gbi_server/views/admin.py:381
+#: gbi_server/views/admin.py:385
 msgid "WFS with this name already exist"
 msgstr ""
 
-#: gbi_server/views/admin.py:392
+#: gbi_server/views/admin.py:396
 msgid "WFS removed"
 msgstr ""
 

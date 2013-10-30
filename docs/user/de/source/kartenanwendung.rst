@@ -16,13 +16,25 @@ Das Programm bietet Ihnen die Möglichkeit einen Layer über den internen Fläch
 Interner Flächeneditor
 ----------------------
 
-Auf der linken Seite befindet sich die Karte. Über die Layerauswahl können Sie Layer ein- und ausblenden. Oben Links in der Karte befinden sich zwei Schaltflächen, die für das Editieren in der Karte verantwortlich sind. Nach dem Aktivieren des Handsymbols (aktiv wenn gelb hinterlegt) können Sie durch Anklicken von Geometrien diese auswählen.
+Auf der linken Seite befindet sich die Karte. Über die Layerauswahl können Sie Layer ein- und ausblenden. Oben Links in der Karte befindet sich die Toolbar. Diese enthält folgende Werkzeuge als Symbole:
 
-Durch das Aktivieren des Polygonwerkzeugs ist die Zeichenfunktion aktiviert und Sie können über Klicken in der Karte neue Geometrien in Ihren Layer zeichnen. Um eine Geometrie zu schließen bzw. das Bearbeiten zu beenden muss ein Doppelklick auf dem letzen Punkt der Geometrie ausgeführt werden.
+Handsymbol
+  Nach dem Aktivieren des Handsymbols (aktiv wenn gelb hinterlegt) können Sie durch Anklicken von Geometrien diese auswählen.
 
-Die rechte Seite des Flächenenditors unterteilt sich in:
+Polygonsymbol
+  Durch das Aktivieren des Polygonsymbols ist die Zeichenfunktion aktiviert und Sie können über Klicken in der Karte neue Geometrien in Ihren Layer zeichnen. Um eine Geometrie zu schließen bzw. das Bearbeiten zu beenden muss ein Doppelklick auf dem letzten Punkt der Geometrie ausgeführt werden.
+
+Stift/Pfeilkreuz-Symbol
+  Um Geometrien zu bearbeiten aktivieren Sie das Stift/Pfeilkreuz-Symbol. Nachdem Sie auf eine Geometrie geklickt haben, können Sie die jeweiligen Stützpunkte durch Klicken und Ziehen verschieben. Es können nur Geometrien aus Ihrem Layer bearbeitet werden.
+
+Löschsymbol
+  Dieses Symbol ist grün hinterlegt, wenn Sie eine Geometrie ausgewählt haben, die Sie löschen können. Ein Löschen kann nicht rückgängig gemacht werden. Es können nur Geometrien Ihres Layers gelöscht werden.
+
+Kopiersymbol
+  Dieses Symbol ist grün hinterlegt, wenn Sie eine Geometrie ausgewählt haben, die Sie kopieren können. Die ausgewählte Geometrie wird in Ihren Layer kopiert. Es können nur Geometrien kopiert werden, die nicht zu Ihrem Layer gehören.
+
+Die rechte Seite des Flächeneditors unterteilt sich in:
   - Suche
-  - Fläche bearbeiten
   - Änderungen dauerhaft speichern
   - Eigenschaften
 
@@ -30,23 +42,6 @@ Suche
 """""
 
 Durch Eingabe einer Flurstückskennzeichens in der Form **Gemarkungsnummer-Flurnummer-Zähler/Nenner** und betätigen des `Suchen` Knopfes wird die Karte auf das entsprechenden Flurstück zentriert. Das Flurstückskennzeichens muss mindestens **Gemarkungsnummer-Flurnummer** enthalten.
-
-Fläche bearbeiten
-"""""""""""""""""
-
-Die Schaltflächen dieses Bereiches stehen Ihnen nach Auswahl einer Geometrie zur Verfügung. Diese können Sie, wie eben beschrieben, mit Hilfes des Werkzeugs oben links in der Karte auswählen. Welche Geometrie aktiv ist, sehen Sie an der blauen Umrandung einer Geometrie.
-
-Kopieren
-  Die ausgewählte Geometrie wird in Ihren Layer kopiert.
-  Es können nur Geometrien kopiert werden, die nicht zu Ihrem Layer gehören.
-
-Bearbeiten
-  Die derzeit aktive Geometrie kann bearbeitet werden. Sie können diese über den Mittelpunkt verschieben oder die jeweiligen Stützpunkte durch Klicken und Ziehen verschieben.
-  Es können nur Geometrien aus Ihrem Layer bearbeitet werden.
-
-Löschen
-  Ausgewählte Geometrie löschen. Ein Löschen kann nicht rückgängig gemacht werden.
-  Es können nur Geometrien Ihres Layers gelöscht werden.
 
 Änderungen dauerhaft speichern
 """"""""""""""""""""""""""""""
