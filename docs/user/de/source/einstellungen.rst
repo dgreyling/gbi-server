@@ -24,11 +24,11 @@ Hier können Sie ein neues Passwort festlegen. Hierzu müssen Sie Ihr altes Pass
 Konto löschen
 """""""""""""
 
-Hier können Sie Ihr Benutzerkonto löschen. Dies geschieht durch Eingabe Ihres Passworts und betätigen des `Konto löschen`-Knopfes.
+Hier können Sie Ihr Benutzerkonto löschen. Dies geschieht durch Eingabe Ihres Passworts und betätigen des `Konto löschen`-Buttons.
 
-.. attention :: Das Löschen des Benutzerkontos kann nicht rückgängig gemacht werden! Alle Daten im Zusammenhang mit diesem Konto (Dokumentenbox, Beraterbox, Benutzerlayer, ...) gehen verloren!
+.. attention :: Das Löschen des Benutzerkontos kann nicht rückgängig gemacht werden! Alle Daten im Zusammenhang mit diesem Konto (Up-, Download-Box, Benutzerlayer, etc.) gehen verloren!
 
 FLOrlp Daten aktualisieren
 """"""""""""""""""""""""""
 
-Als Landwirt haben Sie die Möglichkeit Ihre FLOrlp-Daten zu aktualisieren. Die Aktualisierung wird durch die Eingabe Ihres FLOrlp Passwortes und betätigen des `FLOrlp Daten aktualisieren`-Knopfes gestartet.
+Als Landwirt haben Sie die Möglichkeit Ihre FLOrlp-Daten zu aktualisieren. Die Aktualisierung wird durch die Eingabe Ihres FLOrlp Passwortes und betätigen des `FLOrlp Daten aktualisieren`-Buttons gestartet.
