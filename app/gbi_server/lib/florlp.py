@@ -85,9 +85,11 @@ def create_florlp_session(username, password):
         raise FLOrlpError('unable to login: %s' % ex)
 
     session = None
+    # prevent CookieConflictError
+    cookies = resp.cookies.get_dict()
     # session as cookie
-    if FLORPL_SESSION_ID_KEY in resp.cookies:
-        session = {FLORPL_SESSION_ID_KEY: resp.cookies[FLORPL_SESSION_ID_KEY]}
+    if FLORPL_SESSION_ID_KEY in cookies:
+        session = {FLORPL_SESSION_ID_KEY: cookies[FLORPL_SESSION_ID_KEY]}
     else: # session in URL
         url = urlparse(resp.url)
         url_query = url_decode(url.query)
