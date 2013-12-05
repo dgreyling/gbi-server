@@ -47,13 +47,14 @@ log = logging.getLogger(__name__)
 # FLORLP_LOGIN_USERDATA_PAGE_VISIT_REQUIRED = False
 
 # Options for real FLOrlp Portal
+FLORLP_GUI_ID = "FLOrlp_Landwirt_2012"
 FLORLP_BASE_URL = "https://www.flo.rlp.de/flo/mapbender/"
 FLORLP_USER_KEY = "uid"
 FLORLP_PASSWORD_KEY = "pwd"
 FLORPL_SESSION_ID_KEY = "JSESSIONID"
 FLORLP_LOGIN_URL = FLORLP_BASE_URL + 'frames/login.php'
-FLORLP_LOGOUT_URL = FLORLP_BASE_URL + 'php/mod_logout.php?guiID=FLOrlp_Landwirt_2011&elementID=logout'
-FLORLP_MAPPHP_URL = FLORLP_BASE_URL + 'javascripts/map.php?gui_id=FLOrlp_Landwirt_2011&mb_myBBOX='
+FLORLP_LOGOUT_URL = FLORLP_BASE_URL + 'php/mod_logout.php?guiID=%s&elementID=logout' % FLORLP_GUI_ID
+FLORLP_MAPPHP_URL = FLORLP_BASE_URL + 'javascripts/map.php?gui_id=%s&mb_myBBOX=' % FLORLP_GUI_ID
 FLORLP_SHAPE_SCHLAG_URL = FLORLP_BASE_URL + 'florlp/mod_wfsrequest_iframe_shape.php'
 FLORLP_SHAPE_FLURSTUECK_URL = FLORLP_BASE_URL + 'florlp/mod_wfsrequest_iframe_flstk_shape.php'
 FLORLP_LOGIN_USERDATA_PAGE_VISIT_REQUIRED = True
