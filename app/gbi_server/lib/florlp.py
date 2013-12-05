@@ -149,7 +149,7 @@ def parse_schlag_bboxes(content):
     bboxs = FLORLP_SCHLAG_BOX_RE.search(content)
     years = FLORLP_SCHLAG_YEAR_RE.search(content)
     if not bboxs or not years:
-        raise ValueError('bbox ando/or years not not found')
+        raise ValueError('bbox and/or years not not found')
 
     bboxs = [b for b in bboxs.group(1).split('|') if b]
     years = [y for y in years.group(1).split(',') if y]
