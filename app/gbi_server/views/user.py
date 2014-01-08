@@ -52,7 +52,7 @@ def home():
 @user.route("/user", methods=["GET"])
 @login_required
 def index():
-    return render_template("user/index.html", user=current_user)
+    return render_template("user/index.html", user=current_user, florlp_active=current_app.config['FLORLP_ACTIVE'])
 
 @user.route("/login", methods=["GET", "POST"])
 def login():
