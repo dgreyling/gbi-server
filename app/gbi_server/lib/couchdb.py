@@ -34,8 +34,14 @@ def geojson_feature_to_geocouch(feature):
 
     This function reuses and modifies the `feature['properties']` dictionary.
     """
-    result = feature['properties']
-    result['geometry'] = feature['geometry']
+    _id = feature['properties'].pop('_id', None)
+    _rev = feature['properties'].pop('_rev', None)
+    result = {
+        'geometry': feature['geometry'],
+        'properties': feature['properties'],
+        '_id': _id,
+        '_rev': _rev
+    }
     return result
 
 def geocouch_feature_to_geojson(feature):
@@ -47,12 +53,17 @@ def geocouch_feature_to_geojson(feature):
 
     This function reuses and modifies the `feature` dictionary.
     """
-    geometry = feature.pop('geometry')
     feature.pop('layer')
+    geometry = feature.pop('geometry')
+    properties = feature['properties'] if feature.has_key('properties') else feature
+    if not properties.has_key('_id'):
+        properties['_id'] = feature['_id']
+    if not properties.has_key('_rev'):
+        properties['_rev'] = feature['_rev']
     result = {
         'type': 'Feature',
         'geometry': geometry,
-        'properties': feature,
+        'properties': properties
     }
     return result
 
