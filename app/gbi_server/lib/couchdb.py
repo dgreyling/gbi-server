@@ -30,7 +30,7 @@ def geojson_feature_to_geocouch(feature):
     """
     Convert GeoJSON to GeoCouch feature:
     {'type': 'Feature', 'properties': {'foo': 'bar'}, 'geometry': {...}}
-    -> {'foo': 'bar', 'geometry': {...}}
+    -> {'properties': {'foo': 'bar'}, 'geometry': {...}}
 
     This function reuses and modifies the `feature['properties']` dictionary.
     """
@@ -50,6 +50,10 @@ def geocouch_feature_to_geojson(feature):
     """
     Convert GeoCouch to GeoJON feature:
     {'foo': 'bar', 'geometry': {...}}
+    ->
+    {'type': 'Feature', 'properties': {'foo': 'bar'}, 'geometry': {...}}
+    or
+    {'properties': {'foo': 'bar'}, 'geometry': {...}}
     ->
     {'type': 'Feature', 'properties': {'foo': 'bar'}, 'geometry': {...}}
 
