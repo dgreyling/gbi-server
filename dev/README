@@ -40,7 +40,7 @@ Application
 
 Install Python dependencies::
 
-    pip install --trusted-host pkgs.omniscale.net --no-index -f http://gbi:server@pkgs.omniscale.net/gbi/server/ -r ./requirements.txt
+    pip install --trusted-host pkgs.omniscale.net --no-index -f http://gbi:662122a3d0b3@pkgs.omniscale.net/gbi/server/ -r ./requirements.txt
 
 Install App, API docs and API MapProxy middleware::
 
