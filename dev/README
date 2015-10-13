@@ -1,0 +1,71 @@
+GBI Repository
+##############
+
+GBI-Server
+==========
+
+Requirements
+------------
+
+couchdb
+~~~~~~~~
+
+``couchdb`` is required for the application.
+To start couchdb in foreground:
+
+    couchdb
+
+gbi-editor
+~~~~~~~~~~
+
+Clone the GBI-Editor from GitHub and link it to the Javascript lib-Folder:
+
+    mkdir data
+    cd data
+    git clone git@github.com:omniscale/gbi-editor.git
+    cd ..
+    ln -s data/gbi-editor/* ../app/gbi_server/static/js/lib/gbi-editor/
+
+
+On the first start you have to create an admin user which can create datbases:
+
+    curl -X PUT 127.0.0.1:5984/_config/admins/admin -d '"secure"'
+
+
+Application
+-----------
+
+::
+    mkvirtualenv gbi-server
+
+Install Python dependencies::
+
+    pip install --trusted-host pkgs.omniscale.net --no-index -f http://gbi:server@pkgs.omniscale.net/gbi/server/ -r ./requirements.txt
+
+Install App, API docs and API MapProxy middleware::
+
+    pip install --no-index -e ../app
+
+
+Database
+--------
+
+::
+
+    createuser --no-superuser --no-createrole --createdb os
+    createdb -E UTF8 -O os gbi
+    psql -c "ALTER USER os WITH PASSWORD 'os';"
+    psql -d gbi -c "CREATE EXTENSION postgis;"
+    psql -d gbi -c "ALTER TABLE geometry_columns OWNER TO os;"
+    psql -d gbi -c "ALTER TABLE spatial_ref_sys OWNER TO os;"
+
+    createdb -E UTF8 -O os wfs_tmp
+    psql -d wfs_tmp -c "CREATE EXTENSION postgis;"
+    psql -d wfs_tmp -c "ALTER TABLE geometry_columns OWNER TO os;"
+    psql -d wfs_tmp -c "ALTER TABLE spatial_ref_sys OWNER TO os;"
+
+
+
+Create tables and insert fixtures::
+
+    python manage.py fixtures
