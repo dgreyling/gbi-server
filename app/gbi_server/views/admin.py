@@ -19,8 +19,9 @@ from flask.ext.babel import gettext as _
 from werkzeug.exceptions import Unauthorized, Forbidden
 from sqlalchemy.exc import IntegrityError
 
-from geoalchemy import WKTSpatialElement
-from geoalchemy.postgis import pg_functions
+from geoalchemy2.elements import WKTElement
+from geoalchemy2.functions import ST_AsGeoJSON
+
 from shapely.geometry import asShape, box
 
 from json import loads
@@ -184,7 +185,7 @@ def wmts_list():
 @admin.route('/admin/wmts/edit/<int:id>', methods=["GET", "POST"])
 def wmts_edit(id=None):
 
-    wmts = db.session.query(WMTS, pg_functions.geojson(WMTS.view_coverage.transform(3857))).filter_by(id=id).first() if id else None
+    wmts = db.session.query(WMTS, ST_AsGeoJSON(WMTS.view_coverage.transform(3857))).filter_by(id=id).first() if id else None
     if wmts:
         wmts[0].view_coverage = wmts[1]
         wmts = wmts[0]
@@ -218,7 +219,7 @@ def wmts_edit(id=None):
             transfomed_bbox = transform_bbox('4326', '3857', bbox)
             geom = box(transfomed_bbox[0], transfomed_bbox[1], transfomed_bbox[2], transfomed_bbox[3])
 
-        wmts.view_coverage = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='POLYGON')
+        wmts.view_coverage = WKTElement(geom.wkt, srid=3857, geometry_type='POLYGON')
         wmts.view_level_start = form.data['view_level_start']
         wmts.view_level_end = form.data['view_level_end']
         wmts.is_background_layer = form.data['is_background_layer']
@@ -269,7 +270,7 @@ def wms_list():
 @admin.route('/admin/wms/edit/<int:id>', methods=["GET", "POST"])
 def wms_edit(id=None):
 
-    wms = db.session.query(WMS, pg_functions.geojson(WMS.view_coverage.transform(3857))).filter_by(id=id).first() if id else None
+    wms = db.session.query(WMS, ST_AsGeoJSON(WMS.view_coverage.transform(3857))).filter_by(id=id).first() if id else None
     if wms:
         wms[0].view_coverage = wms[1]
         wms = wms[0]
@@ -306,7 +307,7 @@ def wms_edit(id=None):
             transfomed_bbox = transform_bbox('4326', '3857', bbox)
             geom = box(transfomed_bbox[0], transfomed_bbox[1], transfomed_bbox[2], transfomed_bbox[3])
 
-        wms.view_coverage = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='POLYGON')
+        wms.view_coverage = WKTElement(geom.wkt, srid=3857, geometry_type='POLYGON')
         wms.view_level_start = form.data['view_level_start']
         wms.view_level_end = form.data['view_level_end']
         wms.is_background_layer = form.data['is_background_layer']

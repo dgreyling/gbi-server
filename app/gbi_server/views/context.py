@@ -20,7 +20,8 @@ from flask import Blueprint, request, Response, g, url_for, current_app
 from flask.ext.babel import gettext as _
 
 from sqlalchemy.sql.expression import desc
-from geoalchemy.postgis import pg_functions
+from geoalchemy2.functions import ST_AsGeoJSON, ST_Transform
+
 import shapely.geometry
 
 from gbi_server.config import SystemConfig
@@ -63,8 +64,9 @@ def requires_auth(f):
 def get_context_document():
     init_user_boxes(g.user, current_app.config.get('COUCH_DB_URL'))
 
-    wmts_sources = db.session.query(WMTS, pg_functions.geojson(WMTS.view_coverage.transform(3857))).order_by(desc(WMTS.is_background_layer)).all()
-    wms_sources = db.session.query(WMS, pg_functions.geojson(WMS.view_coverage.transform(3857))).order_by(desc(WMS.is_background_layer)).all()
+    wmts_sources = db.session.query(WMTS, ST_AsGeoJSON(ST_Transform(WMTS.view_coverage, 3857))).order_by(desc(WMTS.is_background_layer)).all()
+
+    wms_sources = db.session.query(WMS, ST_AsGeoJSON(ST_Transform(WMS.view_coverage, 3857))).order_by(desc(WMS.is_background_layer)).all()
     wfs_sources = db.session.query(WFS).all()
 
     response = {

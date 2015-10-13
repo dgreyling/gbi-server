@@ -19,7 +19,7 @@ from glob import glob
 
 import errno
 
-from mapproxy.platform.lock import FileLock
+from mapproxy.util.lock import FileLock
 
 import logging
 log = logging.getLogger(__name__)

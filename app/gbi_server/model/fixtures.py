@@ -17,7 +17,7 @@ from itertools import chain
 import bcrypt
 import datetime
 
-from geoalchemy import WKTSpatialElement
+from geoalchemy2.elements import WKTElement
 from shapely.geometry import asShape
 from json import loads
 
@@ -69,16 +69,16 @@ def db_objects():
             url='http://igreendemo.omniscale.net/wmts/omniscale_osm/GoogleMapsCompatible-{TileMatrix}-{TileCol}-{TileRow}/tile',
             title='Omniscale OSM',
             format='png',
-            view_coverage=WKTSpatialElement(asShape(loads("""{
+            view_coverage=WKTElement(asShape(loads("""{
                 "type":"Polygon",
                 "coordinates":[[
-                    [667916.9447596424, 5942074.072431108],
-                    [1669792.3618991044, 5942074.072431108],
-                    [1669792.3618991044, 7361866.113051186],
-                    [667916.9447596424, 7361866.113051186],
-                    [667916.9447596424, 5942074.072431108]
+                    [6.50390625, 46.800059446787316],
+                    [6.50390625, 53.592504809039376],
+                    [14.0625, 53.592504809039376],
+                    [14.0625, 46.800059446787316],
+                    [6.50390625, 46.800059446787316]
                 ]]
-                }""")).wkt, srid=3857, geometry_type='POLYGON'),
+                }""")).wkt, srid=4326),
             view_level_start=7,
             view_level_end=18,
             is_background_layer=True,
@@ -88,7 +88,7 @@ def db_objects():
             is_visible=True),
     ]
 
-    geom = WKTSpatialElement('MULTIPOLYGON(((8 49,8 50,9 50,9 49,8 49)))', srid=4326, geometry_type='MULTIPOLYGON')
+    geom = WKTElement('MULTIPOLYGON(((8 49,8 50,9 50,9 49,8 49)))', srid=4326)
 
     logs = [
         model.Log(user=users[1], time=datetime.datetime.now().isoformat(), action='vector_import', mapping='Schlaege Niedersachsen', source='example.shp', format='SHP'),

@@ -14,8 +14,7 @@
 # limitations under the License.
 
 from sqlalchemy.orm import backref
-from geoalchemy import GeometryColumn, MultiPolygon, GeometryDDL
-from geoalchemy.postgis import PGComparator
+from geoalchemy2.types import Geometry
 
 from gbi_server.extensions import db
 
@@ -30,8 +29,9 @@ class Log(db.Model):
     user = db.relationship('User', backref=backref('logs', cascade="all,delete,delete-orphan"))
 
     action = db.Column(db.String(24), nullable=False)
+    geometry = db.Column(Geometry('MULTIPOLYGON', srid=4326))
 
-    geometry = GeometryColumn(MultiPolygon(), comparator=PGComparator)
+
     format = db.Column(db.String)
     srs = db.Column(db.String)
     mapping = db.Column(db.String)
@@ -41,5 +41,3 @@ class Log(db.Model):
     zoom_level_end = db.Column(db.Integer)
     refreshed = db.Column(db.Boolean)
 
-
-GeometryDDL(Log.__table__)

@@ -16,7 +16,9 @@
 import os
 
 from shapely.geometry import box
-from shapely import wkb, wkt
+from shapely import wkb
+from geoalchemy2.functions import ST_Transform
+from geoalchemy2.shape import to_shape
 
 from mapproxy.grid import tile_grid
 
@@ -54,11 +56,11 @@ class TileCoverages(LimiterCache):
         if not user:
             raise InvalidUserToken()
 
-        result = db.session.query(WMTS, WMTS.view_coverage.transform(3857).wkt()).filter_by(name=layer).first()
+        result = db.session.query(WMTS, ST_Transform(WMTS.view_coverage, 3857)).filter_by(name=layer).first()
         if result:
             wmts, view_coverage = result
             if wmts and wmts.is_public:
-                return wkt.loads(view_coverage)
+                return to_shape(view_coverage)
 
         if user.is_customer:
             couch_url = self.couchdb_url

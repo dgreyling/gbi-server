@@ -16,7 +16,8 @@
 import json
 
 from flask import Blueprint, request, current_app, jsonify
-from geoalchemy import WKTSpatialElement
+from geoalchemy2.elements import WKTElement
+
 from sqlalchemy.exc import SQLAlchemyError, DataError
 from shapely.geometry import asShape
 
@@ -59,7 +60,7 @@ def log(user_token):
         if log_record['geometry']['type'] != 'MultiPolygon':
             json_abort(400, "geometry not a MultiPolygon")
         geom =  asShape(log_record['geometry'])
-        log.geometry = WKTSpatialElement(geom.wkt, srid=3857, geometry_type='MULTIPOLYGON')
+        log.geometry = WKTElement(geom.wkt, srid=3857, geometry_type='MULTIPOLYGON')
 
     log.source = log_record.get('source')
     log.layer = log_record.get('layer')

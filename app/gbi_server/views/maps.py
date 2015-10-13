@@ -24,7 +24,8 @@ from flask.ext.babel import gettext as _
 from flask.ext.login import login_required, current_user
 
 from sqlalchemy.sql.expression import desc
-from shapely.wkt import loads
+from geoalchemy2.functions import ST_AsEWKT, ST_Transform
+from geoalchemy2.shape import to_shape
 
 from gbi_server.lib.couchdb import extend_schema_for_couchdb, CouchDBBox, CouchDBError
 from gbi_server.lib.postgis import TempPGDB
@@ -118,9 +119,11 @@ def wfs_edit_layer(layer=None):
     if not data_extent:
         data_extent = couch.layer_extent(current_app.config.get('USER_READONLY_LAYER'))
     if not data_extent:
-        result = db.session.query(WMTS, WMTS.view_coverage.transform(3857).wkt()).order_by(desc(WMTS.is_background_layer)).first()
+
+        result = db.session.query(WMTS, ST_Transform(WMTS.view_coverage, 3857)).order_by(desc(WMTS.is_background_layer)).first()
+
         if result:
-            data_extent = loads(result[1])
+            data_extent = to_shape(result[1])
 
     titles = dict(couch.get_layer_names())
     return render_template(

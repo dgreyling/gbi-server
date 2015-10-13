@@ -13,11 +13,10 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from geoalchemy import GeometryColumn, Polygon, GeometryDDL
-from geoalchemy.postgis import PGComparator
-
 from flask import g, url_for
 from gbi_server.extensions import db
+from geoalchemy2.types import Geometry
+
 
 class WMTS(db.Model):
     __tablename__ = 'wmts'
@@ -34,7 +33,7 @@ class WMTS(db.Model):
 
     max_tiles = db.Column(db.Integer)
 
-    view_coverage = GeometryColumn(Polygon(), comparator=PGComparator)
+    view_coverage = db.Column(Geometry('POLYGON', srid=4326))
     view_level_start = db.Column(db.Integer)
     view_level_end = db.Column(db.Integer)
 
@@ -66,8 +65,6 @@ class WMTS(db.Model):
 
         return url_for('authproxy.tile_proxy').rstrip('/') + '/' + self.url
 
-GeometryDDL(WMTS.__table__)
-
 
 class WMS(db.Model):
     __tablename__ = 'wms'
@@ -85,7 +82,7 @@ class WMS(db.Model):
     srs = db.Column(db.String(64), default="EPSG:3857")
     version = db.Column(db.String, default="1.1.1")
 
-    view_coverage = GeometryColumn(Polygon(), comparator=PGComparator)
+    view_coverage = db.Column(Geometry('POLYGON', srid=4326))
     view_level_start = db.Column(db.Integer)
     view_level_end = db.Column(db.Integer)
 
@@ -108,4 +105,3 @@ class WMS(db.Model):
         q = cls.query.filter(cls.name == name)
         return q.first_or_404()
 
-GeometryDDL(WMS.__table__)

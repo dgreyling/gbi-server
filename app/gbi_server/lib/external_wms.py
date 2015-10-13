@@ -19,7 +19,8 @@ import os
 from mapproxy.grid import TileGrid
 from mapproxy.srs import SRS
 
-from shapely.wkt import loads
+from geoalchemy2.functions import ST_Transform
+from geoalchemy2.shape import to_shape
 
 from flask.ext.babel import gettext as _
 
@@ -36,7 +37,8 @@ class MapProxyConfiguration(object):
         self.grid = TileGrid(SRS(3857))
 
     def _load_sources(self):
-        public_wmts = db.session.query(WMTS, WMTS.view_coverage.transform(3857).wkt()).filter_by(is_public=True).group_by(WMTS).all()
+        public_wmts = db.session.query(WMTS, ST_Transform(WMTS.view_coverage, 3857)).filter_by(is_public=True).group_by(WMTS).all()
+
         for wmts, view_coverage in public_wmts:
             self.sources['%s_source' % wmts.name] = {
                 'type': 'tile',
@@ -44,7 +46,7 @@ class MapProxyConfiguration(object):
                 'grid': 'GoogleMapsCompatible',
                 'coverage': {
                     'srs': 'EPSG:3857',
-                    'bbox': list(loads(view_coverage).bounds)
+                    'bbox': list(to_shape(view_coverage).bounds)
                 }
             }
             self.caches['%s_cache' % wmts.name] = {
