@@ -13,7 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask.ext.wtf import TextField, TextAreaField, IntegerField, validators, PasswordField, BooleanField, SelectField
+from wtforms.fields import TextField, TextAreaField, IntegerField, PasswordField, SelectField, BooleanField
+from wtforms import validators
 from flask.ext.babel import lazy_gettext as _l
 
 from .base import Form

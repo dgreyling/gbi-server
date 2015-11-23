@@ -14,7 +14,9 @@
 # limitations under the License.
 
 from flask import request
-from flask.ext.wtf import QuerySelectField, SelectField, HiddenField, TextField, validators
+from wtforms.fields import TextField, SelectField, HiddenField
+from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from wtforms import validators
 from flask.ext.babel import lazy_gettext as _l
 from .base import Form
 

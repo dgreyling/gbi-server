@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask.ext.wtf import ValidationError
+from wtforms.validators import ValidationError
 from flask.ext.babel import lazy_gettext as _l
 from gbi_server.model import User
 

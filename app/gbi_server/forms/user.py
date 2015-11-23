@@ -15,7 +15,9 @@
 
 from sqlalchemy import or_
 
-from flask.ext.wtf import TextField, validators, PasswordField, SelectField, BooleanField, FileField, HiddenField, QuerySelectField
+from wtforms.fields import TextField, PasswordField, SelectField, BooleanField, FileField, HiddenField
+from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from wtforms import validators
 from flask.ext.babel import lazy_gettext as _l
 from .base import Form
 
