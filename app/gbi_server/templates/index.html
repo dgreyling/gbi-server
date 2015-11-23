@@ -8,7 +8,7 @@
 {% block content %}
 <div class="row-fluid">
     <div class="span12">
-        {% if not g.user.is_anonymous() %}
+        {% if not g.user.is_anonymous %}
             <ul>
                 {% if config['FEATURE_EDITOR'] %}
                 <li><a href="{{ url_for('maps.wmts') }}">{{ _('WMTS map') }}</a>

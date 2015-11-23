@@ -43,7 +43,7 @@ user = Blueprint("user", __name__, template_folder="../templates")
 
 @user.route("/")
 def home():
-    if current_user.is_anonymous():
+    if current_user.is_anonymous:
         layers = WMTS.query.filter_by(is_public=True).all()
     else:
         layers = WMTS.query.all()

@@ -41,7 +41,7 @@ admin = Blueprint("admin", __name__, template_folder="../templates")
 def assert_admin_user():
     if current_app.config.get('ADMIN_PARTY'):
         return
-    if current_user.is_anonymous():
+    if current_user.is_anonymous:
         raise Unauthorized()
     if not current_user.is_admin:
         raise Forbidden()

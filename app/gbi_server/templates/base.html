@@ -26,7 +26,7 @@
                             <li><a class="nav" href="/">{{ _('home') }}</a></li>
                         </ul>
                         <ul class="nav pull-right">
-                            {% if not g.user or g.user.is_anonymous() %}
+                            {% if not g.user or g.user.is_anonymous %}
                                 <li><a class="nav" href="{{ url_for('user.new') }}">{{ _('create account') }}</a></li>
                                 <li><a class="nav" href="{{ url_for('user.login') }}">{{ _('login') }}</a></li>
                             {% else %}
@@ -61,7 +61,7 @@
             <hr>
             <footer class="footer">
                 <div class="container-fluid">
-                    {% if g.user and not g.user.is_anonymous() %}
+                    {% if g.user and not g.user.is_anonymous %}
                     <p class="pull-left">{{ _('logged in as') }}: {{g.user.realname}} ({{ g.user.email }})</p>
                     {% endif %}
                     <p class="pull-right">Copyright by <a href='http://omniscale.de' target="_blank">Omniscale</a></p>
