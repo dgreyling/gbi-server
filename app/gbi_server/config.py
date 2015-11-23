@@ -57,11 +57,11 @@ class DefaultConfig(object):
 
     BCRYPT_LOG_ROUNDS = 10
 
-    MAIL_SERVER = "smtp.example.org"
+    MAIL_SERVER = "localhost"
     MAIL_USERNAME = 'gbi_server@example.org'
     MAIL_PASSWORD = 'XXXXX'
     MAIL_DEBUG = DEBUG
-    DEFAULT_MAIL_SENDER = "GeoBox Server <gbi_server@example.org>"
+    MAIL_DEFAULT_SENDER = "GeoBox Server <gbi_server@example.org>"
 
     TINYOWS_NAME = "TinyOWS Server"
     TINYOWS_TITLE = "TinyOWS Server - Demo Service"
