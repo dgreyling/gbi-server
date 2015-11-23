@@ -38,8 +38,10 @@ class DefaultConfig(object):
     # keys for localhost. Change as appropriate.
 
     SQLALCHEMY_DATABASE_URI = 'postgresql://igreen:igreen@127.0.0.1:5432/igreen'
-
     SQLALCHEMY_ECHO = False
+    # from warning: SQLALCHEMY_TRACK_MODIFICATIONS adds significant overhead and will be disabled by default in the future.
+    # TODO check if tracking is required
+    SQLALCHEMY_TRACK_MODIFICATIONS=True
 
     ACCEPT_LANGUAGES = ['de']
 
