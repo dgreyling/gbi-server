@@ -48,7 +48,8 @@ log = logging.getLogger(__name__)
 
 # Options for real FLOrlp Portal
 FLORLP_GUI_ID = "FLOrlp_Landwirt_2012"
-FLORLP_BASE_URL = "https://www.flo.rlp.de/flo/mapbender/"
+# FLORLP_BASE_URL = "https://www.flo.rlp.de/flo/mapbender/"
+FLORLP_BASE_URL = "https://florlpaccessdisabled"
 FLORLP_USER_KEY = "uid"
 FLORLP_PASSWORD_KEY = "pwd"
 FLORPL_SESSION_ID_KEY = "JSESSIONID"
