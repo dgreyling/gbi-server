@@ -39,6 +39,15 @@ h6 small {
   color: inherit;
 }
 
+.controls .errors {
+    list-style-type: none;
+    color: #b94a48;
+    padding: 0;
+    margin: 0;
+    top: 0px;
+    position: relative;
+}
+
 #wfs_response, #no_search_result {
     display: none;
     padding: 5px;

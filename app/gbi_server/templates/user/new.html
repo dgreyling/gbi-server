@@ -7,39 +7,49 @@
 {% block content_head %}<h1>{{_('create new account')}}</h1>{% endblock %}
 
 {% block content %}
+<div class="container-fluid">
     <div class="span6">
         <form class="form-horizontal" method="POST">
             {{ form.csrf_token }}
 
+            <fieldset>
+                <legend>{{ _('personal') }}</legend>
+                {{ input(form.title, class='span3') }}
+                {{ input(form.firstname, placeholder=_('firstname') ) }}
+                {{ input(form.lastname, placeholder=_('lastname')) }}
+                {{ input(form.type, class='span3') }}
+            </fieldset>
 
-        {{ input(form.title) }}
-        {{ input(form.firstname) }}
-        {{ input(form.lastname) }}
+            <fieldset>
+                <legend>{{ _('address & contact') }}</legend>
+                {{ input(form.address) }}
+                {{ input(form.address_extend) }}
 
-        {{ input(form.address) }}
-        {{ input(form.address_extend) }}
+                {{ input(form.zipcode) }}
+                {{ input(form.city) }}
+                {{ input(form.federal_state, class='span3') }}
 
-        {{ input(form.zipcode) }}
-        {{ input(form.city) }}
-        {{ input(form.country) }}
+                {{ input(form.phone) }}
+                {{ input(form.fax) }}
 
-        {{ input(form.phone) }}
-        {{ input(form.fax) }}
+                {{ input(form.company_number, control_class='toggle-input hide') }}
+                {{ input(form.commercial_register_number, control_class='toggle-input hide') }}
+            </fieldset>
 
-        {{ input(form.type) }}
-        {{ input(form.company_number, class='toggle-input hide') }}
-        {{ input(form.commercial_register_number, class='toggle-input hide') }}
+            <!--  Login Data -->
+            <fieldset>
+                <legend>{{ _('login') }}</legend>
+                {{ input(form.email) }}
+                {{ input(form.password) }}
+                {{ input(form.password2) }}
+            </fieldset>
 
-        <!--  Login Data -->
-        {{ input(form.email) }}
-        {{ input(form.password) }}
-        {{ input(form.password2) }}
+            <!--  Terms of use -->
+            {{ checkbox(form.terms_of_use) }}
 
-        <!--  Terms of use -->
-        {{ checkbox(form.terms_of_use) }}
-
-        {{ button(_('create accout'), True) }}
-    </form>
+            {{ button(_('create accout'), True) }}
+        </form>
+    </div>
 </div>
 {% endblock %}
 

@@ -38,7 +38,11 @@ class LoginForm(Form):
 
 class EditAddressForm(Form):
     title = SelectField(
-        _l('title'), [validators.Required()], choices=[('mr', 'Mr'), ('mrs', 'Mrs')])
+        _l('title'),
+        [validators.Required()],
+        choices=[('mr', _l('Mr')), ('mrs', _l('Mrs'))]
+    )
+
     lastname = TextField(_l('lastname'), [validators.Required()])
     firstname = TextField(_l('firstname'), [validators.Required()])
 
@@ -52,7 +56,8 @@ class EditAddressForm(Form):
     fax = TextField(_l('fax'))
 
     # only used for customer is 10-16 characters
-    company_number = TextField(_l('company_number'),
+    company_number = TextField(
+        _l('company_number'),
         [validators.Length(min=10, max=16)]
     )
 
