@@ -11,18 +11,33 @@
 <div>
     <form class="form-horizontal" method="POST">
         {{ form.csrf }}
-        {{ input(form.realname) }}
-        {{ input(form.street) }}
-        {{ input(form.housenumber) }}
+
+        {{ input(form.title) }}
+        {{ input(form.firstname) }}
+        {{ input(form.lastname) }}
+
+        {{ input(form.address) }}
+        {{ input(form.address_extend) }}
+
         {{ input(form.zipcode) }}
         {{ input(form.city) }}
+        {{ input(form.country) }}
+
+        {{ input(form.phone) }}
+        {{ input(form.fax) }}
+
         {{ input(form.type) }}
+        {{ input(form.company_number, class='toggle-input hide') }}
+        {{ input(form.commercial_register_number, class='toggle-input hide') }}
+
+        <!--  Login Data -->
         {{ input(form.email) }}
         {{ input(form.password) }}
         {{ input(form.password2) }}
-        {{ input(form.florlp_name) }}
-        <!-- {{ input(form.florlp_password) }} -->
+
+        <!--  Terms of use -->
         {{ checkbox(form.terms_of_use) }}
+
         {{ button(_('create accout'), True) }}
     </form>
 </div>
@@ -30,15 +45,14 @@
 
 {% block javascript %}
 <script type="text/javascript">
-    var customer_id = {{ customer_id }};
     $(document).ready(function() {
         $("#type").change(function(){
-            if ({{ florlp_active | tojson }} && $(this).val() == customer_id) {
-                $("#florlp_name").parent().parent().show();
-                $("#florlp_password").parent().parent().show();
-            } else {
-                $("#florlp_name").parent().parent().hide();
-                $("#florlp_password").parent().parent().hide();
+            $(".toggle-input").hide();
+            if ( $(this).val() == {{ consultant_id }} ) {
+                $("#company_number").parent().parent().show();
+            }
+            if ( $(this).val() == {{ customer_id }} ) {
+                $("#commercial_register_number").parent().parent().show();
             }
         });
         $("#type").change();

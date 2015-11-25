@@ -34,15 +34,29 @@ class LoginForm(Form):
     password = PasswordField(_l('password'), [validators.Required()])
 
 class EditAddressForm(Form):
-    florlp_name = TextField(_l('florlp_username'), [username_unique])
-    realname = TextField(_l('realname'), [validators.Required()])
-    street = TextField(_l('street'), [validators.Required()])
-    housenumber = TextField(_l('housenumber'), [validators.Required()])
-    zipcode = TextField(_l('zipcode'), [validators.Required(), validators.Regexp('[0-9]+$')])
+    title = SelectField(_l('title'), [validators.Required()], choices=[('mr', 'Mr'), ('mrs', 'Mrs')])
+    lastname = TextField(_l('lastname'), [validators.Required()])
+    firstname = TextField(_l('firstname'), [validators.Required()])
+
+    address = TextField(_l('address'), [validators.Required()])
+    address_extend = TextField(_l('address_extend'))
+    zipcode = TextField(_l('zipcode'), [validators.Required()])
     city = TextField(_l('city'), [validators.Required()])
+    country = TextField(_l('country'))
+
+    phone = TextField(_l('phone'))
+    fax = TextField(_l('fax'))
+
+    # only used for customer is 10-16 characters
+    company_number = TextField(_l('company_number'),
+        # [validators.Length(min=10, max=16)]
+    )
+
+    # only used for service_provider
+    commercial_register_number = TextField(_l('commercial_register_number'))
+
 
 class NewUserForm(EditAddressForm):
-    florlp_password = PasswordField(_l('florlp_password'))
     type = SelectField(_l('type'), coerce=int)
     email = TextField(_l('email'), [validators.Required(), username_unique, validators.Email()])
     password = PasswordField(_l('password'), [

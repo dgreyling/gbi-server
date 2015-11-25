@@ -7,6 +7,7 @@ $(document).ready(function() {
         }
     });
     $('#activate').attr('disabled', 'disabled');
+    // TODO update if we refactor the admin area
     $('#type').change(function() {
         if($(this).val() != 0) {
             $('#florlp_name').parents('div.control-group:first').hide();

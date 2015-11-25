@@ -89,30 +89,25 @@ def logout():
 def new():
     form = NewUserForm()
     form.type.choices = []
+
+    # add choice wich account types are possible
     if current_app.config['FEATURE_CUSTOMER_USERS']:
         form.type.choices.append((User.Type.CUSTOMER, _('customer')))
+    if current_app.config['FEATURE_CONSULTANT_USERS']:
+        form.type.choices.append((User.Type.CONSULTANT, _('consultant')))
     form.type.choices.append((User.Type.SERVICE_PROVIDER, _('service_provider')))
 
     if form.validate_on_submit():
-        florlp_session = False
-        user_type = form.data['type']
         layers = [(current_app.config.get('USER_READONLY_LAYER'), current_app.config['USER_READONLY_LAYER_TITLE']), (current_app.config.get('USER_WORKON_LAYER'), current_app.config['USER_WORKON_LAYER_TITLE'])]
-        if current_app.config['FLORLP_ACTIVE'] and user_type == User.Type.CUSTOMER:
-            try:
-                florlp_session = create_florlp_session(form.data['florlp_name'], form.data['florlp_password'])
-            except FLOrlpUnauthenticated:
-                flash(_('Invalid florlp username/password'), 'error')
-                return render_template("user/new.html", form=form)
 
         user = User(form.data['email'], form.data['password'])
-        user.realname = form.data['realname']
-        user.florlp_name = form.data['florlp_name']
+        user.set_user_data(form.data)
         user.type = form.data.get('type')
-        user.street = form.data['street']
-        user.housenumber =  form.data['housenumber']
-        user.zipcode = form.data['zipcode']
-        user.city = form.data['city']
-        user.active = user_type == User.Type.CUSTOMER
+
+        # no use type will be active automatically all must be activated by an admin
+        user.active = False
+
+        # send verifycation mail to check user email
         verify = EmailVerification.verify(user)
         db.session.add(user)
         db.session.add(verify)
@@ -120,7 +115,12 @@ def new():
 
         send_mail(
             _("Email verification mail subject"),
-            render_template("user/verify_mail.txt", user=user, verify=verify, _external=True),
+            render_template(
+                "user/verify_mail.txt",
+                user=user,
+                verify=verify,
+                _external=True
+            ),
             [user.email]
         )
 
@@ -145,10 +145,21 @@ def new():
             couch = CouchDBBox(couch_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
             couch.store_layer_schema(current_app.config['USER_WORKON_LAYER'], florlp.base_schema(), title=current_app.config['USER_WORKON_LAYER_TITLE'])
 
+            couch.store_layer_schema(
+                layer=current_app.config['USER_WORKON_LAYER'],
+                schema=florlp.base_schema(),
+                title=current_app.config['USER_WORKON_LAYER_TITLE']
+            )
 
         return redirect(url_for(".verify_wait", id=user.id))
 
-    return render_template("user/new.html", form=form, customer_id=User.Type.CUSTOMER, florlp_active=current_app.config['FLORLP_ACTIVE'])
+    return render_template(
+        "user/new.html",
+        form=form,
+        customer_id=User.Type.CUSTOMER,
+        consultant_id=User.Type.CONSULTANT,
+    )
+
 
 @user.route("/user/remove", methods=["GET", "POST"])
 @login_required
@@ -182,12 +193,14 @@ def send_verifymail(id):
     flash(_('email verification was sent successfully'), 'success')
     return redirect(url_for(".login"))
 
+
 @user.route("/user/<id>/verify_wait")
 def verify_wait(id):
     user = User.by_id(id)
     if not user or user.verified:
         raise NotFound()
     return render_template("user/verify_wait.html", user_id=id)
+
 
 @user.route("/user/<uuid>/verify")
 def verify(uuid):
@@ -209,6 +222,7 @@ def verify(uuid):
     flash(_("Email verified"), 'success')
     return redirect(url_for(".login"))
 
+
 @user.route("/user/recover", methods=["GET", "POST"])
 def recover():
     form = RecoverRequestForm()
@@ -227,9 +241,11 @@ def recover():
         return redirect(url_for(".recover_sent"))
     return render_template("user/recover.html", form=form)
 
+
 @user.route("/user/recover_sent")
 def recover_sent():
     return render_template("user/recover_sent.html")
+
 
 @user.route("/user/<uuid>/recover", methods=["GET", "POST"], endpoint='recover_password')
 @user.route("/user/<uuid>/new", methods=["GET", "POST"], endpoint='new_password')
@@ -249,22 +265,20 @@ def recover_new_password(uuid):
 
     return render_template("user/password_set.html", user=user, form=form, verify=verify)
 
+
 @user.route("/user/edit_address", methods=["GET", "POST"])
 @login_required
 def edit_address():
     user = current_user
     form = EditAddressForm(request.form, user)
     if form.validate_on_submit():
-        user.realname = form.realname.data
-        user.florlp_name = form.florlp_name.data
-        user.street = form.street.data
-        user.housenumber = form.housenumber.data
-        user.zipcode = form.zipcode.data
-        user.city = form.city.data
+        # save user data to database
+        user.set_user_data(form.data)
         db.session.commit()
         flash(_('Address changed'), 'success')
         return redirect(url_for(".index"))
     return render_template("user/edit_address.html", form=form)
+
 
 @user.route("/user/edit_password", methods=["GET", "POST"])
 @login_required

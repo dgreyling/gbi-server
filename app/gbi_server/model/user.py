@@ -35,23 +35,45 @@ class User(db.Model, UserMixin):
     __tablename__ = 'users'
 
     id = db.Column(db.Integer, primary_key=True)
+
+    # login data
     email = db.Column(db.String(256), unique=True, nullable=False)
-    florlp_name = db.Column(db.String(256))
-    realname = db.Column(db.String(256))
-    street = db.Column(db.String(256))
-    housenumber = db.Column(db.String(16))
+    password = db.Column(db.String(256))
+
+    # address and personal data
+    title = db.Column(db.String(256))
+    firstname = db.Column(db.String(256))
+    lastname = db.Column(db.String(256))
+    address = db.Column(db.String(256))
+    address_extend = db.Column(db.String(16))
     zipcode = db.Column(db.String(10))
     city = db.Column(db.String(256))
+    country = db.Column(db.String(256))
+    phone = db.Column(db.String(256))
+    fax = db.Column(db.String(256))
+    company_number = db.Column(db.String(256))
+    commercial_register_number = db.Column(db.String(256))
+
+    # type from user e.g. customer, consultant etc.
+    type = db.Column(db.Integer, default=0)
+
+    # system data
     registered = db.Column(db.DateTime, default=datetime.datetime.utcnow)
     last_login = db.Column(db.DateTime, default=None)
-    password = db.Column(db.String(256))
     active = db.Column(db.Boolean, default=False, nullable=False)
     verified = db.Column(db.Boolean, default=False, nullable=False)
-    authproxy_token = db.Column(db.String(32), unique=True,
-        default=lambda: uuid.uuid4().hex)
-    email_verification = db.relationship('EmailVerification', backref='user',
-        uselist=False, cascade='all,delete,delete-orphan')
-    type = db.Column(db.Integer, default=0)
+    authproxy_token = db.Column(
+        db.String(32),
+        unique=True,
+        default=lambda: uuid.uuid4().hex
+    )
+
+    email_verification = db.relationship(
+        'EmailVerification',
+        backref='user',
+        uselist=False,
+        cascade='all,delete,delete-orphan'
+    )
 
     def __init__(self, email, password=None):
         self.email = email
@@ -67,7 +89,12 @@ class User(db.Model, UserMixin):
 
         @classmethod
         def as_string(self, type):
-            _types = {0: _('customer'), 1: _('service_provider'), 50: _('consultant'), 99:_('admin')}
+            _types = {
+                0: _('customer'),
+                1: _('service_provider'),
+                50: _('consultant'),
+                99: _('admin'),
+            }
             return _types[type or 0]
 
     @property
@@ -143,12 +170,28 @@ class User(db.Model, UserMixin):
 
     def get_address(self):
         return {
-            'realname': self.realname if self.realname else '',
-            'street': self.street if self.street else '',
-            'housenumber': self.housenumber if self.housenumber else '',
-            'zipcode': self.zipcode if self.zipcode else '',
-            'city': self.city if self.city else ''
+            'name': '%s %s %s' % (self.title, self.firstname, self.lastname),
+            'address': self.address,
+            'address_extend': self.address_extend,
+            'zipcode': self.zipcode,
+            'city': self.city,
+            'country': self.country,
         }
+
+    def set_user_data(self, data):
+        self.title = data['title']
+        self.firstname = data['firstname']
+        self.lastname = data['lastname']
+
+        self.address = data['address']
+        self.address_extend = data['address_extend']
+        self.zipcode = data['zipcode']
+        self.city = data['city']
+        self.country = data['country']
+        self.phone = data['phone']
+        self.fax = data['fax']
+        self.company_number = data.get('company_number')
+        self.commercial_register_number = data.get('commercial_register_number')
 
     def __repr__(self):
         return '<User email=%s type=%s>' % (
