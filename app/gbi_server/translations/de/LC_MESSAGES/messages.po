@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-25 16:55+0100\n"
+"POT-Creation-Date: 2015-11-25 17:42+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -17,30 +17,30 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: gbi_server/application.py:167 gbi_server/templates/errors/405.html:2
+#: gbi_server/application.py:166 gbi_server/templates/errors/405.html:2
 #: gbi_server/templates/errors/405.html:4
 msgid "method not allowed"
 msgstr "Methode nicht erlaubt"
 
-#: gbi_server/application.py:173 gbi_server/templates/errors/404.html:2
+#: gbi_server/application.py:172 gbi_server/templates/errors/404.html:2
 #: gbi_server/templates/errors/404.html:4
 msgid "page not found"
 msgstr "Seite nicht gefunden"
 
-#: gbi_server/application.py:179 gbi_server/templates/errors/403.html:3
+#: gbi_server/application.py:178 gbi_server/templates/errors/403.html:3
 #: gbi_server/templates/errors/403.html:6
 msgid "not allowed"
 msgstr "Zugriff nicht erlaubt"
 
-#: gbi_server/application.py:185
+#: gbi_server/application.py:184
 msgid "an error has occurred"
 msgstr "Es ist ein Fehler aufgetreten"
 
-#: gbi_server/application.py:191
+#: gbi_server/application.py:190
 msgid "Login required"
 msgstr "Login erforderlich"
 
-#: gbi_server/application.py:192
+#: gbi_server/application.py:191
 msgid "Please login to see this page"
 msgstr "Bitte melden Sie sich an um die Seite zu betrachten"
 
@@ -540,8 +540,8 @@ msgstr "Benutzer editieren"
 #: gbi_server/templates/admin/wfs_edit.html:47
 #: gbi_server/templates/admin/wms_edit.html:90
 #: gbi_server/templates/admin/wmts_edit.html:48
-#: gbi_server/templates/user/edit_address.html:37
-#: gbi_server/templates/user/edit_password.html:16
+#: gbi_server/templates/user/edit_address.html:35
+#: gbi_server/templates/user/edit_password.html:13
 msgid "save"
 msgstr "Speichern"
 
@@ -1214,45 +1214,35 @@ msgstr "Guten Tag"
 msgid "mail activated content"
 msgstr "Ihr Konto wurde soeben von einem Administrator aktiviert."
 
-#: gbi_server/templates/user/edit_address.html:5
-#: gbi_server/templates/user/edit_address.html:7
-#: gbi_server/templates/user/index.html:16
-msgid "edit address"
-msgstr "Adresse bearbeiten"
-
-#: gbi_server/templates/user/edit_password.html:5
-#: gbi_server/templates/user/edit_password.html:7
-#: gbi_server/templates/user/index.html:21
-msgid "edit password"
-msgstr "Passwort bearbeiten"
-
-#: gbi_server/templates/user/index.html:5
-#: gbi_server/templates/user/index.html:7
+#: gbi_server/templates/user/base_edit.html:7
+#: gbi_server/templates/user/base_edit.html:11
+#: gbi_server/templates/user/index.html:4
+#: gbi_server/templates/user/index.html:6
 msgid "User settings"
 msgstr "Benutzereinstellungen"
 
-#: gbi_server/templates/user/index.html:14
-msgid "edit user settings"
-msgstr "Einstellungen bearbeiten"
+#: gbi_server/templates/user/base_edit.html:21
+msgid "overview"
+msgstr "Übersicht"
 
-#: gbi_server/templates/user/index.html:18
-msgid "edit address help text"
-msgstr "Hier können Sie Ihre Adressdaten bearbeiten"
+#: gbi_server/templates/user/base_edit.html:26
+#: gbi_server/templates/user/edit_address.html:4
+#: gbi_server/templates/user/edit_address.html:10
+msgid "edit address"
+msgstr "Adresse bearbeiten"
 
-#: gbi_server/templates/user/index.html:23
-msgid "edit password help text"
-msgstr "Hier können Sie ihr Passwort bearbeiten"
+#: gbi_server/templates/user/base_edit.html:31
+#: gbi_server/templates/user/edit_password.html:3
+#: gbi_server/templates/user/edit_password.html:8
+msgid "edit password"
+msgstr "Passwort bearbeiten"
 
-#: gbi_server/templates/user/index.html:26
-#: gbi_server/templates/user/remove.html:5
-#: gbi_server/templates/user/remove.html:7
+#: gbi_server/templates/user/base_edit.html:36
+#: gbi_server/templates/user/remove.html:4
+#: gbi_server/templates/user/remove.html:10
 #: gbi_server/templates/user/remove.html:16
 msgid "remove account"
 msgstr "Konto löschen"
-
-#: gbi_server/templates/user/index.html:28
-msgid "remove account help text"
-msgstr "Hier können Sie Ihr Konto vollständig löschen"
 
 #: gbi_server/templates/user/login.html:19
 msgid "lost password?"
@@ -1323,8 +1313,8 @@ msgstr "Zur Anmeldung"
 msgid "remove account notes"
 msgstr ""
 "Achtung! Sie sind dabei Ihr Benutzerkonto vollständig zu löschen. Alle "
-"Daten gehen hierbei verloren. Ein wiederherstellen des Kontos nicht nicht"
-" möglich."
+"Daten gehen hierbei verloren. Das Wiederherstellen des Kontos ist nicht "
+"möglich."
 
 #: gbi_server/templates/user/verify_mail.txt:1
 msgid "mail verify intro"
@@ -1724,7 +1714,3 @@ msgstr "Keine gültige Datumseingabe"
 #: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:753
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
-
-#~ msgid "country"
-#~ msgstr "Land"
-
