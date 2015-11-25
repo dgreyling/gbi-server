@@ -93,8 +93,6 @@ def new():
     form.type.choices.append((User.Type.SERVICE_PROVIDER, _('service_provider')))
 
     if form.validate_on_submit():
-        layers = [(current_app.config.get('USER_READONLY_LAYER'), current_app.config['USER_READONLY_LAYER_TITLE']), (current_app.config.get('USER_WORKON_LAYER'), current_app.config['USER_WORKON_LAYER_TITLE'])]
-
         user = User(form.data['email'], form.data['password'])
         user.set_user_data(form.data)
         user.type = form.data.get('type')
