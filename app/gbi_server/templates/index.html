@@ -52,50 +52,7 @@
             createuser_url=url_for('user.new')) }}
         </p>
         {% endif %}
-        {% if config['FEATURE_EDITOR'] %}
-        <hr>
-        <div class="span11">
-            <div class="map" id='map' style="height:400px; border: 1px solid black"></div>
-        </div>
-        {% endif %}
     </div>
 </div>
-{% endblock %}
-
-
-{% block javascript %}
-    {% if config['FEATURE_EDITOR'] %}
-    <script type="text/javascript" src="{{ url_for('maps.javascript_translation') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/lib/gbi-editor/src/gbi.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/widgets/layermanager.js') }}"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='js/map_base.js') }}"></script>
-    <script type="text/javascript">
-        var sources = [];
-        {{ add_wmts_layers(layers, current_user) }}
-        $(document).ready(function() {
-            var editor = new gbi.Editor({
-                imgPath: openlayers_image_path,
-                layers: sources,
-                "map": {
-                    element: 'map',
-                    projection: new OpenLayers.Projection('EPSG:3857'),
-                    units: 'm',
-                    maxResolution: 156543.0339,
-                    maxExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34),
-                    numZoomLevels: zoom_levels,
-                    theme: openlayers_theme_url,
-                    blankImagePath: openlayers_blank_image,
-                    restrictedExtent: new OpenLayers.Bounds(-20037508.34, -20037508.34, 20037508.34, 20037508.34),
-                    imageBaseLayer: true
-                }
-            });
-            var layermanager = new gbi.widgets.LayerManager(editor, {
-                showActiveLayer: false
-            });
-
-            editor.zoomToMaxExtent();
-        });
-    </script>
-    {% endif %}
 {% endblock %}
 
