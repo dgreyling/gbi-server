@@ -1,20 +1,21 @@
-{% extends "base.html" %}
+{% extends "user/base_edit.html" %}
 
-{% from "macros/forms.html" import input, button %}
+{% set subpagename = 'user_remove' %}
 
-{% block title %}{{_('remove account')}}{% endblock %}
+{% block title %}
+    {{_('remove account')}}
+{% endblock %}
 
-{% block content_head %}<h1>{{_('remove account')}}</h1>{% endblock %}
-
-{% block content %}
-
-<div>
-    <p>{{ _('remove account notes') }}</p>
-    <form method="POST">
+{% block content_right %}
+<form method="POST">
+    <fieldset>
+        <legend>{{_('remove account')}}</legend>
+        <div class="alert">
+        <p>{{ _('remove account notes') }}</p>
+        </div>
         {{ form.csrf_token }}
         {{ input(form.password) }}
         {{ button(_('remove account'), True) }}
-    </form>
-</div>
-
+    </fieldset>
+</form>
 {% endblock %}

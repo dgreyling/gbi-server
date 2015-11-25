@@ -1,15 +1,15 @@
-{% extends "base.html" %}
+{% extends "user/base_edit.html" %}
 
-{% from "macros/forms.html" import input, button %}
+{% set subpagename = 'user_edit_address' %}
 
-{% block title %}{{_('edit address')}}{% endblock %}
+{% block title %}
+    {{_('edit address')}}
+{% endblock %}
 
-{% block content_head %}<h1>{{_('edit address')}}</h1>{% endblock %}
-
-{% block content %}
-
-<div>
-    <form method="POST">
+{% block content_right %}
+<form method="POST">
+    <fieldset>
+        <legend>{{_('edit address')}}</legend>
         {{ form.csrf_token }}
 
         {{ input(form.title) }}
@@ -35,7 +35,6 @@
         {% endif %}
 
         {{ button(_('save'), True) }}
-  </form>
-</div>
-
+    </fieldset>
+</form>
 {% endblock %}

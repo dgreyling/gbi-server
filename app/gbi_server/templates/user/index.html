@@ -1,31 +1,13 @@
-{% extends "base.html" %}
+{% extends "user/base_edit.html" %}
 
-{% from "macros/user.html" import user_detail %}
+{% set subpagename = 'user_index' %}
 
 {% block title %} {{_('User settings')}} {% endblock %}
 
-{% block content_head %}<h1>{{_('User settings')}}</h1>{% endblock %}
-
-{% block content %}
+{% block content_right %}
 <div class="row-fluid">
-    <div class="span6">
+    <div class="span12">
         {{ user_detail(user, user.get_address()) }}
-
-        <h2>{{ _('edit user settings') }}</h2>
-        <a class="btn btn-small" href="{{ url_for('user.edit_address') }}">
-            {{ _('edit address') }}
-        </a>
-        <span class="help-block"><small>{{ _('edit address help text') }}</small></span>
-
-        <a class="btn btn-small" href="{{ url_for('user.edit_password') }}">
-            {{ _('edit password') }}
-        </a>
-        <span class="help-block"><small>{{ _('edit password help text') }}</small></span>
-
-        <a class="btn btn-small" href="{{ url_for('user.remove') }}">
-            {{ _('remove account') }}
-        </a>
-        <span class="help-block"><small>{{ _('remove account help text') }}</small></span>
     </div>
 </div>
 {% endblock %}

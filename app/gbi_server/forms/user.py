@@ -78,10 +78,10 @@ class EditAddressForm(Form):
     phone = TextField(_l('phone'))
     fax = TextField(_l('fax'))
 
-    # only used for customer is 10-16 characters
+    # only used for customers number has 10-16 characters
     company_number = TextField(
         _l('company_number'),
-        [validators.Length(min=10, max=16)]
+        # [validators.Length(min=10, max=16)]
     )
 
     # only used for service_provider
