@@ -14,11 +14,11 @@
 # limitations under the License.
 
 from flask import request
+from flask.ext.wtf import Form
 from wtforms.fields import TextField, SelectField, HiddenField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from wtforms import validators
 from flask.ext.babel import lazy_gettext as _l
-from .base import Form
 
 from gbi_server.model import WFS
 

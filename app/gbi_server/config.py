@@ -25,6 +25,8 @@ class DefaultConfig(object):
 
     DEBUG = True
 
+    WTF_I18N_ENABLED = True
+
     SESSION_COOKIE_NAME = 'gbi_server_session'
 
     # allow access to admin URLs without authentication

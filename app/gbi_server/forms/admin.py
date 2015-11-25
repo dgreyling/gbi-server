@@ -15,9 +15,9 @@
 
 from wtforms.fields import TextField, TextAreaField, IntegerField, PasswordField, SelectField, BooleanField
 from wtforms import validators
-from flask.ext.babel import lazy_gettext as _l
 
-from .base import Form
+from flask.ext.wtf import Form
+from flask.ext.babel import lazy_gettext as _l
 
 from user import NewUserForm
 
@@ -48,7 +48,6 @@ class RasterSourceForm(Form):
     is_public = BooleanField(_l('rastersource_public'))
     is_accessible = BooleanField(_l('rastersource_accessible'))
     is_protected = BooleanField(_l('rastersource_protected'))
-
 
     def validate_view_level_end(form, field):
         if form.data['view_level_start'] > field.data:
