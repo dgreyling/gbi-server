@@ -19,14 +19,6 @@
 </div>
 {%- endmacro %}
 
-div class="control-group">
-                <label class="control-label" for="srs_select"><span>{{ _('select srs') }}:</span></label>
-                <div class="controls">
-                    <select id="srs_select" name="srs_select" disabled=disabled></select>
-                    {{ tooltip(_('tooltip - select srs')) }}
-                </div>
-            </div>
-
 {% macro input_tooltip(field, tooltip_text) -%}
 <div class="control-group {% if field.errors %}error{% endif %}">
     <label class="control-label" for="{{ field.id }}">
