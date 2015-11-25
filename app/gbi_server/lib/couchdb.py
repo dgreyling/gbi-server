@@ -234,7 +234,7 @@ class CouchDB(object):
                     'roles': read_roles + ['_admin'],
                 }
             }),
-            headers=(('Content-type', 'application/json'),),
+            headers=({"Content-Type": "application/json"}),
         )
 
         if resp.status_code != 200:
