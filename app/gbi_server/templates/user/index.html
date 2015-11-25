@@ -26,13 +26,6 @@
             {{ _('remove account') }}
         </a>
         <span class="help-block"><small>{{ _('remove account help text') }}</small></span>
-
-        {% if florlp_active and current_user.is_customer %}
-        <a class="btn btn-small" href="{{ url_for('user.refresh_florlp') }}">
-            {{ _('Refresh florlp data') }}
-        </a>
-        <span class="help-block"><small>{{ _('refresh florlp data help text') }}</small></span>
-        {% endif %}
     </div>
 </div>
 {% endblock %}

@@ -15,8 +15,7 @@
         <dt>{{ _('last login') }}</dt>
         <dd>{% if user.last_login %} {{ user.last_login.strftime('%d.%m.%Y %H:%M ') }} {% endif %}&nbsp;</dd>
         {% if user.is_customer %}
-        <dt>{{ _('florlp name') }}</dt>
-        <dd>{{ user.florlp_name }}</dd>
+
         {% endif %}
     </dl>
     <dl class="dl-horizontal">

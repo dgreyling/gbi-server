@@ -24,10 +24,6 @@ from json import loads
 from gbi_server import model
 from gbi_server.config import SystemConfig
 from gbi_server.lib.couchdb import CouchDBBox, init_user_boxes
-from gbi_server.lib.florlp import (
-    create_florlp_session, latest_flursteuck_features, remove_florlp_session, base_schema
-)
-from gbi_server.lib.transform import transform_geojson
 
 def db_objects():
     users = [
@@ -39,26 +35,22 @@ def db_objects():
 
     users[0].active = True
     users[0].verified = True
-    users[0].florlp_name = 'demo'
     users[0].type = 99
     users[0].password = bcrypt.hashpw('secure', bcrypt.gensalt(10))
 
     users[1].active = True
     users[1].verified = True
-    users[1].florlp_name = 'demo'
     users[1].type = 0
     users[1].password = bcrypt.hashpw('secure', bcrypt.gensalt(10))
     users[1].authproxy_token = '12345'
 
     users[2].active = True
     users[2].verified = True
-    users[2].florlp_name = 'demo'
     users[2].type = 1
     users[2].password = bcrypt.hashpw('secure', bcrypt.gensalt(10))
 
     users[3].active = True
     users[3].verified = True
-    users[3].florlp_name = 'demo'
     users[3].type = 50
     users[3].password = bcrypt.hashpw('secure', bcrypt.gensalt(10))
     users[3].authproxy_token = '99999'
@@ -100,62 +92,12 @@ def db_objects():
     return chain(users, wmts, logs)
 
 
-def init_couchdb(config, florlp_active=True):
+def init_couchdb(config):
     user = model.User.by_email('landwirt@example.org')
     init_user_boxes(user, config.get('COUCH_DB_URL'))
-    couch = CouchDBBox(config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
-    layers = [(config.get('USER_READONLY_LAYER'), config.get('USER_READONLY_LAYER_TITLE')), (config.get('USER_WORKON_LAYER'), config.get('USER_WORKON_LAYER_TITLE'))]
-
-    if florlp_active:
-        florlp_session = create_florlp_session("demo", "demo")
-        try:
-            schema, feature_collection = latest_flursteuck_features(florlp_session)
-        finally:
-            remove_florlp_session(florlp_session)
-
-        feature_collection = transform_geojson(from_srs=config.get('FLORLP_SHP_SRS'), to_srs=3857, geojson=feature_collection)
-    else:
-        feature_collection = {
-           "type": "FeatureCollection",
-           "features": [
-               {
-                   "type": "Feature",
-                   "geometry": {
-                       "type": "Polygon",
-                       "coordinates": [
-                           [
-                               [948716.01110753, 7346629.8064724],
-                               [775051.08287472, 7102031.3160037],
-                               [645413.88292628, 6759593.4293474],
-                               [645413.88292628, 6615280.3199709],
-                               [674765.70178253, 6461183.2709756],
-                               [706563.50554347, 6353559.9351693],
-                               [845984.64511066, 6008676.0636084],
-                               [1464818.8259966, 5998892.1239896],
-                               [1567550.1919935, 6211692.8106974],
-                               [1699633.3768466, 6647078.1237318],
-                               [1609131.9353732, 7148505.0291928],
-                               [1516184.508995,  7336845.8668537],
-                               [948716.01110753, 7346629.8064724]
-                           ]
-                       ]
-                   },
-                   "properties": {
-                   }
-               }
-           ]
-        }
-        schema = base_schema()
-        layers = [(config.get('USER_WORKON_LAYER'), config.get('USER_WORKON_LAYER_TITLE'))]
-
-    for layer, title in layers:
-        couch.clear_layer(layer)
-        couch.store_layer_schema(layer, schema, title=title)
-        couch.store_features(layer, feature_collection['features'])
 
     user = model.User.by_email('dienstleister@example.org')
     init_user_boxes(user, config.get('COUCH_DB_URL'))
 
     user = model.User.by_email('berater@example.org')
     init_user_boxes(user, config.get('COUCH_DB_URL'))
-

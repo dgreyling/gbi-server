@@ -105,13 +105,9 @@ def create_user():
 
     if form.validate_on_submit():
         user = User(form.data['email'], form.data['password'])
-        user.realname = form.data['realname']
-        user.florlp_name = form.data['florlp_name']
+        user.set_user_data(form.data)
         user.type = form.data.get('type')
-        user.street = form.data['street']
-        user.housenumber =  form.data['housenumber']
-        user.zipcode = form.data['zipcode']
-        user.city = form.data['city']
+
         if not form.data['verified']:
             verify = EmailVerification.verify(user)
             db.session.add(verify)
@@ -138,14 +134,9 @@ def edit_user(id):
     user = User.by_id(id)
     form = EditAddressForm(request.form, user)
     if form.validate_on_submit():
-        user.realname = form.data['realname']
-        user.florlp_name = form.data['florlp_name']
-        user.street = form.data['street']
-        user.housenumber =  form.data['housenumber']
-        user.zipcode = form.data['zipcode']
-        user.city = form.data['city']
+        user.set_user_data(form.data)
         db.session.commit()
-        flash( _('User edited', username=user.realname), 'success')
+        flash( _('User edited', username=user.email), 'success')
         return redirect(url_for("admin.user_detail", id=id))
     return render_template('admin/edit_user.html', form=form)
 
@@ -156,7 +147,7 @@ def reset_user_password(id):
         user = User.by_id(id)
         user.update_password(form.password.data)
         db.session.commit()
-        flash( _('Password reset', username=user.realname), 'success')
+        flash( _('Password reset', username=user.email), 'success')
         return redirect(url_for('admin.user_detail', id=id))
     return render_template('admin/reset_user_password.html', form=form)
 

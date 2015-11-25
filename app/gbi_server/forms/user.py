@@ -82,9 +82,6 @@ class RecoverSetForm(Form):
 class EditPasswordForm(RecoverSetForm):
     old_password = PasswordField(_l('old password'), [validators.Required()])
 
-class RefreshFlorlpForm(Form):
-    password = PasswordField(_l('password'), [validators.Required()])
-
 class UploadForm(Form):
     file = FileField(_l('file'), [validators.Required()])
     overwrite = HiddenField('overwrite', default=False)
