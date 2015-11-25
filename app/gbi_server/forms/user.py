@@ -50,7 +50,30 @@ class EditAddressForm(Form):
     address_extend = TextField(_l('address_extend'))
     zipcode = TextField(_l('zipcode'), [validators.Required()])
     city = TextField(_l('city'), [validators.Required()])
-    country = TextField(_l('country'))
+    federal_state = TextField(_l('federal_state'))
+
+    federal_state = SelectField(
+        _l('federal_state'),
+        [validators.Required()],
+        choices=[
+            ('BW', _l(u'Baden-Wuerttemberg')),
+            ('BY', _l(u'Bavaria')),
+            ('BE', _l(u'Berlin')),
+            ('BB', _l(u'Brandenburg')),
+            ('HB', _l(u'Bremen')),
+            ('HH', _l(u'Hamburg')),
+            ('HE', _l(u'Hesse')),
+            ('MV', _l(u'Mecklenburg Western Pomerania')),
+            ('NI', _l(u'Lower Saxony')),
+            ('NW', _l(u'Northrhine-Westphalia')),
+            ('RP', _l(u'Rhineland Palatinate')),
+            ('SL', _l(u'Saarland')),
+            ('SN', _l(u'Saxony')),
+            ('ST', _l(u'Saxony-Anhalt')),
+            ('SH', _l(u'Schleswig Holstein')),
+            ('TH', _l(u'Thuringia')),
+        ]
+    )
 
     phone = TextField(_l('phone'))
     fax = TextField(_l('fax'))

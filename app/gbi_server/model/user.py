@@ -48,6 +48,7 @@ class User(db.Model, UserMixin):
     address_extend = db.Column(db.String(16))
     zipcode = db.Column(db.String(10))
     city = db.Column(db.String(256))
+    federal_state = db.Column(db.String(256))
     country = db.Column(db.String(256))
     phone = db.Column(db.String(256))
     fax = db.Column(db.String(256))
@@ -175,7 +176,7 @@ class User(db.Model, UserMixin):
             'address_extend': self.address_extend,
             'zipcode': self.zipcode,
             'city': self.city,
-            'country': self.country,
+            'federal_state': self.federal_state,
         }
 
     def set_user_data(self, data):
@@ -187,7 +188,7 @@ class User(db.Model, UserMixin):
         self.address_extend = data['address_extend']
         self.zipcode = data['zipcode']
         self.city = data['city']
-        self.country = data['country']
+        self.federal_state = data['federal_state']
         self.phone = data['phone']
         self.fax = data['fax']
         self.company_number = data.get('company_number')
