@@ -10,7 +10,7 @@
 
 <div class="span12">
     <form method="POST">
-        {{ form.csrf }}
+        {{ form.csrf_token }}
         {{ input(form.email) }}
         {{ input(form.password) }}
         {{ button(_('login'), True) }}

@@ -42,7 +42,7 @@
     <hr>
     <form method="POST" class="form-horizontal">
         <div class="row-fluid">
-        {{ form.csrf }}
+        {{ form.csrf_token }}
             <fieldset class="span5 offset1">
                 {{ input(form.name) }}
                 {{ input(form.title) }}

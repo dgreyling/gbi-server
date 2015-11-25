@@ -23,7 +23,7 @@
 {% block content %}
 <div class="row-fluid">
     <form method="POST" class="form-horizontal">
-    {{ form.csrf }}
+    {{ form.csrf_token }}
         <fieldset class="span5 offset1">
             {{ input(form.host) }}
             {{ input(form.url) }}

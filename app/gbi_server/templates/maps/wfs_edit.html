@@ -11,7 +11,7 @@
     <div class="span5">
         <p> {{_('wfs editor choice infotext')}}</p>
         <form method="POST">
-            {{ form.csrf }}
+            {{ form.csrf_token }}
             {% if form.layer %}
                 {{ input(form.layer) }}
             {% endif %}
@@ -25,7 +25,7 @@
     <div class="span5">
         <p> {{_('create wfs layer infotext')}}</p>
         <form method="POST">
-            {{ add_layer_form.csrf }}
+            {{ add_layer_form.csrf_token }}
             {{ input(add_layer_form.new_layer) }}
             {{ add_layer_form.add_form }}
             {{ button(_('add layer'), True, 'add_layer') }}

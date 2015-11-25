@@ -7,10 +7,10 @@
 {% block content_head %}<h1>{{_('create new account')}}</h1>{% endblock %}
 
 {% block content %}
+    <div class="span6">
+        <form class="form-horizontal" method="POST">
+            {{ form.csrf_token }}
 
-<div>
-    <form class="form-horizontal" method="POST">
-        {{ form.csrf }}
 
         {{ input(form.title) }}
         {{ input(form.firstname) }}
@@ -48,10 +48,10 @@
     $(document).ready(function() {
         $("#type").change(function(){
             $(".toggle-input").hide();
-            if ( $(this).val() == {{ consultant_id }} ) {
+            if ( $(this).val() == {{ customer_id }} ) {
                 $("#company_number").parent().parent().show();
             }
-            if ( $(this).val() == {{ customer_id }} ) {
+            if ( $(this).val() == {{ consultant_id }} ) {
                 $("#commercial_register_number").parent().parent().show();
             }
         });

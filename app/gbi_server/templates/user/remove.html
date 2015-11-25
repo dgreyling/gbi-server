@@ -11,7 +11,7 @@
 <div>
     <p>{{ _('remove account notes') }}</p>
     <form method="POST">
-        {{ form.csrf }}
+        {{ form.csrf_token }}
         {{ input(form.password) }}
         {{ button(_('remove account'), True) }}
     </form>
