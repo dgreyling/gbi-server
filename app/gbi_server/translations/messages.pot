@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-25 15:27+0100\n"
+"POT-Creation-Date: 2015-11-25 16:55+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,34 +17,34 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: gbi_server/application.py:166 gbi_server/templates/errors/405.html:2
+#: gbi_server/application.py:167 gbi_server/templates/errors/405.html:2
 #: gbi_server/templates/errors/405.html:4
 msgid "method not allowed"
 msgstr ""
 
-#: gbi_server/application.py:172 gbi_server/templates/errors/404.html:2
+#: gbi_server/application.py:173 gbi_server/templates/errors/404.html:2
 #: gbi_server/templates/errors/404.html:4
 msgid "page not found"
 msgstr ""
 
-#: gbi_server/application.py:178 gbi_server/templates/errors/403.html:3
+#: gbi_server/application.py:179 gbi_server/templates/errors/403.html:3
 #: gbi_server/templates/errors/403.html:6
 msgid "not allowed"
 msgstr ""
 
-#: gbi_server/application.py:184
+#: gbi_server/application.py:185
 msgid "an error has occurred"
 msgstr ""
 
-#: gbi_server/application.py:190
+#: gbi_server/application.py:191
 msgid "Login required"
 msgstr ""
 
-#: gbi_server/application.py:191
+#: gbi_server/application.py:192
 msgid "Please login to see this page"
 msgstr ""
 
-#: gbi_server/forms/admin.py:25 gbi_server/forms/user.py:60
+#: gbi_server/forms/admin.py:25 gbi_server/forms/user.py:92
 #: gbi_server/templates/admin/user_list.html:15
 #: gbi_server/templates/macros/user.html:9
 msgid "type"
@@ -60,7 +60,7 @@ msgstr ""
 msgid "active"
 msgstr ""
 
-#: gbi_server/forms/admin.py:28 gbi_server/forms/user.py:67
+#: gbi_server/forms/admin.py:28 gbi_server/forms/user.py:100
 msgid "terms of use"
 msgstr ""
 
@@ -141,147 +141,219 @@ msgstr ""
 msgid "rastersource_protected"
 msgstr ""
 
-#: gbi_server/forms/admin.py:55
+#: gbi_server/forms/admin.py:54
 msgid "level needs to be bigger or equal to start level"
 msgstr ""
 
-#: gbi_server/forms/admin.py:62
+#: gbi_server/forms/admin.py:61
 msgid "wms_version"
 msgstr ""
 
-#: gbi_server/forms/admin.py:66
+#: gbi_server/forms/admin.py:65
 msgid "wfs_host"
 msgstr ""
 
-#: gbi_server/forms/admin.py:67
+#: gbi_server/forms/admin.py:66
 msgid "wfs_url"
 msgstr ""
 
-#: gbi_server/forms/admin.py:68
+#: gbi_server/forms/admin.py:67
 msgid "wfs_geometry"
 msgstr ""
 
-#: gbi_server/forms/admin.py:69 gbi_server/forms/wfs.py:30
+#: gbi_server/forms/admin.py:68 gbi_server/forms/wfs.py:30
 msgid "wfs_layer"
 msgstr ""
 
-#: gbi_server/forms/admin.py:70
+#: gbi_server/forms/admin.py:69
 msgid "wfs_name"
 msgstr ""
 
-#: gbi_server/forms/admin.py:72
+#: gbi_server/forms/admin.py:71
 msgid "wfs_srs"
 msgstr ""
 
-#: gbi_server/forms/admin.py:74
+#: gbi_server/forms/admin.py:73
 msgid "wfs_ns_prefix"
 msgstr ""
 
-#: gbi_server/forms/admin.py:75
+#: gbi_server/forms/admin.py:74
 msgid "wfs_ns_uri"
 msgstr ""
 
-#: gbi_server/forms/admin.py:77
+#: gbi_server/forms/admin.py:76
 msgid "wfs_search_property"
 msgstr ""
 
-#: gbi_server/forms/admin.py:78
+#: gbi_server/forms/admin.py:77
 msgid "wfs_max_features"
 msgstr ""
 
-#: gbi_server/forms/admin.py:80
+#: gbi_server/forms/admin.py:79
 msgid "rvectorsource_username"
 msgstr ""
 
-#: gbi_server/forms/admin.py:81
+#: gbi_server/forms/admin.py:80
 msgid "vectorsource_password"
 msgstr ""
 
-#: gbi_server/forms/admin.py:82
+#: gbi_server/forms/admin.py:81
 msgid "vectorsoure_protected"
 msgstr ""
 
-#: gbi_server/forms/user.py:33 gbi_server/forms/user.py:61
-#: gbi_server/forms/user.py:73 gbi_server/templates/admin/user_list.html:14
+#: gbi_server/forms/user.py:35 gbi_server/forms/user.py:94
+#: gbi_server/forms/user.py:109 gbi_server/templates/admin/user_list.html:14
 #: gbi_server/templates/boxes/overview.html:19
 #: gbi_server/templates/macros/user.html:6
 msgid "email"
 msgstr ""
 
-#: gbi_server/forms/user.py:34 gbi_server/forms/user.py:62
-#: gbi_server/forms/user.py:70 gbi_server/forms/user.py:76
+#: gbi_server/forms/user.py:36 gbi_server/forms/user.py:95
+#: gbi_server/forms/user.py:104 gbi_server/forms/user.py:113
 msgid "password"
 msgstr ""
 
-#: gbi_server/forms/user.py:37
+#: gbi_server/forms/user.py:41
 msgid "title"
 msgstr ""
 
-#: gbi_server/forms/user.py:38 gbi_server/templates/user/new.html:19
-msgid "lastname"
-msgstr ""
-
-#: gbi_server/forms/user.py:39 gbi_server/templates/user/new.html:18
-msgid "firstname"
-msgstr ""
-
-#: gbi_server/forms/user.py:41 gbi_server/templates/macros/user.html:22
-msgid "address"
-msgstr ""
-
-#: gbi_server/forms/user.py:42
-msgid "address_extend"
+#: gbi_server/forms/user.py:43
+msgid "Mr"
 msgstr ""
 
 #: gbi_server/forms/user.py:43
-msgid "zipcode"
+msgid "Mrs"
 msgstr ""
 
-#: gbi_server/forms/user.py:44
-msgid "city"
+#: gbi_server/forms/user.py:46 gbi_server/templates/user/new.html:19
+msgid "lastname"
 msgstr ""
 
-#: gbi_server/forms/user.py:45
-msgid "country"
+#: gbi_server/forms/user.py:47 gbi_server/templates/user/new.html:18
+msgid "firstname"
 msgstr ""
 
-#: gbi_server/forms/user.py:47
-msgid "phone"
+#: gbi_server/forms/user.py:49 gbi_server/templates/macros/user.html:22
+msgid "address"
 msgstr ""
 
-#: gbi_server/forms/user.py:48
-msgid "fax"
+#: gbi_server/forms/user.py:50
+msgid "address_extend"
 msgstr ""
 
 #: gbi_server/forms/user.py:51
-msgid "company_number"
+msgid "zipcode"
 msgstr ""
 
-#: gbi_server/forms/user.py:56
-msgid "commercial_register_number"
+#: gbi_server/forms/user.py:52
+msgid "city"
 msgstr ""
 
-#: gbi_server/forms/user.py:64 gbi_server/forms/user.py:78
-msgid "Passwords must match"
+#: gbi_server/forms/user.py:53 gbi_server/forms/user.py:56
+msgid "federal_state"
 msgstr ""
 
-#: gbi_server/forms/user.py:66 gbi_server/forms/user.py:80
-msgid "password repeat"
+#: gbi_server/forms/user.py:59
+msgid "Baden-Wuerttemberg"
+msgstr ""
+
+#: gbi_server/forms/user.py:60
+msgid "Bavaria"
+msgstr ""
+
+#: gbi_server/forms/user.py:61
+msgid "Berlin"
+msgstr ""
+
+#: gbi_server/forms/user.py:62
+msgid "Brandenburg"
+msgstr ""
+
+#: gbi_server/forms/user.py:63
+msgid "Bremen"
+msgstr ""
+
+#: gbi_server/forms/user.py:64
+msgid "Hamburg"
+msgstr ""
+
+#: gbi_server/forms/user.py:65
+msgid "Hesse"
+msgstr ""
+
+#: gbi_server/forms/user.py:66
+msgid "Mecklenburg Western Pomerania"
+msgstr ""
+
+#: gbi_server/forms/user.py:67
+msgid "Lower Saxony"
+msgstr ""
+
+#: gbi_server/forms/user.py:68
+msgid "Northrhine-Westphalia"
+msgstr ""
+
+#: gbi_server/forms/user.py:69
+msgid "Rhineland Palatinate"
+msgstr ""
+
+#: gbi_server/forms/user.py:70
+msgid "Saarland"
+msgstr ""
+
+#: gbi_server/forms/user.py:71
+msgid "Saxony"
+msgstr ""
+
+#: gbi_server/forms/user.py:72
+msgid "Saxony-Anhalt"
+msgstr ""
+
+#: gbi_server/forms/user.py:73
+msgid "Schleswig Holstein"
+msgstr ""
+
+#: gbi_server/forms/user.py:74
+msgid "Thuringia"
+msgstr ""
+
+#: gbi_server/forms/user.py:78
+msgid "phone"
+msgstr ""
+
+#: gbi_server/forms/user.py:79
+msgid "fax"
 msgstr ""
 
 #: gbi_server/forms/user.py:83
+msgid "company_number"
+msgstr ""
+
+#: gbi_server/forms/user.py:88
+msgid "commercial_register_number"
+msgstr ""
+
+#: gbi_server/forms/user.py:97 gbi_server/forms/user.py:115
+msgid "Passwords must match"
+msgstr ""
+
+#: gbi_server/forms/user.py:99 gbi_server/forms/user.py:117
+msgid "password repeat"
+msgstr ""
+
+#: gbi_server/forms/user.py:121
 msgid "old password"
 msgstr ""
 
-#: gbi_server/forms/user.py:86
+#: gbi_server/forms/user.py:125
 msgid "file"
 msgstr ""
 
-#: gbi_server/forms/user.py:90 gbi_server/templates/boxes/base.html:35
+#: gbi_server/forms/user.py:130 gbi_server/templates/boxes/base.html:35
 msgid "filename"
 msgstr ""
 
-#: gbi_server/forms/user.py:91
+#: gbi_server/forms/user.py:131
 msgid "select target user"
 msgstr ""
 
@@ -309,22 +381,22 @@ msgstr ""
 msgid "external_wms_title"
 msgstr ""
 
-#: gbi_server/model/user.py:93 gbi_server/views/admin.py:100
+#: gbi_server/model/user.py:94 gbi_server/views/admin.py:100
 #: gbi_server/views/user.py:90
 msgid "customer"
 msgstr ""
 
-#: gbi_server/model/user.py:94 gbi_server/views/admin.py:101
+#: gbi_server/model/user.py:95 gbi_server/views/admin.py:101
 #: gbi_server/views/user.py:93
 msgid "service_provider"
 msgstr ""
 
-#: gbi_server/model/user.py:95 gbi_server/views/admin.py:103
+#: gbi_server/model/user.py:96 gbi_server/views/admin.py:103
 #: gbi_server/views/user.py:92
 msgid "consultant"
 msgstr ""
 
-#: gbi_server/model/user.py:96 gbi_server/templates/admin/index.html:5
+#: gbi_server/model/user.py:97 gbi_server/templates/admin/index.html:5
 #: gbi_server/views/admin.py:104
 msgid "admin"
 msgstr ""
@@ -342,8 +414,9 @@ msgid "create account"
 msgstr ""
 
 #: gbi_server/templates/base.html:31 gbi_server/templates/user/login.html:5
-#: gbi_server/templates/user/login.html:7
-#: gbi_server/templates/user/login.html:16
+#: gbi_server/templates/user/login.html:8
+#: gbi_server/templates/user/login.html:18
+#: gbi_server/templates/user/new.html:41
 msgid "login"
 msgstr ""
 
@@ -1105,16 +1178,24 @@ msgstr ""
 msgid "remove account help text"
 msgstr ""
 
-#: gbi_server/templates/user/login.html:17
+#: gbi_server/templates/user/login.html:19
 msgid "lost password?"
 msgstr ""
 
-#: gbi_server/templates/user/login.html:19 gbi_server/templates/user/new.html:5
+#: gbi_server/templates/user/login.html:21 gbi_server/templates/user/new.html:5
 #: gbi_server/templates/user/new.html:7
 msgid "create new account"
 msgstr ""
 
-#: gbi_server/templates/user/new.html:52
+#: gbi_server/templates/user/new.html:16
+msgid "personal"
+msgstr ""
+
+#: gbi_server/templates/user/new.html:24
+msgid "address & contact"
+msgstr ""
+
+#: gbi_server/templates/user/new.html:50
 msgid "create accout"
 msgstr ""
 
