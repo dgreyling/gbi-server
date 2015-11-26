@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-25 17:42+0100\n"
+"POT-Creation-Date: 2015-11-26 09:41+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -44,7 +44,79 @@ msgstr ""
 msgid "Please login to see this page"
 msgstr ""
 
-#: gbi_server/forms/admin.py:25 gbi_server/forms/user.py:92
+#: gbi_server/config.py:120
+msgid "mr"
+msgstr ""
+
+#: gbi_server/config.py:121
+msgid "mrs"
+msgstr ""
+
+#: gbi_server/config.py:125
+msgid "Baden-Wuerttemberg"
+msgstr ""
+
+#: gbi_server/config.py:126
+msgid "Bavaria"
+msgstr ""
+
+#: gbi_server/config.py:127
+msgid "Berlin"
+msgstr ""
+
+#: gbi_server/config.py:128
+msgid "Brandenburg"
+msgstr ""
+
+#: gbi_server/config.py:129
+msgid "Bremen"
+msgstr ""
+
+#: gbi_server/config.py:130
+msgid "Hamburg"
+msgstr ""
+
+#: gbi_server/config.py:131
+msgid "Hesse"
+msgstr ""
+
+#: gbi_server/config.py:132
+msgid "Mecklenburg Western Pomerania"
+msgstr ""
+
+#: gbi_server/config.py:133
+msgid "Lower Saxony"
+msgstr ""
+
+#: gbi_server/config.py:134
+msgid "Northrhine-Westphalia"
+msgstr ""
+
+#: gbi_server/config.py:135
+msgid "Rhineland Palatinate"
+msgstr ""
+
+#: gbi_server/config.py:136
+msgid "Saarland"
+msgstr ""
+
+#: gbi_server/config.py:137
+msgid "Saxony"
+msgstr ""
+
+#: gbi_server/config.py:138
+msgid "Saxony-Anhalt"
+msgstr ""
+
+#: gbi_server/config.py:139
+msgid "Schleswig Holstein"
+msgstr ""
+
+#: gbi_server/config.py:140
+msgid "Thuringia"
+msgstr ""
+
+#: gbi_server/forms/admin.py:25 gbi_server/forms/user.py:74
 #: gbi_server/templates/admin/user_list.html:15
 #: gbi_server/templates/macros/user.html:9
 msgid "type"
@@ -60,7 +132,7 @@ msgstr ""
 msgid "active"
 msgstr ""
 
-#: gbi_server/forms/admin.py:28 gbi_server/forms/user.py:100
+#: gbi_server/forms/admin.py:28 gbi_server/forms/user.py:82
 msgid "terms of use"
 msgstr ""
 
@@ -201,159 +273,87 @@ msgstr ""
 msgid "vectorsoure_protected"
 msgstr ""
 
-#: gbi_server/forms/user.py:35 gbi_server/forms/user.py:94
-#: gbi_server/forms/user.py:109 gbi_server/templates/admin/user_list.html:14
+#: gbi_server/forms/user.py:34 gbi_server/forms/user.py:76
+#: gbi_server/forms/user.py:91 gbi_server/templates/admin/user_list.html:14
 #: gbi_server/templates/boxes/overview.html:19
 #: gbi_server/templates/macros/user.html:6
 msgid "email"
 msgstr ""
 
-#: gbi_server/forms/user.py:36 gbi_server/forms/user.py:95
-#: gbi_server/forms/user.py:104 gbi_server/forms/user.py:113
+#: gbi_server/forms/user.py:35 gbi_server/forms/user.py:77
+#: gbi_server/forms/user.py:86 gbi_server/forms/user.py:95
 msgid "password"
 msgstr ""
 
-#: gbi_server/forms/user.py:41
+#: gbi_server/forms/user.py:40
 msgid "title"
 msgstr ""
 
-#: gbi_server/forms/user.py:43
-msgid "Mr"
-msgstr ""
-
-#: gbi_server/forms/user.py:43
-msgid "Mrs"
-msgstr ""
-
-#: gbi_server/forms/user.py:46 gbi_server/templates/user/new.html:19
+#: gbi_server/forms/user.py:45 gbi_server/templates/user/new.html:19
 msgid "lastname"
 msgstr ""
 
-#: gbi_server/forms/user.py:47 gbi_server/templates/user/new.html:18
+#: gbi_server/forms/user.py:46 gbi_server/templates/user/new.html:18
 msgid "firstname"
 msgstr ""
 
-#: gbi_server/forms/user.py:49 gbi_server/templates/macros/user.html:22
+#: gbi_server/forms/user.py:48 gbi_server/templates/macros/user.html:23
 msgid "address"
 msgstr ""
 
-#: gbi_server/forms/user.py:50
+#: gbi_server/forms/user.py:49
 msgid "address_extend"
 msgstr ""
 
-#: gbi_server/forms/user.py:51
+#: gbi_server/forms/user.py:50
 msgid "zipcode"
 msgstr ""
 
-#: gbi_server/forms/user.py:52
+#: gbi_server/forms/user.py:51
 msgid "city"
 msgstr ""
 
-#: gbi_server/forms/user.py:53 gbi_server/forms/user.py:56
+#: gbi_server/forms/user.py:52 gbi_server/forms/user.py:55
 msgid "federal_state"
 msgstr ""
 
-#: gbi_server/forms/user.py:59
-msgid "Baden-Wuerttemberg"
-msgstr ""
-
-#: gbi_server/forms/user.py:60
-msgid "Bavaria"
-msgstr ""
-
-#: gbi_server/forms/user.py:61
-msgid "Berlin"
-msgstr ""
-
-#: gbi_server/forms/user.py:62
-msgid "Brandenburg"
-msgstr ""
-
-#: gbi_server/forms/user.py:63
-msgid "Bremen"
-msgstr ""
-
-#: gbi_server/forms/user.py:64
-msgid "Hamburg"
-msgstr ""
-
-#: gbi_server/forms/user.py:65
-msgid "Hesse"
-msgstr ""
-
-#: gbi_server/forms/user.py:66
-msgid "Mecklenburg Western Pomerania"
-msgstr ""
-
-#: gbi_server/forms/user.py:67
-msgid "Lower Saxony"
-msgstr ""
-
-#: gbi_server/forms/user.py:68
-msgid "Northrhine-Westphalia"
-msgstr ""
-
-#: gbi_server/forms/user.py:69
-msgid "Rhineland Palatinate"
-msgstr ""
-
-#: gbi_server/forms/user.py:70
-msgid "Saarland"
-msgstr ""
-
-#: gbi_server/forms/user.py:71
-msgid "Saxony"
-msgstr ""
-
-#: gbi_server/forms/user.py:72
-msgid "Saxony-Anhalt"
-msgstr ""
-
-#: gbi_server/forms/user.py:73
-msgid "Schleswig Holstein"
-msgstr ""
-
-#: gbi_server/forms/user.py:74
-msgid "Thuringia"
-msgstr ""
-
-#: gbi_server/forms/user.py:78
+#: gbi_server/forms/user.py:60 gbi_server/templates/macros/user.html:31
 msgid "phone"
 msgstr ""
 
-#: gbi_server/forms/user.py:79
+#: gbi_server/forms/user.py:61 gbi_server/templates/macros/user.html:36
 msgid "fax"
 msgstr ""
 
-#: gbi_server/forms/user.py:83
+#: gbi_server/forms/user.py:65 gbi_server/templates/macros/user.html:43
 msgid "company_number"
 msgstr ""
 
-#: gbi_server/forms/user.py:88
+#: gbi_server/forms/user.py:70 gbi_server/templates/macros/user.html:50
 msgid "commercial_register_number"
 msgstr ""
 
-#: gbi_server/forms/user.py:97 gbi_server/forms/user.py:115
+#: gbi_server/forms/user.py:79 gbi_server/forms/user.py:97
 msgid "Passwords must match"
 msgstr ""
 
-#: gbi_server/forms/user.py:99 gbi_server/forms/user.py:117
+#: gbi_server/forms/user.py:81 gbi_server/forms/user.py:99
 msgid "password repeat"
 msgstr ""
 
-#: gbi_server/forms/user.py:121
+#: gbi_server/forms/user.py:103
 msgid "old password"
 msgstr ""
 
-#: gbi_server/forms/user.py:125
+#: gbi_server/forms/user.py:107
 msgid "file"
 msgstr ""
 
-#: gbi_server/forms/user.py:130 gbi_server/templates/boxes/base.html:35
+#: gbi_server/forms/user.py:112 gbi_server/templates/boxes/base.html:35
 msgid "filename"
 msgstr ""
 
-#: gbi_server/forms/user.py:131
+#: gbi_server/forms/user.py:113
 msgid "select target user"
 msgstr ""
 
@@ -381,23 +381,23 @@ msgstr ""
 msgid "external_wms_title"
 msgstr ""
 
-#: gbi_server/model/user.py:94 gbi_server/views/admin.py:100
-#: gbi_server/views/user.py:90
+#: gbi_server/model/user.py:94 gbi_server/views/admin.py:103
+#: gbi_server/views/user.py:92
 msgid "customer"
 msgstr ""
 
-#: gbi_server/model/user.py:95 gbi_server/views/admin.py:101
-#: gbi_server/views/user.py:93
+#: gbi_server/model/user.py:95 gbi_server/views/admin.py:104
+#: gbi_server/views/user.py:95
 msgid "service_provider"
 msgstr ""
 
-#: gbi_server/model/user.py:96 gbi_server/views/admin.py:103
-#: gbi_server/views/user.py:92
+#: gbi_server/model/user.py:96 gbi_server/views/admin.py:106
+#: gbi_server/views/user.py:94
 msgid "consultant"
 msgstr ""
 
 #: gbi_server/model/user.py:97 gbi_server/templates/admin/index.html:5
-#: gbi_server/views/admin.py:104
+#: gbi_server/views/admin.py:107
 msgid "admin"
 msgstr ""
 
@@ -533,8 +533,8 @@ msgstr ""
 #: gbi_server/templates/admin/wfs_edit.html:47
 #: gbi_server/templates/admin/wms_edit.html:90
 #: gbi_server/templates/admin/wmts_edit.html:48
-#: gbi_server/templates/user/edit_address.html:35
-#: gbi_server/templates/user/edit_password.html:13
+#: gbi_server/templates/user/edit_address.html:65
+#: gbi_server/templates/user/edit_password.html:15
 msgid "save"
 msgstr ""
 
@@ -988,6 +988,13 @@ msgstr ""
 msgid "last login"
 msgstr ""
 
+#: gbi_server/templates/macros/user.html:33
+#: gbi_server/templates/macros/user.html:38
+#: gbi_server/templates/macros/user.html:45
+#: gbi_server/templates/macros/user.html:52
+msgid "No input"
+msgstr ""
+
 #: gbi_server/templates/maps/map.html:5
 msgid "Map"
 msgstr ""
@@ -1140,8 +1147,7 @@ msgstr ""
 
 #: gbi_server/templates/user/base_edit.html:7
 #: gbi_server/templates/user/base_edit.html:11
-#: gbi_server/templates/user/index.html:4
-#: gbi_server/templates/user/index.html:6
+#: gbi_server/templates/user/index.html:5
 msgid "User settings"
 msgstr ""
 
@@ -1150,21 +1156,21 @@ msgid "overview"
 msgstr ""
 
 #: gbi_server/templates/user/base_edit.html:26
-#: gbi_server/templates/user/edit_address.html:4
-#: gbi_server/templates/user/edit_address.html:10
+#: gbi_server/templates/user/edit_address.html:6
+#: gbi_server/templates/user/edit_address.html:12
 msgid "edit address"
 msgstr ""
 
 #: gbi_server/templates/user/base_edit.html:31
-#: gbi_server/templates/user/edit_password.html:3
-#: gbi_server/templates/user/edit_password.html:8
+#: gbi_server/templates/user/edit_password.html:5
+#: gbi_server/templates/user/edit_password.html:10
 msgid "edit password"
 msgstr ""
 
 #: gbi_server/templates/user/base_edit.html:36
-#: gbi_server/templates/user/remove.html:4
-#: gbi_server/templates/user/remove.html:10
-#: gbi_server/templates/user/remove.html:16
+#: gbi_server/templates/user/remove.html:6
+#: gbi_server/templates/user/remove.html:12
+#: gbi_server/templates/user/remove.html:18
 msgid "remove account"
 msgstr ""
 
@@ -1223,7 +1229,7 @@ msgstr ""
 msgid "goto login"
 msgstr ""
 
-#: gbi_server/templates/user/remove.html:12
+#: gbi_server/templates/user/remove.html:14
 msgid "remove account notes"
 msgstr ""
 
@@ -1263,64 +1269,64 @@ msgstr ""
 msgid "User activated"
 msgstr ""
 
-#: gbi_server/views/admin.py:115 gbi_server/views/user.py:110
-#: gbi_server/views/user.py:160
+#: gbi_server/views/admin.py:118 gbi_server/views/user.py:112
+#: gbi_server/views/user.py:162
 msgid "Email verification mail subject"
 msgstr ""
 
-#: gbi_server/views/admin.py:128
+#: gbi_server/views/admin.py:131
 msgid "User created"
 msgstr ""
 
-#: gbi_server/views/admin.py:139
+#: gbi_server/views/admin.py:144
 msgid "User edited"
 msgstr ""
 
-#: gbi_server/views/admin.py:150
+#: gbi_server/views/admin.py:155
 msgid "Password reset"
 msgstr ""
 
-#: gbi_server/views/admin.py:161
+#: gbi_server/views/admin.py:166
 msgid "User removed"
 msgstr ""
 
-#: gbi_server/views/admin.py:226
+#: gbi_server/views/admin.py:231
 msgid "Saved WMTS"
 msgstr ""
 
-#: gbi_server/views/admin.py:230
+#: gbi_server/views/admin.py:235
 msgid "WMTS with this name already exist"
 msgstr ""
 
-#: gbi_server/views/admin.py:239
+#: gbi_server/views/admin.py:244
 msgid "WMTS removed"
 msgstr ""
 
-#: gbi_server/views/admin.py:247
+#: gbi_server/views/admin.py:252
 msgid "Need url for capabilities"
 msgstr ""
 
-#: gbi_server/views/admin.py:317
+#: gbi_server/views/admin.py:322
 msgid "Saved WMS"
 msgstr ""
 
-#: gbi_server/views/admin.py:322
+#: gbi_server/views/admin.py:327
 msgid "WMS with this name already exist"
 msgstr ""
 
-#: gbi_server/views/admin.py:331
+#: gbi_server/views/admin.py:336
 msgid "WMS removed"
 msgstr ""
 
-#: gbi_server/views/admin.py:365
+#: gbi_server/views/admin.py:370
 msgid "Saved WFS"
 msgstr ""
 
-#: gbi_server/views/admin.py:369
+#: gbi_server/views/admin.py:374
 msgid "WFS with this name already exist"
 msgstr ""
 
-#: gbi_server/views/admin.py:380
+#: gbi_server/views/admin.py:385
 msgid "WFS removed"
 msgstr ""
 
@@ -1408,35 +1414,35 @@ msgstr ""
 msgid "Logged in successfully."
 msgstr ""
 
-#: gbi_server/views/user.py:145
+#: gbi_server/views/user.py:147
 msgid "Account removed"
 msgstr ""
 
-#: gbi_server/views/user.py:165
+#: gbi_server/views/user.py:167
 msgid "email verification was sent successfully"
 msgstr ""
 
-#: gbi_server/views/user.py:189
+#: gbi_server/views/user.py:191
 msgid "Activate user subject"
 msgstr ""
 
-#: gbi_server/views/user.py:194
+#: gbi_server/views/user.py:196
 msgid "Email verified"
 msgstr ""
 
-#: gbi_server/views/user.py:208
+#: gbi_server/views/user.py:210
 msgid "Password recover mail subject"
 msgstr ""
 
-#: gbi_server/views/user.py:250
+#: gbi_server/views/user.py:255
 msgid "Address changed"
 msgstr ""
 
-#: gbi_server/views/user.py:264
+#: gbi_server/views/user.py:269
 msgid "Password changed"
 msgstr ""
 
-#: gbi_server/views/user.py:267
+#: gbi_server/views/user.py:272
 msgid "Old password is not correct"
 msgstr ""
 
