@@ -19,7 +19,7 @@ from flask.ext.login import current_user, login_user
 from flask.ext.babel import gettext as _
 from werkzeug.exceptions import Unauthorized, Forbidden
 from sqlalchemy.exc import IntegrityError
-
+from sqlalchemy import desc
 from geoalchemy2.elements import WKTElement
 from geoalchemy2.functions import ST_AsGeoJSON
 
@@ -55,36 +55,28 @@ admin.before_request(assert_admin_user)
 def index():
     return render_template('admin/index.html')
 
-@admin.route('/admin/user_list', methods=["GET"])
+
+@admin.route('/admin/users_list', methods=["GET"])
 def user_list():
     return render_template('admin/user_list.html', users=User.query.all())
 
-@admin.route('/admin/user_detail/<int:id>', methods=["GET", "POST"])
-def user_detail(id):
-    user = User.by_id(id)
+
+@admin.route('/admin/users_list/inactive', methods=["GET"])
+def inactive_users_list():
+    users = User.query.filter(User.active==False).order_by(desc(User.registered)).all()
+    return render_template('admin/user_list_inactive.html', users=users)
+
+
+@admin.route('/admin/user/<int:user_id>/details', methods=["GET", "POST"])
+def user_detail(user_id):
+    user = User.by_id(user_id)
     return render_template('admin/user_detail.html', user=user)
 
 
-@admin.route('/admin/verify_user/<int:id>', methods=["GET"])
-def verify_user(id):
-    user = User.by_id(id)
+@admin.route('/admin/user/<int:user_id>/activate', methods=["GET"])
+def activate_user(user_id):
+    user = User.by_id(user_id)
     user.verified = True
-    db.session.commit()
-    flash(_('User verified', email=user.email), 'success')
-    return redirect(url_for("admin.user_detail", id=id))
-
-
-@admin.route('/admin/login_as/<int:id>', methods=["GET"])
-def loging_as(id):
-    user = User.by_id(id)
-    login_user(user)
-    session['authproxy_token'] = user.authproxy_token
-    return redirect(url_for("user.home"))
-
-
-@admin.route('/admin/activate_user/<int:id>', methods=["GET"])
-def activate_user(id):
-    user = User.by_id(id)
     user.active = True
     db.session.commit()
 
@@ -94,8 +86,18 @@ def activate_user(id):
         [user.email]
     )
 
-    flash(_('User activated', email=user.email), 'success')
-    return redirect(url_for("admin.user_detail", id=id))
+    flash(_('User activated %(email)s', email=user.email), 'success')
+    return redirect(url_for("admin.inactive_users_list"))
+
+
+@admin.route('/admin/user/<int:user_id>/remove', methods=["POST"])
+def remove_user(user_id):
+    user = User.by_id(user_id)
+    email = user.email
+    db.session.delete(user)
+    db.session.commit()
+    flash(_('User was removed %(email)s', email=email), 'success')
+    return redirect(url_for("admin.inactive_users_list"))
 
 
 @admin.route('/admin/create_user', methods=["GET", "POST"])
@@ -163,18 +165,6 @@ def reset_user_password(id):
         flash(_('Password reset', username=user.email), 'success')
         return redirect(url_for('admin.user_detail', id=id))
     return render_template('admin/reset_user_password.html', form=form)
-
-
-@admin.route('/admin/remove_user/<int:id>', methods=["GET", "POST"])
-def remove_user(id):
-    user = User.by_id(id)
-    if request.method == 'POST':
-        email = user.email
-        db.session.delete(user)
-        db.session.commit()
-        flash(_('User removed', username=email), "success")
-        return redirect(url_for('admin.user_list'))
-    return render_template('admin/remove_user.html', user=user)
 
 
 @admin.route('/admin/user_log/<int:id>', methods=["GET"])

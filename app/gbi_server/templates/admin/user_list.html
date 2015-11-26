@@ -34,7 +34,7 @@
                             {{ _('not verified') }}
                         {% endif %}
                     </td>
-                    <td><a class="btn btn-small" href="{{ url_for('admin.user_detail', id=user.id) }}">{{ _('user details') }}</a></td>
+                    <td><a class="btn btn-small" href="{{ url_for('admin.user_detail', user_id=user.id) }}">{{ _('user details') }}</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

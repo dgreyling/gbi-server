@@ -1,0 +1,73 @@
+{% extends "base.html" %}
+
+{% from "macros/modals.html" import confirm_delete_modal %}
+
+
+{% block title %} {{_('inactive users list')}} {% endblock %}
+
+{% block content_head %}<h1>{{ _('inactive users list') }}</h1>{% endblock %}
+
+{% block content %}
+<div class="row-fluid">
+    <div class="span12">
+        <table class="table table-hover sortable-table">
+            <thead>
+                <tr>
+                    <th data-sort="int">{{ _('id') }}</th>
+                    <th data-sort="string">{{ _('email') }}</th>
+                    <th data-sort="string">{{ _('type') }}</th>
+                    <th data-sort="string">{{ _('registered') }}</th>
+                    <th data-sort="string">{{ _('email verfied') }}</th>
+                    <th>&nbsp;</th>
+                    <th>&nbsp;</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if not users %}
+                <tr>
+                 <td colspan="6">{{ _('Infotext – No user is waiting for activate.') }}</td>
+                </tr>
+                {% endif %}
+
+                {% for user in users %}
+                <tr>
+                    <td>{{ user.id }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.type_name }}</td>
+                    <td>{{ user.registered.strftime('%d.%m.%Y %H:%M ') }}</td>
+                    <td>
+                        {% if user.verified %}
+                            {{ _('verified') }}
+                        {% else %}
+                            {{ _('not verified') }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        <a class="btn btn-small btn-success" href="{{ url_for('admin.activate_user', user_id=user.id) }}">
+                            {{ _('activate') }}
+                        </a>
+                        {{ confirm_delete_modal(
+                            id=user.id,
+                            btn_text=_('reject'),
+                            url=url_for('admin.remove_user', user_id=user.id),
+                           )
+                        }}
+                    </td>
+                    <td>
+                        <a class="btn btn-small" href="{{ url_for('admin.user_detail', user_id=user.id) }}">{{ _('user details') }}</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script type="text/javascript">
+  $(document).ready(function() {
+        $(".sortable-table").stupidtable();
+    });
+</script>
+{% endblock %}

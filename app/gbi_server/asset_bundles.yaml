@@ -3,6 +3,7 @@ libs-js:
   output: cache/libs.js
   contents:
     - js/lib/jquery-1.8.1.min.js
+    - js/lib/stupidtable.js
     - js/lib/bootstrap.min.js
     - js/lib/json2.js
     - js/lib/jquery.validate.min.js
