@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-26 11:28+0100\n"
+"POT-Creation-Date: 2015-11-26 13:21+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -138,8 +138,8 @@ msgstr "Aktiviert"
 msgid "terms of use"
 msgstr "<a href=\"/page/de/nutzungsbedingungen.html\">Nutzungsbedingungen</a>"
 
-#: gbi_server/forms/admin.py:31 gbi_server/templates/admin/wms_list.html:14
-#: gbi_server/templates/admin/wmts_list.html:14
+#: gbi_server/forms/admin.py:31 gbi_server/templates/admin/wms_list.html:13
+#: gbi_server/templates/admin/wmts_list.html:13
 msgid "rastersource_url"
 msgstr "URL"
 
@@ -155,17 +155,17 @@ msgstr "Passwort"
 msgid "rastersource_name"
 msgstr "Name"
 
-#: gbi_server/forms/admin.py:35 gbi_server/templates/admin/wms_list.html:13
-#: gbi_server/templates/admin/wmts_list.html:13
+#: gbi_server/forms/admin.py:35 gbi_server/templates/admin/wms_list.html:12
+#: gbi_server/templates/admin/wmts_list.html:12
 msgid "rastersource_title"
 msgstr "Titel"
 
-#: gbi_server/forms/admin.py:36 gbi_server/templates/admin/wms_list.html:15
+#: gbi_server/forms/admin.py:36 gbi_server/templates/admin/wms_list.html:14
 msgid "rastersource_layer"
 msgstr "Layer"
 
-#: gbi_server/forms/admin.py:37 gbi_server/templates/admin/wms_list.html:16
-#: gbi_server/templates/admin/wmts_list.html:15
+#: gbi_server/forms/admin.py:37 gbi_server/templates/admin/wms_list.html:15
+#: gbi_server/templates/admin/wmts_list.html:14
 msgid "rastersource_format"
 msgstr "Format"
 
@@ -181,13 +181,13 @@ msgstr "Max. Kacheln/Import"
 msgid "rastersource_view_coverage"
 msgstr "Anzeigebereich"
 
-#: gbi_server/forms/admin.py:42 gbi_server/templates/admin/wms_list.html:17
-#: gbi_server/templates/admin/wmts_list.html:16
+#: gbi_server/forms/admin.py:42 gbi_server/templates/admin/wms_list.html:16
+#: gbi_server/templates/admin/wmts_list.html:15
 msgid "rastersource_view_level_start"
 msgstr "Start-Level"
 
-#: gbi_server/forms/admin.py:43 gbi_server/templates/admin/wms_list.html:18
-#: gbi_server/templates/admin/wmts_list.html:17
+#: gbi_server/forms/admin.py:43 gbi_server/templates/admin/wms_list.html:17
+#: gbi_server/templates/admin/wmts_list.html:16
 msgid "rastersource_view_level_end"
 msgstr "End-Level"
 
@@ -386,23 +386,24 @@ msgstr "Coverage auswhälen"
 msgid "external_wms_title"
 msgstr "GBI WMS"
 
-#: gbi_server/model/user.py:94 gbi_server/views/admin.py:111
+#: gbi_server/model/user.py:94 gbi_server/views/admin.py:107
 #: gbi_server/views/user.py:92
 msgid "customer"
 msgstr "Landwirt"
 
-#: gbi_server/model/user.py:95 gbi_server/views/admin.py:112
+#: gbi_server/model/user.py:95 gbi_server/views/admin.py:108
 #: gbi_server/views/user.py:95
 msgid "service_provider"
 msgstr "Dienstleister"
 
-#: gbi_server/model/user.py:96 gbi_server/views/admin.py:114
+#: gbi_server/model/user.py:96 gbi_server/views/admin.py:110
 #: gbi_server/views/user.py:94
 msgid "consultant"
 msgstr "Berater"
 
-#: gbi_server/model/user.py:97 gbi_server/templates/admin/index.html:5
-#: gbi_server/views/admin.py:115
+#: gbi_server/model/user.py:97 gbi_server/templates/admin/base.html:8
+#: gbi_server/templates/admin/base.html:12
+#: gbi_server/templates/admin/index.html:5 gbi_server/views/admin.py:111
 msgid "admin"
 msgstr "Administrator"
 
@@ -524,11 +525,70 @@ msgstr ""
 "href='%(createuser_url)s'>neues Konto</a> um die GeoBox im vollen Umfang "
 "nutzen zu können."
 
+#: gbi_server/templates/admin/base.html:19
+#, fuzzy
+msgid "User"
+msgstr "Benutzerzugriffe"
+
+#: gbi_server/templates/admin/base.html:23
+#: gbi_server/templates/admin/user_list.html:3
+#: gbi_server/templates/admin/user_list.html:5
+msgid "user list"
+msgstr "Alle Benutzer"
+
+#: gbi_server/templates/admin/base.html:28
+msgid "user list inactive"
+msgstr "Inaktive Benutzer"
+
+#: gbi_server/templates/admin/base.html:32
 #: gbi_server/templates/admin/create_user.html:5
 #: gbi_server/templates/admin/create_user.html:7
-#: gbi_server/templates/admin/index.html:13
 msgid "create user"
 msgstr "Neuen Benutzer erstellen"
+
+#: gbi_server/templates/admin/base.html:36
+#, fuzzy
+msgid "Services"
+msgstr "Übersicht"
+
+#: gbi_server/templates/admin/base.html:40
+#: gbi_server/templates/admin/wms_list.html:8
+msgid "WMTS list"
+msgstr "WMTS Liste"
+
+#: gbi_server/templates/admin/base.html:45
+#: gbi_server/templates/admin/wmts_edit.html:9
+#: gbi_server/templates/admin/wmts_edit.html:18
+#: gbi_server/templates/admin/wmts_list.html:56
+msgid "create WMTS"
+msgstr "WMTS erstellen"
+
+#: gbi_server/templates/admin/base.html:53
+#: gbi_server/templates/admin/wms_list.html:3
+#: gbi_server/templates/admin/wmts_list.html:3
+#: gbi_server/templates/admin/wmts_list.html:8
+msgid "WMS list"
+msgstr "WMS Liste"
+
+#: gbi_server/templates/admin/base.html:58
+#: gbi_server/templates/admin/wms_edit.html:9
+#: gbi_server/templates/admin/wms_edit.html:18
+#: gbi_server/templates/admin/wms_list.html:58
+msgid "create WMS"
+msgstr "WMS erstellen"
+
+#: gbi_server/templates/admin/base.html:66
+#: gbi_server/templates/admin/wfs_list.html:3
+#: gbi_server/templates/admin/wfs_list.html:8
+msgid "WFS list"
+msgstr "WFS Liste"
+
+#: gbi_server/templates/admin/base.html:71
+#: gbi_server/templates/admin/wfs_edit.html:9
+#: gbi_server/templates/admin/wfs_edit.html:24
+#: gbi_server/templates/admin/wfs_list.html:47
+msgid "create WFS"
+msgstr "WFS erstellen"
 
 #: gbi_server/templates/admin/create_user.html:40
 msgid "create"
@@ -540,7 +600,7 @@ msgid "Edit user"
 msgstr "Benutzer editieren"
 
 #: gbi_server/templates/admin/edit_user.html:37
-#: gbi_server/templates/admin/wfs_edit.html:47
+#: gbi_server/templates/admin/wfs_edit.html:45
 #: gbi_server/templates/admin/wms_edit.html:90
 #: gbi_server/templates/admin/wmts_edit.html:48
 #: gbi_server/templates/user/edit_address.html:65
@@ -552,66 +612,14 @@ msgstr "Speichern"
 msgid "Admin"
 msgstr "Administrator"
 
-#: gbi_server/templates/admin/index.html:11
-#: gbi_server/templates/admin/user_list.html:3
-#: gbi_server/templates/admin/user_list.html:5
-msgid "user list"
-msgstr "Benutzerübersicht"
-
-#: gbi_server/templates/admin/index.html:12
-#, fuzzy
-msgid "user list inactive"
-msgstr "Benutzerübersicht"
-
-#: gbi_server/templates/admin/index.html:17
-#: gbi_server/templates/admin/wmts_list.html:5
-msgid "WMTS list"
-msgstr "WMTS Übersicht"
-
-#: gbi_server/templates/admin/index.html:18
-#: gbi_server/templates/admin/wmts_edit.html:9
-#: gbi_server/templates/admin/wmts_edit.html:18
-#: gbi_server/templates/admin/wmts_list.html:43
-msgid "create WMTS"
-msgstr "WMTS erstellen"
-
-#: gbi_server/templates/admin/index.html:21
-#: gbi_server/templates/admin/wms_list.html:3
-#: gbi_server/templates/admin/wms_list.html:5
-#: gbi_server/templates/admin/wmts_list.html:3
-msgid "WMS list"
-msgstr "WMS Liste"
-
-#: gbi_server/templates/admin/index.html:22
-#: gbi_server/templates/admin/wms_edit.html:9
-#: gbi_server/templates/admin/wms_edit.html:18
-#: gbi_server/templates/admin/wms_list.html:43
-msgid "create WMS"
-msgstr "Neuen WMS erstellen"
-
-#: gbi_server/templates/admin/index.html:25
-#: gbi_server/templates/admin/wfs_list.html:3
-#: gbi_server/templates/admin/wfs_list.html:5
-msgid "WFS list"
-msgstr "WFS Liste"
-
-#: gbi_server/templates/admin/index.html:26
-#: gbi_server/templates/admin/wfs_edit.html:9
-#: gbi_server/templates/admin/wfs_edit.html:18
-#: gbi_server/templates/admin/wfs_list.html:33
-msgid "create WFS"
-msgstr "WFS erstellen"
-
 #: gbi_server/templates/admin/remove_user.html:6
 #: gbi_server/templates/admin/remove_user.html:12
 msgid "remove user"
 msgstr "Benutzer löschen"
 
 #: gbi_server/templates/admin/remove_user.html:15
-#: gbi_server/templates/admin/user_detail.html:32
-#: gbi_server/templates/admin/wfs_list.html:27
-#: gbi_server/templates/admin/wms_list.html:37
-#: gbi_server/templates/admin/wmts_list.html:37
+#: gbi_server/templates/admin/wfs_list.html:38
+#: gbi_server/templates/admin/wms_list.html:48
 msgid "remove"
 msgstr "Löschen"
 
@@ -677,9 +685,9 @@ msgid "activate"
 msgstr "Aktivieren"
 
 #: gbi_server/templates/admin/user_detail.html:29
-#: gbi_server/templates/admin/wfs_list.html:26
-#: gbi_server/templates/admin/wms_list.html:36
-#: gbi_server/templates/admin/wmts_list.html:36
+#: gbi_server/templates/admin/wfs_list.html:33
+#: gbi_server/templates/admin/wms_list.html:43
+#: gbi_server/templates/admin/wmts_list.html:43
 msgid "edit"
 msgstr "Editieren"
 
@@ -714,7 +722,9 @@ msgstr "E-Mail bestätigt"
 
 #: gbi_server/templates/admin/user_list_inactive.html:28
 msgid "Infotext – No user is waiting for activate."
-msgstr "Aktuell wartet kein Nutzer darauf von einem Administrator aktiviert zu werden."
+msgstr ""
+"Aktuell wartet kein Nutzer darauf von einem Administrator aktiviert zu "
+"werden."
 
 #: gbi_server/templates/admin/user_list_inactive.html:51
 msgid "reject"
@@ -769,28 +779,34 @@ msgid "geometry"
 msgstr "Geometrie"
 
 #: gbi_server/templates/admin/wfs_edit.html:7
-#: gbi_server/templates/admin/wfs_edit.html:16
+#: gbi_server/templates/admin/wfs_edit.html:22
 msgid "edit WFS"
 msgstr "WFS Editieren"
 
-#: gbi_server/templates/admin/wfs_edit.html:41
+#: gbi_server/templates/admin/wfs_edit.html:40
 #: gbi_server/templates/admin/wms_edit.html:81
 msgid "tooltip - protected service"
 msgstr ""
 "Wird der Dienst \"Passwort geschützt\" eingebunden, muss jeder Benutzer "
 "die Zugangsdaten zu diesem Dienst selbst eingeben."
 
-#: gbi_server/templates/admin/wfs_list.html:13
+#: gbi_server/templates/admin/wfs_list.html:12
 msgid "vectorsource_name"
 msgstr "Name"
 
-#: gbi_server/templates/admin/wfs_list.html:14
+#: gbi_server/templates/admin/wfs_list.html:13
 msgid "vectorsource_url"
 msgstr "URL"
 
-#: gbi_server/templates/admin/wfs_list.html:15
+#: gbi_server/templates/admin/wfs_list.html:14
 msgid "vectorsource_attribute"
 msgstr "Such-Attribut"
+
+#: gbi_server/templates/admin/wfs_list.html:22
+#: gbi_server/templates/admin/wms_list.html:27
+#: gbi_server/templates/admin/wmts_list.html:27
+msgid "infotext no services configured"
+msgstr "Kein Dienst konfiguriert."
 
 #: gbi_server/templates/admin/wms_edit.html:7
 #: gbi_server/templates/admin/wms_edit.html:16
@@ -850,13 +866,13 @@ msgstr ""
 "wurde. Mit ** gekennzeichnte SMS können in der Kartenvorschau angezeigt "
 "werden."
 
-#: gbi_server/templates/admin/wms_list.html:19
-#: gbi_server/templates/admin/wmts_list.html:19
+#: gbi_server/templates/admin/wms_list.html:18
+#: gbi_server/templates/admin/wmts_list.html:18
 msgid "rastersource_is_transparent"
 msgstr "Transparent"
 
-#: gbi_server/templates/admin/wms_list.html:20
-#: gbi_server/templates/admin/wmts_list.html:20
+#: gbi_server/templates/admin/wms_list.html:19
+#: gbi_server/templates/admin/wmts_list.html:19
 msgid "rastersource_is_public"
 msgstr "Öffentlich"
 
@@ -865,9 +881,14 @@ msgstr "Öffentlich"
 msgid "edit WMTS"
 msgstr "WMTS Editieren"
 
-#: gbi_server/templates/admin/wmts_list.html:18
+#: gbi_server/templates/admin/wmts_list.html:17
 msgid "rastersource_is_background_layer"
 msgstr "Hintergrundlayer"
+
+#: gbi_server/templates/admin/wmts_list.html:47
+#: gbi_server/templates/macros/modals.html:17
+msgid "Delete"
+msgstr "Löschen"
 
 #: gbi_server/templates/boxes/base.html:5
 msgid "box"
@@ -1069,10 +1090,6 @@ msgstr ""
 #: gbi_server/templates/macros/modals.html:16
 msgid "Abort"
 msgstr "Abbrechen"
-
-#: gbi_server/templates/macros/modals.html:17
-msgid "Delete"
-msgstr "Löschen"
 
 #: gbi_server/templates/macros/user.html:15
 msgid "last login"
@@ -1418,81 +1435,78 @@ msgstr ""
 "die Anmeldung abzuschließen.<p>Mail nicht erhalten? <a "
 "href=\"%(verify_url)s\">Fordern Sie hier einen erneute E-Mail an.</a></p>"
 
-#: gbi_server/views/admin.py:84
-#, fuzzy
+#: gbi_server/views/admin.py:80
 msgid "Account activated mail subject"
-msgstr ""
-"Ihr Zugang ist noch nicht freigeschaltet. Die Administratoren sind "
-"bereits über Ihre Anmeldung informiert."
+msgstr "GeoBox – Ihr Zugang wurde freigeschaltet."
 
-#: gbi_server/views/admin.py:89
+#: gbi_server/views/admin.py:85
 #, python-format
 msgid "User activated %(email)s"
 msgstr ""
 "Konto vom Nutzer mit der E-Mail-Adresse %(email)s wurde aktiviert. Der "
 "Nutzer wurde per E-Mail darüber benachrichtigt."
 
-#: gbi_server/views/admin.py:99
-#, fuzzy, python-format
+#: gbi_server/views/admin.py:95
+#, python-format
 msgid "User was removed %(email)s"
-msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s  wurde gelöscht."
+msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s wurde gelöscht."
 
-#: gbi_server/views/admin.py:126 gbi_server/views/user.py:112
+#: gbi_server/views/admin.py:122 gbi_server/views/user.py:112
 #: gbi_server/views/user.py:162
 msgid "Email verification mail subject"
 msgstr "E-Mail-Adresse bestätigen"
 
-#: gbi_server/views/admin.py:139
+#: gbi_server/views/admin.py:140
 msgid "User created"
 msgstr "Benutzer erstellt"
 
-#: gbi_server/views/admin.py:153
+#: gbi_server/views/admin.py:154
 msgid "User edited"
 msgstr "Benutzerdaten erfolgreich bearbeitet"
 
-#: gbi_server/views/admin.py:165
+#: gbi_server/views/admin.py:166
 msgid "Password reset"
 msgstr "Passwort zurückgesetzt"
 
-#: gbi_server/views/admin.py:245
+#: gbi_server/views/admin_services.py:96
 msgid "Saved WMTS"
 msgstr "WMTS gespeichert"
 
-#: gbi_server/views/admin.py:249
+#: gbi_server/views/admin_services.py:100
 msgid "WMTS with this name already exist"
 msgstr "WMTS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:259
+#: gbi_server/views/admin_services.py:109
 msgid "WMTS removed"
 msgstr "WMTS gelöscht"
 
-#: gbi_server/views/admin.py:267
+#: gbi_server/views/admin_services.py:117
 msgid "Need url for capabilities"
 msgstr "URL für Capabilities wird benötigt"
 
-#: gbi_server/views/admin.py:337
+#: gbi_server/views/admin_services.py:190
 msgid "Saved WMS"
 msgstr "WMS wurde gespeichert"
 
-#: gbi_server/views/admin.py:342
+#: gbi_server/views/admin_services.py:195
 msgid "WMS with this name already exist"
 msgstr "WMS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:352
+#: gbi_server/views/admin_services.py:204
 msgid "WMS removed"
-msgstr "WMS gelöscht"
+msgstr "WMS wurde gelöscht"
 
-#: gbi_server/views/admin.py:388
+#: gbi_server/views/admin_services.py:240
 msgid "Saved WFS"
-msgstr "WFS Speichern"
+msgstr "WFS wurde erfolgreich gespeichert"
 
-#: gbi_server/views/admin.py:392
+#: gbi_server/views/admin_services.py:244
 msgid "WFS with this name already exist"
 msgstr "WFS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:403
+#: gbi_server/views/admin_services.py:254
 msgid "WFS removed"
-msgstr "WFS gelöscht"
+msgstr "WFS wurde gelöscht"
 
 #: gbi_server/views/boxes.py:56
 msgid "upload success"
