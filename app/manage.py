@@ -13,64 +13,56 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import os
-import sys
-import scriptine
 from scriptine.shell import sh
+
+from flask.ext.script import Manager, Server
 
 from gbi_server import create_app
 from gbi_server.model import fixtures
 from gbi_server.extensions import db
 
-def babel_init_lang_command(lang):
+manager = Manager(create_app)
+
+#############################
+# Babel commands
+#############################
+@manager.command
+def babel_init_lang(lang):
     "Initialize new language."
     sh('pybabel init -i gbi_server/translations/messages.pot -d gbi_server/translations -l %s' % (lang,))
 
-def babel_refresh_command():
+
+@manager.command
+def babel_refresh():
     "Extract messages and update translation files."
-
-    # get directory of all extension that also use translations
-    import wtforms
-    wtforms_dir = os.path.dirname(wtforms.__file__)
-    extensions = ' '.join([wtforms_dir])
-
-    sh('pybabel extract -F babel.cfg -k lazy_gettext -k _l -o gbi_server/translations/messages.pot gbi_server gbi_server/model gbi_server/lib ' + extensions)
+    sh('pybabel extract -F babel.cfg -k lazy_gettext -k _l -o gbi_server/translations/messages.pot gbi_server gbi_server/model gbi_server/lib')
     sh('pybabel update -i gbi_server/translations/messages.pot -d gbi_server/translations')
 
-def babel_compile_command():
+
+@manager.command
+def babel_compile():
     "Compile translations."
     sh('pybabel compile -d gbi_server/translations')
 
 
-def init_db_command(app=None):
-    if not app:
-        app = create_app()
-    db.app = app
+@manager.command
+def create_db():
     db.drop_all()
     db.create_all()
 
-def fixtures_command():
-    app = create_app()
-    init_db_command(app)
-    db.session.add_all(fixtures.db_objects())
+@manager.command
+def fixtures():
+    "Creates database tables with fixtures"
+    db.drop_all()
+    db.create_all()
+
+    from gbi_server.model import fixtures
+    db.session.add_all(fixtures.all())
     db.session.commit()
-    with app.test_request_context():
-        fixtures.init_couchdb(app.config)
+    with manager. app.test_request_context():
+        fixtures.init_couchdb(manager.app.config)
 
-def runserver_command(host='127.0.0.1', port=5000):
-    app = create_app()
-
-    # scriptine removed sub-command from argv,
-    # but Flask reloader needs complete sys.argv
-    sys.argv[1:1] = ['runserver']
-
-    from werkzeug.serving import run_simple, WSGIRequestHandler
-    # use custom request handler to force HTTP/1.1
-    # needed for chunked encoding in CouchDB AuthProxy
-    class HTTP11WSGIRequestHandler(WSGIRequestHandler):
-        protocol_version = 'HTTP/1.1'
-    run_simple(application=app, hostname=host, port=port, threaded=True,
-        request_handler=HTTP11WSGIRequestHandler, use_reloader=True)
+manager.add_command("runserver", Server(threaded=True))
 
 if __name__ == '__main__':
-    scriptine.run()
+    manager.run()

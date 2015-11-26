@@ -25,7 +25,7 @@ from gbi_server import model
 from gbi_server.config import SystemConfig
 from gbi_server.lib.couchdb import CouchDBBox, init_user_boxes
 
-def db_objects():
+def all():
     users = [
         model.User(email='admin@example.org'),
         model.User(email='landwirt@example.org'),
