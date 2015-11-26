@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-26 09:41+0100\n"
+"POT-Creation-Date: 2015-11-26 09:52+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -1208,7 +1208,11 @@ msgstr ""
 msgid "save new password"
 msgstr ""
 
-#: gbi_server/templates/user/recover.html:14
+#: gbi_server/templates/user/recover.html:12
+msgid "password recover infotext"
+msgstr ""
+
+#: gbi_server/templates/user/recover.html:20
 msgid "recover"
 msgstr ""
 

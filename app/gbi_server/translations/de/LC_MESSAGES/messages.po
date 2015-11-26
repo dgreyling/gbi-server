@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-26 09:41+0100\n"
+"POT-Creation-Date: 2015-11-26 09:52+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -1284,7 +1284,11 @@ msgstr "Passwort wiederherstellen"
 msgid "save new password"
 msgstr "Neues Passwort setzen"
 
-#: gbi_server/templates/user/recover.html:14
+#: gbi_server/templates/user/recover.html:12
+msgid "password recover infotext"
+msgstr "Passwort vergessen? <br><br>Kein Problem. Um Ihr Passwort zurücksetzen tragen Sie hier bitte Ihre E-Mail-Adresse ein, mit der Sie angemeldet sind. Anschließend erhalten Sie eine E-Mail mit den weiteren Schritten um Ihr Passwort zurückzusetzen."
+
+#: gbi_server/templates/user/recover.html:20
 msgid "recover"
 msgstr "Wiederherstellen"
 
@@ -1720,3 +1724,4 @@ msgstr "Keine gültige Datumseingabe"
 #: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:753
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
+
