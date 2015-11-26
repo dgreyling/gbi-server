@@ -37,23 +37,23 @@ class User(db.Model, UserMixin):
     id = db.Column(db.Integer, primary_key=True)
 
     # login data
-    email = db.Column(db.String(256), unique=True, nullable=False)
-    password = db.Column(db.String(256))
+    email = db.Column(db.String(), unique=True, nullable=False)
+    password = db.Column(db.String())
 
     # address and personal data
-    title = db.Column(db.String(256))
-    firstname = db.Column(db.String(256))
-    lastname = db.Column(db.String(256))
-    address = db.Column(db.String(256))
-    address_extend = db.Column(db.String(16))
-    zipcode = db.Column(db.String(10))
-    city = db.Column(db.String(256))
-    federal_state = db.Column(db.String(256))
-    country = db.Column(db.String(256))
-    phone = db.Column(db.String(256))
-    fax = db.Column(db.String(256))
-    company_number = db.Column(db.String(256))
-    commercial_register_number = db.Column(db.String(256))
+    title = db.Column(db.String())
+    firstname = db.Column(db.String())
+    lastname = db.Column(db.String())
+    address = db.Column(db.String())
+    address_extend = db.Column(db.String())
+    zipcode = db.Column(db.String())
+    city = db.Column(db.String())
+    federal_state = db.Column(db.String())
+    country = db.Column(db.String())
+    phone = db.Column(db.String())
+    fax = db.Column(db.String())
+    company_number = db.Column(db.String())
+    commercial_register_number = db.Column(db.String())
 
     # type from user e.g. customer, consultant etc.
     type = db.Column(db.Integer, default=0)
