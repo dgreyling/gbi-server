@@ -253,7 +253,7 @@ def edit_address():
         user.set_user_data(form.data)
         db.session.commit()
         flash(_('Address changed'), 'success')
-        return redirect(url_for(".index"))
+        return redirect(url_for(".edit_address"))
     return render_template("user/edit_address.html", form=form)
 
 
@@ -267,7 +267,7 @@ def edit_password():
             user.update_password(form.data['password'])
             db.session.commit()
             flash(_('Password changed'), 'success')
-            return redirect(url_for(".index"))
+            return redirect(url_for(".edit_password"))
         else:
             flash(_("Old password is not correct"), 'error')
     return render_template("user/edit_password.html", user=user, form=form)
