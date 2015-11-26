@@ -36,22 +36,50 @@ def db_objects():
     users[0].active = True
     users[0].verified = True
     users[0].type = 99
+    users[0].title = 'mr'
+    users[0].firstname = 'Bernd'
+    users[0].lastname = 'Beispiel'
+    users[0].address = 'Haupstrasse'
+    users[0].zipcode = '26121'
+    users[0].city = 'Oldenburg'
+    users[0].federal_state = 'NI'
     users[0].password = bcrypt.hashpw('secure', bcrypt.gensalt(10))
 
     users[1].active = True
     users[1].verified = True
     users[1].type = 0
+    users[1].title = 'mr'
+    users[1].firstname = 'Peter'
+    users[1].lastname = 'Beispiel'
+    users[1].address = 'Hauptweg'
+    users[1].zipcode = '26123'
+    users[1].city = 'Oldenburg'
+    users[1].federal_state = 'NI'
     users[1].password = bcrypt.hashpw('secure', bcrypt.gensalt(10))
     users[1].authproxy_token = '12345'
 
     users[2].active = True
     users[2].verified = True
     users[2].type = 1
+    users[2].title = 'mrs'
+    users[2].firstname = 'Susanne'
+    users[2].lastname = 'Hermann'
+    users[2].address = 'Schulstrasse'
+    users[2].zipcode = '50991'
+    users[2].city = 'Mainz'
+    users[2].federal_state = 'BW'
     users[2].password = bcrypt.hashpw('secure', bcrypt.gensalt(10))
 
     users[3].active = True
     users[3].verified = True
     users[3].type = 50
+    users[3].title = 'mr'
+    users[3].firstname = 'Karl'
+    users[3].lastname = 'Mustermann'
+    users[3].address = 'Peterstrasse'
+    users[3].zipcode = '50991'
+    users[3].city = 'Stuttgart'
+    users[3].federal_state = 'RP'
     users[3].password = bcrypt.hashpw('secure', bcrypt.gensalt(10))
     users[3].authproxy_token = '99999'
 
