@@ -84,6 +84,8 @@ def logout():
 def new():
     form = NewUserForm()
     form.type.choices = []
+    form.federal_state.choices = current_app.config['FEDERAL_STATES']
+    form.title.choices = current_app.config['SALUTATIONS']
 
     # add choice wich account types are possible
     if current_app.config['FEATURE_CUSTOMER_USERS']:
@@ -243,6 +245,9 @@ def recover_new_password(uuid):
 def edit_address():
     user = current_user
     form = EditAddressForm(request.form, user)
+    form.federal_state.choices = current_app.config['FEDERAL_STATES']
+    form.title.choices = current_app.config['SALUTATIONS']
+
     if form.validate_on_submit():
         # save user data to database
         user.set_user_data(form.data)

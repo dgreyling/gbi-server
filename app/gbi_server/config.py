@@ -15,6 +15,7 @@
 
 # -:- encoding: utf8 -:-
 from os import path as p
+from flask.ext.babel import lazy_gettext as _l
 
 class DefaultConfig(object):
     """
@@ -115,6 +116,29 @@ class DefaultConfig(object):
     # allow CONSULTANT accounts
     FEATURE_CONSULTANT_USERS = True
 
+    SALUTATIONS = [
+        ('mr', _l(u'mr')),
+        ('mrs', _l(u'mrs')),
+    ]
+
+    FEDERAL_STATES = [
+        ('BW', _l(u'Baden-Wuerttemberg')),
+        ('BY', _l(u'Bavaria')),
+        ('BE', _l(u'Berlin')),
+        ('BB', _l(u'Brandenburg')),
+        ('HB', _l(u'Bremen')),
+        ('HH', _l(u'Hamburg')),
+        ('HE', _l(u'Hesse')),
+        ('MV', _l(u'Mecklenburg Western Pomerania')),
+        ('NI', _l(u'Lower Saxony')),
+        ('NW', _l(u'Northrhine-Westphalia')),
+        ('RP', _l(u'Rhineland Palatinate')),
+        ('SL', _l(u'Saarland')),
+        ('SN', _l(u'Saxony')),
+        ('ST', _l(u'Saxony-Anhalt')),
+        ('SH', _l(u'Schleswig Holstein')),
+        ('TH', _l(u'Thuringia')),
+    ]
 
     PORTAL_PREFIX = "DEFAULT"
     PORTAL_TITLE = "Unconfigured GeoBox-Server"

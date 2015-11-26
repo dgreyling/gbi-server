@@ -118,6 +118,22 @@ class User(db.Model, UserMixin):
     def is_admin(self):
         return True if self.type == self.Type.ADMIN else False
 
+
+    @property
+    def title_name(self):
+        salutations = current_app.config['SALUTATIONS']
+        for salutation in salutations:
+            if salutation[0] == self.title:
+                return salutation[1]
+        return ''
+
+    @property
+    def federal_state_name(self):
+        federal_states = current_app.config['FEDERAL_STATES']
+        for federal_state in federal_states:
+            if federal_state[0] == self.federal_state:
+                return federal_state[1]
+        return ''
     @classmethod
     def from_dict(cls, data):
         user = User(data['email'], data['password'])

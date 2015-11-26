@@ -96,6 +96,9 @@ def activate_user(id):
 def create_user():
     form = CreateUserForm()
     form.type.choices = []
+    form.federal_state.choices = current_app.config['FEDERAL_STATES']
+    form.title.choices = current_app.config['SALUTATIONS']
+
     if current_app.config['FEATURE_CUSTOMER_USERS']:
         form.type.choices.append((User.Type.CUSTOMER, _('customer')))
     form.type.choices.append((User.Type.SERVICE_PROVIDER, _('service_provider')))
@@ -133,6 +136,8 @@ def create_user():
 def edit_user(id):
     user = User.by_id(id)
     form = EditAddressForm(request.form, user)
+    form.federal_state.choices = current_app.config['FEDERAL_STATES']
+    form.title.choices = current_app.config['SALUTATIONS']
     if form.validate_on_submit():
         user.set_user_data(form.data)
         db.session.commit()
