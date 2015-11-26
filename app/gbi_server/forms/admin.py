@@ -74,7 +74,7 @@ class WFSForm(Form):
     ns_uri = TextField(_l('wfs_ns_uri'))
 
     search_property = TextField(_l('wfs_search_property'))
-    max_features = IntegerField(_l('wfs_max_features'))
+    max_features = IntegerField(_l('wfs_max_features'), [validators.Required()])
 
     username = TextField(_l('rvectorsource_username'))
     password = PasswordField(_l('vectorsource_password'))

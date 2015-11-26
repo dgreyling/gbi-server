@@ -14,6 +14,7 @@
 # limitations under the License.
 
 from .user import user
+from .admin_services import admin
 from .admin import admin
 from .maps import maps
 from .proxy import proxy

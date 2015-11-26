@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "admin/base.html" %}
 
 {% from "macros/forms.html" import input, input_tooltip, textarea, button %}
 
@@ -10,29 +10,28 @@
     {% endif %}
 {% endblock %}
 
-{% block content_head %}
-    <h1>
-        {% if id %}
-            {{_('edit WFS')}}
-        {% else %}
-            {{_('create WFS')}}
-        {% endif %}
-    </h1>
-{% endblock %}
 
-{% block content %}
-<div class="row-fluid">
-    <form method="POST" class="form-horizontal">
-    {{ form.csrf_token }}
-        <fieldset class="span5 offset1">
-            {{ input(form.host) }}
-            {{ input(form.url) }}
-            {{ input(form.geometry) }}
+{% block content_right %}
+<h4>
+    {% if id %}
+        {{_('edit WFS')}}
+    {% else %}
+        {{_('create WFS')}}
+    {% endif %}
+</h4>
+<form method="POST">
+    <div class="row-fluid">
+        <div class="span4">
+            {{ form.csrf_token }}
+            {{ input(form.host, class='span9') }}
+            {{ input(form.url, class='span9') }}
+            {{ input(form.geometry, class='span9') }}
 
-            {{ input(form.layer) }}
-            {{ input(form.name) }}
-            {{ input(form.srs) }}
-
+            {{ input(form.layer, class='span9') }}
+            {{ input(form.name, class='span9') }}
+            {{ input(form.srs, class='span9') }}
+        </div>
+        <div class="span6">
             {{ input(form.ns_prefix) }}
             {{ input(form.ns_uri) }}
             {{ input(form.search_property) }}
@@ -41,13 +40,14 @@
             {{ input_tooltip(form.is_protected, _('tooltip - protected service')) }}
             {{ input(form.username) }}
             {{ input(form.password) }}
-            <hr>
-        </fieldset>
-        <fieldset class="span9 pagination-centered">
-            {{ button(_('save'), True) }}
-        </fieldset>
-    </form>
-</div>
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            {{ button(_('save'), submit=True, btn_class='success') }}
+        </div>
+    </div>
+</form>
 {% endblock %}
 
 {% block javascript %}

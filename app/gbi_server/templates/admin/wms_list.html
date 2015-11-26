@@ -1,12 +1,11 @@
-{% extends "base.html" %}
+{% extends "admin/base.html" %}
 
 {% block title %} {{_('WMS list')}} {% endblock %}
 
-{% block content_head %}<h1>{{_('WMS list')}}</h1>{% endblock %}
-
-{% block content %}
+{% block content_right %}
 <div class="row-fluid">
     <div class="span12">
+        <h4>{{_('WMTS list')}}</h4>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -22,6 +21,14 @@
                 </tr>
             </thead>
             <tbody>
+                {% if not wms %}
+                <tr>
+                    <td colspan="9">
+                        {{ _('infotext no services configured') }}
+                    </td>
+                </tr>
+                {% endif %}
+
                 {% for elem in wms %}
                 <tr>
                     <td>{{ elem.title }}</td>
@@ -34,13 +41,21 @@
                     <td>{{ elem.is_public }}</td>
                     <td>
                         <a class="btn btn-small" href="{{ url_for('admin.wms_edit', id=elem.id) }}">{{ _('edit') }}</a>
-                        <a class="btn btn-small" href="{{ url_for('admin.wms_remove', id=elem.id) }}">{{ _('remove') }}</a>
+
+                        {{
+                            confirm_delete_modal(
+                              id=elem.id,
+                              btn_text=_('remove'),
+                              url=url_for('admin.wms_remove', id=elem.id),
+                            )
+                        }}
+
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a class="btn btn-small" href="{{ url_for('admin.wms_edit') }}">{{ _('create WMS') }}</a>
+        <a class="btn btn-small btn-success" href="{{ url_for('admin.wms_edit') }}">{{ _('create WMS') }}</a>
     </div>
 </div>
 {% endblock %}

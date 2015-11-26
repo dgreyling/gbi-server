@@ -1,107 +1,100 @@
-{% extends "base.html" %}
+{% extends "admin/base.html" %}
 
 {% from "macros/forms.html" import input, input_tooltip, textarea, button %}
 
 {% block title %}
+    {{_('create or edit WMS')}}
+{% endblock %}
+
+{% block content_right %}
+<h4>
     {% if id %}
         {{_('edit WMS')}}
     {% else %}
         {{_('create WMS')}}
     {% endif %}
-{% endblock %}
+</h4>
 
-{% block content_head %}
-    <h1>
-        {% if id %}
-            {{_('edit WMS')}}
-        {% else %}
-            {{_('create WMS')}}
-        {% endif %}
-    </h1>
-{% endblock %}
-
-{% block content %}
-    <div class="row-fluid">
-        <div class="span5">
-            <p>{{ _('infotext wms load via url') }}</p>
-            <span id="wms-capabilities-info" class="alert hide">{{ _('load wms capabilities') }}</span>
-            <span id="wms-capabilities-error" class="alert alert-error hide"></span>
-            <div class="input-append">
-                <input id="capabilities_url" type="text">
-                <button class="btn" id="getCapabilites" type="button">{{ _('load wms') }}</button>
-            </div>
-        </div>
-        <div class="span4 offset1">
-            <p>{{ _('infotext preview map only if on selct srs is selcted') }}</p>
-            <div class="alert hide" id="wms-preview-info">{{ _('preview not possible') }}</div>
-            <div>
-                <button class="btn" id="previewMap" disabled=disabled>{{ _('preview map') }}</button>
-            </div>
+<div class="row-fluid">
+    <div class="span5">
+        <p>{{ _('infotext wms load via url') }}</p>
+        <span id="wms-capabilities-info" class="alert hide">{{ _('load wms capabilities') }}</span>
+        <span id="wms-capabilities-error" class="alert alert-error hide"></span>
+        <div class="input-append">
+            <input id="capabilities_url" type="text">
+            <button class="btn" id="getCapabilites" type="button">{{ _('load wms') }}</button>
         </div>
     </div>
-    <hr>
-    <form method="POST" class="form-horizontal">
-        <div class="row-fluid">
-        {{ form.csrf_token }}
-            <fieldset class="span5 offset1">
-                {{ input(form.name) }}
-                {{ input(form.title) }}
-                {{ input(form.url) }}
-                <hr>
-                <div class="control-group">
-                    <label class="control-label" for="layers_select"><span>{{ _('layers_select') }}:</span></label>
-                    <div class="controls">
-                        <select id="layers_select" name="layers_select" multiple='true' disabled=disabled></select>
-                        {{ tooltip(_('tooltip - select layer')) }}
-                    </div>
-                </div>
-                {{ input(form.layer) }}
-                <hr>
-                <div class="control-group">
-                    <label class="control-label" for="srs_select"><span>{{ _('select srs') }}:</span></label>
-                    <div class="controls">
-                        <select id="srs_select" name="srs_select" disabled=disabled></select>
-                        {{ tooltip(_('tooltip - select srs')) }}
-                    </div>
-                </div>
-                {{ input(form.srs) }}
-                <hr>
-                {{ input(form.format) }}
-                {{ input(form.version) }}
-                {{ input(form.is_visible) }}
-            </fieldset>
-            <fieldset class="span5">
-                {{ textarea(form.view_coverage, rows=6, cols=6, class='span8') }}
-                {{ input(form.view_level_start) }}
-                {{ input(form.view_level_end) }}
-                {{ input(form.max_tiles) }}
-                {{ input(form.is_transparent) }}
-                {{ input(form.is_public) }}
-                <hr>
-                {{ input_tooltip(form.is_protected, _('tooltip - protected service')) }}
-
-                {{ input(form.username) }}
-                {{ input(form.password) }}
-            </fieldset>
+    <div class="span4 offset1">
+        <p>{{ _('infotext preview map only if on selct srs is selcted') }}</p>
+        <div class="alert hide" id="wms-preview-info">{{ _('preview not possible') }}</div>
+        <div>
+            <button class="btn" id="previewMap" disabled=disabled>{{ _('preview map') }}</button>
         </div>
-        <div class="row-fluid">
-            <div class="span11 pagination-centered">
-                <hr>
-                {{ button(_('save'), True, btn_class='success') }}
-            </div>
-        </div>
-    </form>
+    </div>
 </div>
 
+<hr>
+
+<form method="POST">
+    {{ form.csrf_token }}
+
+    <div class="row-fluid">
+        <div class="span5">
+            {{ input(form.name, class="span9") }}
+            {{ input(form.title, class="span9") }}
+            {{ input(form.url, class="span9") }}
+            <hr>
+            <div class="control-group">
+                <label class="control-label" for="layers_select"><span>{{ _('layers_select') }}:</span></label>
+                <div class="controls">
+                    <select id="layers_select" name="layers_select" multiple='true' disabled=disabled></select>
+                    {{ tooltip(_('tooltip - select layer')) }}
+                </div>
+            </div>
+            {{ input(form.layer) }}
+            <hr>
+            <div class="control-group">
+                <label class="control-label" for="srs_select"><span>{{ _('select srs') }}:</span></label>
+                <div class="controls">
+                    <select id="srs_select" name="srs_select" disabled=disabled></select>
+                    {{ tooltip(_('tooltip - select srs')) }}
+                </div>
+            </div>
+            {{ input(form.srs, class="span9") }}
+            {{ input(form.format, class="span9") }}
+            {{ input(form.version, class="span9") }}
+        </div>
+
+        <div class="span5 offset1">
+            {{ textarea(form.view_coverage, rows=6, cols=6, class='span9') }}
+            {{ input(form.view_level_start) }}
+            {{ input(form.view_level_end) }}
+            {{ input(form.max_tiles) }}
+            {{ input(form.is_transparent) }}
+            {{ input(form.is_public) }}
+            {{ input(form.is_visible) }}
+            <hr>
+            {{ input_tooltip(form.is_protected, _('tooltip - protected service')) }}
+
+            {{ input(form.username) }}
+            {{ input(form.password) }}
+        </div>
+    </div>
+    <div class="row-fluid">
+        <div class="span12">
+            {{ button(_('save'), True, btn_class='success') }}
+        </div>
+    </div>
+</form>
+
 <div id="mapPreview" class="modal hide">
-      <div class="modal-header">
+    <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h3>{{_('preview map')}} </h3>
-      </div>
-      <div class="map hide span5" id='map' style="width: 500px; height: 500px;"></div>
-      </form>
     </div>
-<div>
+</div>
+<div class="map hide span5" id='map' style="width: 500px; height: 500px;"></div>
 
 {% endblock %}
 

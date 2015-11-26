@@ -1,12 +1,11 @@
-{% extends "base.html" %}
+{% extends "admin/base.html" %}
 
 {% block title %} {{_('WFS list')}} {% endblock %}
 
-{% block content_head %}<h1>{{_('WFS list')}}</h1>{% endblock %}
-
-{% block content %}
+{% block content_right %}
 <div class="row-fluid">
     <div class="span12">
+        <h4>{{_('WFS list')}}</h4>
         <table class="table table-striped">
             <thead>
                 <tr>
@@ -17,6 +16,14 @@
                 </tr>
             </thead>
             <tbody>
+                {% if not wfs %}
+                <tr>
+                    <td colspan="4">
+                        {{ _('infotext no services configured') }}
+                    </td>
+                </tr>
+                {% endif %}
+
                 {% for elem in wfs %}
                 <tr>
                     <td>{{ elem.name }}</td>
@@ -24,13 +31,20 @@
                     <td>{{ elem.search_property }}</td>
                     <td>
                         <a class="btn btn-small" href="{{ url_for('admin.wfs_edit', id=elem.id) }}">{{ _('edit') }}</a>
-                        <a class="btn btn-small" href="{{ url_for('admin.wfs_remove', id=elem.id) }}">{{ _('remove') }}</a>
+
+                        {{
+                            confirm_delete_modal(
+                              id=elem.id,
+                              btn_text=_('remove'),
+                              url=url_for('admin.wfs_remove', id=elem.id),
+                            )
+                        }}
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
         </table>
-        <a class="btn btn-small" href="{{ url_for('admin.wfs_edit') }}">{{ _('create WFS') }}</a>
+        <a class="btn btn-small btn-success" href="{{ url_for('admin.wfs_edit') }}">{{ _('create WFS') }}</a>
     </div>
 </div>
 {% endblock %}

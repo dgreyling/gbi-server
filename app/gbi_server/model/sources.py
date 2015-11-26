@@ -104,4 +104,3 @@ class WMS(db.Model):
     def by_name(cls, name):
         q = cls.query.filter(cls.name == name)
         return q.first_or_404()
-

@@ -1,30 +1,10 @@
-{% extends "base.html" %}
+{% extends "admin/base.html" %}
 
 {% block title %} {{_('Admin')}} {% endblock %}
 
 {% block content_head %}<h1>{{_('admin')}}</h1>{% endblock %}
 
-{% block content %}
-<div class="row-fluid">
-    <div class="span12">
-        <ul>
-            <li><a href="{{ url_for('admin.user_list') }}">{{ _('user list') }}</a></li>
-            <li><a href="{{ url_for('admin.inactive_users_list') }}">{{ _('user list inactive') }}</a></li>
-            <li><a href="{{ url_for('admin.create_user') }}">{{ _('create user') }}</a></li>
-        </ul>
-            <hr>
-        <ul>
-            <li><a href="{{ url_for('admin.wmts_list') }}">{{ _('WMTS list') }}</a></li>
-            <li><a href="{{ url_for('admin.wmts_edit') }}">{{ _('create WMTS') }}</a></li>
-        </ul>
-        <ul>
-            <li><a href="{{ url_for('admin.wms_list') }}">{{ _('WMS list') }}</a></li>
-            <li><a href="{{ url_for('admin.wms_edit') }}">{{ _('create WMS') }}</a></li>
-        </ul>
-        <ul>
-            <li><a href="{{ url_for('admin.wfs_list') }}">{{ _('WFS list') }}</a></li>
-            <li><a href="{{ url_for('admin.wfs_edit') }}">{{ _('create WFS') }}</a></li>
-        </ul>
-    </div>
-</div>
+{% block content_right %}
 {% endblock %}
+
+
