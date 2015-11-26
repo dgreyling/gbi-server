@@ -1,15 +1,15 @@
-{% extends "base.html" %}
+{% extends "admin/base.html" %}
 
 {% from "macros/forms.html" import input, button %}
 
 {% block title %} {{_('create user')}} {% endblock %}
 
-{% block content_head %}<h1>{{_('create user')}}</h1>{% endblock %}
+{% block content_right %}
+<h4>{{_('create user')}}</h4>
 
-{% block content %}
-<div class="row-fluid">
-    <div class="span12">
-        <form method="POST">
+<form method="POST">
+    <div class="row-fluid">
+        <div class="span6">
             {{ form.csrf_token }}
 
             {{ input(form.title) }}
@@ -26,6 +26,8 @@
             {{ input(form.phone) }}
             {{ input(form.fax) }}
 
+        </div>
+        <div class="span6">
             {{ input(form.type) }}
             {{ input(form.company_number, class='toggle-input hide') }}
             {{ input(form.commercial_register_number, class='toggle-input hide') }}
@@ -37,10 +39,14 @@
 
             {{ input(form.verified) }}
             {{ input(form.activate) }}
-            {{ button(_('create'), True) }}
-        </form>
+        </div>
     </div>
-</div>
+    <div class="row-fluid">
+        <div class="span6">
+            {{ button(_('create'), submit=True, btn_class='success') }}
+        </div>
+    </div>
+</form>
 {% endblock %}
 
 {% block javascript %}
