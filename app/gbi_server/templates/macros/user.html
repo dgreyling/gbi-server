@@ -1,4 +1,4 @@
-{% macro user_detail(user, address) %}
+{% macro user_detail(user) %}
     <dl class="dl-horizontal">
         <dt>{{ _('id') }}</dt>
         <dd>{{ user.id }}</dd>
@@ -18,13 +18,40 @@
 
         {% endif %}
     </dl>
+
     <dl class="dl-horizontal">
         <dt>{{ _('address') }}</dt>
         <dd>
-            {{ user.name }} <br>
-            {{ address['street'] }} {{ address['housenumber'] }}<br>
-            {{ address['zipcode'] }} {{ address['city'] }}
+            {{ user.realname }}<br>
+            {{ user.address }} <br>
+            {{ user.address_extend }}<br>
+            {{ user.zipcode }} {{ user.city }} {{ user.federal_state_name }}
         </dd>
+
+        <dt>{{ _('phone') }}</dt>
+        <dd>
+            {% if user.phone %} {{ user.phone }} {% else %} {{ _('No input') }} {% endif %}
+        </dd>
+
+        <dt>{{ _('fax') }}</dt>
+        <dd>
+            {% if user.fax %} {{ user.fax }} {% else %} {{ _('No input') }}  {% endif %}
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        {% if user.is_customer %}
+        <dt>{{ _('company_number') }}</dt>
+        <dd>
+            {% if user.company_number %} {{ user.company_number }} {% else %} {{ _('No input') }}  {% endif %}
+        </dd>
+        {% endif %}
+
+        {% if user.is_service_provider %}
+        <dt>{{ _('commercial_register_number') }}</dt>
+        <dd>
+            {% if user.commercial_register_number %} {{ user.commercial_register_number }} {% else %} {{ _('No input') }}  {% endif %}
+        </dd>
+        {% endif %}
     </dl>
 {% endmacro %}
 

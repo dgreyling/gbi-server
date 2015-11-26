@@ -10,7 +10,7 @@
     <div class="span12">
         <div class="head">
             <h1>{{_('remove user')}}</h1>
-            {{ user_detail(user, user.get_address()) }}
+            {{ user_detail(user) }}
             <form method="POST">
                 {{ button(_('remove'), True) }}
             </form>

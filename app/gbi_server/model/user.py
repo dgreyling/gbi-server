@@ -118,6 +118,9 @@ class User(db.Model, UserMixin):
     def is_admin(self):
         return True if self.type == self.Type.ADMIN else False
 
+    @property
+    def realname(self):
+        return '%s %s %s' % (self.title_name, self.firstname, self.lastname)
 
     @property
     def title_name(self):
@@ -134,6 +137,7 @@ class User(db.Model, UserMixin):
             if federal_state[0] == self.federal_state:
                 return federal_state[1]
         return ''
+
     @classmethod
     def from_dict(cls, data):
         user = User(data['email'], data['password'])
@@ -185,21 +189,10 @@ class User(db.Model, UserMixin):
         assert self.id is not None
         return self.id
 
-    def get_address(self):
-        return {
-            'name': '%s %s %s' % (self.title, self.firstname, self.lastname),
-            'address': self.address,
-            'address_extend': self.address_extend,
-            'zipcode': self.zipcode,
-            'city': self.city,
-            'federal_state': self.federal_state,
-        }
-
     def set_user_data(self, data):
         self.title = data['title']
         self.firstname = data['firstname']
         self.lastname = data['lastname']
-
         self.address = data['address']
         self.address_extend = data['address_extend']
         self.zipcode = data['zipcode']
