@@ -11,28 +11,58 @@
     <fieldset>
         <legend>{{_('edit address')}}</legend>
         {{ form.csrf_token }}
+        <div class="row-fluid">
+            <div class="span2">
+                {{ input(form.title, class='span12') }}
+            </div>
+            <div class="span5">
+                {{ input(form.firstname, class='span12') }}
+            </div>
+            <div class="span5">
+                {{ input(form.lastname, class='span12') }}
+            </div>
+        </div>
 
-        {{ input(form.title) }}
-        {{ input(form.firstname) }}
-        {{ input(form.lastname) }}
+        <div class="row-fluid">
+            <div class="span6">
+                {{ input(form.address, class='span12') }}
+            </div>
+            <div class="span6">
+                {{ input(form.address_extend, class='span12') }}
+            </div>
+        </div>
 
-        {{ input(form.address) }}
-        {{ input(form.address_extend) }}
+        <div class="row-fluid">
+            <div class="span2">
+                {{ input(form.zipcode, class='span12') }}
+            </div>
+            <div class="span5">
+                {{ input(form.city, class='span12') }}
+            </div>
+            <div class="span5">
+                {{ input(form.federal_state, class='span12') }}
+            </div>
+        </div>
 
-        {{ input(form.zipcode) }}
-        {{ input(form.city) }}
-        {{ input(form.federal_state) }}
+        <div class="row-fluid">
+            <div class="span4">
+                {{ input(form.phone, class='span12') }}
+            </div>
+            <div class="span4">
+               {{ input(form.fax, class='span12') }}
+            </div>
+            <div class="span4">
+                {% if current_user.is_customer %}
+                {{ input(form.company_number, class='span12') }}
+                {% endif %}
 
-        {{ input(form.phone) }}
-        {{ input(form.fax) }}
+                {% if current_user.is_service_provider %}
+                {{ input(form.commercial_register_number, class='span12') }}
+                {% endif %}
+            </div>
 
-        {% if current_user.is_customer %}
-        {{ input(form.company_number) }}
-        {% endif %}
+        </div>
 
-        {% if current_user.is_service_provider %}
-        {{ input(form.commercial_register_number) }}
-        {% endif %}
 
         {{ button(_('save'), True) }}
     </fieldset>

@@ -14,6 +14,10 @@ h6 small {
   text-align: left;
 }
 
+select {
+    min-width: 0;
+}
+
 .inline {
     display: inline;
 }
