@@ -3,6 +3,41 @@
 {% block title %} {{_('user list')}} {% endblock %}
 
 {% block content_right %}
+<h4>{{ _('Search in users list') }}</h4>
+<div class="row-fluid">
+    <div class="span12">
+        <form method="POST">
+            {{ form.csrf_token }}
+            <div class="row-fluid">
+                <div class="span3">
+                {{ input(form.name, class="span12") }}
+                </div>
+                <div class="span3">
+                {{ input(form.zipcode_or_city, class="span12") }}
+                </div>
+                <div class="span3">
+                {{ input(form.federal_state, class="span12") }}
+                </div>
+            </div>
+            <div class="row-fluid">
+                <div class="span3">
+                {{ input(form.type, class="span12") }}
+                </div>
+
+                <div class="span3">
+                {{ input(form.company_number, class="span12") }}
+                </div>
+                <div class="span3">
+                {{ input(form.active, class="span12") }}
+                </div>
+            </div>
+            <div class="row-fluid">
+                {{ button(_('Search'), submit=True, btn_class='success') }}
+            </div>
+        </form>
+    </div>
+</div>
+
 <h4>{{ _('user list') }}</h4>
 <div class="row-fluid">
     <div class="span12">
@@ -10,9 +45,11 @@
             <thead>
                 <tr>
                     <th>{{ _('id') }}</th>
+                    <th>{{ _('name') }}</th>
                     <th>{{ _('email') }}</th>
                     <th>{{ _('type') }}</th>
                     <th>{{ _('registered') }}</th>
+                    <th>{{ _('adresse') }}</th>
                     <th>{{ _('status') }}</th>
                     <th>&nbsp;</th>
                 </tr>
@@ -21,9 +58,18 @@
                 {% for user in users %}
                 <tr>
                     <td>{{ user.id }}</td>
+                    <td>{{ user.firstname }} {{ user.lastname }} </td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.type_name }}</td>
                     <td>{{ user.registered.strftime('%d.%m.%Y %H:%M ') }}</td>
+                    <td>
+                        {{ user.address }} <br>
+                        {% if user.address_extend %}
+                        {{ user.address_extend }}<br>
+                        {% endif %}
+                        {{ user.zipcode }} {{ user.city }}<br>
+                        {{ user.federal_state_name }}
+                    </td>
                     <td>
                         {% if user.active %}
                             {{ _('active') }}

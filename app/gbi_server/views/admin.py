@@ -14,26 +14,21 @@
 # limitations under the License.
 
 from flask import render_template, Blueprint, flash, redirect, \
-    url_for, request, current_app, session, jsonify
-from flask.ext.login import current_user, login_user
+    url_for, request, current_app
+from flask.ext.login import current_user
 from flask.ext.babel import gettext as _
 from werkzeug.exceptions import Unauthorized, Forbidden
-from sqlalchemy.exc import IntegrityError
-from sqlalchemy import desc
-from geoalchemy2.elements import WKTElement
-from geoalchemy2.functions import ST_AsGeoJSON
-
-from shapely.geometry import asShape, box
-
+from sqlalchemy import asc, desc, or_
 
 from gbi_server.extensions import db
 from gbi_server.model import User, EmailVerification, Log
-from gbi_server.forms.admin import CreateUserForm
+from gbi_server.forms.admin import CreateUserForm, SearchUserForm
 from gbi_server.forms.user import RecoverSetForm, EditAddressForm
 from gbi_server.lib.helper import send_mail
 from gbi_server.lib.couchdb import init_user_boxes
 
 admin = Blueprint("admin", __name__, template_folder="../templates")
+
 
 def assert_admin_user():
     if current_app.config.get('ADMIN_PARTY'):
@@ -51,9 +46,58 @@ def index():
     return render_template('admin/index.html')
 
 
-@admin.route('/admin/users_list', methods=["GET"])
+@admin.route('/admin/users_list', methods=["GET", "POST"])
 def user_list():
-    return render_template('admin/user_list.html', users=User.query.all())
+    form = SearchUserForm()
+    form.federal_state.choices = []
+    form.federal_state.choices.append(('', ''))
+    for state in current_app.config['FEDERAL_STATES']:
+        form.federal_state.choices.append(state)
+
+    form.type.choices = []
+    form.type.choices.append((-99, ''))
+    if current_app.config['FEATURE_CUSTOMER_USERS']:
+        form.type.choices.append((User.Type.CUSTOMER, _('customer')))
+    form.type.choices.append((User.Type.SERVICE_PROVIDER, _('service_provider')))
+    if current_app.config['FEATURE_CONSULTANT_USERS']:
+        form.type.choices.append((User.Type.CONSULTANT, _('consultant')))
+    form.type.choices.append((User.Type.ADMIN, _('admin')))
+
+    if form.validate_on_submit():
+        name = form.data.get('name', False)
+        zipcode_or_city = form.data.get('zipcode_or_city', False)
+        federal_state = form.data.get('federal_state', False)
+        type_ = form.data.get('type', False)
+        company_number = form.data.get('company_number', False)
+        active = form.data.get('active', False)
+
+        query = User.query
+        if type_ != -99:
+            query = query.filter(User.type == type_)
+
+        if federal_state:
+            query = query.filter(User.federal_state == federal_state)
+
+        if name:
+            query = query.filter(or_(
+                User.firstname.like('%'+name+'%'),
+                User.lastname.like('%'+name+'%'),
+            ))
+
+        if zipcode_or_city:
+            query = query.filter(or_(
+                User.zipcode.like('%'+zipcode_or_city+'%'),
+                User.city.like('%'+zipcode_or_city+'%'),
+            ))
+
+        if company_number:
+            query = query.filter(User.company_number.like('%'+company_number+'%'))
+
+        query = query.filter(User.active == active)
+        users = query.all()
+    else:
+        users = User.query.all()
+    return render_template('admin/user_list.html', form=form, users=users)
 
 
 @admin.route('/admin/users_list/inactive', methods=["GET"])

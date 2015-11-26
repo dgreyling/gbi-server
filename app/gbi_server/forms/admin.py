@@ -21,11 +21,25 @@ from flask.ext.babel import lazy_gettext as _l
 
 from user import NewUserForm
 
+
 class CreateUserForm(NewUserForm):
     type = SelectField(_l('type'), coerce=int)
     verified = BooleanField(_l('verified'), default=False)
     activate = BooleanField(_l('active'), default=False)
     terms_of_use = BooleanField(_l('terms of use'), default=True)
+
+
+class SearchUserForm(Form):
+    name = TextField(_l('firstname or lastname'))
+    zipcode_or_city = TextField(_l('zipcode or city'))
+    federal_state = SelectField(
+        _l('federal_state'),
+        choices=[] # at the moment choices are set on view, because we load they from config
+    )
+    type = SelectField(_l('type'), coerce=int)
+    company_number = TextField(_l('company_number'),)
+    active = BooleanField(_l('active'), default=True)
+
 
 class RasterSourceForm(Form):
     url = TextField(_l('rastersource_url'), [validators.Required()])
@@ -53,13 +67,16 @@ class RasterSourceForm(Form):
         if form.data['view_level_start'] > field.data:
             raise validators.ValidationError(_l('level needs to be bigger or equal to start level'))
 
+
 class WMTSForm(RasterSourceForm):
     layer = None
     srs = None
 
+
 class WMSForm(RasterSourceForm):
     version = SelectField(_l('wms_version'), choices=[('1.1.1', '1.1.1'), ('1.3.0', '1.3.0')],
         validators=[validators.Required()])
+
 
 class WFSForm(Form):
     host = TextField(_l('wfs_host'), [validators.Required()])
@@ -79,4 +96,5 @@ class WFSForm(Form):
     username = TextField(_l('rvectorsource_username'))
     password = PasswordField(_l('vectorsource_password'))
     is_protected = BooleanField(_l('vectorsoure_protected'))
+
 
