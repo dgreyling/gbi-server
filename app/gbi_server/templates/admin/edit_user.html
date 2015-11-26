@@ -1,15 +1,11 @@
-{% extends "base.html" %}
-
-{% from "macros/forms.html" import input, button %}
+{% extends "admin/user_detail.html" %}
 
 {% block title %} {{_('Edit user')}} {% endblock %}
 
-{% block content_head %}<h1>{{_('Edit user')}}</h1>{% endblock %}
-
-{% block content %}
-<div class="row-fluid">
-    <div class="span12">
-        <form method="POST">
+{% block content_bottom %}
+<form method="POST">
+    <fieldset>
+        <legend>{{_('Edit user')}}</legend>
         {{ form.csrf_token }}
 
         {{ input(form.title) }}
@@ -26,16 +22,15 @@
         {{ input(form.phone) }}
         {{ input(form.fax) }}
 
-        {% if current_user.is_customer %}
+        {% if user.is_customer %}
         {{ input(form.company_number) }}
         {% endif %}
 
-        {% if current_user.is_service_provider %}
+        {% if user.is_service_provider %}
         {{ input(form.commercial_register_number) }}
         {% endif %}
 
         {{ button(_('save'), True) }}
-        </form>
-    </div>
-</div>
+    </fieldset>
+</form>
 {% endblock %}

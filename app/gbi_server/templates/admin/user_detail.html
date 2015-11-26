@@ -1,37 +1,75 @@
-{% extends "base.html" %}
+{% extends "admin/base.html" %}
 
 {% from "macros/user.html" import user_detail %}
+{% from "macros/forms.html" import input, button %}
 
-{% block title %} {{_('user details')}} {% endblock %}
+{% block title %} {{_('user details') }} {% endblock %}
 
-{% block content_head %}<h1>{{_('user details')}}</h1>{% endblock %}
+{% block content_right %}
+<h4>{{_('user details')}} {{ user.realname }} ({{ user.email}}) </h4>
+<ul class="nav nav-pills">
+  <li class="{% if request.path == url_for('admin.user_detail', user_id=user.id) %}active{% endif%}">
+    <a href="{{ url_for('admin.user_detail', user_id=user.id) }}">
+        {{ _('overview') }}
+    </a>
+  </li>
+  <li class="{% if request.path == url_for('admin.edit_user', user_id=user.id) %}active{% endif%}">
+    <a href="{{ url_for('admin.edit_user', user_id=user.id) }}">
+        {{ _('edit user address') }}
+    </a>
+  </li>
+  <li class="{% if request.path == url_for('admin.reset_user_password', user_id=user.id) %}active{% endif%}">
+    <a href="{{ url_for('admin.reset_user_password', user_id=user.id) }}">
+        {{ _('reset password') }}
+    </a>
+  </li>
+  <li class="{% if request.path == url_for('admin.user_log', user_id=user.id) %}active{% endif%}">
+    <a href="{{ url_for('admin.user_log', user_id=user.id) }}">
+        {{ _('show log') }}
+    </a>
+  </li>
+  <li class="{% if request.path == url_for('admin.remove_user', user_id=user.id) %}active{% endif%}">
+    <a href="{{ url_for('admin.remove_user', user_id=user.id) }}">
+        {{ _('delete user') }}
+    </a>
+  </li>
+</ul>
 
-{% block content %}
-<div class="row-fluid">
-    <div class="span12">
-        {{ user_detail(user) }}
-        <dl class="dl-horizontal">
-            <dt>{{ _('status') }}</dt>
-            <dd>
-                {% if user.active %}
-                    {{ _('active') }}
-                {% elif user.verified %}
-                    {{ _('verified') }}, {{ _('not active')}}
-                {% else %}
-                    {{ _('not verified') }}
-                {% endif %}
-            </dd>
-        </dl>
-        <dl class="dl-horizontal">
-            <dt>{{ _('user settings') }}</dt>
-            <dd>
-                <a class="btn btn-small" {% if not user.active and user.verified %} href="{{ url_for('admin.activate_user', user_id=user.id) }}"{% else %} disabled="disabled" {% endif %}>{{ _('activate') }}</a>
-                <a class="btn btn-small" href="{{ url_for('admin.edit_user', id=user.id) }}">{{ _('edit') }}</a>
-                <a class="btn btn-small" href="{{ url_for('admin.reset_user_password', id=user.id) }}">{{ _('reset password') }}</a>
-                <a class="btn btn-small" href="{{ url_for('admin.user_log', id=user.id) }}">{{ _('show log') }}</a>
-            </dd>
-        </dl>
+{% block content_bottom %}
+    <div class="row-fluid">
+        <div class="span12">
+            <h4>{{ _('address') }}</h4>
+            {{ user_detail(user) }}
+
+            <div class="row-fluid">
+                <h4>{{ _('status') }}</h4>
+
+                <div class="span2">
+                    <span class="label">
+                    {% if user.active %}
+                        {{ _('active') }}
+                    {% elif user.verified %}
+                        {{ _('verified') }}, {{ _('not active')}}
+                    {% else %}
+                        {{ _('not verified') }}
+                    {% endif %}
+                    </span>
+                </div>
+                <div class="span4">
+                    {% if not user.active %}
+                    <a href="{{ url_for('admin.activate_user', user_id=user.id) }}" class="btn btn-small btn-success">
+                        {{ _('activate') }}
+                    </a>
+                    {% else %}
+                    <a href="{{ url_for('admin.deactivate_user', user_id=user.id) }}" class="btn btn-small">
+                        {{ _('deactivate') }}
+                    </a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
     </div>
-</div>
+{% endblock %}
+
 {% endblock %}
 

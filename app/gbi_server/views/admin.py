@@ -86,14 +86,30 @@ def activate_user(user_id):
     return redirect(url_for("admin.inactive_users_list"))
 
 
-@admin.route('/admin/user/<int:user_id>/remove', methods=["POST"])
+@admin.route('/admin/user/<int:user_id>/deactivate', methods=["GET"])
+def deactivate_user(user_id):
+    user = User.by_id(user_id)
+    user.active = False
+    db.session.commit()
+    flash(_('User deactivate %(email)s', email=user.email), 'success')
+    return redirect(url_for("admin.inactive_users_list"))
+
+
+@admin.route('/admin/user/<int:user_id>/remove', methods=["GET", "POST"])
 def remove_user(user_id):
     user = User.by_id(user_id)
-    email = user.email
-    db.session.delete(user)
-    db.session.commit()
-    flash(_('User was removed %(email)s', email=email), 'success')
-    return redirect(url_for("admin.inactive_users_list"))
+
+    if user == current_user:
+        flash(_('Self-User cannot be removed', 'success'))
+        return render_template('admin/remove_user.html', user=user)
+
+    if request.method == 'POST':
+        email = user.email
+        db.session.delete(user)
+        db.session.commit()
+        flash(_('User was removed %(email)s', email=email), 'success')
+        return redirect(url_for("admin.inactive_users_list"))
+    return render_template('admin/remove_user.html', user=user)
 
 
 @admin.route('/admin/create_user', methods=["GET", "POST"])
@@ -142,9 +158,9 @@ def create_user():
     return render_template('admin/create_user.html', form=form)
 
 
-@admin.route('/admin/edit_user/<int:id>', methods=["GET", "POST"])
-def edit_user(id):
-    user = User.by_id(id)
+@admin.route('/admin/edit_user/<int:user_id>', methods=["GET", "POST"])
+def edit_user(user_id):
+    user = User.by_id(user_id)
     form = EditAddressForm(request.form, user)
     form.federal_state.choices = current_app.config['FEDERAL_STATES']
     form.title.choices = current_app.config['SALUTATIONS']
@@ -152,25 +168,23 @@ def edit_user(id):
         user.set_user_data(form.data)
         db.session.commit()
         flash(_('User edited', username=user.email), 'success')
-        return redirect(url_for("admin.user_detail", id=id))
-    return render_template('admin/edit_user.html', form=form)
+    return render_template('admin/edit_user.html', form=form, user=user)
 
 
-@admin.route('/admin/reset_user_password/<int:id>', methods=["GET", "POST"])
-def reset_user_password(id):
+@admin.route('/admin/reset_user_password/<int:user_id>', methods=["GET", "POST"])
+def reset_user_password(user_id):
+    user = User.by_id(user_id)
     form = RecoverSetForm()
     if form.validate_on_submit():
-        user = User.by_id(id)
         user.update_password(form.password.data)
         db.session.commit()
         flash(_('Password reset', username=user.email), 'success')
-        return redirect(url_for('admin.user_detail', id=id))
-    return render_template('admin/reset_user_password.html', form=form)
+    return render_template('admin/reset_user_password.html', form=form, user=user)
 
 
-@admin.route('/admin/user_log/<int:id>', methods=["GET"])
-def user_log(id):
-    user = User.by_id(id)
+@admin.route('/admin/user_log/<int:user_id>', methods=["GET"])
+def user_log(user_id):
+    user = User.by_id(user_id)
     result = db.session.query(Log, Log.geometry.envelope().wkt).filter_by(user=user).all()
     return render_template('admin/user_log.html', logs=result)
 
