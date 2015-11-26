@@ -186,12 +186,12 @@ def verify(uuid):
     user.verified = True
     db.session.delete(verify)
     db.session.commit()
-    if not user.is_customer:
-        send_mail(
-            _("Activate user subject"),
-            render_template("admin/user_activate_mail.txt", user=user, _external=True),
-            [member.email for member in User.all_admins()]
-        )
+
+    send_mail(
+        _("Activate user subject"),
+        render_template("admin/user_activate_mail.txt", user=user, _external=True),
+        [member.email for member in User.all_admins()]
+    )
 
     flash(_("Email verified"), 'success')
     return redirect(url_for(".login"))
