@@ -13,7 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask import render_template, Blueprint, flash, redirect, url_for, request, current_app, session, jsonify
+from flask import render_template, Blueprint, flash, redirect, \
+    url_for, request, current_app, session, jsonify
 from flask.ext.login import current_user, login_user
 from flask.ext.babel import gettext as _
 from werkzeug.exceptions import Unauthorized, Forbidden
@@ -38,6 +39,7 @@ from gbi_server.lib.transform import transform_bbox
 
 admin = Blueprint("admin", __name__, template_folder="../templates")
 
+
 def assert_admin_user():
     if current_app.config.get('ADMIN_PARTY'):
         return
@@ -47,6 +49,7 @@ def assert_admin_user():
         raise Forbidden()
 
 admin.before_request(assert_admin_user)
+
 
 @admin.route('/admin')
 def index():
@@ -60,6 +63,7 @@ def user_list():
 def user_detail(id):
     user = User.by_id(id)
     return render_template('admin/user_detail.html', user=user)
+
 
 @admin.route('/admin/verify_user/<int:id>', methods=["GET"])
 def verify_user(id):
@@ -77,6 +81,7 @@ def loging_as(id):
     session['authproxy_token'] = user.authproxy_token
     return redirect(url_for("user.home"))
 
+
 @admin.route('/admin/activate_user/<int:id>', methods=["GET"])
 def activate_user(id):
     user = User.by_id(id)
@@ -91,6 +96,7 @@ def activate_user(id):
 
     flash(_('User activated', email=user.email), 'success')
     return redirect(url_for("admin.user_detail", id=id))
+
 
 @admin.route('/admin/create_user', methods=["GET", "POST"])
 def create_user():
@@ -132,6 +138,7 @@ def create_user():
         return redirect(url_for('admin.user_list'))
     return render_template('admin/create_user.html', form=form)
 
+
 @admin.route('/admin/edit_user/<int:id>', methods=["GET", "POST"])
 def edit_user(id):
     user = User.by_id(id)
@@ -141,9 +148,10 @@ def edit_user(id):
     if form.validate_on_submit():
         user.set_user_data(form.data)
         db.session.commit()
-        flash( _('User edited', username=user.email), 'success')
+        flash(_('User edited', username=user.email), 'success')
         return redirect(url_for("admin.user_detail", id=id))
     return render_template('admin/edit_user.html', form=form)
+
 
 @admin.route('/admin/reset_user_password/<int:id>', methods=["GET", "POST"])
 def reset_user_password(id):
@@ -152,9 +160,10 @@ def reset_user_password(id):
         user = User.by_id(id)
         user.update_password(form.password.data)
         db.session.commit()
-        flash( _('Password reset', username=user.email), 'success')
+        flash(_('Password reset', username=user.email), 'success')
         return redirect(url_for('admin.user_detail', id=id))
     return render_template('admin/reset_user_password.html', form=form)
+
 
 @admin.route('/admin/remove_user/<int:id>', methods=["GET", "POST"])
 def remove_user(id):
@@ -163,9 +172,10 @@ def remove_user(id):
         email = user.email
         db.session.delete(user)
         db.session.commit()
-        flash( _('User removed', username=email), "success")
+        flash(_('User removed', username=email), "success")
         return redirect(url_for('admin.user_list'))
     return render_template('admin/remove_user.html', user=user)
+
 
 @admin.route('/admin/user_log/<int:id>', methods=["GET"])
 def user_log(id):
@@ -173,9 +183,11 @@ def user_log(id):
     result = db.session.query(Log, Log.geometry.envelope().wkt).filter_by(user=user).all()
     return render_template('admin/user_log.html', logs=result)
 
+
 @admin.route('/admin/wmts/list', methods=["GET"])
 def wmts_list():
     return render_template('admin/wmts_list.html', wmts=WMTS.query.all())
+
 
 @admin.route('/admin/wmts/edit', methods=["GET", "POST"])
 @admin.route('/admin/wmts/edit/<int:id>', methods=["GET", "POST"])
@@ -228,12 +240,13 @@ def wmts_edit(id=None):
         try:
             db.session.commit()
             write_mapproxy_config(current_app)
-            flash( _('Saved WMTS'), 'success')
+            flash(_('Saved WMTS'), 'success')
             return redirect(url_for('admin.wmts_list'))
         except IntegrityError:
             db.session.rollback()
             flash(_('WMTS with this name already exist'), 'error')
     return render_template('admin/wmts_edit.html', form=form, id=id)
+
 
 @admin.route('/admin/wmts/remove/<int:id>', methods=["GET"])
 def wmts_remove(id):
@@ -241,7 +254,7 @@ def wmts_remove(id):
     if wmts:
         db.session.delete(wmts)
         db.session.commit()
-        flash( _('WMTS removed'), 'success')
+        flash(_('WMTS removed'), 'success')
     return redirect(url_for('admin.wmts_list'))
 
 
@@ -319,7 +332,7 @@ def wms_edit(id=None):
         try:
             db.session.commit()
             write_mapproxy_config(current_app)
-            flash( _('Saved WMS'), 'success')
+            flash(_('Saved WMS'), 'success')
             return redirect(url_for('admin.wms_list'))
         except IntegrityError, ex:
             print ex
@@ -327,18 +340,21 @@ def wms_edit(id=None):
             flash(_('WMS with this name already exist'), 'error')
     return render_template('admin/wms_edit.html', form=form, id=id)
 
+
 @admin.route('/admin/wms/remove/<int:id>', methods=["GET"])
 def wms_remove(id):
     wms = WMS.by_id(id)
     if wms:
         db.session.delete(wms)
         db.session.commit()
-        flash( _('WMS removed'), 'success')
+        flash(_('WMS removed'), 'success')
     return redirect(url_for('admin.wms_list'))
+
 
 @admin.route('/admin/wfs/list', methods=["GET"])
 def wfs_list():
     return render_template('admin/wfs_list.html', wfs=WFS.query.all())
+
 
 @admin.route('/admin/wfs/edit', methods=["GET", "POST"])
 @admin.route('/admin/wfs/edit/<int:id>', methods=["GET", "POST"])
@@ -367,7 +383,7 @@ def wfs_edit(id=None):
 
         try:
             db.session.commit()
-            flash( _('Saved WFS'), 'success')
+            flash(_('Saved WFS'), 'success')
             return redirect(url_for('admin.wfs_list'))
         except IntegrityError:
             db.session.rollback()
@@ -382,5 +398,5 @@ def wfs_remove(id):
     if wfs:
         db.session.delete(wfs)
         db.session.commit()
-        flash( _('WFS removed'), 'success')
+        flash(_('WFS removed'), 'success')
     return redirect(url_for('admin.wfs_list'))
