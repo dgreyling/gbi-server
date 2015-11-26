@@ -7,7 +7,7 @@
 {% block content_head %}<h1>{{_('create new account')}}</h1>{% endblock %}
 
 {% block content %}
-<div class="container-fluid">
+<div class="row">
     <div class="span6">
         <form class="form-horizontal" method="POST">
             {{ form.csrf_token }}
@@ -47,7 +47,7 @@
             <!--  Terms of use -->
             {{ checkbox(form.terms_of_use) }}
 
-            {{ button(_('create accout'), True) }}
+            {{ button(_('create accout'), submit=True, btn_class='success') }}
         </form>
     </div>
 </div>

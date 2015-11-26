@@ -6,9 +6,9 @@
 
 {% block content %}
 <div class="container-fluid">
-	<div class="span6">
-	    <p>{{_('email for verification sent', verify_url=url_for('user.send_verifymail', id=user_id))}}</p>
-   		<a href="{{ url_for('user.login') }}" class="btn btn-success">{{_('goto login')}}</a>
+    <div class="span6">
+        <p>{{_('email for verification sent', verify_url=url_for('user.send_verifymail', id=user_id))}}</p>
+        <a href="{{ url_for('user.login') }}" class="btn btn-success">{{_('goto login')}}</a>
     </div>
 </div>
 {% endblock %}
