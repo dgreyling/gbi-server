@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-26 13:21+0100\n"
+"POT-Creation-Date: 2015-11-26 14:49+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -117,20 +117,20 @@ msgid "Thuringia"
 msgstr ""
 
 #: gbi_server/forms/admin.py:25 gbi_server/forms/user.py:74
-#: gbi_server/templates/admin/user_list.html:15
-#: gbi_server/templates/admin/user_list_inactive.html:18
+#: gbi_server/templates/admin/user_list.html:14
+#: gbi_server/templates/admin/user_list_inactive.html:14
 #: gbi_server/templates/macros/user.html:9
 msgid "type"
 msgstr ""
 
-#: gbi_server/forms/admin.py:26 gbi_server/templates/admin/user_detail.html:19
-#: gbi_server/templates/admin/user_list.html:32
-#: gbi_server/templates/admin/user_list_inactive.html:40
+#: gbi_server/forms/admin.py:26 gbi_server/templates/admin/user_detail.html:52
+#: gbi_server/templates/admin/user_list.html:31
+#: gbi_server/templates/admin/user_list_inactive.html:36
 msgid "verified"
 msgstr ""
 
-#: gbi_server/forms/admin.py:27 gbi_server/templates/admin/user_detail.html:17
-#: gbi_server/templates/admin/user_list.html:30
+#: gbi_server/forms/admin.py:27 gbi_server/templates/admin/user_detail.html:50
+#: gbi_server/templates/admin/user_list.html:29
 msgid "active"
 msgstr ""
 
@@ -276,8 +276,8 @@ msgid "vectorsoure_protected"
 msgstr ""
 
 #: gbi_server/forms/user.py:34 gbi_server/forms/user.py:76
-#: gbi_server/forms/user.py:91 gbi_server/templates/admin/user_list.html:14
-#: gbi_server/templates/admin/user_list_inactive.html:17
+#: gbi_server/forms/user.py:91 gbi_server/templates/admin/user_list.html:13
+#: gbi_server/templates/admin/user_list_inactive.html:13
 #: gbi_server/templates/boxes/overview.html:19
 #: gbi_server/templates/macros/user.html:6
 msgid "email"
@@ -300,7 +300,8 @@ msgstr ""
 msgid "firstname"
 msgstr ""
 
-#: gbi_server/forms/user.py:48 gbi_server/templates/macros/user.html:23
+#: gbi_server/forms/user.py:48 gbi_server/templates/admin/user_detail.html:41
+#: gbi_server/templates/macros/user.html:23
 msgid "address"
 msgstr ""
 
@@ -384,24 +385,24 @@ msgstr ""
 msgid "external_wms_title"
 msgstr ""
 
-#: gbi_server/model/user.py:94 gbi_server/views/admin.py:107
+#: gbi_server/model/user.py:94 gbi_server/views/admin.py:123
 #: gbi_server/views/user.py:92
 msgid "customer"
 msgstr ""
 
-#: gbi_server/model/user.py:95 gbi_server/views/admin.py:108
+#: gbi_server/model/user.py:95 gbi_server/views/admin.py:124
 #: gbi_server/views/user.py:95
 msgid "service_provider"
 msgstr ""
 
-#: gbi_server/model/user.py:96 gbi_server/views/admin.py:110
+#: gbi_server/model/user.py:96 gbi_server/views/admin.py:126
 #: gbi_server/views/user.py:94
 msgid "consultant"
 msgstr ""
 
 #: gbi_server/model/user.py:97 gbi_server/templates/admin/base.html:8
 #: gbi_server/templates/admin/base.html:12
-#: gbi_server/templates/admin/index.html:5 gbi_server/views/admin.py:111
+#: gbi_server/templates/admin/index.html:5 gbi_server/views/admin.py:127
 msgid "admin"
 msgstr ""
 
@@ -429,7 +430,6 @@ msgid "administration"
 msgstr ""
 
 #: gbi_server/templates/base.html:36
-#: gbi_server/templates/admin/user_detail.html:26
 msgid "user settings"
 msgstr ""
 
@@ -524,7 +524,7 @@ msgstr ""
 
 #: gbi_server/templates/admin/base.html:23
 #: gbi_server/templates/admin/user_list.html:3
-#: gbi_server/templates/admin/user_list.html:5
+#: gbi_server/templates/admin/user_list.html:6
 msgid "user list"
 msgstr ""
 
@@ -532,68 +532,66 @@ msgstr ""
 msgid "user list inactive"
 msgstr ""
 
-#: gbi_server/templates/admin/base.html:32
+#: gbi_server/templates/admin/base.html:33
 #: gbi_server/templates/admin/create_user.html:5
-#: gbi_server/templates/admin/create_user.html:7
+#: gbi_server/templates/admin/create_user.html:8
 msgid "create user"
 msgstr ""
 
-#: gbi_server/templates/admin/base.html:36
+#: gbi_server/templates/admin/base.html:38
 msgid "Services"
 msgstr ""
 
-#: gbi_server/templates/admin/base.html:40
+#: gbi_server/templates/admin/base.html:42
 #: gbi_server/templates/admin/wms_list.html:8
 msgid "WMTS list"
 msgstr ""
 
-#: gbi_server/templates/admin/base.html:45
-#: gbi_server/templates/admin/wmts_edit.html:9
-#: gbi_server/templates/admin/wmts_edit.html:18
+#: gbi_server/templates/admin/base.html:47
+#: gbi_server/templates/admin/wmts_edit.html:15
 #: gbi_server/templates/admin/wmts_list.html:56
 msgid "create WMTS"
 msgstr ""
 
-#: gbi_server/templates/admin/base.html:53
+#: gbi_server/templates/admin/base.html:55
 #: gbi_server/templates/admin/wms_list.html:3
 #: gbi_server/templates/admin/wmts_list.html:3
 #: gbi_server/templates/admin/wmts_list.html:8
 msgid "WMS list"
 msgstr ""
 
-#: gbi_server/templates/admin/base.html:58
-#: gbi_server/templates/admin/wms_edit.html:9
-#: gbi_server/templates/admin/wms_edit.html:18
+#: gbi_server/templates/admin/base.html:60
+#: gbi_server/templates/admin/wms_edit.html:14
 #: gbi_server/templates/admin/wms_list.html:58
 msgid "create WMS"
 msgstr ""
 
-#: gbi_server/templates/admin/base.html:66
+#: gbi_server/templates/admin/base.html:68
 #: gbi_server/templates/admin/wfs_list.html:3
 #: gbi_server/templates/admin/wfs_list.html:8
 msgid "WFS list"
 msgstr ""
 
-#: gbi_server/templates/admin/base.html:71
+#: gbi_server/templates/admin/base.html:73
 #: gbi_server/templates/admin/wfs_edit.html:9
-#: gbi_server/templates/admin/wfs_edit.html:24
+#: gbi_server/templates/admin/wfs_edit.html:19
 #: gbi_server/templates/admin/wfs_list.html:47
 msgid "create WFS"
 msgstr ""
 
-#: gbi_server/templates/admin/create_user.html:40
+#: gbi_server/templates/admin/create_user.html:46
 msgid "create"
 msgstr ""
 
-#: gbi_server/templates/admin/edit_user.html:5
-#: gbi_server/templates/admin/edit_user.html:7
+#: gbi_server/templates/admin/edit_user.html:3
+#: gbi_server/templates/admin/edit_user.html:8
 msgid "Edit user"
 msgstr ""
 
-#: gbi_server/templates/admin/edit_user.html:37
-#: gbi_server/templates/admin/wfs_edit.html:45
-#: gbi_server/templates/admin/wms_edit.html:90
-#: gbi_server/templates/admin/wmts_edit.html:48
+#: gbi_server/templates/admin/edit_user.html:33
+#: gbi_server/templates/admin/wfs_edit.html:47
+#: gbi_server/templates/admin/wms_edit.html:86
+#: gbi_server/templates/admin/wmts_edit.html:45
 #: gbi_server/templates/user/edit_address.html:65
 #: gbi_server/templates/user/edit_password.html:15
 msgid "save"
@@ -604,19 +602,23 @@ msgid "Admin"
 msgstr ""
 
 #: gbi_server/templates/admin/remove_user.html:6
-#: gbi_server/templates/admin/remove_user.html:12
+#: gbi_server/templates/admin/remove_user.html:10
 msgid "remove user"
 msgstr ""
 
-#: gbi_server/templates/admin/remove_user.html:15
-#: gbi_server/templates/admin/wfs_list.html:38
-#: gbi_server/templates/admin/wms_list.html:48
-msgid "remove"
+#: gbi_server/templates/admin/remove_user.html:12
+msgid "infotext remove user account notes"
+msgstr ""
+
+#: gbi_server/templates/admin/remove_user.html:17
+#: gbi_server/templates/admin/wmts_list.html:47
+#: gbi_server/templates/macros/modals.html:17
+msgid "Delete"
 msgstr ""
 
 #: gbi_server/templates/admin/reset_user_password.html:5
-#: gbi_server/templates/admin/reset_user_password.html:7
-#: gbi_server/templates/admin/reset_user_password.html:15
+#: gbi_server/templates/admin/reset_user_password.html:10
+#: gbi_server/templates/admin/reset_user_password.html:14
 msgid "set new password"
 msgstr ""
 
@@ -638,76 +640,86 @@ msgstr ""
 msgid "mail footer"
 msgstr ""
 
-#: gbi_server/templates/admin/user_detail.html:5
-#: gbi_server/templates/admin/user_detail.html:7
-#: gbi_server/templates/admin/user_list.html:37
-#: gbi_server/templates/admin/user_list_inactive.html:57
+#: gbi_server/templates/admin/user_detail.html:6
+#: gbi_server/templates/admin/user_detail.html:9
+#: gbi_server/templates/admin/user_list.html:36
+#: gbi_server/templates/admin/user_list_inactive.html:53
 #: gbi_server/templates/admin/user_log.html:5
 msgid "user details"
 msgstr ""
 
-#: gbi_server/templates/admin/user_detail.html:14
-#: gbi_server/templates/admin/user_list.html:17
-msgid "status"
+#: gbi_server/templates/admin/user_detail.html:13
+#: gbi_server/templates/user/base_edit.html:21
+msgid "overview"
 msgstr ""
 
-#: gbi_server/templates/admin/user_detail.html:19
-#: gbi_server/templates/admin/user_list.html:32
-msgid "not active"
+#: gbi_server/templates/admin/user_detail.html:18
+msgid "edit user address"
 msgstr ""
 
-#: gbi_server/templates/admin/user_detail.html:21
-#: gbi_server/templates/admin/user_list.html:34
-#: gbi_server/templates/admin/user_list_inactive.html:42
-msgid "not verified"
-msgstr ""
-
-#: gbi_server/templates/admin/user_detail.html:28
-#: gbi_server/templates/admin/user_list_inactive.html:47
-msgid "activate"
-msgstr ""
-
-#: gbi_server/templates/admin/user_detail.html:29
-#: gbi_server/templates/admin/wfs_list.html:33
-#: gbi_server/templates/admin/wms_list.html:43
-#: gbi_server/templates/admin/wmts_list.html:43
-msgid "edit"
-msgstr ""
-
-#: gbi_server/templates/admin/user_detail.html:30
+#: gbi_server/templates/admin/user_detail.html:23
 msgid "reset password"
 msgstr ""
 
-#: gbi_server/templates/admin/user_detail.html:31
+#: gbi_server/templates/admin/user_detail.html:28
 msgid "show log"
 msgstr ""
 
-#: gbi_server/templates/admin/user_list.html:13
-#: gbi_server/templates/admin/user_list_inactive.html:16
+#: gbi_server/templates/admin/user_detail.html:33
+msgid "delete user"
+msgstr ""
+
+#: gbi_server/templates/admin/user_detail.html:45
+#: gbi_server/templates/admin/user_list.html:16
+msgid "status"
+msgstr ""
+
+#: gbi_server/templates/admin/user_detail.html:52
+#: gbi_server/templates/admin/user_list.html:31
+msgid "not active"
+msgstr ""
+
+#: gbi_server/templates/admin/user_detail.html:54
+#: gbi_server/templates/admin/user_list.html:33
+#: gbi_server/templates/admin/user_list_inactive.html:38
+msgid "not verified"
+msgstr ""
+
+#: gbi_server/templates/admin/user_detail.html:61
+#: gbi_server/templates/admin/user_list_inactive.html:43
+msgid "activate"
+msgstr ""
+
+#: gbi_server/templates/admin/user_detail.html:65
+msgid "deactivate"
+msgstr ""
+
+#: gbi_server/templates/admin/user_list.html:12
+#: gbi_server/templates/admin/user_list_inactive.html:12
 #: gbi_server/templates/macros/user.html:3
 msgid "id"
 msgstr ""
 
-#: gbi_server/templates/admin/user_list.html:16
-#: gbi_server/templates/admin/user_list_inactive.html:19
+#: gbi_server/templates/admin/user_list.html:15
+#: gbi_server/templates/admin/user_list_inactive.html:15
 #: gbi_server/templates/macros/user.html:12
 msgid "registered"
 msgstr ""
 
-#: gbi_server/templates/admin/user_list_inactive.html:6
+#: gbi_server/templates/admin/user_list_inactive.html:5
 #: gbi_server/templates/admin/user_list_inactive.html:8
 msgid "inactive users list"
 msgstr ""
 
-#: gbi_server/templates/admin/user_list_inactive.html:20
+#: gbi_server/templates/admin/user_list_inactive.html:16
 msgid "email verfied"
 msgstr ""
 
-#: gbi_server/templates/admin/user_list_inactive.html:28
+#: gbi_server/templates/admin/user_list_inactive.html:24
 msgid "Infotext – No user is waiting for activate."
 msgstr ""
 
-#: gbi_server/templates/admin/user_list_inactive.html:51
+#: gbi_server/templates/admin/user_list_inactive.html:47
 msgid "reject"
 msgstr ""
 
@@ -760,12 +772,12 @@ msgid "geometry"
 msgstr ""
 
 #: gbi_server/templates/admin/wfs_edit.html:7
-#: gbi_server/templates/admin/wfs_edit.html:22
+#: gbi_server/templates/admin/wfs_edit.html:17
 msgid "edit WFS"
 msgstr ""
 
 #: gbi_server/templates/admin/wfs_edit.html:40
-#: gbi_server/templates/admin/wms_edit.html:81
+#: gbi_server/templates/admin/wms_edit.html:78
 msgid "tooltip - protected service"
 msgstr ""
 
@@ -787,49 +799,63 @@ msgstr ""
 msgid "infotext no services configured"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:7
-#: gbi_server/templates/admin/wms_edit.html:16
+#: gbi_server/templates/admin/wfs_list.html:33
+#: gbi_server/templates/admin/wms_list.html:43
+#: gbi_server/templates/admin/wmts_list.html:43
+msgid "edit"
+msgstr ""
+
+#: gbi_server/templates/admin/wfs_list.html:38
+#: gbi_server/templates/admin/wms_list.html:48
+msgid "remove"
+msgstr ""
+
+#: gbi_server/templates/admin/wms_edit.html:6
+msgid "create or edit WMS"
+msgstr ""
+
+#: gbi_server/templates/admin/wms_edit.html:12
 msgid "edit WMS"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:26
+#: gbi_server/templates/admin/wms_edit.html:20
 msgid "infotext wms load via url"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:27
+#: gbi_server/templates/admin/wms_edit.html:21
 msgid "load wms capabilities"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:31
+#: gbi_server/templates/admin/wms_edit.html:25
 msgid "load wms"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:35
+#: gbi_server/templates/admin/wms_edit.html:29
 msgid "infotext preview map only if on selct srs is selcted"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:36
+#: gbi_server/templates/admin/wms_edit.html:30
 msgid "preview not possible"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:38
-#: gbi_server/templates/admin/wms_edit.html:99
+#: gbi_server/templates/admin/wms_edit.html:32
+#: gbi_server/templates/admin/wms_edit.html:94
 msgid "preview map"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:52
+#: gbi_server/templates/admin/wms_edit.html:49
 msgid "layers_select"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:55
+#: gbi_server/templates/admin/wms_edit.html:52
 msgid "tooltip - select layer"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:61
+#: gbi_server/templates/admin/wms_edit.html:58
 msgid "select srs"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:64
+#: gbi_server/templates/admin/wms_edit.html:61
 msgid "tooltip - select srs"
 msgstr ""
 
@@ -843,18 +869,16 @@ msgstr ""
 msgid "rastersource_is_public"
 msgstr ""
 
-#: gbi_server/templates/admin/wmts_edit.html:7
-#: gbi_server/templates/admin/wmts_edit.html:16
+#: gbi_server/templates/admin/wmts_edit.html:6
+msgid "create or edit WMTS"
+msgstr ""
+
+#: gbi_server/templates/admin/wmts_edit.html:13
 msgid "edit WMTS"
 msgstr ""
 
 #: gbi_server/templates/admin/wmts_list.html:17
 msgid "rastersource_is_background_layer"
-msgstr ""
-
-#: gbi_server/templates/admin/wmts_list.html:47
-#: gbi_server/templates/macros/modals.html:17
-msgid "Delete"
 msgstr ""
 
 #: gbi_server/templates/boxes/base.html:5
@@ -1207,10 +1231,6 @@ msgstr ""
 msgid "User settings"
 msgstr ""
 
-#: gbi_server/templates/user/base_edit.html:21
-msgid "overview"
-msgstr ""
-
 #: gbi_server/templates/user/base_edit.html:26
 #: gbi_server/templates/user/edit_address.html:6
 #: gbi_server/templates/user/edit_address.html:12
@@ -1326,25 +1346,34 @@ msgstr ""
 msgid "User activated %(email)s"
 msgstr ""
 
-#: gbi_server/views/admin.py:95
+#: gbi_server/views/admin.py:94
+#, python-format
+msgid "User deactivate %(email)s"
+msgstr ""
+
+#: gbi_server/views/admin.py:103
+msgid "Self-User cannot be removed"
+msgstr ""
+
+#: gbi_server/views/admin.py:110
 #, python-format
 msgid "User was removed %(email)s"
 msgstr ""
 
-#: gbi_server/views/admin.py:122 gbi_server/views/user.py:112
+#: gbi_server/views/admin.py:138 gbi_server/views/user.py:112
 #: gbi_server/views/user.py:162
 msgid "Email verification mail subject"
 msgstr ""
 
-#: gbi_server/views/admin.py:140
+#: gbi_server/views/admin.py:156
 msgid "User created"
 msgstr ""
 
-#: gbi_server/views/admin.py:154
+#: gbi_server/views/admin.py:170
 msgid "User edited"
 msgstr ""
 
-#: gbi_server/views/admin.py:166
+#: gbi_server/views/admin.py:181
 msgid "Password reset"
 msgstr ""
 
