@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-26 09:52+0100\n"
+"POT-Creation-Date: 2015-11-26 11:28+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -118,12 +118,14 @@ msgstr "Thüringen"
 
 #: gbi_server/forms/admin.py:25 gbi_server/forms/user.py:74
 #: gbi_server/templates/admin/user_list.html:15
+#: gbi_server/templates/admin/user_list_inactive.html:18
 #: gbi_server/templates/macros/user.html:9
 msgid "type"
 msgstr "Benutzertyp"
 
 #: gbi_server/forms/admin.py:26 gbi_server/templates/admin/user_detail.html:19
 #: gbi_server/templates/admin/user_list.html:32
+#: gbi_server/templates/admin/user_list_inactive.html:40
 msgid "verified"
 msgstr "Verifiziert"
 
@@ -277,6 +279,7 @@ msgstr "Passwort geschützt"
 
 #: gbi_server/forms/user.py:34 gbi_server/forms/user.py:76
 #: gbi_server/forms/user.py:91 gbi_server/templates/admin/user_list.html:14
+#: gbi_server/templates/admin/user_list_inactive.html:17
 #: gbi_server/templates/boxes/overview.html:19
 #: gbi_server/templates/macros/user.html:6
 msgid "email"
@@ -383,23 +386,23 @@ msgstr "Coverage auswhälen"
 msgid "external_wms_title"
 msgstr "GBI WMS"
 
-#: gbi_server/model/user.py:94 gbi_server/views/admin.py:103
+#: gbi_server/model/user.py:94 gbi_server/views/admin.py:111
 #: gbi_server/views/user.py:92
 msgid "customer"
 msgstr "Landwirt"
 
-#: gbi_server/model/user.py:95 gbi_server/views/admin.py:104
+#: gbi_server/model/user.py:95 gbi_server/views/admin.py:112
 #: gbi_server/views/user.py:95
 msgid "service_provider"
 msgstr "Dienstleister"
 
-#: gbi_server/model/user.py:96 gbi_server/views/admin.py:106
+#: gbi_server/model/user.py:96 gbi_server/views/admin.py:114
 #: gbi_server/views/user.py:94
 msgid "consultant"
 msgstr "Berater"
 
 #: gbi_server/model/user.py:97 gbi_server/templates/admin/index.html:5
-#: gbi_server/views/admin.py:107
+#: gbi_server/views/admin.py:115
 msgid "admin"
 msgstr "Administrator"
 
@@ -523,7 +526,7 @@ msgstr ""
 
 #: gbi_server/templates/admin/create_user.html:5
 #: gbi_server/templates/admin/create_user.html:7
-#: gbi_server/templates/admin/index.html:12
+#: gbi_server/templates/admin/index.html:13
 msgid "create user"
 msgstr "Neuen Benutzer erstellen"
 
@@ -555,39 +558,44 @@ msgstr "Administrator"
 msgid "user list"
 msgstr "Benutzerübersicht"
 
-#: gbi_server/templates/admin/index.html:16
+#: gbi_server/templates/admin/index.html:12
+#, fuzzy
+msgid "user list inactive"
+msgstr "Benutzerübersicht"
+
+#: gbi_server/templates/admin/index.html:17
 #: gbi_server/templates/admin/wmts_list.html:5
 msgid "WMTS list"
 msgstr "WMTS Übersicht"
 
-#: gbi_server/templates/admin/index.html:17
+#: gbi_server/templates/admin/index.html:18
 #: gbi_server/templates/admin/wmts_edit.html:9
 #: gbi_server/templates/admin/wmts_edit.html:18
 #: gbi_server/templates/admin/wmts_list.html:43
 msgid "create WMTS"
 msgstr "WMTS erstellen"
 
-#: gbi_server/templates/admin/index.html:20
+#: gbi_server/templates/admin/index.html:21
 #: gbi_server/templates/admin/wms_list.html:3
 #: gbi_server/templates/admin/wms_list.html:5
 #: gbi_server/templates/admin/wmts_list.html:3
 msgid "WMS list"
 msgstr "WMS Liste"
 
-#: gbi_server/templates/admin/index.html:21
+#: gbi_server/templates/admin/index.html:22
 #: gbi_server/templates/admin/wms_edit.html:9
 #: gbi_server/templates/admin/wms_edit.html:18
 #: gbi_server/templates/admin/wms_list.html:43
 msgid "create WMS"
 msgstr "Neuen WMS erstellen"
 
-#: gbi_server/templates/admin/index.html:24
+#: gbi_server/templates/admin/index.html:25
 #: gbi_server/templates/admin/wfs_list.html:3
 #: gbi_server/templates/admin/wfs_list.html:5
 msgid "WFS list"
 msgstr "WFS Liste"
 
-#: gbi_server/templates/admin/index.html:25
+#: gbi_server/templates/admin/index.html:26
 #: gbi_server/templates/admin/wfs_edit.html:9
 #: gbi_server/templates/admin/wfs_edit.html:18
 #: gbi_server/templates/admin/wfs_list.html:33
@@ -600,7 +608,7 @@ msgid "remove user"
 msgstr "Benutzer löschen"
 
 #: gbi_server/templates/admin/remove_user.html:15
-#: gbi_server/templates/admin/user_detail.html:33
+#: gbi_server/templates/admin/user_detail.html:32
 #: gbi_server/templates/admin/wfs_list.html:27
 #: gbi_server/templates/admin/wms_list.html:37
 #: gbi_server/templates/admin/wmts_list.html:37
@@ -642,6 +650,7 @@ msgstr ""
 #: gbi_server/templates/admin/user_detail.html:5
 #: gbi_server/templates/admin/user_detail.html:7
 #: gbi_server/templates/admin/user_list.html:37
+#: gbi_server/templates/admin/user_list_inactive.html:57
 #: gbi_server/templates/admin/user_log.html:5
 msgid "user details"
 msgstr "Benutzerdetails"
@@ -658,41 +667,58 @@ msgstr "nicht aktiviert"
 
 #: gbi_server/templates/admin/user_detail.html:21
 #: gbi_server/templates/admin/user_list.html:34
+#: gbi_server/templates/admin/user_list_inactive.html:42
 msgid "not verified"
 msgstr "nicht verifiziert"
 
 #: gbi_server/templates/admin/user_detail.html:28
+#: gbi_server/templates/admin/user_list_inactive.html:47
 msgid "activate"
 msgstr "Aktivieren"
 
 #: gbi_server/templates/admin/user_detail.html:29
-msgid "verify"
-msgstr "Verifizieren"
-
-#: gbi_server/templates/admin/user_detail.html:30
 #: gbi_server/templates/admin/wfs_list.html:26
 #: gbi_server/templates/admin/wms_list.html:36
 #: gbi_server/templates/admin/wmts_list.html:36
 msgid "edit"
 msgstr "Editieren"
 
-#: gbi_server/templates/admin/user_detail.html:31
+#: gbi_server/templates/admin/user_detail.html:30
 msgid "reset password"
 msgstr "Passwort zurücksetzen"
 
-#: gbi_server/templates/admin/user_detail.html:32
+#: gbi_server/templates/admin/user_detail.html:31
 msgid "show log"
 msgstr "Zugriffe anzeigen"
 
 #: gbi_server/templates/admin/user_list.html:13
+#: gbi_server/templates/admin/user_list_inactive.html:16
 #: gbi_server/templates/macros/user.html:3
 msgid "id"
 msgstr "ID"
 
 #: gbi_server/templates/admin/user_list.html:16
+#: gbi_server/templates/admin/user_list_inactive.html:19
 #: gbi_server/templates/macros/user.html:12
 msgid "registered"
 msgstr "Registriert"
+
+#: gbi_server/templates/admin/user_list_inactive.html:6
+#: gbi_server/templates/admin/user_list_inactive.html:8
+msgid "inactive users list"
+msgstr "Nicht freigeschaltete Benutzer"
+
+#: gbi_server/templates/admin/user_list_inactive.html:20
+msgid "email verfied"
+msgstr "E-Mail bestätigt"
+
+#: gbi_server/templates/admin/user_list_inactive.html:28
+msgid "Infotext – No user is waiting for activate."
+msgstr "Aktuell wartet kein Nutzer darauf von einem Administrator aktiviert zu werden."
+
+#: gbi_server/templates/admin/user_list_inactive.html:51
+msgid "reject"
+msgstr "Ablehnen"
 
 #: gbi_server/templates/admin/user_log.html:7
 msgid "user log"
@@ -891,6 +917,7 @@ msgstr ""
 
 #: gbi_server/templates/boxes/base.html:82
 #: gbi_server/templates/boxes/base.html:90
+#: gbi_server/templates/user/recover.html:21
 msgid "abort"
 msgstr "Abbrechen"
 
@@ -1028,6 +1055,24 @@ msgstr "Keine Eigenschaften"
 #: gbi_server/templates/js/translation.js:21
 msgid "Different values for same attribute"
 msgstr "Unterschiedliche Werte"
+
+#: gbi_server/templates/macros/modals.html:9
+msgid "Delete modal header"
+msgstr "Löschen"
+
+#: gbi_server/templates/macros/modals.html:12
+msgid "You are deleting some data. It cannot be rollback."
+msgstr ""
+"Sie sind dabei Daten zu löschen. Diese Aktion kann nicht rückgängig "
+"gemacht werden."
+
+#: gbi_server/templates/macros/modals.html:16
+msgid "Abort"
+msgstr "Abbrechen"
+
+#: gbi_server/templates/macros/modals.html:17
+msgid "Delete"
+msgstr "Löschen"
 
 #: gbi_server/templates/macros/user.html:15
 msgid "last login"
@@ -1286,9 +1331,13 @@ msgstr "Neues Passwort setzen"
 
 #: gbi_server/templates/user/recover.html:12
 msgid "password recover infotext"
-msgstr "Passwort vergessen? <br><br>Kein Problem. Um Ihr Passwort zurücksetzen tragen Sie hier bitte Ihre E-Mail-Adresse ein, mit der Sie angemeldet sind. Anschließend erhalten Sie eine E-Mail mit den weiteren Schritten um Ihr Passwort zurückzusetzen."
+msgstr ""
+"Passwort vergessen? <br><br>Kein Problem. Um Ihr Passwort zurücksetzen "
+"tragen Sie hier bitte Ihre E-Mail-Adresse ein, mit der Sie angemeldet "
+"sind. Anschließend erhalten Sie eine E-Mail mit den weiteren Schritten um"
+" Ihr Passwort zurückzusetzen."
 
-#: gbi_server/templates/user/recover.html:20
+#: gbi_server/templates/user/recover.html:22
 msgid "recover"
 msgstr "Wiederherstellen"
 
@@ -1308,13 +1357,13 @@ msgstr ""
 "folgenden Link. Der Link ist 24 Stunden gültig.\n"
 "%(url)s"
 
-#: gbi_server/templates/user/recover_sent.html:9
+#: gbi_server/templates/user/recover_sent.html:11
 msgid "recover mail sent"
 msgstr ""
 "Eine E-Mail zum Wiederherstellen Ihres Passworts wurde versendet. Bitte "
 "folgen Sie den Anweisungen in dieser E-Mail."
 
-#: gbi_server/templates/user/recover_sent.html:10
+#: gbi_server/templates/user/recover_sent.html:12
 #: gbi_server/templates/user/verify_wait.html:11
 msgid "goto login"
 msgstr "Zur Anmeldung"
@@ -1369,76 +1418,79 @@ msgstr ""
 "die Anmeldung abzuschließen.<p>Mail nicht erhalten? <a "
 "href=\"%(verify_url)s\">Fordern Sie hier einen erneute E-Mail an.</a></p>"
 
-#: gbi_server/views/admin.py:69
-msgid "User verified"
-msgstr "Benutzer verifiziert"
-
-#: gbi_server/views/admin.py:87
+#: gbi_server/views/admin.py:84
+#, fuzzy
 msgid "Account activated mail subject"
-msgstr "GBI-Konto aktiviert"
+msgstr ""
+"Ihr Zugang ist noch nicht freigeschaltet. Die Administratoren sind "
+"bereits über Ihre Anmeldung informiert."
 
-#: gbi_server/views/admin.py:92
-msgid "User activated"
-msgstr "Konto aktiviert"
+#: gbi_server/views/admin.py:89
+#, python-format
+msgid "User activated %(email)s"
+msgstr ""
+"Konto vom Nutzer mit der E-Mail-Adresse %(email)s wurde aktiviert. Der "
+"Nutzer wurde per E-Mail darüber benachrichtigt."
 
-#: gbi_server/views/admin.py:118 gbi_server/views/user.py:112
+#: gbi_server/views/admin.py:99
+#, fuzzy, python-format
+msgid "User was removed %(email)s"
+msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s  wurde gelöscht."
+
+#: gbi_server/views/admin.py:126 gbi_server/views/user.py:112
 #: gbi_server/views/user.py:162
 msgid "Email verification mail subject"
 msgstr "E-Mail-Adresse bestätigen"
 
-#: gbi_server/views/admin.py:131
+#: gbi_server/views/admin.py:139
 msgid "User created"
 msgstr "Benutzer erstellt"
 
-#: gbi_server/views/admin.py:144
+#: gbi_server/views/admin.py:153
 msgid "User edited"
 msgstr "Benutzerdaten erfolgreich bearbeitet"
 
-#: gbi_server/views/admin.py:155
+#: gbi_server/views/admin.py:165
 msgid "Password reset"
 msgstr "Passwort zurückgesetzt"
 
-#: gbi_server/views/admin.py:166
-msgid "User removed"
-msgstr "Benutzer gelöscht"
-
-#: gbi_server/views/admin.py:231
+#: gbi_server/views/admin.py:245
 msgid "Saved WMTS"
 msgstr "WMTS gespeichert"
 
-#: gbi_server/views/admin.py:235
+#: gbi_server/views/admin.py:249
 msgid "WMTS with this name already exist"
 msgstr "WMTS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:244
+#: gbi_server/views/admin.py:259
 msgid "WMTS removed"
 msgstr "WMTS gelöscht"
 
-#: gbi_server/views/admin.py:252
+#: gbi_server/views/admin.py:267
 msgid "Need url for capabilities"
 msgstr "URL für Capabilities wird benötigt"
 
-#: gbi_server/views/admin.py:322
+#: gbi_server/views/admin.py:337
 msgid "Saved WMS"
 msgstr "WMS wurde gespeichert"
 
-#: gbi_server/views/admin.py:327
+#: gbi_server/views/admin.py:342
 msgid "WMS with this name already exist"
 msgstr "WMS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:336
+#: gbi_server/views/admin.py:352
 msgid "WMS removed"
 msgstr "WMS gelöscht"
 
-#: gbi_server/views/admin.py:370
+#: gbi_server/views/admin.py:388
 msgid "Saved WFS"
 msgstr "WFS Speichern"
 
-#: gbi_server/views/admin.py:374
+#: gbi_server/views/admin.py:392
 msgid "WFS with this name already exist"
 msgstr "WFS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin.py:385
+#: gbi_server/views/admin.py:403
 msgid "WFS removed"
 msgstr "WFS gelöscht"
 
@@ -1724,4 +1776,13 @@ msgstr "Keine gültige Datumseingabe"
 #: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:753
 msgid "Not a valid date value"
 msgstr "Keine gültige Datumseingabe"
+
+#~ msgid "verify"
+#~ msgstr "Verifizieren"
+
+#~ msgid "User verified"
+#~ msgstr "Benutzer verifiziert"
+
+#~ msgid "Account activated mail subject"
+#~ msgstr "GBI-Konto aktiviert"
 
