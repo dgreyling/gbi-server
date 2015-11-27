@@ -29,20 +29,20 @@ manager = Manager(create_app)
 @manager.command
 def babel_init_lang(lang):
     "Initialize new language."
-    sh('pybabel init -i gbi_server/translations/messages.pot -d gbi_server/translations -l %s' % (lang,))
+    sh('pybabel init -i ../app/gbi_server/translations/messages.pot -d gbi_server/translations -l %s' % (lang,))
 
 
 @manager.command
 def babel_refresh():
     "Extract messages and update translation files."
-    sh('pybabel extract -F babel.cfg -k lazy_gettext -k _l -o gbi_server/translations/messages.pot gbi_server gbi_server/model gbi_server/lib')
-    sh('pybabel update -i gbi_server/translations/messages.pot -d gbi_server/translations')
+    sh('pybabel extract -F ../app/babel.cfg -k lazy_gettext -k _l -o ../app/gbi_server/translations/messages.pot ../app/gbi_server ../app/gbi_server/model ../app/gbi_server/lib')
+    sh('pybabel update -i ../app/gbi_server/translations/messages.pot -d ../app/gbi_server/translations')
 
 
 @manager.command
 def babel_compile():
     "Compile translations."
-    sh('pybabel compile -d gbi_server/translations')
+    sh('pybabel compile -d ../app/gbi_server/translations')
 
 
 @manager.command
