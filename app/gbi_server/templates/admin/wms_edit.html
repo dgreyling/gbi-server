@@ -1,6 +1,6 @@
 {% extends "admin/base.html" %}
 
-{% from "macros/forms.html" import input, input_tooltip, textarea, button %}
+{% from "macros/forms.html" import input, input_tooltip, checkbox_tooltip, textarea, button %}
 
 {% block title %}
     {{_('create or edit WMS')}}
@@ -53,6 +53,7 @@
                 </div>
             </div>
             {{ input(form.layer) }}
+            {{ checkbox_tooltip(form.is_transparent, _('tooltip - wmts is transparent ')) }}
             <hr>
             <div class="control-group">
                 <label class="control-label" for="srs_select"><span>{{ _('select srs') }}:</span></label>
@@ -70,12 +71,10 @@
             {{ input(form.view_level_start) }}
             {{ input(form.view_level_end) }}
             {{ input(form.max_tiles) }}
-            {{ checkbox(form.is_transparent) }}
-            {{ checkbox(form.is_public) }}
-            {{ checkbox(form.is_visible) }}
+            {{ checkbox_tooltip(form.is_visible, _('tooltip - is_visible')) }}
+            {{ checkbox_tooltip(form.is_public, _('tooltip - is public')) }}
             <hr>
-            {{ input_tooltip(form.is_protected, _('tooltip - protected service')) }}
-
+            {{ checkbox_tooltip(form.is_protected, _('tooltip - protected service')) }}
             {{ input(form.username) }}
             {{ input(form.password) }}
         </div>

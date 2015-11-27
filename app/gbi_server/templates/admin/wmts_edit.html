@@ -1,6 +1,6 @@
 {% extends "admin/base.html" %}
 
-{% from "macros/forms.html" import input, textarea, button %}
+{% from "macros/forms.html" import input, checkbox_tooltip, textarea, button %}
 
 {% block title %}
     {{_('create or edit WMTS')}}
@@ -22,21 +22,22 @@
             {{ input(form.name) }}
             {{ input(form.title) }}
             {{ input(form.url) }}
-            {{ input(form.format) }}
-            {{ checkbox(form.is_visible) }}
-            {{ checkbox(form.is_protected) }}
-            {{ input(form.username) }}
-            {{ input(form.password) }}
+            {{ input(form.format, class="span9") }}
+            {{ checkbox_tooltip(form.is_transparent, _('tooltip - wmts is transparent ')) }}
         </div>
 
         <div class="span4">
             {{ input(form.view_level_start) }}
             {{ input(form.view_level_end) }}
             {{ input(form.max_tiles) }}
-            {{ checkbox(form.is_background_layer) }}
-            {{ checkbox(form.is_transparent) }}
-            {{ checkbox(form.is_public) }}
-            {{ checkbox(form.is_accessible) }}
+            {{ checkbox_tooltip(form.is_visible, _('tooltip - is_visible')) }}
+            {{ checkbox_tooltip(form.is_background_layer, _('tooltip - is background layer')) }}
+            {{ checkbox_tooltip(form.is_public, _('tooltip - is public')) }}
+            {{ checkbox_tooltip(form.is_accessible, _('tooltip - is accessible')) }}
+            <hr>
+            {{ checkbox_tooltip(form.is_protected, _('tooltip - protected service')) }}
+            {{ input(form.username) }}
+            {{ input(form.password) }}
         </div>
         <div class="span4">
             {{ textarea(form.view_coverage, rows=15, cols=12, class='span12') }}

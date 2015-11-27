@@ -1,6 +1,6 @@
 {% extends "admin/base.html" %}
 
-{% from "macros/forms.html" import input, input_tooltip, textarea, button %}
+{% from "macros/forms.html" import input, input_tooltip, checkbox_tooltip, textarea, button %}
 
 {% block title %}
     {% if id %}
@@ -37,7 +37,7 @@
             {{ input(form.search_property) }}
             {{ input(form.max_features) }}
             <hr>
-            {{ input_tooltip(form.is_protected, _('tooltip - protected service')) }}
+            {{ checkbox_tooltip(form.is_protected, _('tooltip - protected service')) }}
             {{ input(form.username) }}
             {{ input(form.password) }}
         </div>
