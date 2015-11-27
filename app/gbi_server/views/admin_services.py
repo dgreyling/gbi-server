@@ -21,10 +21,11 @@ from sqlalchemy.exc import IntegrityError
 
 from geoalchemy2.elements import WKTElement
 from geoalchemy2.functions import ST_AsGeoJSON
+from geoalchemy2.shape import from_shape, to_shape
+from shapely.geometry import asShape
+from shapely.geometry import mapping
 
-from shapely.geometry import asShape, box
-
-from json import loads
+import json
 
 from gbi_server.views.admin import admin
 
@@ -45,10 +46,8 @@ def wmts_list():
 @admin.route('/admin/wmts/edit/<int:id>', methods=["GET", "POST"])
 def wmts_edit(id=None):
 
-    wmts = db.session.query(WMTS, ST_AsGeoJSON(WMTS.view_coverage.transform(3857))).filter_by(id=id).first() if id else None
+    wmts = WMTS.by_id(id) if id else None
     if wmts:
-        wmts[0].view_coverage = wmts[1]
-        wmts = wmts[0]
         form = WMTSForm(request.form, wmts)
     else:
         form = WMTSForm(request.form)
@@ -70,17 +69,31 @@ def wmts_edit(id=None):
         wmts.format = form.data['format']
         wmts.max_tiles = form.data['max_tiles'] or None
 
-        # TODO Update for new version
-        # view_coverage = form.data['view_coverage']
-        # # load geometry to load string as  json - if not possible then try to use string as bbox
-        # try:
-        #     geom = asShape(loads(view_coverage))
-        # except ValueError:
-        #     bbox = [float(x) for x in view_coverage.split(",")]
-        #     transfomed_bbox = transform_bbox('4326', '3857', bbox)
-        #     geom = box(transfomed_bbox[0], transfomed_bbox[1], transfomed_bbox[2], transfomed_bbox[3])
+        try:
+            view_coverage = json.loads(form.data['view_coverage'])
+            only_first_geometry = False
+            view_geometry = None
+            # check if we have a feature colleciton than load only first geometry
+            if 'features' in view_coverage:
+                for feature in view_coverage['features']:
+                    if 'geometry' in feature:
+                        if view_geometry:
+                            only_first_geometry = True
+                            break
+                        view_geometry = feature['geometry']
 
-        # wmts.view_coverage = WKTElement(geom.wkt, srid=3857, geometry_type='POLYGON')
+            if view_geometry:
+                view_coverage = view_geometry
+
+            if only_first_geometry:
+                flash(_('Only the first geometry was used for view coverage'), 'success')
+
+            wmts.view_coverage = from_shape(asShape(view_coverage), srid=4326)
+        except:
+            db.session.rollback()
+            flash(_('Geometry not correct'), 'error')
+            return render_template('admin/wmts_edit.html', form=form, id=id)
+
         wmts.view_level_start = form.data['view_level_start']
         wmts.view_level_end = form.data['view_level_end']
         wmts.is_background_layer = form.data['is_background_layer']
@@ -98,6 +111,12 @@ def wmts_edit(id=None):
         except IntegrityError:
             db.session.rollback()
             flash(_('WMTS with this name already exist'), 'error')
+
+    # load wmts_coverage as json
+    if wmts:
+        view_coverage = to_shape(wmts.view_coverage)
+        form.view_coverage.data = json.dumps(mapping(view_coverage))
+
     return render_template('admin/wmts_edit.html', form=form, id=id)
 
 
@@ -159,6 +178,9 @@ def wms_edit(id=None):
         wms.srs = form.data['srs']
         wms.max_tiles = form.data['max_tiles'] or None
         wms.version = form.data['version']
+
+
+
 
         # TODO Update for new version
         # view_coverage = form.data['view_coverage']
