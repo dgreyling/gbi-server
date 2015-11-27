@@ -43,6 +43,10 @@ select {
   color: inherit;
 }
 
+.table-sortable thead {
+    cursor: pointer;
+}
+
 .controls .errors {
     list-style-type: none;
     color: #b94a48;

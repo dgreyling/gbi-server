@@ -31,6 +31,7 @@ class CreateUserForm(NewUserForm):
 
 class SearchUserForm(Form):
     name = TextField(_l('firstname or lastname'))
+    email = TextField(_l('email'))
     zipcode_or_city = TextField(_l('zipcode or city'))
     federal_state = SelectField(
         _l('federal_state'),
@@ -38,8 +39,10 @@ class SearchUserForm(Form):
     )
     type = SelectField(_l('type'), coerce=int)
     company_number = TextField(_l('company_number'),)
-    active = BooleanField(_l('active'), default=True)
-
+    status = SelectField(
+        _l('status'),
+        choices=[('', ''), (True, _l('active')), ('False', _l('not active')),]
+    )
 
 class RasterSourceForm(Form):
     url = TextField(_l('rastersource_url'), [validators.Required()])

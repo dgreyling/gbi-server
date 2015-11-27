@@ -3,6 +3,7 @@ libs-js:
   output: cache/libs.js
   contents:
     - js/lib/jquery-1.11.3.min.js
+    - js/lib/urijs.js
     - js/lib/stupidtable.js
     - js/lib/bootstrap.min.js
     - js/lib/json2.js

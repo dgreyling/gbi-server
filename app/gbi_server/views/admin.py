@@ -46,9 +46,9 @@ def index():
     return render_template('admin/index.html')
 
 
-@admin.route('/admin/users_list', methods=["GET", "POST"])
+@admin.route('/admin/users_list', methods=["GET"])
 def user_list():
-    form = SearchUserForm()
+    form = SearchUserForm(csrf_enabled=False)
     form.federal_state.choices = []
     form.federal_state.choices.append(('', ''))
     for state in current_app.config['FEDERAL_STATES']:
@@ -63,15 +63,30 @@ def user_list():
         form.type.choices.append((User.Type.CONSULTANT, _('consultant')))
     form.type.choices.append((User.Type.ADMIN, _('admin')))
 
-    if form.validate_on_submit():
-        name = form.data.get('name', False)
-        zipcode_or_city = form.data.get('zipcode_or_city', False)
-        federal_state = form.data.get('federal_state', False)
-        type_ = form.data.get('type', False)
-        company_number = form.data.get('company_number', False)
-        active = form.data.get('active', False)
+    if request.args:
+        name = request.args.get('name', '')
+        email = request.args.get('email', '')
+        zipcode_or_city = request.args.get('zipcode_or_city', '')
+        federal_state = request.args.get('federal_state', False)
+        type_ = int(request.args.get('type', -99))
+        company_number = request.args.get('company_number', '')
+        status = request.args.get('status', False)
+        sort_key = request.args.get('sort_key', False)
+        order = request.args.get('order', 'asc')
+
+        # set requests to form fields
+        form.name.data = name
+        form.email.data = email
+        form.zipcode_or_city.data = zipcode_or_city
+        form.federal_state.data = federal_state
+        form.type.data = type_
+        form.company_number.data = company_number
+        form.status.data = status
 
         query = User.query
+        if status:
+            query = query.filter(User.active == status)
+
         if type_ != -99:
             query = query.filter(User.type == type_)
 
@@ -89,14 +104,39 @@ def user_list():
                 User.zipcode.like('%'+zipcode_or_city+'%'),
                 User.city.like('%'+zipcode_or_city+'%'),
             ))
+        if email:
+            query = query.filter(User.email.like('%'+email+'%'))
 
         if company_number:
             query = query.filter(User.company_number.like('%'+company_number+'%'))
 
-        query = query.filter(User.active == active)
+        if order == 'asc':
+            order_func = asc
+        else:
+            order_func = desc
+
+        if sort_key == 'lastname':
+            query = query.order_by(order_func(User.lastname))
+
+        if sort_key == 'email':
+            query = query.order_by(order_func(User.email))
+
+        if sort_key == 'type':
+            query = query.order_by(order_func(User.type))
+
+        if sort_key == 'registered':
+            query = query.order_by(order_func(User.registered))
+
+        if sort_key == 'zipcode':
+            query = query.order_by(order_func(User.zipcode))
+
+        if sort_key == 'status':
+            query = query.order_by(order_func(User.active))
+
         users = query.all()
     else:
         users = User.query.all()
+
     return render_template('admin/user_list.html', form=form, users=users)
 
 
