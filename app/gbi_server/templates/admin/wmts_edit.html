@@ -23,8 +23,8 @@
             {{ input(form.title) }}
             {{ input(form.url) }}
             {{ input(form.format) }}
-            {{ input(form.is_visible) }}
-            {{ input(form.is_protected) }}
+            {{ checkbox(form.is_visible) }}
+            {{ checkbox(form.is_protected) }}
             {{ input(form.username) }}
             {{ input(form.password) }}
         </div>
@@ -34,10 +34,10 @@
             {{ input(form.view_level_start) }}
             {{ input(form.view_level_end) }}
             {{ input(form.max_tiles) }}
-            {{ input(form.is_background_layer) }}
-            {{ input(form.is_transparent) }}
-            {{ input(form.is_public) }}
-            {{ input(form.is_accessible) }}
+            {{ checkbox(form.is_background_layer) }}
+            {{ checkbox(form.is_transparent) }}
+            {{ checkbox(form.is_public) }}
+            {{ checkbox(form.is_accessible) }}
         </div>
     </div>
     <div class="row-fluid">

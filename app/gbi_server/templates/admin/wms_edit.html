@@ -71,9 +71,9 @@
             {{ input(form.view_level_start) }}
             {{ input(form.view_level_end) }}
             {{ input(form.max_tiles) }}
-            {{ input(form.is_transparent) }}
-            {{ input(form.is_public) }}
-            {{ input(form.is_visible) }}
+            {{ checkbox(form.is_transparent) }}
+            {{ checkbox(form.is_public) }}
+            {{ checkbox(form.is_visible) }}
             <hr>
             {{ input_tooltip(form.is_protected, _('tooltip - protected service')) }}
 
