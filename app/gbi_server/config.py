@@ -26,6 +26,9 @@ class DefaultConfig(object):
 
     DEBUG = True
 
+    # config for pagination
+    USER_PER_PAGE = 2
+
     WTF_I18N_ENABLED = True
 
     SESSION_COOKIE_NAME = 'gbi_server_session'

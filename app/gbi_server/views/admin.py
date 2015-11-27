@@ -47,7 +47,8 @@ def index():
 
 
 @admin.route('/admin/users_list', methods=["GET"])
-def user_list():
+@admin.route('/admin/users_list/<int:page>', methods=["GET"])
+def user_list(page=1):
     form = SearchUserForm(csrf_enabled=False)
     form.federal_state.choices = []
     form.federal_state.choices.append(('', ''))
@@ -141,9 +142,9 @@ def user_list():
         if sort_key == 'status':
             query = query.order_by(order_func(User.active))
 
-        users = query.all()
+        users = query.paginate(page, current_app.config["USER_PER_PAGE"])
     else:
-        users = User.query.all()
+        users = User.query.paginate(page, current_app.config["USER_PER_PAGE"])
 
     session['search_requests'] = search_requests
     return render_template('admin/user_list.html', form=form, users=users)
