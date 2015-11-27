@@ -14,7 +14,7 @@
 # limitations under the License.
 
 from flask import render_template, Blueprint, flash, redirect, \
-    url_for, request, current_app
+    url_for, request, current_app, session
 from flask.ext.login import current_user
 from flask.ext.babel import gettext as _
 from werkzeug.exceptions import Unauthorized, Forbidden
@@ -63,16 +63,24 @@ def user_list():
         form.type.choices.append((User.Type.CONSULTANT, _('consultant')))
     form.type.choices.append((User.Type.ADMIN, _('admin')))
 
-    if request.args:
-        name = request.args.get('name', '')
-        email = request.args.get('email', '')
-        zipcode_or_city = request.args.get('zipcode_or_city', '')
-        federal_state = request.args.get('federal_state', False)
-        type_ = int(request.args.get('type', -99))
-        company_number = request.args.get('company_number', '')
-        status = request.args.get('status', False)
-        sort_key = request.args.get('sort_key', False)
-        order = request.args.get('order', 'asc')
+    search_requests = request.args
+    if request.args.get('refresh'):
+        session.pop('search_requests')
+
+    search_request_session = session.get('search_requests')
+    if not search_requests and search_request_session:
+        search_requests = search_request_session
+
+    if search_requests:
+        name = search_requests.get('name', '')
+        email = search_requests.get('email', '')
+        zipcode_or_city = search_requests.get('zipcode_or_city', '')
+        federal_state = search_requests.get('federal_state', False)
+        type_ = int(search_requests.get('type', -99))
+        company_number = search_requests.get('company_number', '')
+        status = search_requests.get('status', False)
+        sort_key = search_requests.get('sort_key', False)
+        order = search_requests.get('order', 'asc')
 
         # set requests to form fields
         form.name.data = name
@@ -137,6 +145,7 @@ def user_list():
     else:
         users = User.query.all()
 
+    session['search_requests'] = search_requests
     return render_template('admin/user_list.html', form=form, users=users)
 
 

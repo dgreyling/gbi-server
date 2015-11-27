@@ -38,6 +38,7 @@
 {% block content_bottom %}
     <div class="row-fluid">
         <div class="span12">
+
             <h4>{{ _('address') }}</h4>
             {{ user_detail(user) }}
 
@@ -70,6 +71,10 @@
         </div>
     </div>
 {% endblock %}
+<hr>
+<a href="{{ url_for('admin.user_list') }}" class="btn btn-small">
+    {{ _('Back to users list') }}
+</a>
 
 {% endblock %}
 

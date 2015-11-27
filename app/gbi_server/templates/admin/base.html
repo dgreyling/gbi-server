@@ -19,7 +19,7 @@
         <h5>{{ _('User') }}</h5>
         <ul class="nav nav-pills nav-stacked">
             <li>
-                <a href="{{ url_for('admin.user_list') }}">
+                <a href="{{ url_for('admin.user_list', refresh=True) }}">
                     {{ _('user list') }}
                 </a>
             </li>
