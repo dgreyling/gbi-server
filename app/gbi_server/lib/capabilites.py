@@ -18,7 +18,8 @@ from __future__ import absolute_import
 from xml.etree import ElementTree as etree
 import urlparse
 import urllib
-
+import shapely
+import json
 from mapproxy.client.http import HTTPClient, HTTPClientError
 
 import logging
@@ -84,8 +85,11 @@ class WMS111Capabilities(object):
                 llbbox_elem.attrib['maxy']
             )
             llbbox = map(float, llbbox)
+            llbbox = shapely.geometry.box(
+                llbbox[0],llbbox[1], llbbox[2], llbbox[3]
+            )
+            llbbox = json.dumps(shapely.geometry.mapping(llbbox))
         this_layer['llbbox'] = llbbox
-
         srs_elements = layer_elem.findall('SRS')
         srs_codes = set([srs.text for srs in srs_elements])
         # unique srs-codes in either srs or parent_layer['srs']

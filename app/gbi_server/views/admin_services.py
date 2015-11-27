@@ -151,10 +151,8 @@ def wms_list():
 @admin.route('/admin/wms/edit/<int:id>', methods=["GET", "POST"])
 def wms_edit(id=None):
 
-    wms = db.session.query(WMS, ST_AsGeoJSON(WMS.view_coverage.transform(3857))).filter_by(id=id).first() if id else None
+    wms = WMS.by_id(id) if id else None
     if wms:
-        wms[0].view_coverage = wms[1]
-        wms = wms[0]
         form = WMSForm(request.form, wms)
     else:
         form = WMSForm(request.form)
@@ -179,20 +177,30 @@ def wms_edit(id=None):
         wms.max_tiles = form.data['max_tiles'] or None
         wms.version = form.data['version']
 
+        try:
+            view_coverage = json.loads(form.data['view_coverage'])
+            only_first_geometry = False
+            view_geometry = None
+            # check if we have a feature colleciton than load only first geometry
+            if 'features' in view_coverage:
+                for feature in view_coverage['features']:
+                    if 'geometry' in feature:
+                        if view_geometry:
+                            only_first_geometry = True
+                            break
+                        view_geometry = feature['geometry']
 
+            if view_geometry:
+                view_coverage = view_geometry
 
+            if only_first_geometry:
+                flash(_('Only the first geometry was used for view coverage'), 'success')
 
-        # TODO Update for new version
-        # view_coverage = form.data['view_coverage']
-        # load geometry to load string as  json - if not possible then try to use string as bbox
-        # try:
-        #     geom = asShape(loads(view_coverage))
-        # except ValueError:
-        #     bbox = [float(x) for x in view_coverage.split(",")]
-        #     transfomed_bbox = transform_bbox('4326', '3857', bbox)
-        #     geom = box(transfomed_bbox[0], transfomed_bbox[1], transfomed_bbox[2], transfomed_bbox[3])
-
-        # wms.view_coverage = WKTElement(geom.wkt, srid=3857, geometry_type='POLYGON')
+            wms.view_coverage = from_shape(asShape(view_coverage), srid=4326)
+        except:
+            db.session.rollback()
+            flash(_('Geometry not correct'), 'error')
+            return render_template('admin/wmts_edit.html', form=form, id=id)
 
         wms.view_level_start = form.data['view_level_start']
         wms.view_level_end = form.data['view_level_end']
@@ -215,6 +223,12 @@ def wms_edit(id=None):
             print ex
             db.session.rollback()
             flash(_('WMS with this name already exist'), 'error')
+        # load wmts_coverage as json
+
+    if wms:
+        view_coverage = to_shape(wms.view_coverage)
+        form.view_coverage.data = json.dumps(mapping(view_coverage))
+
     return render_template('admin/wms_edit.html', form=form, id=id)
 
 
