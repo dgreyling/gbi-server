@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-26 16:58+0100\n"
+"POT-Creation-Date: 2015-11-27 10:11+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -116,22 +116,22 @@ msgstr "Schleswig Holstein"
 msgid "Thuringia"
 msgstr "Thüringen"
 
-#: gbi_server/forms/admin.py:26 gbi_server/forms/admin.py:39
-#: gbi_server/forms/user.py:74 gbi_server/templates/admin/user_list.html:51
+#: gbi_server/forms/admin.py:26 gbi_server/forms/admin.py:40
+#: gbi_server/forms/user.py:74 gbi_server/templates/admin/user_list.html:56
 #: gbi_server/templates/admin/user_list_inactive.html:14
 #: gbi_server/templates/macros/user.html:9
 msgid "type"
 msgstr "Benutzertyp"
 
 #: gbi_server/forms/admin.py:27 gbi_server/templates/admin/user_detail.html:52
-#: gbi_server/templates/admin/user_list.html:78
+#: gbi_server/templates/admin/user_list.html:90
 #: gbi_server/templates/admin/user_list_inactive.html:36
 msgid "verified"
 msgstr "Verifiziert"
 
-#: gbi_server/forms/admin.py:28 gbi_server/forms/admin.py:41
+#: gbi_server/forms/admin.py:28 gbi_server/forms/admin.py:44
 #: gbi_server/templates/admin/user_detail.html:50
-#: gbi_server/templates/admin/user_list.html:76
+#: gbi_server/templates/admin/user_list.html:88
 msgid "active"
 msgstr "Aktiviert"
 
@@ -143,166 +143,177 @@ msgstr "<a href=\"/page/de/nutzungsbedingungen.html\">Nutzungsbedingungen</a>"
 msgid "firstname or lastname"
 msgstr "Vorname oder Nachname"
 
-#: gbi_server/forms/admin.py:34
-msgid "zipcode or city"
-msgstr "PLZ oder Stadt"
-
-#: gbi_server/forms/admin.py:36 gbi_server/forms/user.py:52
-#: gbi_server/forms/user.py:55
-msgid "federal_state"
-msgstr "Bundesland"
-
-#: gbi_server/forms/admin.py:40 gbi_server/forms/user.py:65
-#: gbi_server/templates/macros/user.html:43
-msgid "company_number"
-msgstr "Betriebsnummer"
-
-#: gbi_server/forms/admin.py:45 gbi_server/templates/admin/wms_list.html:13
-#: gbi_server/templates/admin/wmts_list.html:13
-msgid "rastersource_url"
-msgstr "URL"
-
-#: gbi_server/forms/admin.py:46
-msgid "rastersource_username"
-msgstr "Benutzername"
-
-#: gbi_server/forms/admin.py:47
-msgid "rastersource_password"
-msgstr "Passwort"
-
-#: gbi_server/forms/admin.py:48
-msgid "rastersource_name"
-msgstr "Name"
-
-#: gbi_server/forms/admin.py:49 gbi_server/templates/admin/wms_list.html:12
-#: gbi_server/templates/admin/wmts_list.html:12
-msgid "rastersource_title"
-msgstr "Titel"
-
-#: gbi_server/forms/admin.py:50 gbi_server/templates/admin/wms_list.html:14
-msgid "rastersource_layer"
-msgstr "Layer"
-
-#: gbi_server/forms/admin.py:51 gbi_server/templates/admin/wms_list.html:15
-#: gbi_server/templates/admin/wmts_list.html:14
-msgid "rastersource_format"
-msgstr "Format"
-
-#: gbi_server/forms/admin.py:52
-msgid "rastersource_srs"
-msgstr "SRS"
-
-#: gbi_server/forms/admin.py:53
-msgid "rastersource_max_tiles"
-msgstr "Max. Kacheln/Import"
-
-#: gbi_server/forms/admin.py:55
-msgid "rastersource_view_coverage"
-msgstr "Anzeigebereich"
-
-#: gbi_server/forms/admin.py:56 gbi_server/templates/admin/wms_list.html:16
-#: gbi_server/templates/admin/wmts_list.html:15
-msgid "rastersource_view_level_start"
-msgstr "Start-Level"
-
-#: gbi_server/forms/admin.py:57 gbi_server/templates/admin/wms_list.html:17
-#: gbi_server/templates/admin/wmts_list.html:16
-msgid "rastersource_view_level_end"
-msgstr "End-Level"
-
-#: gbi_server/forms/admin.py:59
-msgid "rastersource_background_layer"
-msgstr "Hintergrundlayer"
-
-#: gbi_server/forms/admin.py:60
-msgid "rastersource_transparent"
-msgstr "Transparent"
-
-#: gbi_server/forms/admin.py:61
-msgid "rastersource_visibility"
-msgstr "Sichtbar"
-
-#: gbi_server/forms/admin.py:62
-msgid "rastersource_public"
-msgstr "Unbeschränkter Zugriff"
-
-#: gbi_server/forms/admin.py:63
-msgid "rastersource_accessible"
-msgstr "Direkter WMTS Zugriff"
-
-#: gbi_server/forms/admin.py:64
-msgid "rastersource_protected"
-msgstr "Passwort geschützt"
-
-#: gbi_server/forms/admin.py:68
-msgid "level needs to be bigger or equal to start level"
-msgstr ""
-"Das gewählte Startlevel muss größer oder gleich dem ausgewählten Endlevel"
-" sein"
-
-#: gbi_server/forms/admin.py:77
-msgid "wms_version"
-msgstr "WMS Version"
-
-#: gbi_server/forms/admin.py:82
-msgid "wfs_host"
-msgstr "WFS Host"
-
-#: gbi_server/forms/admin.py:83
-msgid "wfs_url"
-msgstr "URL"
-
-#: gbi_server/forms/admin.py:84
-msgid "wfs_geometry"
-msgstr "Geometriespalte"
-
-#: gbi_server/forms/admin.py:85 gbi_server/forms/wfs.py:30
-msgid "wfs_layer"
-msgstr "Layer"
-
-#: gbi_server/forms/admin.py:86
-msgid "wfs_name"
-msgstr "Name"
-
-#: gbi_server/forms/admin.py:88
-msgid "wfs_srs"
-msgstr "SRS"
-
-#: gbi_server/forms/admin.py:90
-msgid "wfs_ns_prefix"
-msgstr "NS Prefix"
-
-#: gbi_server/forms/admin.py:91
-msgid "wfs_ns_uri"
-msgstr "NS URI"
-
-#: gbi_server/forms/admin.py:93
-msgid "wfs_search_property"
-msgstr "Suchattribut"
-
-#: gbi_server/forms/admin.py:94
-msgid "wfs_max_features"
-msgstr "Maximale Features"
-
-#: gbi_server/forms/admin.py:96
-msgid "rvectorsource_username"
-msgstr "Benutzername"
-
-#: gbi_server/forms/admin.py:97
-msgid "vectorsource_password"
-msgstr "Passwort"
-
-#: gbi_server/forms/admin.py:98
-msgid "vectorsoure_protected"
-msgstr "Passwort geschützt"
-
-#: gbi_server/forms/user.py:34 gbi_server/forms/user.py:76
-#: gbi_server/forms/user.py:91 gbi_server/templates/admin/user_list.html:50
+#: gbi_server/forms/admin.py:34 gbi_server/forms/user.py:34
+#: gbi_server/forms/user.py:76 gbi_server/forms/user.py:91
+#: gbi_server/templates/admin/user_list.html:53
 #: gbi_server/templates/admin/user_list_inactive.html:13
 #: gbi_server/templates/boxes/overview.html:19
 #: gbi_server/templates/macros/user.html:6
 msgid "email"
 msgstr "E-Mail Adresse"
+
+#: gbi_server/forms/admin.py:35
+msgid "zipcode or city"
+msgstr "PLZ oder Stadt"
+
+#: gbi_server/forms/admin.py:37 gbi_server/forms/user.py:52
+#: gbi_server/forms/user.py:55
+msgid "federal_state"
+msgstr "Bundesland"
+
+#: gbi_server/forms/admin.py:41 gbi_server/forms/user.py:65
+#: gbi_server/templates/macros/user.html:43
+msgid "company_number"
+msgstr "Betriebsnummer"
+
+#: gbi_server/forms/admin.py:43 gbi_server/templates/admin/user_detail.html:45
+#: gbi_server/templates/admin/user_list.html:65
+msgid "status"
+msgstr "Status"
+
+#: gbi_server/forms/admin.py:44 gbi_server/templates/admin/user_detail.html:52
+#: gbi_server/templates/admin/user_list.html:90
+msgid "not active"
+msgstr "nicht aktiviert"
+
+#: gbi_server/forms/admin.py:48 gbi_server/templates/admin/wms_list.html:13
+#: gbi_server/templates/admin/wmts_list.html:13
+msgid "rastersource_url"
+msgstr "URL"
+
+#: gbi_server/forms/admin.py:49
+msgid "rastersource_username"
+msgstr "Benutzername"
+
+#: gbi_server/forms/admin.py:50
+msgid "rastersource_password"
+msgstr "Passwort"
+
+#: gbi_server/forms/admin.py:51
+msgid "rastersource_name"
+msgstr "Name"
+
+#: gbi_server/forms/admin.py:52 gbi_server/templates/admin/wms_list.html:12
+#: gbi_server/templates/admin/wmts_list.html:12
+msgid "rastersource_title"
+msgstr "Titel"
+
+#: gbi_server/forms/admin.py:53 gbi_server/templates/admin/wms_list.html:14
+msgid "rastersource_layer"
+msgstr "Layer"
+
+#: gbi_server/forms/admin.py:54 gbi_server/templates/admin/wms_list.html:15
+#: gbi_server/templates/admin/wmts_list.html:14
+msgid "rastersource_format"
+msgstr "Format"
+
+#: gbi_server/forms/admin.py:55
+msgid "rastersource_srs"
+msgstr "SRS"
+
+#: gbi_server/forms/admin.py:56
+msgid "rastersource_max_tiles"
+msgstr "Max. Kacheln/Import"
+
+#: gbi_server/forms/admin.py:58
+msgid "rastersource_view_coverage"
+msgstr "Anzeigebereich"
+
+#: gbi_server/forms/admin.py:59 gbi_server/templates/admin/wms_list.html:16
+#: gbi_server/templates/admin/wmts_list.html:15
+msgid "rastersource_view_level_start"
+msgstr "Start-Level"
+
+#: gbi_server/forms/admin.py:60 gbi_server/templates/admin/wms_list.html:17
+#: gbi_server/templates/admin/wmts_list.html:16
+msgid "rastersource_view_level_end"
+msgstr "End-Level"
+
+#: gbi_server/forms/admin.py:62
+msgid "rastersource_background_layer"
+msgstr "Hintergrundlayer"
+
+#: gbi_server/forms/admin.py:63
+msgid "rastersource_transparent"
+msgstr "Transparent"
+
+#: gbi_server/forms/admin.py:64
+msgid "rastersource_visibility"
+msgstr "Sichtbar"
+
+#: gbi_server/forms/admin.py:65
+msgid "rastersource_public"
+msgstr "Unbeschränkter Zugriff"
+
+#: gbi_server/forms/admin.py:66
+msgid "rastersource_accessible"
+msgstr "Direkter WMTS Zugriff"
+
+#: gbi_server/forms/admin.py:67
+msgid "rastersource_protected"
+msgstr "Passwort geschützt"
+
+#: gbi_server/forms/admin.py:71
+msgid "level needs to be bigger or equal to start level"
+msgstr ""
+"Das gewählte Startlevel muss größer oder gleich dem ausgewählten Endlevel"
+" sein"
+
+#: gbi_server/forms/admin.py:80
+msgid "wms_version"
+msgstr "WMS Version"
+
+#: gbi_server/forms/admin.py:85
+msgid "wfs_host"
+msgstr "WFS Host"
+
+#: gbi_server/forms/admin.py:86
+msgid "wfs_url"
+msgstr "URL"
+
+#: gbi_server/forms/admin.py:87
+msgid "wfs_geometry"
+msgstr "Geometriespalte"
+
+#: gbi_server/forms/admin.py:88 gbi_server/forms/wfs.py:30
+msgid "wfs_layer"
+msgstr "Layer"
+
+#: gbi_server/forms/admin.py:89
+msgid "wfs_name"
+msgstr "Name"
+
+#: gbi_server/forms/admin.py:91
+msgid "wfs_srs"
+msgstr "SRS"
+
+#: gbi_server/forms/admin.py:93
+msgid "wfs_ns_prefix"
+msgstr "NS Prefix"
+
+#: gbi_server/forms/admin.py:94
+msgid "wfs_ns_uri"
+msgstr "NS URI"
+
+#: gbi_server/forms/admin.py:96
+msgid "wfs_search_property"
+msgstr "Suchattribut"
+
+#: gbi_server/forms/admin.py:97
+msgid "wfs_max_features"
+msgstr "Maximale Features"
+
+#: gbi_server/forms/admin.py:99
+msgid "rvectorsource_username"
+msgstr "Benutzername"
+
+#: gbi_server/forms/admin.py:100
+msgid "vectorsource_password"
+msgstr "Passwort"
+
+#: gbi_server/forms/admin.py:101
+msgid "vectorsoure_protected"
+msgstr "Passwort geschützt"
 
 #: gbi_server/forms/user.py:35 gbi_server/forms/user.py:77
 #: gbi_server/forms/user.py:86 gbi_server/forms/user.py:95
@@ -398,25 +409,25 @@ msgstr "Coverage auswhälen"
 msgid "external_wms_title"
 msgstr "GBI WMS"
 
-#: gbi_server/model/user.py:94 gbi_server/views/admin.py:59
-#: gbi_server/views/admin.py:167 gbi_server/views/user.py:92
+#: gbi_server/model/user.py:94 gbi_server/views/admin.py:60
+#: gbi_server/views/admin.py:207 gbi_server/views/user.py:92
 msgid "customer"
 msgstr "Landwirt"
 
-#: gbi_server/model/user.py:95 gbi_server/views/admin.py:60
-#: gbi_server/views/admin.py:168 gbi_server/views/user.py:95
+#: gbi_server/model/user.py:95 gbi_server/views/admin.py:61
+#: gbi_server/views/admin.py:208 gbi_server/views/user.py:95
 msgid "service_provider"
 msgstr "Dienstleister"
 
-#: gbi_server/model/user.py:96 gbi_server/views/admin.py:62
-#: gbi_server/views/admin.py:170 gbi_server/views/user.py:94
+#: gbi_server/model/user.py:96 gbi_server/views/admin.py:63
+#: gbi_server/views/admin.py:210 gbi_server/views/user.py:94
 msgid "consultant"
 msgstr "Berater"
 
 #: gbi_server/model/user.py:97 gbi_server/templates/admin/base.html:8
 #: gbi_server/templates/admin/base.html:12
-#: gbi_server/templates/admin/index.html:5 gbi_server/views/admin.py:63
-#: gbi_server/views/admin.py:171
+#: gbi_server/templates/admin/index.html:5 gbi_server/views/admin.py:64
+#: gbi_server/views/admin.py:211
 msgid "admin"
 msgstr "Administrator"
 
@@ -545,7 +556,7 @@ msgstr "Benutzer"
 #: gbi_server/templates/admin/user_list.html:3
 #: gbi_server/templates/admin/user_list.html:42
 msgid "user list"
-msgstr "Alle Benutzer"
+msgstr "Benutzerliste"
 
 #: gbi_server/templates/admin/base.html:28
 msgid "user list inactive"
@@ -672,7 +683,7 @@ msgstr ""
 
 #: gbi_server/templates/admin/user_detail.html:6
 #: gbi_server/templates/admin/user_detail.html:9
-#: gbi_server/templates/admin/user_list.html:83
+#: gbi_server/templates/admin/user_list.html:95
 #: gbi_server/templates/admin/user_list_inactive.html:53
 #: gbi_server/templates/admin/user_log.html:5
 msgid "user details"
@@ -699,18 +710,8 @@ msgstr "Zugriffe anzeigen"
 msgid "delete user"
 msgstr "Benutzer löschen"
 
-#: gbi_server/templates/admin/user_detail.html:45
-#: gbi_server/templates/admin/user_list.html:54
-msgid "status"
-msgstr "Status"
-
-#: gbi_server/templates/admin/user_detail.html:52
-#: gbi_server/templates/admin/user_list.html:78
-msgid "not active"
-msgstr "nicht aktiviert"
-
 #: gbi_server/templates/admin/user_detail.html:54
-#: gbi_server/templates/admin/user_list.html:80
+#: gbi_server/templates/admin/user_list.html:92
 #: gbi_server/templates/admin/user_list_inactive.html:38
 msgid "not verified"
 msgstr "nicht verifiziert"
@@ -725,12 +726,10 @@ msgid "deactivate"
 msgstr "Deaktivieren"
 
 #: gbi_server/templates/admin/user_list.html:6
-#, fuzzy
 msgid "Search in users list"
-msgstr "Nicht freigeschaltete Benutzer"
+msgstr "In Benutzerliste suchen"
 
-#: gbi_server/templates/admin/user_list.html:35
-#, fuzzy
+#: gbi_server/templates/admin/user_list.html:36
 msgid "Search"
 msgstr "Suchen"
 
@@ -740,19 +739,18 @@ msgstr "Suchen"
 msgid "id"
 msgstr "ID"
 
-#: gbi_server/templates/admin/user_list.html:49
+#: gbi_server/templates/admin/user_list.html:50
 #: gbi_server/templates/boxes/overview.html:18
 msgid "name"
 msgstr "Name"
 
-#: gbi_server/templates/admin/user_list.html:52
+#: gbi_server/templates/admin/user_list.html:59
 #: gbi_server/templates/admin/user_list_inactive.html:15
 #: gbi_server/templates/macros/user.html:12
 msgid "registered"
 msgstr "Registriert"
 
-#: gbi_server/templates/admin/user_list.html:53
-#, fuzzy
+#: gbi_server/templates/admin/user_list.html:62
 msgid "adresse"
 msgstr "Adresse"
 
@@ -1484,45 +1482,45 @@ msgstr ""
 "die Anmeldung abzuschließen.<p>Mail nicht erhalten? <a "
 "href=\"%(verify_url)s\">Fordern Sie hier einen erneute E-Mail an.</a></p>"
 
-#: gbi_server/views/admin.py:124
+#: gbi_server/views/admin.py:164
 msgid "Account activated mail subject"
 msgstr "GeoBox – Ihr Zugang wurde freigeschaltet."
 
-#: gbi_server/views/admin.py:129
+#: gbi_server/views/admin.py:169
 #, python-format
 msgid "User activated %(email)s"
 msgstr ""
 "Konto vom Nutzer mit der E-Mail-Adresse %(email)s wurde aktiviert. Der "
 "Nutzer wurde per E-Mail darüber benachrichtigt."
 
-#: gbi_server/views/admin.py:138
+#: gbi_server/views/admin.py:178
 #, python-format
 msgid "User deactivate %(email)s"
 msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s wurde deaktiviert."
 
-#: gbi_server/views/admin.py:147
+#: gbi_server/views/admin.py:187
 msgid "Self-User cannot be removed"
 msgstr "Der eigene Benutzer kann nicht gelöscht werden."
 
-#: gbi_server/views/admin.py:154
+#: gbi_server/views/admin.py:194
 #, python-format
 msgid "User was removed %(email)s"
 msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s wurde gelöscht."
 
-#: gbi_server/views/admin.py:182 gbi_server/views/user.py:112
+#: gbi_server/views/admin.py:222 gbi_server/views/user.py:112
 #: gbi_server/views/user.py:162
 msgid "Email verification mail subject"
 msgstr "E-Mail-Adresse bestätigen"
 
-#: gbi_server/views/admin.py:200
+#: gbi_server/views/admin.py:240
 msgid "User created"
 msgstr "Benutzer erstellt"
 
-#: gbi_server/views/admin.py:214
+#: gbi_server/views/admin.py:254
 msgid "User edited"
 msgstr "Benutzerdaten erfolgreich bearbeitet"
 
-#: gbi_server/views/admin.py:225
+#: gbi_server/views/admin.py:265
 msgid "Password reset"
 msgstr "Passwort zurückgesetzt"
 
@@ -1684,171 +1682,6 @@ msgstr "Ihr Passwort wurde geändert"
 msgid "Old password is not correct"
 msgstr "Das eingegebene Passwort ist nicht korrekt"
 
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:56
-#, python-format
-msgid "Invalid field name '%s'."
-msgstr "Ungültiger Feldname '%s'."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:64
-#, python-format
-msgid "Field must be equal to %(other_name)s."
-msgstr "Das Feld muss mit dem %(other_name)s übereinstimmen."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:97
-#, python-format
-msgid "Field must be at least %(min)d character long."
-msgid_plural "Field must be at least %(min)d characters long."
-msgstr[0] "Feld muss mindestens %(min)d Zeichen lang sein"
-msgstr[1] "Feld muss mindestens %(min)d Zeichen lang sein"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:100
-#, python-format
-msgid "Field cannot be longer than %(max)d character."
-msgid_plural "Field cannot be longer than %(max)d characters."
-msgstr[0] "Der Inhalt kann nicht länger als %(max)d Buchstabe sein."
-msgstr[1] "Der Inhalt kann nicht länger als %(max)d Buchstaben sein."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:103
-#, python-format
-msgid "Field must be between %(min)d and %(max)d characters long."
-msgstr "Eingabe muss zwischen %(min)d und %(max)d Zeichen lang sein."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:139
-#, python-format
-msgid "Number must be at least %(min)s."
-msgstr "Zahl muss kleiner sein als %(min)s"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:141
-#, python-format
-msgid "Number must be at most %(max)s."
-msgstr "Zahl muss kleiner sein als %(max)s"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:143
-#, python-format
-msgid "Number must be between %(min)s and %(max)s."
-msgstr "Die Zahl muss zwischen %(min)s und %(max)s liegen"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:203
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:243
-msgid "This field is required."
-msgstr "Dieses Feld muss ausgefüllt werden."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:275
-msgid "Invalid input."
-msgstr "Ungültige Eingabe."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:301
-msgid "Invalid email address."
-msgstr "Ungültige E-Mail-Adresse"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:335
-msgid "Invalid IP address."
-msgstr "Ungültige IP Adresse."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:386
-msgid "Invalid Mac address."
-msgstr "Ungültige MAC-Adresse"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:415
-msgid "Invalid URL."
-msgstr "Ungültige URL."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:436
-msgid "Invalid UUID."
-msgstr "Ungültige UUID."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:464
-#, python-format
-msgid "Invalid value, must be one of: %(values)s."
-msgstr "Ungültiger Wert. Der Wert muss eines der folgenen sein: %(values)s."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/validators.py:496
-#, python-format
-msgid "Invalid value, can't be any of: %(values)s."
-msgstr "Ungültiger Wert: %(values)s sind nicht möglich."
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/csrf/core.py:98
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/csrf/form.py:47
-msgid "Invalid CSRF Token"
-msgstr "Ungültiger CSRF Token"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/csrf/session.py:61
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:58
-msgid "CSRF token missing"
-msgstr "CSRF Token fehlt"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/csrf/session.py:69
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:66
-msgid "CSRF failed"
-msgstr ""
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/csrf/session.py:74
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/csrf/session.py:71
-msgid "CSRF token expired"
-msgstr ""
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:87
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:164
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:166
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/django/fields.py:95
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:125
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:127
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:180
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/sqlalchemy/fields.py:185
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:468
-msgid "Not a valid choice"
-msgstr "Keine gültige Auswahl"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:185
-msgid "Not a valid list"
-msgstr "Keine gültige Liste"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/appengine/fields.py:204
-msgid "Not a valid integer list"
-msgstr "Kein gültiger Zahlenwert"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:63
-msgid "Please input a date/time value"
-msgstr ""
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:75
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/ext/dateutil/fields.py:83
-msgid "Invalid date/time input"
-msgstr ""
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:461
-msgid "Invalid Choice: could not coerce"
-msgstr ""
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:494
-msgid "Invalid choice(s): one or more data inputs could not be coerced"
-msgstr ""
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:501
-#, python-format
-msgid "'%(value)s' is not a valid choice for this field"
-msgstr "'%(value)s' ist keine gültige Auswahl für dieses Feld"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:584
-msgid "Not a valid integer value"
-msgstr "Kein gültiger Zahlenwert"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:650
-msgid "Not a valid decimal value"
-msgstr "Kein gültiger Zahlenwert"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:677
-msgid "Not a valid float value"
-msgstr "Kein gültiger Gleitkommawert"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:736
-msgid "Not a valid datetime value"
-msgstr "Keine gültige Datumseingabe"
-
-#: /Users/dodo/virtualenvs/gbi/lib/python2.7/site-packages/wtforms/fields/core.py:753
-msgid "Not a valid date value"
-msgstr "Keine gültige Datumseingabe"
-
 #~ msgid "verify"
 #~ msgstr "Verifizieren"
 
@@ -1860,4 +1693,110 @@ msgstr "Keine gültige Datumseingabe"
 
 #~ msgid "edit user"
 #~ msgstr "Benutzer editieren"
+
+#~ msgid "Invalid field name '%s'."
+#~ msgstr "Ungültiger Feldname '%s'."
+
+#~ msgid "Field must be equal to %(other_name)s."
+#~ msgstr "Das Feld muss mit dem %(other_name)s übereinstimmen."
+
+#~ msgid "Field must be at least %(min)d character long."
+#~ msgid_plural "Field must be at least %(min)d characters long."
+#~ msgstr[0] "Feld muss mindestens %(min)d Zeichen lang sein"
+#~ msgstr[1] "Feld muss mindestens %(min)d Zeichen lang sein"
+
+#~ msgid "Field cannot be longer than %(max)d character."
+#~ msgid_plural "Field cannot be longer than %(max)d characters."
+#~ msgstr[0] "Der Inhalt kann nicht länger als %(max)d Buchstabe sein."
+#~ msgstr[1] "Der Inhalt kann nicht länger als %(max)d Buchstaben sein."
+
+#~ msgid "Field must be between %(min)d and %(max)d characters long."
+#~ msgstr "Eingabe muss zwischen %(min)d und %(max)d Zeichen lang sein."
+
+#~ msgid "Number must be at least %(min)s."
+#~ msgstr "Zahl muss kleiner sein als %(min)s"
+
+#~ msgid "Number must be at most %(max)s."
+#~ msgstr "Zahl muss kleiner sein als %(max)s"
+
+#~ msgid "Number must be between %(min)s and %(max)s."
+#~ msgstr "Die Zahl muss zwischen %(min)s und %(max)s liegen"
+
+#~ msgid "This field is required."
+#~ msgstr "Dieses Feld muss ausgefüllt werden."
+
+#~ msgid "Invalid input."
+#~ msgstr "Ungültige Eingabe."
+
+#~ msgid "Invalid email address."
+#~ msgstr "Ungültige E-Mail-Adresse"
+
+#~ msgid "Invalid IP address."
+#~ msgstr "Ungültige IP Adresse."
+
+#~ msgid "Invalid Mac address."
+#~ msgstr "Ungültige MAC-Adresse"
+
+#~ msgid "Invalid URL."
+#~ msgstr "Ungültige URL."
+
+#~ msgid "Invalid UUID."
+#~ msgstr "Ungültige UUID."
+
+#~ msgid "Invalid value, must be one of: %(values)s."
+#~ msgstr "Ungültiger Wert. Der Wert muss eines der folgenen sein: %(values)s."
+
+#~ msgid "Invalid value, can't be any of: %(values)s."
+#~ msgstr "Ungültiger Wert: %(values)s sind nicht möglich."
+
+#~ msgid "Invalid CSRF Token"
+#~ msgstr "Ungültiger CSRF Token"
+
+#~ msgid "CSRF token missing"
+#~ msgstr "CSRF Token fehlt"
+
+#~ msgid "CSRF failed"
+#~ msgstr ""
+
+#~ msgid "CSRF token expired"
+#~ msgstr ""
+
+#~ msgid "Not a valid choice"
+#~ msgstr "Keine gültige Auswahl"
+
+#~ msgid "Not a valid list"
+#~ msgstr "Keine gültige Liste"
+
+#~ msgid "Not a valid integer list"
+#~ msgstr "Kein gültiger Zahlenwert"
+
+#~ msgid "Please input a date/time value"
+#~ msgstr ""
+
+#~ msgid "Invalid date/time input"
+#~ msgstr ""
+
+#~ msgid "Invalid Choice: could not coerce"
+#~ msgstr ""
+
+#~ msgid "Invalid choice(s): one or more data inputs could not be coerced"
+#~ msgstr ""
+
+#~ msgid "'%(value)s' is not a valid choice for this field"
+#~ msgstr "'%(value)s' ist keine gültige Auswahl für dieses Feld"
+
+#~ msgid "Not a valid integer value"
+#~ msgstr "Kein gültiger Zahlenwert"
+
+#~ msgid "Not a valid decimal value"
+#~ msgstr "Kein gültiger Zahlenwert"
+
+#~ msgid "Not a valid float value"
+#~ msgstr "Kein gültiger Gleitkommawert"
+
+#~ msgid "Not a valid datetime value"
+#~ msgstr "Keine gültige Datumseingabe"
+
+#~ msgid "Not a valid date value"
+#~ msgstr "Keine gültige Datumseingabe"
 
