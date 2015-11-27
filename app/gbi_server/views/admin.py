@@ -64,7 +64,7 @@ def user_list():
     form.type.choices.append((User.Type.ADMIN, _('admin')))
 
     search_requests = request.args
-    if request.args.get('refresh'):
+    if request.args.get('refresh') and 'search_requests' in session:
         session.pop('search_requests')
 
     search_request_session = session.get('search_requests')
