@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-27 10:11+0100\n"
+"POT-Creation-Date: 2015-11-27 14:29+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -17,905 +17,944 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 1.3\n"
 
-#: gbi_server/application.py:166 gbi_server/templates/errors/405.html:2
-#: gbi_server/templates/errors/405.html:4
+#: ../app/gbi_server/application.py:166
+#: ../app/gbi_server/templates/errors/405.html:2
+#: ../app/gbi_server/templates/errors/405.html:4
 msgid "method not allowed"
 msgstr "Methode nicht erlaubt"
 
-#: gbi_server/application.py:172 gbi_server/templates/errors/404.html:2
-#: gbi_server/templates/errors/404.html:4
+#: ../app/gbi_server/application.py:172
+#: ../app/gbi_server/templates/errors/404.html:2
+#: ../app/gbi_server/templates/errors/404.html:4
 msgid "page not found"
 msgstr "Seite nicht gefunden"
 
-#: gbi_server/application.py:178 gbi_server/templates/errors/403.html:3
-#: gbi_server/templates/errors/403.html:6
+#: ../app/gbi_server/application.py:178
+#: ../app/gbi_server/templates/errors/403.html:3
+#: ../app/gbi_server/templates/errors/403.html:6
 msgid "not allowed"
 msgstr "Zugriff nicht erlaubt"
 
-#: gbi_server/application.py:184
+#: ../app/gbi_server/application.py:184
 msgid "an error has occurred"
 msgstr "Es ist ein Fehler aufgetreten"
 
-#: gbi_server/application.py:190
+#: ../app/gbi_server/application.py:190
 msgid "Login required"
 msgstr "Login erforderlich"
 
-#: gbi_server/application.py:191
+#: ../app/gbi_server/application.py:191
 msgid "Please login to see this page"
 msgstr "Bitte melden Sie sich an um die Seite zu betrachten"
 
-#: gbi_server/config.py:120
+#: ../app/gbi_server/config.py:120
 msgid "mr"
 msgstr "Herr"
 
-#: gbi_server/config.py:121
+#: ../app/gbi_server/config.py:121
 msgid "mrs"
 msgstr "Frau"
 
-#: gbi_server/config.py:125
+#: ../app/gbi_server/config.py:125
 msgid "Baden-Wuerttemberg"
 msgstr "Baden-Württemberg"
 
-#: gbi_server/config.py:126
+#: ../app/gbi_server/config.py:126
 msgid "Bavaria"
 msgstr "Bayern"
 
-#: gbi_server/config.py:127
+#: ../app/gbi_server/config.py:127
 msgid "Berlin"
 msgstr "Berlin"
 
-#: gbi_server/config.py:128
+#: ../app/gbi_server/config.py:128
 msgid "Brandenburg"
 msgstr "Brandenburg"
 
-#: gbi_server/config.py:129
+#: ../app/gbi_server/config.py:129
 msgid "Bremen"
 msgstr "Bremen"
 
-#: gbi_server/config.py:130
+#: ../app/gbi_server/config.py:130
 msgid "Hamburg"
 msgstr "Hamburg"
 
-#: gbi_server/config.py:131
+#: ../app/gbi_server/config.py:131
 msgid "Hesse"
 msgstr "Hessen"
 
-#: gbi_server/config.py:132
+#: ../app/gbi_server/config.py:132
 msgid "Mecklenburg Western Pomerania"
 msgstr "Mecklenburg Vorpommern"
 
-#: gbi_server/config.py:133
+#: ../app/gbi_server/config.py:133
 msgid "Lower Saxony"
 msgstr "Niedersachsen"
 
-#: gbi_server/config.py:134
+#: ../app/gbi_server/config.py:134
 msgid "Northrhine-Westphalia"
 msgstr "Nordrhein-Westfalen"
 
-#: gbi_server/config.py:135
+#: ../app/gbi_server/config.py:135
 msgid "Rhineland Palatinate"
 msgstr "Rheinland Pfalz"
 
-#: gbi_server/config.py:136
+#: ../app/gbi_server/config.py:136
 msgid "Saarland"
 msgstr "Saarland"
 
-#: gbi_server/config.py:137
+#: ../app/gbi_server/config.py:137
 msgid "Saxony"
 msgstr "Sachsen"
 
-#: gbi_server/config.py:138
+#: ../app/gbi_server/config.py:138
 msgid "Saxony-Anhalt"
 msgstr "Sachsen-Anhalt"
 
-#: gbi_server/config.py:139
+#: ../app/gbi_server/config.py:139
 msgid "Schleswig Holstein"
 msgstr "Schleswig Holstein"
 
-#: gbi_server/config.py:140
+#: ../app/gbi_server/config.py:140
 msgid "Thuringia"
 msgstr "Thüringen"
 
-#: gbi_server/forms/admin.py:26 gbi_server/forms/admin.py:40
-#: gbi_server/forms/user.py:74 gbi_server/templates/admin/user_list.html:56
-#: gbi_server/templates/admin/user_list_inactive.html:14
-#: gbi_server/templates/macros/user.html:9
+#: ../app/gbi_server/forms/admin.py:26 ../app/gbi_server/forms/admin.py:40
+#: ../app/gbi_server/forms/user.py:74
+#: ../app/gbi_server/templates/admin/user_list.html:57
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:14
+#: ../app/gbi_server/templates/macros/user.html:9
 msgid "type"
 msgstr "Benutzertyp"
 
-#: gbi_server/forms/admin.py:27 gbi_server/templates/admin/user_detail.html:52
-#: gbi_server/templates/admin/user_list.html:90
-#: gbi_server/templates/admin/user_list_inactive.html:36
+#: ../app/gbi_server/forms/admin.py:27
+#: ../app/gbi_server/templates/admin/user_detail.html:53
+#: ../app/gbi_server/templates/admin/user_list.html:91
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:36
 msgid "verified"
 msgstr "Verifiziert"
 
-#: gbi_server/forms/admin.py:28 gbi_server/forms/admin.py:44
-#: gbi_server/templates/admin/user_detail.html:50
-#: gbi_server/templates/admin/user_list.html:88
+#: ../app/gbi_server/forms/admin.py:28 ../app/gbi_server/forms/admin.py:44
+#: ../app/gbi_server/templates/admin/user_detail.html:51
+#: ../app/gbi_server/templates/admin/user_list.html:89
 msgid "active"
 msgstr "Aktiviert"
 
-#: gbi_server/forms/admin.py:29 gbi_server/forms/user.py:82
+#: ../app/gbi_server/forms/admin.py:29 ../app/gbi_server/forms/user.py:82
 msgid "terms of use"
 msgstr "<a href=\"/page/de/nutzungsbedingungen.html\">Nutzungsbedingungen</a>"
 
-#: gbi_server/forms/admin.py:33
+#: ../app/gbi_server/forms/admin.py:33
 msgid "firstname or lastname"
 msgstr "Vorname oder Nachname"
 
-#: gbi_server/forms/admin.py:34 gbi_server/forms/user.py:34
-#: gbi_server/forms/user.py:76 gbi_server/forms/user.py:91
-#: gbi_server/templates/admin/user_list.html:53
-#: gbi_server/templates/admin/user_list_inactive.html:13
-#: gbi_server/templates/boxes/overview.html:19
-#: gbi_server/templates/macros/user.html:6
+#: ../app/gbi_server/forms/admin.py:34 ../app/gbi_server/forms/user.py:34
+#: ../app/gbi_server/forms/user.py:76 ../app/gbi_server/forms/user.py:91
+#: ../app/gbi_server/templates/admin/user_list.html:54
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:13
+#: ../app/gbi_server/templates/boxes/overview.html:19
+#: ../app/gbi_server/templates/macros/user.html:6
 msgid "email"
 msgstr "E-Mail Adresse"
 
-#: gbi_server/forms/admin.py:35
+#: ../app/gbi_server/forms/admin.py:35
 msgid "zipcode or city"
 msgstr "PLZ oder Stadt"
 
-#: gbi_server/forms/admin.py:37 gbi_server/forms/user.py:52
-#: gbi_server/forms/user.py:55
+#: ../app/gbi_server/forms/admin.py:37 ../app/gbi_server/forms/user.py:52
+#: ../app/gbi_server/forms/user.py:55
 msgid "federal_state"
 msgstr "Bundesland"
 
-#: gbi_server/forms/admin.py:41 gbi_server/forms/user.py:65
-#: gbi_server/templates/macros/user.html:43
+#: ../app/gbi_server/forms/admin.py:41 ../app/gbi_server/forms/user.py:65
+#: ../app/gbi_server/templates/macros/user.html:43
 msgid "company_number"
 msgstr "Betriebsnummer"
 
-#: gbi_server/forms/admin.py:43 gbi_server/templates/admin/user_detail.html:45
-#: gbi_server/templates/admin/user_list.html:65
+#: ../app/gbi_server/forms/admin.py:43
+#: ../app/gbi_server/templates/admin/user_detail.html:46
+#: ../app/gbi_server/templates/admin/user_list.html:66
 msgid "status"
 msgstr "Status"
 
-#: gbi_server/forms/admin.py:44 gbi_server/templates/admin/user_detail.html:52
-#: gbi_server/templates/admin/user_list.html:90
+#: ../app/gbi_server/forms/admin.py:44
+#: ../app/gbi_server/templates/admin/user_detail.html:53
+#: ../app/gbi_server/templates/admin/user_list.html:91
 msgid "not active"
 msgstr "nicht aktiviert"
 
-#: gbi_server/forms/admin.py:48 gbi_server/templates/admin/wms_list.html:13
-#: gbi_server/templates/admin/wmts_list.html:13
+#: ../app/gbi_server/forms/admin.py:48
+#: ../app/gbi_server/templates/admin/wms_list.html:13
+#: ../app/gbi_server/templates/admin/wmts_list.html:13
 msgid "rastersource_url"
 msgstr "URL"
 
-#: gbi_server/forms/admin.py:49
+#: ../app/gbi_server/forms/admin.py:49
 msgid "rastersource_username"
 msgstr "Benutzername"
 
-#: gbi_server/forms/admin.py:50
+#: ../app/gbi_server/forms/admin.py:50
 msgid "rastersource_password"
 msgstr "Passwort"
 
-#: gbi_server/forms/admin.py:51
+#: ../app/gbi_server/forms/admin.py:51
 msgid "rastersource_name"
 msgstr "Name"
 
-#: gbi_server/forms/admin.py:52 gbi_server/templates/admin/wms_list.html:12
-#: gbi_server/templates/admin/wmts_list.html:12
+#: ../app/gbi_server/forms/admin.py:52
+#: ../app/gbi_server/templates/admin/wms_list.html:12
+#: ../app/gbi_server/templates/admin/wmts_list.html:12
 msgid "rastersource_title"
 msgstr "Titel"
 
-#: gbi_server/forms/admin.py:53 gbi_server/templates/admin/wms_list.html:14
+#: ../app/gbi_server/forms/admin.py:53
+#: ../app/gbi_server/templates/admin/wms_list.html:14
 msgid "rastersource_layer"
 msgstr "Layer"
 
-#: gbi_server/forms/admin.py:54 gbi_server/templates/admin/wms_list.html:15
-#: gbi_server/templates/admin/wmts_list.html:14
+#: ../app/gbi_server/forms/admin.py:54
+#: ../app/gbi_server/templates/admin/wms_list.html:15
+#: ../app/gbi_server/templates/admin/wmts_list.html:14
 msgid "rastersource_format"
 msgstr "Format"
 
-#: gbi_server/forms/admin.py:55
+#: ../app/gbi_server/forms/admin.py:55
 msgid "rastersource_srs"
 msgstr "SRS"
 
-#: gbi_server/forms/admin.py:56
+#: ../app/gbi_server/forms/admin.py:56
 msgid "rastersource_max_tiles"
 msgstr "Max. Kacheln/Import"
 
-#: gbi_server/forms/admin.py:58
+#: ../app/gbi_server/forms/admin.py:58
 msgid "rastersource_view_coverage"
 msgstr "Anzeigebereich"
 
-#: gbi_server/forms/admin.py:59 gbi_server/templates/admin/wms_list.html:16
-#: gbi_server/templates/admin/wmts_list.html:15
+#: ../app/gbi_server/forms/admin.py:59
+#: ../app/gbi_server/templates/admin/wms_list.html:16
+#: ../app/gbi_server/templates/admin/wmts_list.html:15
 msgid "rastersource_view_level_start"
 msgstr "Start-Level"
 
-#: gbi_server/forms/admin.py:60 gbi_server/templates/admin/wms_list.html:17
-#: gbi_server/templates/admin/wmts_list.html:16
+#: ../app/gbi_server/forms/admin.py:60
+#: ../app/gbi_server/templates/admin/wms_list.html:17
+#: ../app/gbi_server/templates/admin/wmts_list.html:16
 msgid "rastersource_view_level_end"
 msgstr "End-Level"
 
-#: gbi_server/forms/admin.py:62
+#: ../app/gbi_server/forms/admin.py:62
 msgid "rastersource_background_layer"
 msgstr "Hintergrundlayer"
 
-#: gbi_server/forms/admin.py:63
+#: ../app/gbi_server/forms/admin.py:63
 msgid "rastersource_transparent"
 msgstr "Transparent"
 
-#: gbi_server/forms/admin.py:64
+#: ../app/gbi_server/forms/admin.py:64
 msgid "rastersource_visibility"
 msgstr "Sichtbar"
 
-#: gbi_server/forms/admin.py:65
+#: ../app/gbi_server/forms/admin.py:65
 msgid "rastersource_public"
 msgstr "Unbeschränkter Zugriff"
 
-#: gbi_server/forms/admin.py:66
+#: ../app/gbi_server/forms/admin.py:66
 msgid "rastersource_accessible"
 msgstr "Direkter WMTS Zugriff"
 
-#: gbi_server/forms/admin.py:67
+#: ../app/gbi_server/forms/admin.py:67
 msgid "rastersource_protected"
 msgstr "Passwort geschützt"
 
-#: gbi_server/forms/admin.py:71
+#: ../app/gbi_server/forms/admin.py:71
 msgid "level needs to be bigger or equal to start level"
 msgstr ""
 "Das gewählte Startlevel muss größer oder gleich dem ausgewählten Endlevel"
 " sein"
 
-#: gbi_server/forms/admin.py:80
+#: ../app/gbi_server/forms/admin.py:80
 msgid "wms_version"
 msgstr "WMS Version"
 
-#: gbi_server/forms/admin.py:85
+#: ../app/gbi_server/forms/admin.py:85
 msgid "wfs_host"
 msgstr "WFS Host"
 
-#: gbi_server/forms/admin.py:86
+#: ../app/gbi_server/forms/admin.py:86
 msgid "wfs_url"
 msgstr "URL"
 
-#: gbi_server/forms/admin.py:87
+#: ../app/gbi_server/forms/admin.py:87
 msgid "wfs_geometry"
 msgstr "Geometriespalte"
 
-#: gbi_server/forms/admin.py:88 gbi_server/forms/wfs.py:30
+#: ../app/gbi_server/forms/admin.py:88 ../app/gbi_server/forms/wfs.py:30
 msgid "wfs_layer"
 msgstr "Layer"
 
-#: gbi_server/forms/admin.py:89
+#: ../app/gbi_server/forms/admin.py:89
 msgid "wfs_name"
 msgstr "Name"
 
-#: gbi_server/forms/admin.py:91
+#: ../app/gbi_server/forms/admin.py:91
 msgid "wfs_srs"
 msgstr "SRS"
 
-#: gbi_server/forms/admin.py:93
+#: ../app/gbi_server/forms/admin.py:93
 msgid "wfs_ns_prefix"
 msgstr "NS Prefix"
 
-#: gbi_server/forms/admin.py:94
+#: ../app/gbi_server/forms/admin.py:94
 msgid "wfs_ns_uri"
 msgstr "NS URI"
 
-#: gbi_server/forms/admin.py:96
+#: ../app/gbi_server/forms/admin.py:96
 msgid "wfs_search_property"
 msgstr "Suchattribut"
 
-#: gbi_server/forms/admin.py:97
+#: ../app/gbi_server/forms/admin.py:97
 msgid "wfs_max_features"
 msgstr "Maximale Features"
 
-#: gbi_server/forms/admin.py:99
+#: ../app/gbi_server/forms/admin.py:99
 msgid "rvectorsource_username"
 msgstr "Benutzername"
 
-#: gbi_server/forms/admin.py:100
+#: ../app/gbi_server/forms/admin.py:100
 msgid "vectorsource_password"
 msgstr "Passwort"
 
-#: gbi_server/forms/admin.py:101
+#: ../app/gbi_server/forms/admin.py:101
 msgid "vectorsoure_protected"
 msgstr "Passwort geschützt"
 
-#: gbi_server/forms/user.py:35 gbi_server/forms/user.py:77
-#: gbi_server/forms/user.py:86 gbi_server/forms/user.py:95
+#: ../app/gbi_server/forms/user.py:35 ../app/gbi_server/forms/user.py:77
+#: ../app/gbi_server/forms/user.py:86 ../app/gbi_server/forms/user.py:95
 msgid "password"
 msgstr "Passwort"
 
-#: gbi_server/forms/user.py:40
+#: ../app/gbi_server/forms/user.py:40
 msgid "title"
 msgstr "Anrede"
 
-#: gbi_server/forms/user.py:45 gbi_server/templates/user/new.html:19
+#: ../app/gbi_server/forms/user.py:45
+#: ../app/gbi_server/templates/user/new.html:19
 msgid "lastname"
 msgstr "Nachname"
 
-#: gbi_server/forms/user.py:46 gbi_server/templates/user/new.html:18
+#: ../app/gbi_server/forms/user.py:46
+#: ../app/gbi_server/templates/user/new.html:18
 msgid "firstname"
 msgstr "Vorname"
 
-#: gbi_server/forms/user.py:48 gbi_server/templates/admin/user_detail.html:41
-#: gbi_server/templates/macros/user.html:23
+#: ../app/gbi_server/forms/user.py:48
+#: ../app/gbi_server/templates/admin/user_detail.html:42
+#: ../app/gbi_server/templates/macros/user.html:23
 msgid "address"
 msgstr "Adresse"
 
-#: gbi_server/forms/user.py:49
+#: ../app/gbi_server/forms/user.py:49
 msgid "address_extend"
 msgstr "Adresse (erweitert)"
 
-#: gbi_server/forms/user.py:50
+#: ../app/gbi_server/forms/user.py:50
 msgid "zipcode"
 msgstr "PLZ"
 
-#: gbi_server/forms/user.py:51
+#: ../app/gbi_server/forms/user.py:51
 msgid "city"
 msgstr "Stadt"
 
-#: gbi_server/forms/user.py:60 gbi_server/templates/macros/user.html:31
+#: ../app/gbi_server/forms/user.py:60
+#: ../app/gbi_server/templates/macros/user.html:31
 msgid "phone"
 msgstr "Telefon"
 
-#: gbi_server/forms/user.py:61 gbi_server/templates/macros/user.html:36
+#: ../app/gbi_server/forms/user.py:61
+#: ../app/gbi_server/templates/macros/user.html:36
 msgid "fax"
 msgstr "Fax"
 
-#: gbi_server/forms/user.py:70 gbi_server/templates/macros/user.html:50
+#: ../app/gbi_server/forms/user.py:70
+#: ../app/gbi_server/templates/macros/user.html:50
 msgid "commercial_register_number"
 msgstr "Handelsregisternummer"
 
-#: gbi_server/forms/user.py:79 gbi_server/forms/user.py:97
+#: ../app/gbi_server/forms/user.py:79 ../app/gbi_server/forms/user.py:97
 msgid "Passwords must match"
 msgstr "Passwörter müssen übereinsteimmen"
 
-#: gbi_server/forms/user.py:81 gbi_server/forms/user.py:99
+#: ../app/gbi_server/forms/user.py:81 ../app/gbi_server/forms/user.py:99
 msgid "password repeat"
 msgstr "Passwort wiederholen"
 
-#: gbi_server/forms/user.py:103
+#: ../app/gbi_server/forms/user.py:103
 msgid "old password"
 msgstr "Altes Passwort"
 
-#: gbi_server/forms/user.py:107
+#: ../app/gbi_server/forms/user.py:107
 msgid "file"
 msgstr "Datei"
 
-#: gbi_server/forms/user.py:112 gbi_server/templates/boxes/base.html:35
+#: ../app/gbi_server/forms/user.py:112
+#: ../app/gbi_server/templates/boxes/base.html:35
 msgid "filename"
 msgstr "Dateiname"
 
-#: gbi_server/forms/user.py:113
+#: ../app/gbi_server/forms/user.py:113
 msgid "select target user"
 msgstr "Speichern in der Download-Box des Benutzers"
 
-#: gbi_server/forms/validator.py:22
+#: ../app/gbi_server/forms/validator.py:22
 msgid "email already exists."
 msgstr "E-Mail Adresse exisitert bereits"
 
-#: gbi_server/forms/validator.py:26
+#: ../app/gbi_server/forms/validator.py:26
 msgid "email does not exist."
 msgstr "E-Mail Adresse nicht vorhanden"
 
-#: gbi_server/forms/validator.py:30
+#: ../app/gbi_server/forms/validator.py:30
 msgid "Password must at least 6 characters"
 msgstr "Passwort muss eine Länge von mindestens 6 Zeichen besitzen"
 
-#: gbi_server/forms/wfs.py:38
+#: ../app/gbi_server/forms/wfs.py:38
 msgid "wfs_new_layer_name"
 msgstr "Layer Name"
 
-#: gbi_server/forms/wfs.py:45
+#: ../app/gbi_server/forms/wfs.py:45
 msgid "select coverage"
 msgstr "Coverage auswhälen"
 
-#: gbi_server/lib/external_wms.py:80
+#: ../app/gbi_server/lib/external_wms.py:80
 msgid "external_wms_title"
 msgstr "GBI WMS"
 
-#: gbi_server/model/user.py:94 gbi_server/views/admin.py:60
-#: gbi_server/views/admin.py:207 gbi_server/views/user.py:92
+#: ../app/gbi_server/model/user.py:94 ../app/gbi_server/views/admin.py:60
+#: ../app/gbi_server/views/admin.py:216 ../app/gbi_server/views/user.py:92
 msgid "customer"
 msgstr "Landwirt"
 
-#: gbi_server/model/user.py:95 gbi_server/views/admin.py:61
-#: gbi_server/views/admin.py:208 gbi_server/views/user.py:95
+#: ../app/gbi_server/model/user.py:95 ../app/gbi_server/views/admin.py:61
+#: ../app/gbi_server/views/admin.py:217 ../app/gbi_server/views/user.py:95
 msgid "service_provider"
 msgstr "Dienstleister"
 
-#: gbi_server/model/user.py:96 gbi_server/views/admin.py:63
-#: gbi_server/views/admin.py:210 gbi_server/views/user.py:94
+#: ../app/gbi_server/model/user.py:96 ../app/gbi_server/views/admin.py:63
+#: ../app/gbi_server/views/admin.py:219 ../app/gbi_server/views/user.py:94
 msgid "consultant"
 msgstr "Berater"
 
-#: gbi_server/model/user.py:97 gbi_server/templates/admin/base.html:8
-#: gbi_server/templates/admin/base.html:12
-#: gbi_server/templates/admin/index.html:5 gbi_server/views/admin.py:64
-#: gbi_server/views/admin.py:211
+#: ../app/gbi_server/model/user.py:97
+#: ../app/gbi_server/templates/admin/base.html:8
+#: ../app/gbi_server/templates/admin/base.html:12
+#: ../app/gbi_server/templates/admin/index.html:5
+#: ../app/gbi_server/views/admin.py:64 ../app/gbi_server/views/admin.py:220
 msgid "admin"
 msgstr "Administrator"
 
-#: gbi_server/templates/base.html:23
+#: ../app/gbi_server/templates/base.html:23
 msgid "GeoBox Server"
 msgstr "GeoBox Server"
 
-#: gbi_server/templates/base.html:26 gbi_server/templates/index.html:4
+#: ../app/gbi_server/templates/base.html:26
+#: ../app/gbi_server/templates/index.html:4
 msgid "home"
 msgstr "Übersicht"
 
-#: gbi_server/templates/base.html:30
+#: ../app/gbi_server/templates/base.html:30
 msgid "create account"
 msgstr "Konto erstellen"
 
-#: gbi_server/templates/base.html:31 gbi_server/templates/user/login.html:5
-#: gbi_server/templates/user/login.html:8
-#: gbi_server/templates/user/login.html:18
-#: gbi_server/templates/user/new.html:41
+#: ../app/gbi_server/templates/base.html:31
+#: ../app/gbi_server/templates/user/login.html:5
+#: ../app/gbi_server/templates/user/login.html:8
+#: ../app/gbi_server/templates/user/login.html:18
+#: ../app/gbi_server/templates/user/new.html:41
 msgid "login"
 msgstr "Anmelden"
 
-#: gbi_server/templates/base.html:34
+#: ../app/gbi_server/templates/base.html:34
 msgid "administration"
 msgstr "Administration"
 
-#: gbi_server/templates/base.html:36
+#: ../app/gbi_server/templates/base.html:36
 msgid "user settings"
 msgstr "Benutzereinstellungen"
 
-#: gbi_server/templates/base.html:37
+#: ../app/gbi_server/templates/base.html:37
 msgid "logout"
 msgstr "Abmelden"
 
-#: gbi_server/templates/base.html:65
+#: ../app/gbi_server/templates/base.html:65
 msgid "logged in as"
 msgstr "Angemeldet als"
 
-#: gbi_server/templates/index.html:6
+#: ../app/gbi_server/templates/index.html:6
 msgid "Welcome to GeoBox Server"
 msgstr "Willkommen"
 
-#: gbi_server/templates/index.html:14
+#: ../app/gbi_server/templates/index.html:14
 msgid "WMTS map"
 msgstr "Kartenansicht"
 
-#: gbi_server/templates/index.html:15
+#: ../app/gbi_server/templates/index.html:15
 msgid "info text wmts map"
 msgstr "Übersicht über alle Karten und Flächen die Ihnen zur Verfügung stehen"
 
-#: gbi_server/templates/index.html:17 gbi_server/templates/maps/wfs.html:5
-#: gbi_server/templates/maps/wfs.html:7
+#: ../app/gbi_server/templates/index.html:17
+#: ../app/gbi_server/templates/maps/wfs.html:5
+#: ../app/gbi_server/templates/maps/wfs.html:7
 msgid "WFS Edit"
 msgstr "Flächeneditor"
 
-#: gbi_server/templates/index.html:18
+#: ../app/gbi_server/templates/index.html:18
 msgid "info text wfs edit"
 msgstr "Bearbeiten Sie im Editor Ihre Flächen"
 
-#: gbi_server/templates/index.html:22
-#: gbi_server/templates/boxes/overview.html:3
-#: gbi_server/templates/boxes/overview.html:9
+#: ../app/gbi_server/templates/index.html:22
+#: ../app/gbi_server/templates/boxes/overview.html:3
+#: ../app/gbi_server/templates/boxes/overview.html:9
 msgid "overview over all boxes"
 msgstr "Übersicht über alle Boxen"
 
-#: gbi_server/templates/index.html:23
+#: ../app/gbi_server/templates/index.html:23
 msgid "info text boxesoverview"
 msgstr "Übersicht über alle Boxen"
 
-#: gbi_server/templates/index.html:28
-#: gbi_server/templates/boxes/download.html:11
+#: ../app/gbi_server/templates/index.html:28
+#: ../app/gbi_server/templates/boxes/download.html:11
 msgid "downloadbox"
 msgstr "Downloadbox"
 
-#: gbi_server/templates/index.html:29
+#: ../app/gbi_server/templates/index.html:29
 msgid "info text downloadbox"
 msgstr ""
 "Dokumente die Ihnen vom Berater zur Verfügung gestellt wurden finden Sie "
 "hier"
 
-#: gbi_server/templates/index.html:31 gbi_server/templates/boxes/upload.html:11
-#: gbi_server/views/context.py:205
+#: ../app/gbi_server/templates/index.html:31
+#: ../app/gbi_server/templates/boxes/upload.html:11
+#: ../app/gbi_server/views/context.py:205
 msgid "uploadbox"
 msgstr "Uploadbox"
 
-#: gbi_server/templates/index.html:32
+#: ../app/gbi_server/templates/index.html:32
 msgid "info text uploadboxbox"
 msgstr "In der Uploadboxbox können Sie Ihre Dokumente verwalten."
 
-#: gbi_server/templates/index.html:35
+#: ../app/gbi_server/templates/index.html:35
 msgid "filebox"
 msgstr "Beraterbox"
 
-#: gbi_server/templates/index.html:36
+#: ../app/gbi_server/templates/index.html:36
 msgid "info text filebox"
 msgstr "In der Beraterbox können Sie Ihre Dokumente verwalten."
 
-#: gbi_server/templates/index.html:40
+#: ../app/gbi_server/templates/index.html:40
 msgid "geobox client download"
 msgstr "GeoBox-Client herunterladen"
 
-#: gbi_server/templates/index.html:41
+#: ../app/gbi_server/templates/index.html:41
 msgid "info text geobox client download"
 msgstr "Laden Sie den GeoBox-Client für Windows herunter"
 
-#: gbi_server/templates/index.html:45
+#: ../app/gbi_server/templates/index.html:45
 msgid "geobox server user manual"
 msgstr "Benutzerhandbuch"
 
-#: gbi_server/templates/index.html:46
+#: ../app/gbi_server/templates/index.html:46
 msgid "user manual"
 msgstr "Laden Sie hier das Benutzerhandbuch herunter"
 
-#: gbi_server/templates/index.html:51
+#: ../app/gbi_server/templates/index.html:51
 msgid "info text geobox client first page"
 msgstr ""
 "<a href='%(login_url)s'>Melden Sie sich an</a> oder erstellen Sie ein <a "
 "href='%(createuser_url)s'>neues Konto</a> um die GeoBox im vollen Umfang "
 "nutzen zu können."
 
-#: gbi_server/templates/admin/base.html:19
+#: ../app/gbi_server/templates/admin/base.html:19
 msgid "User"
 msgstr "Benutzer"
 
-#: gbi_server/templates/admin/base.html:23
-#: gbi_server/templates/admin/user_list.html:3
-#: gbi_server/templates/admin/user_list.html:42
+#: ../app/gbi_server/templates/admin/base.html:23
+#: ../app/gbi_server/templates/admin/user_list.html:3
+#: ../app/gbi_server/templates/admin/user_list.html:43
 msgid "user list"
 msgstr "Benutzerliste"
 
-#: gbi_server/templates/admin/base.html:28
+#: ../app/gbi_server/templates/admin/base.html:28
 msgid "user list inactive"
 msgstr "Inaktive Benutzer"
 
-#: gbi_server/templates/admin/base.html:33
-#: gbi_server/templates/admin/create_user.html:5
-#: gbi_server/templates/admin/create_user.html:8
+#: ../app/gbi_server/templates/admin/base.html:33
+#: ../app/gbi_server/templates/admin/create_user.html:5
+#: ../app/gbi_server/templates/admin/create_user.html:8
 msgid "create user"
 msgstr "Neuen Benutzer erstellen"
 
-#: gbi_server/templates/admin/base.html:38
+#: ../app/gbi_server/templates/admin/base.html:38
 msgid "Services"
 msgstr "Dienste"
 
-#: gbi_server/templates/admin/base.html:42
-#: gbi_server/templates/admin/wms_list.html:8
+#: ../app/gbi_server/templates/admin/base.html:42
+#: ../app/gbi_server/templates/admin/wms_list.html:8
 msgid "WMTS list"
 msgstr "WMTS Liste"
 
-#: gbi_server/templates/admin/base.html:47
-#: gbi_server/templates/admin/wmts_edit.html:15
-#: gbi_server/templates/admin/wmts_list.html:56
+#: ../app/gbi_server/templates/admin/base.html:47
+#: ../app/gbi_server/templates/admin/wmts_edit.html:15
+#: ../app/gbi_server/templates/admin/wmts_list.html:56
 msgid "create WMTS"
 msgstr "WMTS erstellen"
 
-#: gbi_server/templates/admin/base.html:55
-#: gbi_server/templates/admin/wms_list.html:3
-#: gbi_server/templates/admin/wmts_list.html:3
-#: gbi_server/templates/admin/wmts_list.html:8
+#: ../app/gbi_server/templates/admin/base.html:55
+#: ../app/gbi_server/templates/admin/wms_list.html:3
+#: ../app/gbi_server/templates/admin/wmts_list.html:3
+#: ../app/gbi_server/templates/admin/wmts_list.html:8
 msgid "WMS list"
 msgstr "WMS Liste"
 
-#: gbi_server/templates/admin/base.html:60
-#: gbi_server/templates/admin/wms_edit.html:14
-#: gbi_server/templates/admin/wms_list.html:58
+#: ../app/gbi_server/templates/admin/base.html:60
+#: ../app/gbi_server/templates/admin/wms_edit.html:14
+#: ../app/gbi_server/templates/admin/wms_list.html:58
 msgid "create WMS"
 msgstr "WMS erstellen"
 
-#: gbi_server/templates/admin/base.html:68
-#: gbi_server/templates/admin/wfs_list.html:3
-#: gbi_server/templates/admin/wfs_list.html:8
+#: ../app/gbi_server/templates/admin/base.html:68
+#: ../app/gbi_server/templates/admin/wfs_list.html:3
+#: ../app/gbi_server/templates/admin/wfs_list.html:8
 msgid "WFS list"
 msgstr "WFS Liste"
 
-#: gbi_server/templates/admin/base.html:73
-#: gbi_server/templates/admin/wfs_edit.html:9
-#: gbi_server/templates/admin/wfs_edit.html:19
-#: gbi_server/templates/admin/wfs_list.html:47
+#: ../app/gbi_server/templates/admin/base.html:73
+#: ../app/gbi_server/templates/admin/wfs_edit.html:9
+#: ../app/gbi_server/templates/admin/wfs_edit.html:19
+#: ../app/gbi_server/templates/admin/wfs_list.html:47
 msgid "create WFS"
 msgstr "WFS erstellen"
 
-#: gbi_server/templates/admin/create_user.html:46
+#: ../app/gbi_server/templates/admin/create_user.html:46
 msgid "create"
 msgstr "Erstellen"
 
-#: gbi_server/templates/admin/edit_user.html:3
-#: gbi_server/templates/admin/edit_user.html:8
+#: ../app/gbi_server/templates/admin/edit_user.html:3
+#: ../app/gbi_server/templates/admin/edit_user.html:8
 msgid "Edit user"
 msgstr "Benutzer editieren"
 
-#: gbi_server/templates/admin/edit_user.html:33
-#: gbi_server/templates/admin/wfs_edit.html:47
-#: gbi_server/templates/admin/wms_edit.html:86
-#: gbi_server/templates/admin/wmts_edit.html:45
-#: gbi_server/templates/user/edit_address.html:65
-#: gbi_server/templates/user/edit_password.html:15
+#: ../app/gbi_server/templates/admin/edit_user.html:33
+#: ../app/gbi_server/templates/admin/wfs_edit.html:47
+#: ../app/gbi_server/templates/admin/wms_edit.html:91
+#: ../app/gbi_server/templates/admin/wmts_edit.html:50
+#: ../app/gbi_server/templates/user/edit_address.html:67
+#: ../app/gbi_server/templates/user/edit_password.html:15
 msgid "save"
 msgstr "Speichern"
 
-#: gbi_server/templates/admin/index.html:3
+#: ../app/gbi_server/templates/admin/index.html:3
 msgid "Admin"
 msgstr "Administrator"
 
-#: gbi_server/templates/admin/remove_user.html:6
-#: gbi_server/templates/admin/remove_user.html:10
+#: ../app/gbi_server/templates/admin/remove_user.html:6
+#: ../app/gbi_server/templates/admin/remove_user.html:10
 msgid "remove user"
 msgstr "Benutzer löschen"
 
-#: gbi_server/templates/admin/remove_user.html:12
+#: ../app/gbi_server/templates/admin/remove_user.html:12
 msgid "infotext remove user account notes"
 msgstr ""
 "Achtung! Sie sind dabei das Benutzerkonto vollständig zu löschen. Alle "
 "Daten gehen hierbei verloren. Das Wiederherstellen des Kontos ist nicht "
 "möglich."
 
-#: gbi_server/templates/admin/remove_user.html:17
-#: gbi_server/templates/admin/wmts_list.html:47
-#: gbi_server/templates/macros/modals.html:17
+#: ../app/gbi_server/templates/admin/remove_user.html:17
+#: ../app/gbi_server/templates/admin/wmts_list.html:47
+#: ../app/gbi_server/templates/macros/modals.html:17
 msgid "Delete"
 msgstr "Löschen"
 
-#: gbi_server/templates/admin/reset_user_password.html:5
-#: gbi_server/templates/admin/reset_user_password.html:10
-#: gbi_server/templates/admin/reset_user_password.html:14
+#: ../app/gbi_server/templates/admin/reset_user_password.html:5
+#: ../app/gbi_server/templates/admin/reset_user_password.html:10
+#: ../app/gbi_server/templates/admin/reset_user_password.html:14
 msgid "set new password"
 msgstr "Neues Passwort setzen"
 
-#: gbi_server/templates/admin/user_activate_mail.txt:1
+#: ../app/gbi_server/templates/admin/user_activate_mail.txt:1
 msgid "activate user mail intro"
 msgstr ""
 "Guten Tag,\n"
 " es hat sich ein neuer Benuzter in der Anwendung angemeldet. Klicken Sie "
 "auf den Link um den Benutzer zu aktivieren oder zu bearbeiten."
 
-#: gbi_server/templates/admin/user_activate_mail.txt:5
-#: gbi_server/templates/user/activated_mail.txt:5
-#: gbi_server/templates/user/recover_mail.txt:5
-#: gbi_server/templates/user/verify_mail.txt:9
+#: ../app/gbi_server/templates/admin/user_activate_mail.txt:5
+#: ../app/gbi_server/templates/user/activated_mail.txt:5
+#: ../app/gbi_server/templates/user/recover_mail.txt:5
+#: ../app/gbi_server/templates/user/verify_mail.txt:9
 msgid "mail regards"
 msgstr ""
 "Mit freundlichen Grüßen,\n"
 "Ihr GBI Team"
 
-#: gbi_server/templates/admin/user_activate_mail.txt:7
-#: gbi_server/templates/user/activated_mail.txt:7
-#: gbi_server/templates/user/recover_mail.txt:7
-#: gbi_server/templates/user/verify_mail.txt:11
+#: ../app/gbi_server/templates/admin/user_activate_mail.txt:7
+#: ../app/gbi_server/templates/user/activated_mail.txt:7
+#: ../app/gbi_server/templates/user/recover_mail.txt:7
+#: ../app/gbi_server/templates/user/verify_mail.txt:11
 msgid "mail footer"
 msgstr ""
 "-- \n"
 "\n"
 "...Impressum hier..."
 
-#: gbi_server/templates/admin/user_detail.html:6
-#: gbi_server/templates/admin/user_detail.html:9
-#: gbi_server/templates/admin/user_list.html:95
-#: gbi_server/templates/admin/user_list_inactive.html:53
-#: gbi_server/templates/admin/user_log.html:5
+#: ../app/gbi_server/templates/admin/user_detail.html:6
+#: ../app/gbi_server/templates/admin/user_detail.html:9
+#: ../app/gbi_server/templates/admin/user_list.html:96
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:53
+#: ../app/gbi_server/templates/admin/user_log.html:5
 msgid "user details"
 msgstr "Benutzerdetails"
 
-#: gbi_server/templates/admin/user_detail.html:13
-#: gbi_server/templates/user/base_edit.html:21
+#: ../app/gbi_server/templates/admin/user_detail.html:13
+#: ../app/gbi_server/templates/user/base_edit.html:21
 msgid "overview"
 msgstr "Übersicht"
 
-#: gbi_server/templates/admin/user_detail.html:18
+#: ../app/gbi_server/templates/admin/user_detail.html:18
 msgid "edit user address"
 msgstr "Adresse bearbeiten"
 
-#: gbi_server/templates/admin/user_detail.html:23
+#: ../app/gbi_server/templates/admin/user_detail.html:23
 msgid "reset password"
 msgstr "Passwort zurücksetzen"
 
-#: gbi_server/templates/admin/user_detail.html:28
+#: ../app/gbi_server/templates/admin/user_detail.html:28
 msgid "show log"
 msgstr "Zugriffe anzeigen"
 
-#: gbi_server/templates/admin/user_detail.html:33
+#: ../app/gbi_server/templates/admin/user_detail.html:33
 msgid "delete user"
 msgstr "Benutzer löschen"
 
-#: gbi_server/templates/admin/user_detail.html:54
-#: gbi_server/templates/admin/user_list.html:92
-#: gbi_server/templates/admin/user_list_inactive.html:38
+#: ../app/gbi_server/templates/admin/user_detail.html:55
+#: ../app/gbi_server/templates/admin/user_list.html:93
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:38
 msgid "not verified"
 msgstr "nicht verifiziert"
 
-#: gbi_server/templates/admin/user_detail.html:61
-#: gbi_server/templates/admin/user_list_inactive.html:43
+#: ../app/gbi_server/templates/admin/user_detail.html:62
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:43
 msgid "activate"
 msgstr "Aktivieren"
 
-#: gbi_server/templates/admin/user_detail.html:65
+#: ../app/gbi_server/templates/admin/user_detail.html:66
 msgid "deactivate"
 msgstr "Deaktivieren"
 
-#: gbi_server/templates/admin/user_list.html:6
+#: ../app/gbi_server/templates/admin/user_detail.html:76
+msgid "Back to users list"
+msgstr "Zurück zur Benutzerliste"
+
+#: ../app/gbi_server/templates/admin/user_list.html:6
 msgid "Search in users list"
 msgstr "In Benutzerliste suchen"
 
-#: gbi_server/templates/admin/user_list.html:36
+#: ../app/gbi_server/templates/admin/user_list.html:36
 msgid "Search"
 msgstr "Suchen"
 
-#: gbi_server/templates/admin/user_list.html:48
-#: gbi_server/templates/admin/user_list_inactive.html:12
-#: gbi_server/templates/macros/user.html:3
+#: ../app/gbi_server/templates/admin/user_list.html:37
+msgid "Refresh search"
+msgstr "Zurücksetzen"
+
+#: ../app/gbi_server/templates/admin/user_list.html:49
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:12
+#: ../app/gbi_server/templates/macros/user.html:3
 msgid "id"
 msgstr "ID"
 
-#: gbi_server/templates/admin/user_list.html:50
-#: gbi_server/templates/boxes/overview.html:18
+#: ../app/gbi_server/templates/admin/user_list.html:51
+#: ../app/gbi_server/templates/boxes/overview.html:18
 msgid "name"
 msgstr "Name"
 
-#: gbi_server/templates/admin/user_list.html:59
-#: gbi_server/templates/admin/user_list_inactive.html:15
-#: gbi_server/templates/macros/user.html:12
+#: ../app/gbi_server/templates/admin/user_list.html:60
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:15
+#: ../app/gbi_server/templates/macros/user.html:12
 msgid "registered"
 msgstr "Registriert"
 
-#: gbi_server/templates/admin/user_list.html:62
+#: ../app/gbi_server/templates/admin/user_list.html:63
 msgid "adresse"
 msgstr "Adresse"
 
-#: gbi_server/templates/admin/user_list_inactive.html:5
-#: gbi_server/templates/admin/user_list_inactive.html:8
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:5
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:8
 msgid "inactive users list"
 msgstr "Nicht freigeschaltete Benutzer"
 
-#: gbi_server/templates/admin/user_list_inactive.html:16
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:16
 msgid "email verfied"
 msgstr "E-Mail bestätigt"
 
-#: gbi_server/templates/admin/user_list_inactive.html:24
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:24
 msgid "Infotext – No user is waiting for activate."
 msgstr ""
 "Aktuell wartet kein Nutzer darauf von einem Administrator aktiviert zu "
 "werden."
 
-#: gbi_server/templates/admin/user_list_inactive.html:47
+#: ../app/gbi_server/templates/admin/user_list_inactive.html:47
 msgid "reject"
 msgstr "Ablehnen"
 
-#: gbi_server/templates/admin/user_log.html:9
+#: ../app/gbi_server/templates/admin/user_log.html:9
 msgid "user log"
 msgstr "Benutzerzugriffe"
 
-#: gbi_server/templates/admin/user_log.html:13
+#: ../app/gbi_server/templates/admin/user_log.html:13
 msgid "time"
 msgstr "Zeit"
 
-#: gbi_server/templates/admin/user_log.html:14
+#: ../app/gbi_server/templates/admin/user_log.html:14
 msgid "action"
 msgstr "Aktion"
 
-#: gbi_server/templates/admin/user_log.html:15
+#: ../app/gbi_server/templates/admin/user_log.html:15
 msgid "format"
 msgstr "Format"
 
-#: gbi_server/templates/admin/user_log.html:16
+#: ../app/gbi_server/templates/admin/user_log.html:16
 msgid "srs"
 msgstr "SRS"
 
-#: gbi_server/templates/admin/user_log.html:17
+#: ../app/gbi_server/templates/admin/user_log.html:17
 msgid "mapping"
 msgstr "Mapping"
 
-#: gbi_server/templates/admin/user_log.html:18
+#: ../app/gbi_server/templates/admin/user_log.html:18
 msgid "source"
 msgstr "Quelle"
 
-#: gbi_server/templates/admin/user_log.html:19
+#: ../app/gbi_server/templates/admin/user_log.html:19
 msgid "layer"
 msgstr "Layer"
 
-#: gbi_server/templates/admin/user_log.html:20
+#: ../app/gbi_server/templates/admin/user_log.html:20
 msgid "zoom_level_start"
 msgstr "Startlevel"
 
-#: gbi_server/templates/admin/user_log.html:21
+#: ../app/gbi_server/templates/admin/user_log.html:21
 msgid "zoom_level_end"
 msgstr "Endlevel"
 
-#: gbi_server/templates/admin/user_log.html:22
+#: ../app/gbi_server/templates/admin/user_log.html:22
 msgid "refreshed"
 msgstr "Aktualisiert"
 
-#: gbi_server/templates/admin/user_log.html:23
+#: ../app/gbi_server/templates/admin/user_log.html:23
 msgid "geometry"
 msgstr "Geometrie"
 
-#: gbi_server/templates/admin/wfs_edit.html:7
-#: gbi_server/templates/admin/wfs_edit.html:17
+#: ../app/gbi_server/templates/admin/wfs_edit.html:7
+#: ../app/gbi_server/templates/admin/wfs_edit.html:17
 msgid "edit WFS"
 msgstr "WFS Editieren"
 
-#: gbi_server/templates/admin/wfs_edit.html:40
-#: gbi_server/templates/admin/wms_edit.html:78
+#: ../app/gbi_server/templates/admin/wfs_edit.html:40
+#: ../app/gbi_server/templates/admin/wms_edit.html:77
+#: ../app/gbi_server/templates/admin/wmts_edit.html:38
 msgid "tooltip - protected service"
 msgstr ""
 "Wird der Dienst \"Passwort geschützt\" eingebunden, muss jeder Benutzer "
 "die Zugangsdaten zu diesem Dienst selbst eingeben."
 
-#: gbi_server/templates/admin/wfs_list.html:12
+#: ../app/gbi_server/templates/admin/wfs_list.html:12
 msgid "vectorsource_name"
 msgstr "Name"
 
-#: gbi_server/templates/admin/wfs_list.html:13
+#: ../app/gbi_server/templates/admin/wfs_list.html:13
 msgid "vectorsource_url"
 msgstr "URL"
 
-#: gbi_server/templates/admin/wfs_list.html:14
+#: ../app/gbi_server/templates/admin/wfs_list.html:14
 msgid "vectorsource_attribute"
 msgstr "Such-Attribut"
 
-#: gbi_server/templates/admin/wfs_list.html:22
-#: gbi_server/templates/admin/wms_list.html:27
-#: gbi_server/templates/admin/wmts_list.html:27
+#: ../app/gbi_server/templates/admin/wfs_list.html:22
+#: ../app/gbi_server/templates/admin/wms_list.html:27
+#: ../app/gbi_server/templates/admin/wmts_list.html:27
 msgid "infotext no services configured"
 msgstr "Kein Dienst konfiguriert."
 
-#: gbi_server/templates/admin/wfs_list.html:33
-#: gbi_server/templates/admin/wms_list.html:43
-#: gbi_server/templates/admin/wmts_list.html:43
+#: ../app/gbi_server/templates/admin/wfs_list.html:33
+#: ../app/gbi_server/templates/admin/wms_list.html:43
+#: ../app/gbi_server/templates/admin/wmts_list.html:43
 msgid "edit"
 msgstr "Editieren"
 
-#: gbi_server/templates/admin/wfs_list.html:38
-#: gbi_server/templates/admin/wms_list.html:48
+#: ../app/gbi_server/templates/admin/wfs_list.html:38
+#: ../app/gbi_server/templates/admin/wms_list.html:48
 msgid "remove"
 msgstr "Löschen"
 
-#: gbi_server/templates/admin/wms_edit.html:6
+#: ../app/gbi_server/templates/admin/wms_edit.html:6
 msgid "create or edit WMS"
 msgstr ""
 
-#: gbi_server/templates/admin/wms_edit.html:12
+#: ../app/gbi_server/templates/admin/wms_edit.html:12
 msgid "edit WMS"
 msgstr "WMS Editieren"
 
-#: gbi_server/templates/admin/wms_edit.html:20
+#: ../app/gbi_server/templates/admin/wms_edit.html:20
 msgid "infotext wms load via url"
 msgstr ""
 "Sie können die WMS-Details vom System abfragen lassen. Tragen Sie hierfür"
 " die URL in das Feld ein. Bitte beachten Sie, die manuell getroffenen "
 "Einstellungen in dem Layer werden evtl. überschrieben."
 
-#: gbi_server/templates/admin/wms_edit.html:21
+#: ../app/gbi_server/templates/admin/wms_edit.html:21
 msgid "load wms capabilities"
 msgstr "WMS Capabilities geladen"
 
-#: gbi_server/templates/admin/wms_edit.html:25
+#: ../app/gbi_server/templates/admin/wms_edit.html:25
 msgid "load wms"
 msgstr "WMS Capabilities Laden"
 
-#: gbi_server/templates/admin/wms_edit.html:29
+#: ../app/gbi_server/templates/admin/wms_edit.html:29
 msgid "infotext preview map only if on selct srs is selcted"
 msgstr ""
 "Kartenvorschau nicht möglich. Bitte wählen Sie einen Layer und ein "
 "Koordiantensystem was mit ** gekennzeichnet ist."
 
-#: gbi_server/templates/admin/wms_edit.html:30
+#: ../app/gbi_server/templates/admin/wms_edit.html:30
 msgid "preview not possible"
 msgstr "Die Vorschau ist nicht möglich. Prüfen Sie bitte Ihre Eingaben."
 
-#: gbi_server/templates/admin/wms_edit.html:32
-#: gbi_server/templates/admin/wms_edit.html:94
+#: ../app/gbi_server/templates/admin/wms_edit.html:32
+#: ../app/gbi_server/templates/admin/wms_edit.html:99
 msgid "preview map"
 msgstr "Vorschaukarte"
 
-#: gbi_server/templates/admin/wms_edit.html:49
+#: ../app/gbi_server/templates/admin/wms_edit.html:49
 msgid "layers_select"
 msgstr "Layerauswahl"
 
-#: gbi_server/templates/admin/wms_edit.html:52
+#: ../app/gbi_server/templates/admin/wms_edit.html:52
 msgid "tooltip - select layer"
 msgstr ""
 "Wählen Sie hier Layer aus die Sie dem WMS hinzufügen möchten. Die Layer "
 "stehen Ihnen nur zur Vergügung wenn der Dienst vom System abgerufen "
 "wurde."
 
-#: gbi_server/templates/admin/wms_edit.html:58
+#: ../app/gbi_server/templates/admin/wms_edit.html:56
+#: ../app/gbi_server/templates/admin/wmts_edit.html:26
+msgid "tooltip - wmts is transparent "
+msgstr ""
+
+#: ../app/gbi_server/templates/admin/wms_edit.html:59
 msgid "select srs"
 msgstr "SRS auswhälen"
 
-#: gbi_server/templates/admin/wms_edit.html:61
+#: ../app/gbi_server/templates/admin/wms_edit.html:62
 msgid "tooltip - select srs"
 msgstr ""
 "Wählen Sie hier ein SRS aus über den Sie den WMS abrufen möchten. Die SRS"
@@ -923,315 +962,343 @@ msgstr ""
 "wurde. Mit ** gekennzeichnte SMS können in der Kartenvorschau angezeigt "
 "werden."
 
-#: gbi_server/templates/admin/wms_list.html:18
-#: gbi_server/templates/admin/wmts_list.html:18
+#: ../app/gbi_server/templates/admin/wms_edit.html:74
+#: ../app/gbi_server/templates/admin/wmts_edit.html:33
+msgid "tooltip - is_visible"
+msgstr ""
+
+#: ../app/gbi_server/templates/admin/wms_edit.html:75
+#: ../app/gbi_server/templates/admin/wmts_edit.html:35
+msgid "tooltip - is public"
+msgstr ""
+
+#: ../app/gbi_server/templates/admin/wms_edit.html:84
+#: ../app/gbi_server/templates/admin/wmts_edit.html:44
+msgid "geojson.io infotext"
+msgstr "Auf der Webseite <a href='http://geojson.io'>geojson.io</a> können Sie eine Geometry einzeichnen und per Copy & Paste hier einfügen."
+
+#: ../app/gbi_server/templates/admin/wms_edit.html:85
+#: ../app/gbi_server/templates/admin/wmts_edit.html:45
+msgid "Show Geojson"
+msgstr "Geojson anzeigen"
+
+#: ../app/gbi_server/templates/admin/wms_list.html:18
+#: ../app/gbi_server/templates/admin/wmts_list.html:18
 msgid "rastersource_is_transparent"
 msgstr "Transparent"
 
-#: gbi_server/templates/admin/wms_list.html:19
-#: gbi_server/templates/admin/wmts_list.html:19
+#: ../app/gbi_server/templates/admin/wms_list.html:19
+#: ../app/gbi_server/templates/admin/wmts_list.html:19
 msgid "rastersource_is_public"
 msgstr "Öffentlich"
 
-#: gbi_server/templates/admin/wmts_edit.html:6
+#: ../app/gbi_server/templates/admin/wmts_edit.html:6
 msgid "create or edit WMTS"
 msgstr ""
 
-#: gbi_server/templates/admin/wmts_edit.html:13
+#: ../app/gbi_server/templates/admin/wmts_edit.html:13
 msgid "edit WMTS"
 msgstr "WMTS Editieren"
 
-#: gbi_server/templates/admin/wmts_list.html:17
+#: ../app/gbi_server/templates/admin/wmts_edit.html:34
+msgid "tooltip - is background layer"
+msgstr ""
+
+#: ../app/gbi_server/templates/admin/wmts_edit.html:36
+msgid "tooltip - is accessible"
+msgstr ""
+
+#: ../app/gbi_server/templates/admin/wmts_list.html:17
 msgid "rastersource_is_background_layer"
 msgstr "Hintergrundlayer"
 
-#: gbi_server/templates/boxes/base.html:5
+#: ../app/gbi_server/templates/boxes/base.html:5
 msgid "box"
 msgstr "Dokumentenbox"
 
-#: gbi_server/templates/boxes/base.html:14
+#: ../app/gbi_server/templates/boxes/base.html:14
 msgid "upload file"
 msgstr "Datei hochladen"
 
-#: gbi_server/templates/boxes/base.html:20
+#: ../app/gbi_server/templates/boxes/base.html:20
 msgid "upload help text"
 msgstr ""
 "Bitte wählen Sie eine Datei aus die Sie in Ihre Box hochladen können. Es "
 "werden Bilddateien (jpeg, png, tif) sowie Textdateien (csv, xml, json) "
 "und PDF vom System unterstützt."
 
-#: gbi_server/templates/boxes/base.html:21
+#: ../app/gbi_server/templates/boxes/base.html:21
 msgid "Upload"
 msgstr "Hochladen"
 
-#: gbi_server/templates/boxes/base.html:31
+#: ../app/gbi_server/templates/boxes/base.html:31
 msgid "file overview"
 msgstr "Dateiübersicht"
 
-#: gbi_server/templates/boxes/base.html:36
+#: ../app/gbi_server/templates/boxes/base.html:36
 msgid "date"
 msgstr "Datum"
 
-#: gbi_server/templates/boxes/base.html:37
+#: ../app/gbi_server/templates/boxes/base.html:37
 msgid "size"
 msgstr "Dateigröße"
 
-#: gbi_server/templates/boxes/base.html:57
+#: ../app/gbi_server/templates/boxes/base.html:57
 msgid "delete"
 msgstr "Löschen"
 
-#: gbi_server/templates/boxes/base.html:61
+#: ../app/gbi_server/templates/boxes/base.html:61
 msgid "copy"
 msgstr "Kopieren"
 
-#: gbi_server/templates/boxes/base.html:73
+#: ../app/gbi_server/templates/boxes/base.html:73
 msgid "help copy file to box from customer"
 msgstr ""
 "Kopieren Sie die Datei in die ausgewählte Box. Geben Sie hierfür einen "
 "Dateinamen an. Bitte beachten Sie: Vorhandene Dateien werden "
 "überschrieben."
 
-#: gbi_server/templates/boxes/base.html:82
-#: gbi_server/templates/boxes/base.html:90
-#: gbi_server/templates/user/recover.html:21
+#: ../app/gbi_server/templates/boxes/base.html:82
+#: ../app/gbi_server/templates/boxes/base.html:90
+#: ../app/gbi_server/templates/user/recover.html:21
 msgid "abort"
 msgstr "Abbrechen"
 
-#: gbi_server/templates/boxes/base.html:83
+#: ../app/gbi_server/templates/boxes/base.html:83
 msgid "start copy"
 msgstr "Kopieren"
 
-#: gbi_server/templates/boxes/base.html:88
+#: ../app/gbi_server/templates/boxes/base.html:88
 msgid "help text file exists, are you sure you want to overwrite it?"
 msgstr ""
 "Eine Datei mit diesem Dateinamen existiert bereits. Wollen Sie die Datei "
 "überschreiben?"
 
-#: gbi_server/templates/boxes/base.html:91
+#: ../app/gbi_server/templates/boxes/base.html:91
 msgid "ok"
 msgstr "Ja, überschreiben"
 
-#: gbi_server/templates/boxes/base.html:97
+#: ../app/gbi_server/templates/boxes/base.html:97
 msgid "file is uploading..."
 msgstr "Datei wird hochgeladen..."
 
-#: gbi_server/templates/boxes/download.html:3
+#: ../app/gbi_server/templates/boxes/download.html:3
 msgid "downloadbox title"
 msgstr "Downloadbox"
 
-#: gbi_server/templates/boxes/download.html:8
+#: ../app/gbi_server/templates/boxes/download.html:8
 msgid "downloadbox for"
 msgstr "Downloadbox für"
 
-#: gbi_server/templates/boxes/download.html:9
+#: ../app/gbi_server/templates/boxes/download.html:9
 msgid "tooltip - downloadbox for consultant "
 msgstr ""
 "Dokumentenbox für den Landwirt. Dieser kann Dokumente von hier "
 "herunterladen."
 
-#: gbi_server/templates/boxes/download.html:11
+#: ../app/gbi_server/templates/boxes/download.html:11
 msgid "tooltip - downloadbox for customer "
 msgstr ""
 "Dies ist die Dokumentenbox in dem die Berater Ihnen Dokumente zur "
 "Verfügung stellen können"
 
-#: gbi_server/templates/boxes/file.html:3
+#: ../app/gbi_server/templates/boxes/file.html:3
 msgid "filebox title"
 msgstr "Beraterbox"
 
-#: gbi_server/templates/boxes/file.html:7
+#: ../app/gbi_server/templates/boxes/file.html:7
 msgid "filebox for consultant"
 msgstr "Beraterbox"
 
-#: gbi_server/templates/boxes/overview.html:30
+#: ../app/gbi_server/templates/boxes/overview.html:30
 msgid "goto download box"
 msgstr "Zur Downloadbox"
 
-#: gbi_server/templates/boxes/overview.html:33
+#: ../app/gbi_server/templates/boxes/overview.html:33
 msgid "goto upload box"
 msgstr "Zur Uploadbox"
 
-#: gbi_server/templates/boxes/upload.html:3
+#: ../app/gbi_server/templates/boxes/upload.html:3
 msgid "uploadbox title"
 msgstr "Uploadbox"
 
-#: gbi_server/templates/boxes/upload.html:8
+#: ../app/gbi_server/templates/boxes/upload.html:8
 msgid "uploadbox for"
 msgstr "Uploadbox für"
 
-#: gbi_server/templates/boxes/upload.html:9
+#: ../app/gbi_server/templates/boxes/upload.html:9
 msgid "tooltip - uploadbox for consultant "
 msgstr ""
 "Uploadbox für den Landwirt. Dieser kann hier Dokumente zur Verfügng "
 "stellen."
 
-#: gbi_server/templates/boxes/upload.html:11
+#: ../app/gbi_server/templates/boxes/upload.html:11
 msgid "tooltip - uploadbox for customer "
 msgstr ""
 "Dies ist die Box in dem Sie Ihrem Berater Dokumente zur Verfügung stellen"
 " können"
 
-#: gbi_server/templates/errors/500.html:2
-#: gbi_server/templates/errors/500.html:4
+#: ../app/gbi_server/templates/errors/500.html:2
+#: ../app/gbi_server/templates/errors/500.html:4
 msgid "internal error"
 msgstr "Interner Fehler"
 
-#: gbi_server/templates/js/translation.js:3
+#: ../app/gbi_server/templates/js/translation.js:3
 msgid "Not defined"
 msgstr "Nicht definiert"
 
-#: gbi_server/templates/js/translation.js:6
+#: ../app/gbi_server/templates/js/translation.js:6
 msgid "Draw polygon"
 msgstr "Polygon zeichnen"
 
-#: gbi_server/templates/js/translation.js:7
+#: ../app/gbi_server/templates/js/translation.js:7
 msgid "Edit feature"
 msgstr "Bearbeiten"
 
-#: gbi_server/templates/js/translation.js:8
+#: ../app/gbi_server/templates/js/translation.js:8
 msgid "Delete feature"
 msgstr "Löschen"
 
-#: gbi_server/templates/js/translation.js:9
+#: ../app/gbi_server/templates/js/translation.js:9
 msgid "Select feature(s)"
 msgstr "Auswählen"
 
-#: gbi_server/templates/js/translation.js:10
+#: ../app/gbi_server/templates/js/translation.js:10
 msgid "Copy feature(s)"
 msgstr "Kopieren"
 
-#: gbi_server/templates/js/translation.js:13
+#: ../app/gbi_server/templates/js/translation.js:13
 msgid "Active layer"
 msgstr "Aktiver Layer"
 
-#: gbi_server/templates/js/translation.js:14
+#: ../app/gbi_server/templates/js/translation.js:14
 msgid "Background layer"
 msgstr "Hintergrundlayer"
 
-#: gbi_server/templates/js/translation.js:15
+#: ../app/gbi_server/templates/js/translation.js:15
 msgid "Raster layer"
 msgstr "Rasterlayer"
 
-#: gbi_server/templates/js/translation.js:16
+#: ../app/gbi_server/templates/js/translation.js:16
 msgid "Vector layer"
 msgstr "Vektorlayer"
 
-#: gbi_server/templates/js/translation.js:17
+#: ../app/gbi_server/templates/js/translation.js:17
 msgid "No active layer"
 msgstr "Kein aktiver Layer"
 
-#: gbi_server/templates/js/translation.js:20
+#: ../app/gbi_server/templates/js/translation.js:20
 msgid "No attributes"
 msgstr "Keine Eigenschaften"
 
-#: gbi_server/templates/js/translation.js:21
+#: ../app/gbi_server/templates/js/translation.js:21
 msgid "Different values for same attribute"
 msgstr "Unterschiedliche Werte"
 
-#: gbi_server/templates/macros/modals.html:9
+#: ../app/gbi_server/templates/macros/modals.html:9
 msgid "Delete modal header"
 msgstr "Löschen"
 
-#: gbi_server/templates/macros/modals.html:12
+#: ../app/gbi_server/templates/macros/modals.html:12
 msgid "You are deleting some data. It cannot be rollback."
 msgstr ""
 "Sie sind dabei Daten zu löschen. Diese Aktion kann nicht rückgängig "
 "gemacht werden."
 
-#: gbi_server/templates/macros/modals.html:16
+#: ../app/gbi_server/templates/macros/modals.html:16
 msgid "Abort"
 msgstr "Abbrechen"
 
-#: gbi_server/templates/macros/user.html:15
+#: ../app/gbi_server/templates/macros/user.html:15
 msgid "last login"
 msgstr "Letzte Anmeldung"
 
-#: gbi_server/templates/macros/user.html:33
-#: gbi_server/templates/macros/user.html:38
-#: gbi_server/templates/macros/user.html:45
-#: gbi_server/templates/macros/user.html:52
+#: ../app/gbi_server/templates/macros/user.html:33
+#: ../app/gbi_server/templates/macros/user.html:38
+#: ../app/gbi_server/templates/macros/user.html:45
+#: ../app/gbi_server/templates/macros/user.html:52
 msgid "No input"
 msgstr "Keine Angabe"
 
-#: gbi_server/templates/maps/map.html:5
+#: ../app/gbi_server/templates/maps/map.html:5
 msgid "Map"
 msgstr "Karte"
 
-#: gbi_server/templates/maps/map.html:47
+#: ../app/gbi_server/templates/maps/map.html:47
 msgid "maps"
 msgstr "Kartenübersicht"
 
-#: gbi_server/templates/maps/map.html:47
+#: ../app/gbi_server/templates/maps/map.html:47
 msgid "tooltip - map overivew "
 msgstr ""
 "Hier werden Ihnen alle zur Verfügung stehenden Karten und Flächen "
 "eingeblendet"
 
-#: gbi_server/templates/maps/wfs.html:13
+#: ../app/gbi_server/templates/maps/wfs.html:13
 msgid "search features"
 msgstr "Suchen"
 
-#: gbi_server/templates/maps/wfs.html:15
+#: ../app/gbi_server/templates/maps/wfs.html:15
 msgid "search help text"
 msgstr ""
 "Suchen Sie nach einem oder mehreren Werten in dem ausgewählten "
 "Suchdienst. Die Anwendung zentriert die Karte automatisch auf den "
 "Treffer."
 
-#: gbi_server/templates/maps/wfs.html:19
+#: ../app/gbi_server/templates/maps/wfs.html:19
 msgid "search_label"
 msgstr "Suchdienst"
 
-#: gbi_server/templates/maps/wfs.html:19
+#: ../app/gbi_server/templates/maps/wfs.html:19
 msgid "tooltip - search"
 msgstr ""
 "Hier stehen Ihnen die Dienste zur Verfügung die vom Administrator "
 "angelegt worden sind."
 
-#: gbi_server/templates/maps/wfs.html:27
+#: ../app/gbi_server/templates/maps/wfs.html:27
 msgid "no search result"
 msgstr "Kein Suchergebnis vorhanden"
 
-#: gbi_server/templates/maps/wfs.html:29
+#: ../app/gbi_server/templates/maps/wfs.html:29
 msgid "No features found"
 msgstr "Keine Ergebnisse gefunden"
 
-#: gbi_server/templates/maps/wfs.html:32
+#: ../app/gbi_server/templates/maps/wfs.html:32
 msgid "search request is being processed"
 msgstr "Suchanfrage wird bearbeitet"
 
-#: gbi_server/templates/maps/wfs.html:34
+#: ../app/gbi_server/templates/maps/wfs.html:34
 msgid "add search"
 msgstr "Suchen"
 
-#: gbi_server/templates/maps/wfs.html:35
+#: ../app/gbi_server/templates/maps/wfs.html:35
 msgid "remove search string"
 msgstr "Suchewert entfernen"
 
-#: gbi_server/templates/maps/wfs.html:36
+#: ../app/gbi_server/templates/maps/wfs.html:36
 msgid "hide searchlayer"
 msgstr "Suchergebnis ausblenden"
 
-#: gbi_server/templates/maps/wfs.html:39
+#: ../app/gbi_server/templates/maps/wfs.html:39
 msgid "feature settings"
 msgstr "Geometrien bearbeiten"
 
-#: gbi_server/templates/maps/wfs.html:40
+#: ../app/gbi_server/templates/maps/wfs.html:40
 msgid "feature select help text"
 msgstr ""
 "Über die Toolbar in der Karte können Sie Geometrien zeichnen, bearbeiten,"
 " auswählen oder löschen. Ausgewählte Geometrien können mit Eigenschaften "
 "versehen werden."
 
-#: gbi_server/templates/maps/wfs.html:42
+#: ../app/gbi_server/templates/maps/wfs.html:42
 msgid "successfull saved"
 msgstr "Erfolgreich gespeichert"
 
-#: gbi_server/templates/maps/wfs.html:43
+#: ../app/gbi_server/templates/maps/wfs.html:43
 msgid "save changes"
 msgstr "Änderungen gespeichert"
 
-#: gbi_server/templates/maps/wfs.html:44
+#: ../app/gbi_server/templates/maps/wfs.html:44
 msgid "tooltip - button save changes"
 msgstr ""
 "Änderungen an Flächen oder Attributen müssen Sie bestätigen. Der Button "
@@ -1239,28 +1306,28 @@ msgstr ""
 "werden können. Wenn Änderungen nicht gespeichert werden, gehen diese "
 "verloren."
 
-#: gbi_server/templates/maps/wfs.html:50
+#: ../app/gbi_server/templates/maps/wfs.html:50
 msgid "attributes"
 msgstr "Eigenschaften"
 
-#: gbi_server/templates/maps/wfs.html:51
+#: ../app/gbi_server/templates/maps/wfs.html:51
 msgid "tooltip - attrbibutes"
 msgstr "Geben Sie hier Werte zu den Eigenschaften der Flächen ein"
 
-#: gbi_server/templates/maps/wfs.html:70
+#: ../app/gbi_server/templates/maps/wfs.html:70
 msgid "save feautre not possible"
 msgstr "Daten konnten nicht gespeichert werden"
 
-#: gbi_server/templates/maps/wfs.html:71
+#: ../app/gbi_server/templates/maps/wfs.html:71
 msgid "save feature successfull"
 msgstr "Daten wurden erfolgreich gespeichert"
 
-#: gbi_server/templates/maps/wfs_edit.html:5
-#: gbi_server/templates/maps/wfs_edit.html:7
+#: ../app/gbi_server/templates/maps/wfs_edit.html:5
+#: ../app/gbi_server/templates/maps/wfs_edit.html:7
 msgid "wfs layer and editor choice"
 msgstr "Flächeneditor wählen"
 
-#: gbi_server/templates/maps/wfs_edit.html:12
+#: ../app/gbi_server/templates/maps/wfs_edit.html:12
 msgid "wfs editor choice infotext"
 msgstr ""
 "Bitte wählen Sie aus wie Sie die Fläche bearbeiten wollen. Sie können "
@@ -1268,19 +1335,19 @@ msgstr ""
 "GIS-Programm laden und dort über den WFS-Standard einbinden und "
 "bearbeiten."
 
-#: gbi_server/templates/maps/wfs_edit.html:20
+#: ../app/gbi_server/templates/maps/wfs_edit.html:20
 msgid "edit internal"
 msgstr "Interner Flächeneditor"
 
-#: gbi_server/templates/maps/wfs_edit.html:21
+#: ../app/gbi_server/templates/maps/wfs_edit.html:21
 msgid "edit external"
 msgstr "Externer Flächeneditor über WFS"
 
-#: gbi_server/templates/maps/wfs_edit.html:22
+#: ../app/gbi_server/templates/maps/wfs_edit.html:22
 msgid "remove selected layer"
 msgstr "Ausgewählten Layer löschen"
 
-#: gbi_server/templates/maps/wfs_edit.html:26
+#: ../app/gbi_server/templates/maps/wfs_edit.html:26
 msgid "create wfs layer infotext"
 msgstr ""
 "Hier können Sie einen neuen Zeichenlayer anlegen. Der von Ihnen "
@@ -1288,16 +1355,16 @@ msgstr ""
 " zur Verfügung. Für den Namen des Layers sind ausschließlich "
 "Kleinbuchstaben und Zahlen zulässig."
 
-#: gbi_server/templates/maps/wfs_edit.html:31
+#: ../app/gbi_server/templates/maps/wfs_edit.html:31
 msgid "add layer"
 msgstr "Layer erstellen"
 
-#: gbi_server/templates/maps/wfs_session.html:5
-#: gbi_server/templates/maps/wfs_session.html:7
+#: ../app/gbi_server/templates/maps/wfs_session.html:5
+#: ../app/gbi_server/templates/maps/wfs_session.html:7
 msgid "wfs session"
 msgstr "Flächen extern bearbeiten"
 
-#: gbi_server/templates/maps/wfs_session.html:12
+#: ../app/gbi_server/templates/maps/wfs_session.html:12
 msgid " wfs external editor info_text_1"
 msgstr ""
 "Um die Flächen in einem externen Editor bearbeiten zu können stehen ihnen"
@@ -1306,94 +1373,95 @@ msgstr ""
 "bearbeiten. Die dazu benötigte WFS-URL und den vom System angebotenen "
 "Layer, finden Sie weiter unten"
 
-#: gbi_server/templates/maps/wfs_session.html:14
+#: ../app/gbi_server/templates/maps/wfs_session.html:14
 msgid " wfs external editor info_text_2 - not interneal"
 msgstr ""
 "Bitte beachten Sie, dass Sie während der Nutzung des externen Editors "
 "nicht im internen Flächeneditor arbeiten können"
 
-#: gbi_server/templates/maps/wfs_session.html:17
+#: ../app/gbi_server/templates/maps/wfs_session.html:17
 msgid " wfs external editor info_text_3 - save"
 msgstr ""
 "Um Änderungen zu übernehmen die im externen Editor gemacht wurden, "
 "beenden Sie bitte anschließend hier den Bearbeitungsmodus"
 
-#: gbi_server/templates/maps/wfs_session.html:28
+#: ../app/gbi_server/templates/maps/wfs_session.html:28
 msgid "save and end wfs session"
 msgstr "Editieren beenden und Änderungen speichern"
 
-#: gbi_server/templates/maps/wfs_session.html:29
+#: ../app/gbi_server/templates/maps/wfs_session.html:29
 msgid "cancel and end wfs session"
 msgstr "Editieren beenden und Änderungen verwerfen"
 
-#: gbi_server/templates/user/activated_mail.txt:1
+#: ../app/gbi_server/templates/user/activated_mail.txt:1
 msgid "mail activated intro"
 msgstr "Guten Tag"
 
-#: gbi_server/templates/user/activated_mail.txt:3
+#: ../app/gbi_server/templates/user/activated_mail.txt:3
 msgid "mail activated content"
 msgstr "Ihr Konto wurde soeben von einem Administrator aktiviert."
 
-#: gbi_server/templates/user/base_edit.html:7
-#: gbi_server/templates/user/base_edit.html:11
-#: gbi_server/templates/user/index.html:5
+#: ../app/gbi_server/templates/user/base_edit.html:7
+#: ../app/gbi_server/templates/user/base_edit.html:11
+#: ../app/gbi_server/templates/user/index.html:5
 msgid "User settings"
 msgstr "Benutzereinstellungen"
 
-#: gbi_server/templates/user/base_edit.html:26
-#: gbi_server/templates/user/edit_address.html:6
-#: gbi_server/templates/user/edit_address.html:12
+#: ../app/gbi_server/templates/user/base_edit.html:26
+#: ../app/gbi_server/templates/user/edit_address.html:6
+#: ../app/gbi_server/templates/user/edit_address.html:12
 msgid "edit address"
 msgstr "Adresse bearbeiten"
 
-#: gbi_server/templates/user/base_edit.html:31
-#: gbi_server/templates/user/edit_password.html:5
-#: gbi_server/templates/user/edit_password.html:10
+#: ../app/gbi_server/templates/user/base_edit.html:31
+#: ../app/gbi_server/templates/user/edit_password.html:5
+#: ../app/gbi_server/templates/user/edit_password.html:10
 msgid "edit password"
 msgstr "Passwort bearbeiten"
 
-#: gbi_server/templates/user/base_edit.html:36
-#: gbi_server/templates/user/remove.html:6
-#: gbi_server/templates/user/remove.html:12
-#: gbi_server/templates/user/remove.html:18
+#: ../app/gbi_server/templates/user/base_edit.html:36
+#: ../app/gbi_server/templates/user/remove.html:6
+#: ../app/gbi_server/templates/user/remove.html:12
+#: ../app/gbi_server/templates/user/remove.html:18
 msgid "remove account"
 msgstr "Konto löschen"
 
-#: gbi_server/templates/user/login.html:19
+#: ../app/gbi_server/templates/user/login.html:19
 msgid "lost password?"
 msgstr "Passwort vergessen?"
 
-#: gbi_server/templates/user/login.html:21 gbi_server/templates/user/new.html:5
-#: gbi_server/templates/user/new.html:7
+#: ../app/gbi_server/templates/user/login.html:21
+#: ../app/gbi_server/templates/user/new.html:5
+#: ../app/gbi_server/templates/user/new.html:7
 msgid "create new account"
 msgstr "Neues Konto einrichten"
 
-#: gbi_server/templates/user/new.html:16
+#: ../app/gbi_server/templates/user/new.html:16
 msgid "personal"
 msgstr "Persönliche Daten"
 
-#: gbi_server/templates/user/new.html:24
+#: ../app/gbi_server/templates/user/new.html:24
 msgid "address & contact"
 msgstr "Adresse & Kontakt"
 
-#: gbi_server/templates/user/new.html:50
+#: ../app/gbi_server/templates/user/new.html:50
 msgid "create accout"
 msgstr "Konto einrichten"
 
-#: gbi_server/templates/user/password_set.html:5
-#: gbi_server/templates/user/password_set.html:7
-#: gbi_server/templates/user/recover.html:5
-#: gbi_server/templates/user/recover.html:7
-#: gbi_server/templates/user/recover_sent.html:3
-#: gbi_server/templates/user/recover_sent.html:5
+#: ../app/gbi_server/templates/user/password_set.html:5
+#: ../app/gbi_server/templates/user/password_set.html:7
+#: ../app/gbi_server/templates/user/recover.html:5
+#: ../app/gbi_server/templates/user/recover.html:7
+#: ../app/gbi_server/templates/user/recover_sent.html:3
+#: ../app/gbi_server/templates/user/recover_sent.html:5
 msgid "password recover"
 msgstr "Passwort wiederherstellen"
 
-#: gbi_server/templates/user/password_set.html:15
+#: ../app/gbi_server/templates/user/password_set.html:15
 msgid "save new password"
 msgstr "Neues Passwort setzen"
 
-#: gbi_server/templates/user/recover.html:12
+#: ../app/gbi_server/templates/user/recover.html:12
 msgid "password recover infotext"
 msgstr ""
 "Passwort vergessen? <br><br>Kein Problem. Um Ihr Passwort zurücksetzen "
@@ -1401,11 +1469,11 @@ msgstr ""
 "sind. Anschließend erhalten Sie eine E-Mail mit den weiteren Schritten um"
 " Ihr Passwort zurückzusetzen."
 
-#: gbi_server/templates/user/recover.html:22
+#: ../app/gbi_server/templates/user/recover.html:22
 msgid "recover"
 msgstr "Wiederherstellen"
 
-#: gbi_server/templates/user/recover_mail.txt:1
+#: ../app/gbi_server/templates/user/recover_mail.txt:1
 msgid "password recover mail intro"
 msgstr ""
 "Guten Tag,\n"
@@ -1414,32 +1482,32 @@ msgstr ""
 " unten stehenden Link neusetzen. Wenn Sie diese E-Mail nicht angefordert "
 "haben, dann ignorieren Sie bitte diese E-Mail."
 
-#: gbi_server/templates/user/recover_mail.txt:3
+#: ../app/gbi_server/templates/user/recover_mail.txt:3
 msgid "password recover mail instructions"
 msgstr ""
 "Um ein neues Passwort für Ihren Zugang zu setzen, klicken Sie auf den "
 "folgenden Link. Der Link ist 24 Stunden gültig.\n"
 "%(url)s"
 
-#: gbi_server/templates/user/recover_sent.html:11
+#: ../app/gbi_server/templates/user/recover_sent.html:11
 msgid "recover mail sent"
 msgstr ""
 "Eine E-Mail zum Wiederherstellen Ihres Passworts wurde versendet. Bitte "
 "folgen Sie den Anweisungen in dieser E-Mail."
 
-#: gbi_server/templates/user/recover_sent.html:12
-#: gbi_server/templates/user/verify_wait.html:11
+#: ../app/gbi_server/templates/user/recover_sent.html:12
+#: ../app/gbi_server/templates/user/verify_wait.html:11
 msgid "goto login"
 msgstr "Zur Anmeldung"
 
-#: gbi_server/templates/user/remove.html:14
+#: ../app/gbi_server/templates/user/remove.html:14
 msgid "remove account notes"
 msgstr ""
 "Achtung! Sie sind dabei Ihr Benutzerkonto vollständig zu löschen. Alle "
 "Daten gehen hierbei verloren. Das Wiederherstellen des Kontos ist nicht "
 "möglich."
 
-#: gbi_server/templates/user/verify_mail.txt:1
+#: ../app/gbi_server/templates/user/verify_mail.txt:1
 msgid "mail verify intro"
 msgstr ""
 "Willkommen beim GBI-Dienst! \n"
@@ -1447,7 +1515,7 @@ msgstr ""
 "Sie haben sich erfolgreich mit folgendem Benutzernamen angemeldet: "
 "%(email)s"
 
-#: gbi_server/templates/user/verify_mail.txt:3
+#: ../app/gbi_server/templates/user/verify_mail.txt:3
 msgid "mail verify instructions"
 msgstr ""
 "Bitte klicken Sie jetzt auf folgenden Link, um die Anmeldung "
@@ -1458,22 +1526,22 @@ msgstr ""
 "innerhalbdieser Zeit nicht abschließen können, melden Sie sich bitte "
 "erneut an."
 
-#: gbi_server/templates/user/verify_mail.txt:6
+#: ../app/gbi_server/templates/user/verify_mail.txt:6
 msgid "mail verify activate info"
 msgstr ""
 "Bitte beachten Sie, dass Ihr Zugang erst noch von einem Administrator "
 "freigeschaltet werden muss. Dieser wurder per E-Mail bereits über Ihre "
 "Anmeldung informiert."
 
-#: gbi_server/templates/user/verify_wait.html:3
+#: ../app/gbi_server/templates/user/verify_wait.html:3
 msgid "Email verification"
 msgstr "E-Mail Verifizierung"
 
-#: gbi_server/templates/user/verify_wait.html:5
+#: ../app/gbi_server/templates/user/verify_wait.html:5
 msgid "email verification"
 msgstr "E-Mail-Adresse bestätigen"
 
-#: gbi_server/templates/user/verify_wait.html:10
+#: ../app/gbi_server/templates/user/verify_wait.html:10
 msgid "email for verification sent"
 msgstr ""
 "Um Ihre Anmeldung abzuschließen, müssen Sie Ihre E-Mail Adresse "
@@ -1482,203 +1550,213 @@ msgstr ""
 "die Anmeldung abzuschließen.<p>Mail nicht erhalten? <a "
 "href=\"%(verify_url)s\">Fordern Sie hier einen erneute E-Mail an.</a></p>"
 
-#: gbi_server/views/admin.py:164
+#: ../app/gbi_server/views/admin.py:173
 msgid "Account activated mail subject"
 msgstr "GeoBox – Ihr Zugang wurde freigeschaltet."
 
-#: gbi_server/views/admin.py:169
+#: ../app/gbi_server/views/admin.py:178
 #, python-format
 msgid "User activated %(email)s"
 msgstr ""
 "Konto vom Nutzer mit der E-Mail-Adresse %(email)s wurde aktiviert. Der "
 "Nutzer wurde per E-Mail darüber benachrichtigt."
 
-#: gbi_server/views/admin.py:178
+#: ../app/gbi_server/views/admin.py:187
 #, python-format
 msgid "User deactivate %(email)s"
 msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s wurde deaktiviert."
 
-#: gbi_server/views/admin.py:187
+#: ../app/gbi_server/views/admin.py:196
 msgid "Self-User cannot be removed"
 msgstr "Der eigene Benutzer kann nicht gelöscht werden."
 
-#: gbi_server/views/admin.py:194
+#: ../app/gbi_server/views/admin.py:203
 #, python-format
 msgid "User was removed %(email)s"
 msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s wurde gelöscht."
 
-#: gbi_server/views/admin.py:222 gbi_server/views/user.py:112
-#: gbi_server/views/user.py:162
+#: ../app/gbi_server/views/admin.py:231 ../app/gbi_server/views/user.py:112
+#: ../app/gbi_server/views/user.py:162
 msgid "Email verification mail subject"
 msgstr "E-Mail-Adresse bestätigen"
 
-#: gbi_server/views/admin.py:240
+#: ../app/gbi_server/views/admin.py:249
 msgid "User created"
 msgstr "Benutzer erstellt"
 
-#: gbi_server/views/admin.py:254
+#: ../app/gbi_server/views/admin.py:263
 msgid "User edited"
 msgstr "Benutzerdaten erfolgreich bearbeitet"
 
-#: gbi_server/views/admin.py:265
+#: ../app/gbi_server/views/admin.py:274
 msgid "Password reset"
 msgstr "Passwort zurückgesetzt"
 
-#: gbi_server/views/admin_services.py:96
+#: ../app/gbi_server/views/admin_services.py:89
+#: ../app/gbi_server/views/admin_services.py:197
+msgid "Only the first geometry was used for view coverage"
+msgstr ""
+
+#: ../app/gbi_server/views/admin_services.py:94
+#: ../app/gbi_server/views/admin_services.py:202
+msgid "Geometry not correct"
+msgstr ""
+
+#: ../app/gbi_server/views/admin_services.py:109
 msgid "Saved WMTS"
 msgstr "WMTS gespeichert"
 
-#: gbi_server/views/admin_services.py:100
+#: ../app/gbi_server/views/admin_services.py:113
 msgid "WMTS with this name already exist"
 msgstr "WMTS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin_services.py:109
+#: ../app/gbi_server/views/admin_services.py:128
 msgid "WMTS removed"
 msgstr "WMTS gelöscht"
 
-#: gbi_server/views/admin_services.py:117
+#: ../app/gbi_server/views/admin_services.py:136
 msgid "Need url for capabilities"
 msgstr "URL für Capabilities wird benötigt"
 
-#: gbi_server/views/admin_services.py:190
+#: ../app/gbi_server/views/admin_services.py:220
 msgid "Saved WMS"
 msgstr "WMS wurde gespeichert"
 
-#: gbi_server/views/admin_services.py:195
+#: ../app/gbi_server/views/admin_services.py:225
 msgid "WMS with this name already exist"
 msgstr "WMS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin_services.py:204
+#: ../app/gbi_server/views/admin_services.py:240
 msgid "WMS removed"
 msgstr "WMS wurde gelöscht"
 
-#: gbi_server/views/admin_services.py:240
+#: ../app/gbi_server/views/admin_services.py:276
 msgid "Saved WFS"
 msgstr "WFS wurde erfolgreich gespeichert"
 
-#: gbi_server/views/admin_services.py:244
+#: ../app/gbi_server/views/admin_services.py:280
 msgid "WFS with this name already exist"
 msgstr "WFS mit diesem Namen existiert bereits"
 
-#: gbi_server/views/admin_services.py:254
+#: ../app/gbi_server/views/admin_services.py:290
 msgid "WFS removed"
 msgstr "WFS wurde gelöscht"
 
-#: gbi_server/views/boxes.py:56
+#: ../app/gbi_server/views/boxes.py:56
 msgid "upload success"
 msgstr "Datei erfolgreich hochgeladen"
 
-#: gbi_server/views/boxes.py:58
+#: ../app/gbi_server/views/boxes.py:58
 msgid "file type not allowed"
 msgstr "Dateityp ist nich erlaubt"
 
-#: gbi_server/views/boxes.py:114
+#: ../app/gbi_server/views/boxes.py:114
 msgid "file deleted"
 msgstr "Datei wurde gelöscht"
 
-#: gbi_server/views/boxes.py:130
+#: ../app/gbi_server/views/boxes.py:130
 msgid "copy not possible"
 msgstr "Daten konnten nicht kopiert werden"
 
-#: gbi_server/views/boxes.py:148
+#: ../app/gbi_server/views/boxes.py:148
 msgid "file copied"
 msgstr "Datei wurde erfolgreich kopiert"
 
-#: gbi_server/views/context.py:174
+#: ../app/gbi_server/views/context.py:174
 msgid "area box"
 msgstr "Flächen-Box"
 
-#: gbi_server/views/context.py:186
+#: ../app/gbi_server/views/context.py:186
 msgid "file box"
 msgstr "Beraterbox"
 
-#: gbi_server/views/context.py:196
+#: ../app/gbi_server/views/context.py:196
 msgid "consultant box"
 msgstr "Downloadbox"
 
-#: gbi_server/views/maps.py:80
+#: ../app/gbi_server/views/maps.py:80
 #, python-format
 msgid "Layer %(title)s already exists"
 msgstr "Layer '%(title)s' existiert bereits"
 
-#: gbi_server/views/maps.py:83
+#: ../app/gbi_server/views/maps.py:83
 #, python-format
 msgid "Layer %(title)s created"
 msgstr "Layer '%(title)s' wurde erstellt"
 
-#: gbi_server/views/maps.py:103 gbi_server/views/maps.py:153
+#: ../app/gbi_server/views/maps.py:103 ../app/gbi_server/views/maps.py:153
 msgid "external edit in progress"
 msgstr "Externer Editiervorgang aktiv."
 
-#: gbi_server/views/maps.py:111 gbi_server/views/maps.py:175
+#: ../app/gbi_server/views/maps.py:111 ../app/gbi_server/views/maps.py:175
 msgid "layer unknown or without schema"
 msgstr "Unbekannter Layer oder fehlendes Layer-Schema"
 
-#: gbi_server/views/maps.py:148
+#: ../app/gbi_server/views/maps.py:148
 msgid "not allowed to remove this layer"
 msgstr "Dieser Layer darf nicht gelöscht werden"
 
-#: gbi_server/views/maps.py:159
+#: ../app/gbi_server/views/maps.py:159
 #, python-format
 msgid "Layer %(layer)s removed"
 msgstr "Layer %(layer)s gelöscht"
 
-#: gbi_server/views/maps.py:161
+#: ../app/gbi_server/views/maps.py:161
 #, python-format
 msgid "Could not remove layer %(layer)s"
 msgstr "Layer '%(layer)s' kann nicht gelöscht werden."
 
-#: gbi_server/views/maps.py:191
+#: ../app/gbi_server/views/maps.py:191
 msgid "wfs changes discarded"
 msgstr "Änderungen verworfen"
 
-#: gbi_server/views/maps.py:233
+#: ../app/gbi_server/views/maps.py:233
 msgid "wfs changes saved"
 msgstr "Änderungen gespeichert"
 
-#: gbi_server/views/user.py:58
+#: ../app/gbi_server/views/user.py:58
 msgid "user or passwort is not correct"
 msgstr "Bentuzername oder Passwort sind nicht korrekt"
 
-#: gbi_server/views/user.py:63
+#: ../app/gbi_server/views/user.py:63
 msgid "account not activated"
 msgstr ""
 "Ihr Zugang ist noch nicht freigeschaltet. Die Administratoren sind "
 "bereits über Ihre Anmeldung informiert."
 
-#: gbi_server/views/user.py:69
+#: ../app/gbi_server/views/user.py:69
 msgid "Logged in successfully."
 msgstr "Erfolgreich angemeldet"
 
-#: gbi_server/views/user.py:147
+#: ../app/gbi_server/views/user.py:147
 msgid "Account removed"
 msgstr "Konto gelöscht"
 
-#: gbi_server/views/user.py:167
+#: ../app/gbi_server/views/user.py:167
 msgid "email verification was sent successfully"
 msgstr "E-Mail wurde erfolgreich versendet"
 
-#: gbi_server/views/user.py:191
+#: ../app/gbi_server/views/user.py:191
 msgid "Activate user subject"
 msgstr "GBI: Neuer Benutzer angemeldet"
 
-#: gbi_server/views/user.py:196
+#: ../app/gbi_server/views/user.py:196
 msgid "Email verified"
 msgstr "E-Mail wurde erfolgreich bestätigt"
 
-#: gbi_server/views/user.py:210
+#: ../app/gbi_server/views/user.py:210
 msgid "Password recover mail subject"
 msgstr "GBI Passwort zurücksetzen"
 
-#: gbi_server/views/user.py:255
+#: ../app/gbi_server/views/user.py:255
 msgid "Address changed"
 msgstr "Ihre Adressedaten wurden geändert"
 
-#: gbi_server/views/user.py:269
+#: ../app/gbi_server/views/user.py:269
 msgid "Password changed"
 msgstr "Ihr Passwort wurde geändert"
 
-#: gbi_server/views/user.py:272
+#: ../app/gbi_server/views/user.py:272
 msgid "Old password is not correct"
 msgstr "Das eingegebene Passwort ist nicht korrekt"
 
@@ -1703,75 +1781,76 @@ msgstr "Das eingegebene Passwort ist nicht korrekt"
 #~ msgid "Field must be at least %(min)d character long."
 #~ msgid_plural "Field must be at least %(min)d characters long."
 #~ msgstr[0] "Feld muss mindestens %(min)d Zeichen lang sein"
-#~ msgstr[1] "Feld muss mindestens %(min)d Zeichen lang sein"
+#~ msgstr[1] ""
 
 #~ msgid "Field cannot be longer than %(max)d character."
-#~ msgid_plural "Field cannot be longer than %(max)d characters."
-#~ msgstr[0] "Der Inhalt kann nicht länger als %(max)d Buchstabe sein."
-#~ msgstr[1] "Der Inhalt kann nicht länger als %(max)d Buchstaben sein."
+#~ msgstr "Feld muss mindestens %(min)d Zeichen lang sein"
+
+#~ msgid "Field cannot be longer than %(max)d characters."
+#~ msgstr "Der Inhalt kann nicht länger als %(max)d Buchstabe sein."
 
 #~ msgid "Field must be between %(min)d and %(max)d characters long."
-#~ msgstr "Eingabe muss zwischen %(min)d und %(max)d Zeichen lang sein."
+#~ msgstr "Der Inhalt kann nicht länger als %(max)d Buchstaben sein."
 
 #~ msgid "Number must be at least %(min)s."
-#~ msgstr "Zahl muss kleiner sein als %(min)s"
+#~ msgstr "Eingabe muss zwischen %(min)d und %(max)d Zeichen lang sein."
 
 #~ msgid "Number must be at most %(max)s."
-#~ msgstr "Zahl muss kleiner sein als %(max)s"
+#~ msgstr "Zahl muss kleiner sein als %(min)s"
 
 #~ msgid "Number must be between %(min)s and %(max)s."
-#~ msgstr "Die Zahl muss zwischen %(min)s und %(max)s liegen"
+#~ msgstr "Zahl muss kleiner sein als %(max)s"
 
 #~ msgid "This field is required."
-#~ msgstr "Dieses Feld muss ausgefüllt werden."
+#~ msgstr "Die Zahl muss zwischen %(min)s und %(max)s liegen"
 
 #~ msgid "Invalid input."
-#~ msgstr "Ungültige Eingabe."
+#~ msgstr "Dieses Feld muss ausgefüllt werden."
 
 #~ msgid "Invalid email address."
-#~ msgstr "Ungültige E-Mail-Adresse"
+#~ msgstr "Ungültige Eingabe."
 
 #~ msgid "Invalid IP address."
-#~ msgstr "Ungültige IP Adresse."
+#~ msgstr "Ungültige E-Mail-Adresse"
 
 #~ msgid "Invalid Mac address."
-#~ msgstr "Ungültige MAC-Adresse"
+#~ msgstr "Ungültige IP Adresse."
 
 #~ msgid "Invalid URL."
-#~ msgstr "Ungültige URL."
+#~ msgstr "Ungültige MAC-Adresse"
 
 #~ msgid "Invalid UUID."
-#~ msgstr "Ungültige UUID."
+#~ msgstr "Ungültige URL."
 
 #~ msgid "Invalid value, must be one of: %(values)s."
-#~ msgstr "Ungültiger Wert. Der Wert muss eines der folgenen sein: %(values)s."
+#~ msgstr "Ungültige UUID."
 
 #~ msgid "Invalid value, can't be any of: %(values)s."
-#~ msgstr "Ungültiger Wert: %(values)s sind nicht möglich."
+#~ msgstr "Ungültiger Wert. Der Wert muss eines der folgenen sein: %(values)s."
 
 #~ msgid "Invalid CSRF Token"
-#~ msgstr "Ungültiger CSRF Token"
+#~ msgstr "Ungültiger Wert: %(values)s sind nicht möglich."
 
 #~ msgid "CSRF token missing"
-#~ msgstr "CSRF Token fehlt"
+#~ msgstr "Ungültiger CSRF Token"
 
 #~ msgid "CSRF failed"
-#~ msgstr ""
+#~ msgstr "CSRF Token fehlt"
 
 #~ msgid "CSRF token expired"
 #~ msgstr ""
 
 #~ msgid "Not a valid choice"
-#~ msgstr "Keine gültige Auswahl"
+#~ msgstr ""
 
 #~ msgid "Not a valid list"
-#~ msgstr "Keine gültige Liste"
+#~ msgstr "Keine gültige Auswahl"
 
 #~ msgid "Not a valid integer list"
-#~ msgstr "Kein gültiger Zahlenwert"
+#~ msgstr "Keine gültige Liste"
 
 #~ msgid "Please input a date/time value"
-#~ msgstr ""
+#~ msgstr "Kein gültiger Zahlenwert"
 
 #~ msgid "Invalid date/time input"
 #~ msgstr ""
@@ -1783,19 +1862,19 @@ msgstr "Das eingegebene Passwort ist nicht korrekt"
 #~ msgstr ""
 
 #~ msgid "'%(value)s' is not a valid choice for this field"
-#~ msgstr "'%(value)s' ist keine gültige Auswahl für dieses Feld"
+#~ msgstr ""
 
 #~ msgid "Not a valid integer value"
-#~ msgstr "Kein gültiger Zahlenwert"
+#~ msgstr "'%(value)s' ist keine gültige Auswahl für dieses Feld"
 
 #~ msgid "Not a valid decimal value"
 #~ msgstr "Kein gültiger Zahlenwert"
 
 #~ msgid "Not a valid float value"
-#~ msgstr "Kein gültiger Gleitkommawert"
+#~ msgstr "Kein gültiger Zahlenwert"
 
 #~ msgid "Not a valid datetime value"
-#~ msgstr "Keine gültige Datumseingabe"
+#~ msgstr "Kein gültiger Gleitkommawert"
 
 #~ msgid "Not a valid date value"
 #~ msgstr "Keine gültige Datumseingabe"
