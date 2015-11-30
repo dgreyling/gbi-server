@@ -18,11 +18,11 @@ from geoalchemy2.types import Geometry
 
 from gbi_server.extensions import db
 
+
 class Log(db.Model):
     __tablename__ = 'logs'
 
     id = db.Column(db.Integer, primary_key=True)
-
     time = db.Column(db.DateTime, nullable=False)
 
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
@@ -30,8 +30,6 @@ class Log(db.Model):
 
     action = db.Column(db.String(24), nullable=False)
     geometry = db.Column(Geometry('MULTIPOLYGON', srid=4326))
-
-
     format = db.Column(db.String)
     srs = db.Column(db.String)
     mapping = db.Column(db.String)
@@ -40,4 +38,3 @@ class Log(db.Model):
     zoom_level_start = db.Column(db.Integer)
     zoom_level_end = db.Column(db.Integer)
     refreshed = db.Column(db.Boolean)
-
