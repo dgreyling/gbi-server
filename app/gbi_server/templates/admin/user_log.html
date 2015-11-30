@@ -36,7 +36,14 @@
                 <td>{{ log_line[0].zoom_level_start or '' }}</td>
                 <td>{{ log_line[0].zoom_level_end or '' }}</td>
                 <td>{{ log_line[0].refreshed or '' }}</td>
-                <td>{{ log_line[1] or ''}}</td>
+                <td>
+                    {% if log_line[1] %}
+                    <a href='http://geojson.io/#data=data:application/json,{{ log_line[1]}}' target="_blank">
+                        {{ _('Show Geojson') }}
+                    </a>
+                    {% else %}
+                        {{ _('No Geometry') }}
+                    {% endif %}
             </tr>
             {% endfor %}
         </tbody>

@@ -19,7 +19,7 @@ from flask.ext.login import current_user
 from flask.ext.babel import gettext as _
 from werkzeug.exceptions import Unauthorized, Forbidden
 from sqlalchemy import asc, desc, or_
-from geoalchemy2.functions import ST_Envelope
+from geoalchemy2.functions import ST_Envelope, ST_AsGeoJSON, ST_Transform
 
 from gbi_server.extensions import db
 from gbi_server.model import User, EmailVerification, Log
@@ -281,5 +281,11 @@ def reset_user_password(user_id):
 @admin.route('/admin/user_log/<int:user_id>', methods=["GET"])
 def user_log(user_id):
     user = User.by_id(user_id)
-    result = db.session.query(Log, ST_Envelope(Log.geometry)).filter_by(user=user).all()
+    query = db.session.query(
+        Log,
+        ST_AsGeoJSON(
+            ST_Envelope(Log.geometry),
+        )
+    )
+    result = query.filter_by(user=user).all()
     return render_template('admin/user_log.html', user=user, logs=result)
