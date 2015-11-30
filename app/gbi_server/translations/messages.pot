@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-27 14:29+0100\n"
+"POT-Creation-Date: 2015-11-30 08:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,75 +47,75 @@ msgstr ""
 msgid "Please login to see this page"
 msgstr ""
 
-#: ../app/gbi_server/config.py:120
+#: ../app/gbi_server/config.py:123
 msgid "mr"
 msgstr ""
 
-#: ../app/gbi_server/config.py:121
+#: ../app/gbi_server/config.py:124
 msgid "mrs"
 msgstr ""
 
-#: ../app/gbi_server/config.py:125
+#: ../app/gbi_server/config.py:128
 msgid "Baden-Wuerttemberg"
 msgstr ""
 
-#: ../app/gbi_server/config.py:126
+#: ../app/gbi_server/config.py:129
 msgid "Bavaria"
 msgstr ""
 
-#: ../app/gbi_server/config.py:127
+#: ../app/gbi_server/config.py:130
 msgid "Berlin"
 msgstr ""
 
-#: ../app/gbi_server/config.py:128
+#: ../app/gbi_server/config.py:131
 msgid "Brandenburg"
 msgstr ""
 
-#: ../app/gbi_server/config.py:129
+#: ../app/gbi_server/config.py:132
 msgid "Bremen"
 msgstr ""
 
-#: ../app/gbi_server/config.py:130
+#: ../app/gbi_server/config.py:133
 msgid "Hamburg"
 msgstr ""
 
-#: ../app/gbi_server/config.py:131
+#: ../app/gbi_server/config.py:134
 msgid "Hesse"
 msgstr ""
 
-#: ../app/gbi_server/config.py:132
+#: ../app/gbi_server/config.py:135
 msgid "Mecklenburg Western Pomerania"
 msgstr ""
 
-#: ../app/gbi_server/config.py:133
+#: ../app/gbi_server/config.py:136
 msgid "Lower Saxony"
 msgstr ""
 
-#: ../app/gbi_server/config.py:134
+#: ../app/gbi_server/config.py:137
 msgid "Northrhine-Westphalia"
 msgstr ""
 
-#: ../app/gbi_server/config.py:135
+#: ../app/gbi_server/config.py:138
 msgid "Rhineland Palatinate"
 msgstr ""
 
-#: ../app/gbi_server/config.py:136
+#: ../app/gbi_server/config.py:139
 msgid "Saarland"
 msgstr ""
 
-#: ../app/gbi_server/config.py:137
+#: ../app/gbi_server/config.py:140
 msgid "Saxony"
 msgstr ""
 
-#: ../app/gbi_server/config.py:138
+#: ../app/gbi_server/config.py:141
 msgid "Saxony-Anhalt"
 msgstr ""
 
-#: ../app/gbi_server/config.py:139
+#: ../app/gbi_server/config.py:142
 msgid "Schleswig Holstein"
 msgstr ""
 
-#: ../app/gbi_server/config.py:140
+#: ../app/gbi_server/config.py:143
 msgid "Thuringia"
 msgstr ""
 
@@ -427,18 +427,18 @@ msgstr ""
 msgid "external_wms_title"
 msgstr ""
 
-#: ../app/gbi_server/model/user.py:94 ../app/gbi_server/views/admin.py:60
-#: ../app/gbi_server/views/admin.py:216 ../app/gbi_server/views/user.py:92
+#: ../app/gbi_server/model/user.py:94 ../app/gbi_server/views/admin.py:61
+#: ../app/gbi_server/views/admin.py:217 ../app/gbi_server/views/user.py:92
 msgid "customer"
 msgstr ""
 
-#: ../app/gbi_server/model/user.py:95 ../app/gbi_server/views/admin.py:61
-#: ../app/gbi_server/views/admin.py:217 ../app/gbi_server/views/user.py:95
+#: ../app/gbi_server/model/user.py:95 ../app/gbi_server/views/admin.py:62
+#: ../app/gbi_server/views/admin.py:218 ../app/gbi_server/views/user.py:95
 msgid "service_provider"
 msgstr ""
 
-#: ../app/gbi_server/model/user.py:96 ../app/gbi_server/views/admin.py:63
-#: ../app/gbi_server/views/admin.py:219 ../app/gbi_server/views/user.py:94
+#: ../app/gbi_server/model/user.py:96 ../app/gbi_server/views/admin.py:64
+#: ../app/gbi_server/views/admin.py:220 ../app/gbi_server/views/user.py:94
 msgid "consultant"
 msgstr ""
 
@@ -446,7 +446,7 @@ msgstr ""
 #: ../app/gbi_server/templates/admin/base.html:8
 #: ../app/gbi_server/templates/admin/base.html:12
 #: ../app/gbi_server/templates/admin/index.html:5
-#: ../app/gbi_server/views/admin.py:64 ../app/gbi_server/views/admin.py:220
+#: ../app/gbi_server/views/admin.py:65 ../app/gbi_server/views/admin.py:221
 msgid "admin"
 msgstr ""
 
@@ -1431,43 +1431,43 @@ msgstr ""
 msgid "email for verification sent"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:173
+#: ../app/gbi_server/views/admin.py:174
 msgid "Account activated mail subject"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:178
+#: ../app/gbi_server/views/admin.py:179
 #, python-format
 msgid "User activated %(email)s"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:187
+#: ../app/gbi_server/views/admin.py:188
 #, python-format
 msgid "User deactivate %(email)s"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:196
+#: ../app/gbi_server/views/admin.py:197
 msgid "Self-User cannot be removed"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:203
+#: ../app/gbi_server/views/admin.py:204
 #, python-format
 msgid "User was removed %(email)s"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:231 ../app/gbi_server/views/user.py:112
+#: ../app/gbi_server/views/admin.py:232 ../app/gbi_server/views/user.py:112
 #: ../app/gbi_server/views/user.py:162
 msgid "Email verification mail subject"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:249
+#: ../app/gbi_server/views/admin.py:250
 msgid "User created"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:263
+#: ../app/gbi_server/views/admin.py:264
 msgid "User edited"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:274
+#: ../app/gbi_server/views/admin.py:275
 msgid "Password reset"
 msgstr ""
 

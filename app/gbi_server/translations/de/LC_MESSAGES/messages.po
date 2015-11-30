@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-27 14:29+0100\n"
+"POT-Creation-Date: 2015-11-30 08:33+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -47,75 +47,75 @@ msgstr "Login erforderlich"
 msgid "Please login to see this page"
 msgstr "Bitte melden Sie sich an um die Seite zu betrachten"
 
-#: ../app/gbi_server/config.py:120
+#: ../app/gbi_server/config.py:123
 msgid "mr"
 msgstr "Herr"
 
-#: ../app/gbi_server/config.py:121
+#: ../app/gbi_server/config.py:124
 msgid "mrs"
 msgstr "Frau"
 
-#: ../app/gbi_server/config.py:125
+#: ../app/gbi_server/config.py:128
 msgid "Baden-Wuerttemberg"
 msgstr "Baden-Württemberg"
 
-#: ../app/gbi_server/config.py:126
+#: ../app/gbi_server/config.py:129
 msgid "Bavaria"
 msgstr "Bayern"
 
-#: ../app/gbi_server/config.py:127
+#: ../app/gbi_server/config.py:130
 msgid "Berlin"
 msgstr "Berlin"
 
-#: ../app/gbi_server/config.py:128
+#: ../app/gbi_server/config.py:131
 msgid "Brandenburg"
 msgstr "Brandenburg"
 
-#: ../app/gbi_server/config.py:129
+#: ../app/gbi_server/config.py:132
 msgid "Bremen"
 msgstr "Bremen"
 
-#: ../app/gbi_server/config.py:130
+#: ../app/gbi_server/config.py:133
 msgid "Hamburg"
 msgstr "Hamburg"
 
-#: ../app/gbi_server/config.py:131
+#: ../app/gbi_server/config.py:134
 msgid "Hesse"
 msgstr "Hessen"
 
-#: ../app/gbi_server/config.py:132
+#: ../app/gbi_server/config.py:135
 msgid "Mecklenburg Western Pomerania"
 msgstr "Mecklenburg Vorpommern"
 
-#: ../app/gbi_server/config.py:133
+#: ../app/gbi_server/config.py:136
 msgid "Lower Saxony"
 msgstr "Niedersachsen"
 
-#: ../app/gbi_server/config.py:134
+#: ../app/gbi_server/config.py:137
 msgid "Northrhine-Westphalia"
 msgstr "Nordrhein-Westfalen"
 
-#: ../app/gbi_server/config.py:135
+#: ../app/gbi_server/config.py:138
 msgid "Rhineland Palatinate"
 msgstr "Rheinland Pfalz"
 
-#: ../app/gbi_server/config.py:136
+#: ../app/gbi_server/config.py:139
 msgid "Saarland"
 msgstr "Saarland"
 
-#: ../app/gbi_server/config.py:137
+#: ../app/gbi_server/config.py:140
 msgid "Saxony"
 msgstr "Sachsen"
 
-#: ../app/gbi_server/config.py:138
+#: ../app/gbi_server/config.py:141
 msgid "Saxony-Anhalt"
 msgstr "Sachsen-Anhalt"
 
-#: ../app/gbi_server/config.py:139
+#: ../app/gbi_server/config.py:142
 msgid "Schleswig Holstein"
 msgstr "Schleswig Holstein"
 
-#: ../app/gbi_server/config.py:140
+#: ../app/gbi_server/config.py:143
 msgid "Thuringia"
 msgstr "Thüringen"
 
@@ -429,18 +429,18 @@ msgstr "Coverage auswhälen"
 msgid "external_wms_title"
 msgstr "GBI WMS"
 
-#: ../app/gbi_server/model/user.py:94 ../app/gbi_server/views/admin.py:60
-#: ../app/gbi_server/views/admin.py:216 ../app/gbi_server/views/user.py:92
+#: ../app/gbi_server/model/user.py:94 ../app/gbi_server/views/admin.py:61
+#: ../app/gbi_server/views/admin.py:217 ../app/gbi_server/views/user.py:92
 msgid "customer"
 msgstr "Landwirt"
 
-#: ../app/gbi_server/model/user.py:95 ../app/gbi_server/views/admin.py:61
-#: ../app/gbi_server/views/admin.py:217 ../app/gbi_server/views/user.py:95
+#: ../app/gbi_server/model/user.py:95 ../app/gbi_server/views/admin.py:62
+#: ../app/gbi_server/views/admin.py:218 ../app/gbi_server/views/user.py:95
 msgid "service_provider"
 msgstr "Dienstleister"
 
-#: ../app/gbi_server/model/user.py:96 ../app/gbi_server/views/admin.py:63
-#: ../app/gbi_server/views/admin.py:219 ../app/gbi_server/views/user.py:94
+#: ../app/gbi_server/model/user.py:96 ../app/gbi_server/views/admin.py:64
+#: ../app/gbi_server/views/admin.py:220 ../app/gbi_server/views/user.py:94
 msgid "consultant"
 msgstr "Berater"
 
@@ -448,7 +448,7 @@ msgstr "Berater"
 #: ../app/gbi_server/templates/admin/base.html:8
 #: ../app/gbi_server/templates/admin/base.html:12
 #: ../app/gbi_server/templates/admin/index.html:5
-#: ../app/gbi_server/views/admin.py:64 ../app/gbi_server/views/admin.py:220
+#: ../app/gbi_server/views/admin.py:65 ../app/gbi_server/views/admin.py:221
 msgid "admin"
 msgstr "Administrator"
 
@@ -975,7 +975,9 @@ msgstr ""
 #: ../app/gbi_server/templates/admin/wms_edit.html:84
 #: ../app/gbi_server/templates/admin/wmts_edit.html:44
 msgid "geojson.io infotext"
-msgstr "Auf der Webseite <a href='http://geojson.io'>geojson.io</a> können Sie eine Geometry einzeichnen und per Copy & Paste hier einfügen."
+msgstr ""
+"Auf der Webseite <a href='http://geojson.io'>geojson.io</a> können Sie "
+"eine Geometry einzeichnen und per Copy & Paste hier einfügen."
 
 #: ../app/gbi_server/templates/admin/wms_edit.html:85
 #: ../app/gbi_server/templates/admin/wmts_edit.html:45
@@ -1550,45 +1552,45 @@ msgstr ""
 "die Anmeldung abzuschließen.<p>Mail nicht erhalten? <a "
 "href=\"%(verify_url)s\">Fordern Sie hier einen erneute E-Mail an.</a></p>"
 
-#: ../app/gbi_server/views/admin.py:173
+#: ../app/gbi_server/views/admin.py:174
 msgid "Account activated mail subject"
 msgstr "GeoBox – Ihr Zugang wurde freigeschaltet."
 
-#: ../app/gbi_server/views/admin.py:178
+#: ../app/gbi_server/views/admin.py:179
 #, python-format
 msgid "User activated %(email)s"
 msgstr ""
 "Konto vom Nutzer mit der E-Mail-Adresse %(email)s wurde aktiviert. Der "
 "Nutzer wurde per E-Mail darüber benachrichtigt."
 
-#: ../app/gbi_server/views/admin.py:187
+#: ../app/gbi_server/views/admin.py:188
 #, python-format
 msgid "User deactivate %(email)s"
 msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s wurde deaktiviert."
 
-#: ../app/gbi_server/views/admin.py:196
+#: ../app/gbi_server/views/admin.py:197
 msgid "Self-User cannot be removed"
 msgstr "Der eigene Benutzer kann nicht gelöscht werden."
 
-#: ../app/gbi_server/views/admin.py:203
+#: ../app/gbi_server/views/admin.py:204
 #, python-format
 msgid "User was removed %(email)s"
 msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s wurde gelöscht."
 
-#: ../app/gbi_server/views/admin.py:231 ../app/gbi_server/views/user.py:112
+#: ../app/gbi_server/views/admin.py:232 ../app/gbi_server/views/user.py:112
 #: ../app/gbi_server/views/user.py:162
 msgid "Email verification mail subject"
 msgstr "E-Mail-Adresse bestätigen"
 
-#: ../app/gbi_server/views/admin.py:249
+#: ../app/gbi_server/views/admin.py:250
 msgid "User created"
 msgstr "Benutzer erstellt"
 
-#: ../app/gbi_server/views/admin.py:263
+#: ../app/gbi_server/views/admin.py:264
 msgid "User edited"
 msgstr "Benutzerdaten erfolgreich bearbeitet"
 
-#: ../app/gbi_server/views/admin.py:274
+#: ../app/gbi_server/views/admin.py:275
 msgid "Password reset"
 msgstr "Passwort zurückgesetzt"
 
@@ -1759,123 +1761,3 @@ msgstr "Ihr Passwort wurde geändert"
 #: ../app/gbi_server/views/user.py:272
 msgid "Old password is not correct"
 msgstr "Das eingegebene Passwort ist nicht korrekt"
-
-#~ msgid "verify"
-#~ msgstr "Verifizieren"
-
-#~ msgid "User verified"
-#~ msgstr "Benutzer verifiziert"
-
-#~ msgid "Account activated mail subject"
-#~ msgstr "GBI-Konto aktiviert"
-
-#~ msgid "edit user"
-#~ msgstr "Benutzer editieren"
-
-#~ msgid "Invalid field name '%s'."
-#~ msgstr "Ungültiger Feldname '%s'."
-
-#~ msgid "Field must be equal to %(other_name)s."
-#~ msgstr "Das Feld muss mit dem %(other_name)s übereinstimmen."
-
-#~ msgid "Field must be at least %(min)d character long."
-#~ msgid_plural "Field must be at least %(min)d characters long."
-#~ msgstr[0] "Feld muss mindestens %(min)d Zeichen lang sein"
-#~ msgstr[1] ""
-
-#~ msgid "Field cannot be longer than %(max)d character."
-#~ msgstr "Feld muss mindestens %(min)d Zeichen lang sein"
-
-#~ msgid "Field cannot be longer than %(max)d characters."
-#~ msgstr "Der Inhalt kann nicht länger als %(max)d Buchstabe sein."
-
-#~ msgid "Field must be between %(min)d and %(max)d characters long."
-#~ msgstr "Der Inhalt kann nicht länger als %(max)d Buchstaben sein."
-
-#~ msgid "Number must be at least %(min)s."
-#~ msgstr "Eingabe muss zwischen %(min)d und %(max)d Zeichen lang sein."
-
-#~ msgid "Number must be at most %(max)s."
-#~ msgstr "Zahl muss kleiner sein als %(min)s"
-
-#~ msgid "Number must be between %(min)s and %(max)s."
-#~ msgstr "Zahl muss kleiner sein als %(max)s"
-
-#~ msgid "This field is required."
-#~ msgstr "Die Zahl muss zwischen %(min)s und %(max)s liegen"
-
-#~ msgid "Invalid input."
-#~ msgstr "Dieses Feld muss ausgefüllt werden."
-
-#~ msgid "Invalid email address."
-#~ msgstr "Ungültige Eingabe."
-
-#~ msgid "Invalid IP address."
-#~ msgstr "Ungültige E-Mail-Adresse"
-
-#~ msgid "Invalid Mac address."
-#~ msgstr "Ungültige IP Adresse."
-
-#~ msgid "Invalid URL."
-#~ msgstr "Ungültige MAC-Adresse"
-
-#~ msgid "Invalid UUID."
-#~ msgstr "Ungültige URL."
-
-#~ msgid "Invalid value, must be one of: %(values)s."
-#~ msgstr "Ungültige UUID."
-
-#~ msgid "Invalid value, can't be any of: %(values)s."
-#~ msgstr "Ungültiger Wert. Der Wert muss eines der folgenen sein: %(values)s."
-
-#~ msgid "Invalid CSRF Token"
-#~ msgstr "Ungültiger Wert: %(values)s sind nicht möglich."
-
-#~ msgid "CSRF token missing"
-#~ msgstr "Ungültiger CSRF Token"
-
-#~ msgid "CSRF failed"
-#~ msgstr "CSRF Token fehlt"
-
-#~ msgid "CSRF token expired"
-#~ msgstr ""
-
-#~ msgid "Not a valid choice"
-#~ msgstr ""
-
-#~ msgid "Not a valid list"
-#~ msgstr "Keine gültige Auswahl"
-
-#~ msgid "Not a valid integer list"
-#~ msgstr "Keine gültige Liste"
-
-#~ msgid "Please input a date/time value"
-#~ msgstr "Kein gültiger Zahlenwert"
-
-#~ msgid "Invalid date/time input"
-#~ msgstr ""
-
-#~ msgid "Invalid Choice: could not coerce"
-#~ msgstr ""
-
-#~ msgid "Invalid choice(s): one or more data inputs could not be coerced"
-#~ msgstr ""
-
-#~ msgid "'%(value)s' is not a valid choice for this field"
-#~ msgstr ""
-
-#~ msgid "Not a valid integer value"
-#~ msgstr "'%(value)s' ist keine gültige Auswahl für dieses Feld"
-
-#~ msgid "Not a valid decimal value"
-#~ msgstr "Kein gültiger Zahlenwert"
-
-#~ msgid "Not a valid float value"
-#~ msgstr "Kein gültiger Zahlenwert"
-
-#~ msgid "Not a valid datetime value"
-#~ msgstr "Kein gültiger Gleitkommawert"
-
-#~ msgid "Not a valid date value"
-#~ msgstr "Keine gültige Datumseingabe"
-
