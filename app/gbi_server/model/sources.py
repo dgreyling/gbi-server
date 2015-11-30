@@ -37,14 +37,32 @@ class WMTS(db.Model):
     view_level_start = db.Column(db.Integer)
     view_level_end = db.Column(db.Integer)
 
-    is_background_layer = db.Column(db.Boolean(), default=False)
+    # used in context document but not in gbi-client
+    # check we can delete it
     is_baselayer = db.Column(db.Boolean(), default=False)
+
+    # used in context document
+    # used on for gbi-client for export in mapproxy mbtiles etc.
     is_overlay = db.Column(db.Boolean(), default=True)
+
+    # used in context document
+    # gbi-client use user and password from context document if it is false
+    is_protected = db.Column(db.Boolean(), default=True)
+
+    # used on geobox editor and for sorting on context document
+    # gbi-client: the first layer of the contxt document is background layer
+    is_background_layer = db.Column(db.Boolean(), default=False)
+
+    # used on geobox editor
     is_transparent = db.Column(db.Boolean(), default=True)
     is_visible = db.Column(db.Boolean(), default=True)
+
+    # if it is public the complete view coverage added to the context document
+    # if not only the geometry from the user is allowed
     is_public = db.Column(db.Boolean(), default=False)
+
+    # access map without authproxy
     is_accessible = db.Column(db.Boolean(), default=False)
-    is_protected = db.Column(db.Boolean(), default=True)
 
     @classmethod
     def by_id(cls, id):
