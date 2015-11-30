@@ -61,9 +61,9 @@ def end_to_end_headers(headers, drop_headers=None):
     hop-by-hop headers (see HTTP1.1 RFC2616).
 
     >>> end_to_end_headers({'CoNNecTION': 'close', 'X-Foo': 'bar'})
-    [('X-Foo', 'bar')]
+    {'X-Foo': 'bar'}
     """
-    result = []
+    result = {}
     for key, value in headers.iteritems():
         if key.lower() in hop_by_hop_headers:
             continue
@@ -71,7 +71,7 @@ def end_to_end_headers(headers, drop_headers=None):
             continue
         if not value:
             continue
-        result.append((key.title(), value))
+        result[key.title()] = value
     return result
 
 def response_iterator(resp, chunk_size=16*1024):
