@@ -873,9 +873,8 @@ msgid "Show Geojson"
 msgstr "Geojson anzeigen"
 
 #: ../app/gbi_server/templates/admin/user_log.html:45
-#, fuzzy
 msgid "No Geometry"
-msgstr "Geometrie"
+msgstr "Keine Geometrie"
 
 #: ../app/gbi_server/templates/admin/wfs_edit.html:7
 #: ../app/gbi_server/templates/admin/wfs_edit.html:17
@@ -971,7 +970,7 @@ msgstr ""
 #: ../app/gbi_server/templates/admin/wms_edit.html:56
 #: ../app/gbi_server/templates/admin/wmts_edit.html:26
 msgid "tooltip - wmts is transparent "
-msgstr ""
+msgstr "Flächen außerhalb des Anzeigenbereiches sind transparent."
 
 #: ../app/gbi_server/templates/admin/wms_edit.html:59
 msgid "select srs"
@@ -988,12 +987,12 @@ msgstr ""
 #: ../app/gbi_server/templates/admin/wms_edit.html:74
 #: ../app/gbi_server/templates/admin/wmts_edit.html:33
 msgid "tooltip - is_visible"
-msgstr ""
+msgstr "Einstellung ob der Layer im Editor sichtbar ist"
 
 #: ../app/gbi_server/templates/admin/wms_edit.html:75
 #: ../app/gbi_server/templates/admin/wmts_edit.html:35
 msgid "tooltip - is public"
-msgstr ""
+msgstr "Der gesamte Anzeigebereich des Layers kann durch den Nutzer importiert werden."
 
 #: ../app/gbi_server/templates/admin/wms_edit.html:84
 #: ../app/gbi_server/templates/admin/wmts_edit.html:44
@@ -1014,7 +1013,7 @@ msgstr "Öffentlich"
 
 #: ../app/gbi_server/templates/admin/wmts_edit.html:6
 msgid "create or edit WMTS"
-msgstr ""
+msgstr "Erstellen oder Bearbeiten vom WMTS"
 
 #: ../app/gbi_server/templates/admin/wmts_edit.html:13
 msgid "edit WMTS"
@@ -1022,11 +1021,11 @@ msgstr "WMTS Editieren"
 
 #: ../app/gbi_server/templates/admin/wmts_edit.html:34
 msgid "tooltip - is background layer"
-msgstr ""
+msgstr "Hintergrundlayer wird dem Nutzer standardmässig im GBI-Client angezeigt. Es kann nur ein Hintergrundlayer pro Server definiert werden."
 
 #: ../app/gbi_server/templates/admin/wmts_edit.html:36
 msgid "tooltip - is accessible"
-msgstr ""
+msgstr "Der Dienst kann ohne Autorisierung abgerufen werden."
 
 #: ../app/gbi_server/templates/admin/wmts_list.html:17
 msgid "rastersource_is_background_layer"
