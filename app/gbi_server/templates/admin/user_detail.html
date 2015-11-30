@@ -23,8 +23,8 @@
         {{ _('reset password') }}
     </a>
   </li>
-  <li class="{% if request.path == url_for('admin.user_log', user_id=user.id) %}active{% endif%}">
-    <a href="{{ url_for('admin.user_log', user_id=user.id) }}">
+  <li class="{% if request.path == url_for('admin.logs', user_id=user.id) %}active{% endif%}">
+    <a href="{{ url_for('admin.logs', user_id=user.id) }}">
         {{ _('show log') }}
     </a>
   </li>
@@ -35,7 +35,7 @@
   </li>
 </ul>
 
-{% block content_bottom %}
+    {% block content_bottom %}
     <div class="row-fluid">
         <div class="span12">
 
@@ -70,11 +70,9 @@
             </div>
         </div>
     </div>
-{% endblock %}
+    {% endblock %}
 <hr>
 <a href="{{ url_for('admin.user_list') }}" class="btn btn-small">
     {{ _('Back to users list') }}
 </a>
-
 {% endblock %}
-

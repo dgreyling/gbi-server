@@ -16,19 +16,21 @@
 from datetime import datetime
 
 from flask import render_template, Blueprint, flash, redirect, \
-    url_for, request, current_app, session
+    url_for, request, current_app, session, Response
 from flask.ext.login import current_user
-from flask.ext.babel import gettext as _
+from flask.ext.babel import gettext as _, to_user_timezone
+
 from werkzeug.exceptions import Unauthorized, Forbidden
 from sqlalchemy import asc, desc, or_
-from geoalchemy2.functions import ST_Envelope, ST_AsGeoJSON, ST_Transform
+from geoalchemy2.functions import ST_Envelope, ST_AsGeoJSON
 
 from gbi_server.extensions import db
 from gbi_server.model import User, EmailVerification, Log
-from gbi_server.forms.admin import CreateUserForm, SearchUserForm
+from gbi_server.forms.admin import CreateUserForm, SearchUserForm, DownloadLogsForm
 from gbi_server.forms.user import RecoverSetForm, EditAddressForm
 from gbi_server.lib.helper import send_mail
 from gbi_server.lib.couchdb import init_user_boxes
+from gbi_server.lib.log import log_spec_to_csv
 
 admin = Blueprint("admin", __name__, template_folder="../templates")
 
@@ -288,7 +290,6 @@ def edit_user(user_id):
 
 @admin.route('/admin/reset_user_password/<int:user_id>', methods=["GET", "POST"])
 def reset_user_password(user_id):
-    user = User.by_id(user_id)
     form = RecoverSetForm()
     if form.validate_on_submit():
         user.update_password(form.password.data)
@@ -297,14 +298,67 @@ def reset_user_password(user_id):
     return render_template('admin/reset_user_password.html', form=form, user=user)
 
 
-@admin.route('/admin/user_log/<int:user_id>', methods=["GET"])
-def user_log(user_id):
-    user = User.by_id(user_id)
-    query = db.session.query(
-        Log,
-        ST_AsGeoJSON(
-            ST_Envelope(Log.geometry),
+# @admin.route('/admin/user_log/<int:user_id>', methods=["GET"])
+# def user_log(user_id):
+#     user = User.by_id(user_id)
+#     result = Log.query.filter_by(user=user).all()
+#     return render_template('admin/user_log.html', user=user, logs=result)
+
+@admin.route('/admin/logs/', methods=["GET"])
+@admin.route('/admin/logs/<int:page>', methods=["GET"])
+@admin.route('/admin/user_log/<int:user_id>/logs/', methods=["GET"])
+@admin.route('/admin/user_log/<int:page>/logs/<int:user_id>', methods=["GET"])
+def logs(page=1, user_id=False):
+    form = DownloadLogsForm()
+
+    access_start = request.args.get('access_start', False)
+    access_end = request.args.get('access_end', False)
+
+    button_action = request.args.get('button-action', 'show-table')
+
+    query = Log.query
+    if user_id:
+        user = User.by_id(user_id)
+        query = query.filter_by(user=user)
+
+    if access_start:
+        query = query.filter(Log.time >= access_start)
+
+    if access_end:
+        query = query.filter(Log.time < access_end)
+
+    if button_action == 'show-table':
+        results = query.paginate(page, current_app.config["USER_PER_PAGE"])
+    else:
+        results = query.all()
+        csv = log_spec_to_csv(
+            logs=results,
+            csv_headers=current_app.config['LOG_CSV_HEADER']
         )
-    )
-    result = query.filter_by(user=user).all()
-    return render_template('admin/user_log.html', user=user, logs=result)
+        filename = 'geobox-access-%s.csv' % (to_user_timezone(datetime.utcnow()).strftime('%Y%m%d-%H%M%S'))
+
+        resp = Response(
+            csv,
+            headers={
+                'Content-type': 'application/octet-stream',
+                'Content-disposition': 'attachment; filename=%s' % filename})
+
+        return resp
+
+    if user_id:
+        return render_template('admin/user_log.html', user=user, logs=results)
+
+    # fill forms
+    try:
+        if access_start:
+            form.access_start.data = datetime.strptime(access_start, '%d-%m-%Y')
+    except ValueError:
+        form.access_start.data = ''
+
+    try:
+        if access_end:
+            form.access_end.data = datetime.strptime(access_end, '%d-%m-%Y')
+    except ValueError:
+        form.access_end.data = ''
+
+    return render_template('admin/logs.html', form=form, logs=results)

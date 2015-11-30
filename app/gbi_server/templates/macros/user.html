@@ -13,7 +13,10 @@
         <dd>{{ user.registered.strftime('%d.%m.%Y %H:%M ') }}</dd>
 
         <dt>{{ _('last login') }}</dt>
-        <dd>{% if user.last_login %} {{ user.last_login.strftime('%d.%m.%Y %H:%M ') }} {% endif %}&nbsp;</dd>
+        <dd>{% if user.last_login %}
+            {{ user.last_login.strftime('%d.%m.%Y %H:%M ') }}
+            {% endif %}&nbsp;
+        </dd>
         {% if user.is_customer %}
 
         {% endif %}
@@ -24,7 +27,7 @@
         <dd>
             {{ user.realname }}<br>
             {{ user.address }} <br>
-            {{ user.address_extend }}<br>
+            {% if user.address_extend %} {{ user.address_extend }} {% endif %}<br>
             {{ user.zipcode }} {{ user.city }} {{ user.federal_state_name }}
         </dd>
 

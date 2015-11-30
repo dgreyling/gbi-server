@@ -1,0 +1,43 @@
+{% extends "admin/base.html" %}
+
+{% from "macros/log.html" import log_table, log_pagination %}
+
+{% block title %} {{_('access list')}} {% endblock %}
+
+{% block content_right %}
+<h4>{{ _('access list') }}</h4>
+<div class="row-fluid">
+    <div class="span12">
+        <form method="GET">
+            <div class="row-fluid">
+                <div class="span2">
+                {{ input(form.access_start, class="span12", placeholder='01-01-2015') }}
+                </div>
+                <div class="span2">
+                {{ input(form.access_end, class="span12", placeholder='01-10-2015') }}
+                </div>
+            </div>
+            <div class="row-fluid">
+                <button id="download-offer" name="button-action" class="btn btn-small btn-default" value="show-table">
+                   {{ _('Show in Table') }}
+                </button>
+
+                <button id="check-input" name="button-action" class="btn btn-small btn-success" value="download-csv">
+                   {{ _('Download as CSV') }}
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<h4>{{ _('access list') }}</h4>
+
+<h5>{{ _('Table') }}</h5>
+<div class="row-fluid">
+    <div class="span12">
+        {{ log_table(logs) }}
+        <hr>
+        {{ log_pagination(logs) }}
+    </div>
+</div>
+{% endblock %}

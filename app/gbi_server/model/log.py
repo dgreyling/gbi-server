@@ -13,8 +13,12 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+import json
+import shapely
+
 from sqlalchemy.orm import backref
 from geoalchemy2.types import Geometry
+from geoalchemy2.shape import to_shape
 
 from gbi_server.extensions import db
 
@@ -38,3 +42,12 @@ class Log(db.Model):
     zoom_level_start = db.Column(db.Integer)
     zoom_level_end = db.Column(db.Integer)
     refreshed = db.Column(db.Boolean)
+
+    @property
+    def geometry_as_geojson(self):
+        if self.geometry is not None:
+            geom = json.dumps(
+                shapely.geometry.mapping(to_shape(self.geometry))
+            )
+            return geom
+        return False

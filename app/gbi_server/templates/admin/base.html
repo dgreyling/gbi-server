@@ -73,6 +73,14 @@
                     {{ _('create WFS') }}
                 </a>
             </li>
+            <hr>
+
+            <li class="{% if url_for('admin.logs') == request.path %}active{% endif%}">
+                <a href="{{ url_for('admin.logs') }}">
+                    {{ _('Download logs') }}
+                </a>
+            </li>
+
         </ul>
     </div>
     {% endblock %}

@@ -146,6 +146,8 @@ class DefaultConfig(object):
     PORTAL_PREFIX = "DEFAULT"
     PORTAL_TITLE = "Unconfigured GeoBox-Server"
 
+    LOG_CSV_HEADER = ["time", "action", "format", "srs", "mapping", "source", "layer", "zoom_level_start", "zoom_level_end", "refreshed", "geometry_as_geojson"]
+
 
 class SystemConfig(object):
     # name of the databases on the server

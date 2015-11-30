@@ -1,0 +1,114 @@
+{% macro log_table(logs) -%}
+<table class="table task-overview table-striped">
+   <thead>
+       <tr>
+           <th>{{ _('time') }}</th>
+           <th>{{ _('action') }}</th>
+           <th>{{ _('format') }}</th>
+           <th>{{ _('srs') }}</th>
+           <th>{{ _('mapping') }}</th>
+           <th>{{ _('source') }}</th>
+           <th>{{ _('layer') }}</th>
+           <th>{{ _('zoom_level_start') }}</th>
+           <th>{{ _('zoom_level_end') }}</th>
+           <th>{{ _('refreshed') }}</th>
+           <th>{{ _('geometry') }}</th>
+       </tr>
+   </thead>
+   <tbody>
+       {% if not logs.items %}
+       <tr class="hover">
+           <td colspan="11">{{ _('No accesses found.')}}</td>
+       </tr>
+        {% endif %}
+       {% for log_line in logs.items %}
+           {{ log_table_row(log_line) }}
+       {% endfor %}
+   </tbody>
+</table>
+{% endmacro %}
+
+
+
+{% macro log_table_row(log_line) -%}
+<tr>
+    <td>{{ log_line.time or '' }}</td>
+    <td>{{ log_line.action or '' }}</td>
+    <td>{{ log_line.format or '' }}</td>
+    <td>{{ log_line.srs or '' }}</td>
+    <td>{{ log_line.mapping or '' }}</td>
+    <td>{{ log_line.source or '' }}</td>
+    <td>{{ log_line.layer or '' }}</td>
+    <td>{{ log_line.zoom_level_start or '' }}</td>
+    <td>{{ log_line.zoom_level_end or '' }}</td>
+    <td>{{ log_line.refreshed or '' }}</td>
+    <td>
+        {% if log_line.geometry_as_geojson %}
+        <a href='http://geojson.io/#data=data:application/json,{{ log_line.geometry_as_geojson }}' target="_blank">
+            {{ _('Show Geojson') }}
+        </a>
+        {% else %}
+            {{ _('No Geometry') }}
+        {% endif %}
+    </td>
+</tr>
+{% endmacro %}
+
+
+{% macro log_pagination(logs) %}
+<div class="pagination">
+  <ul>
+    {% if logs.has_prev %}
+    <li>
+        <a href="{{ url_for('admin.logs', page=logs.prev_num) }}">
+            &laquo;
+        </a>
+    </li>
+    {% else %}
+    <li class="disabled">
+        <a href="#">
+            &laquo;
+        </a>
+    </li>
+    {% endif %}
+
+    {%- for page in logs.iter_pages() %}
+        {% if page %}
+          {% if page != logs.page %}
+            <li>
+                <a href="{{  url_for('admin.logs', page=page) }}">
+                    {{ page }}
+                </a>
+            </li>
+          {% else %}
+           <li class="active">
+                <a href="#">{{ page }}</a>
+           </li>
+          {% endif %}
+        {% else %}
+           <li>
+                <a href="#">
+                    <span class=ellipsis>…</span>
+                </a>
+            </li>
+        {% endif %}
+    {%- endfor %}
+
+
+   {% if logs.has_next %}
+    <li>
+       <a href="{{ url_for('admin.logs', page=logs.next_num) }}">
+            &raquo;
+        </a>
+    </li>
+    {% else %}
+    <li class="disabled">
+        <a href="#">
+            &raquo;
+        </a>
+    </li>
+    {% endif %}
+
+  </ul>
+</div>
+{% endmacro %}
