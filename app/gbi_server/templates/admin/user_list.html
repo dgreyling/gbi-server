@@ -69,6 +69,11 @@
                 </tr>
             </thead>
             <tbody>
+                {% if not users.items %}
+                <tr class="hover">
+                    <td colspan="8">{{ _('No user found.')}}</td>
+                </tr>
+                {% endif %}
                 {% for user in users.items %}
                 <tr>
                     <td>{{ user.id }}</td>

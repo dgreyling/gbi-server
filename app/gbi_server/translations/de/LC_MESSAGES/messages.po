@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-30 08:33+0100\n"
+"POT-Creation-Date: 2015-11-30 10:11+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -129,14 +129,14 @@ msgstr "Benutzertyp"
 
 #: ../app/gbi_server/forms/admin.py:27
 #: ../app/gbi_server/templates/admin/user_detail.html:53
-#: ../app/gbi_server/templates/admin/user_list.html:91
+#: ../app/gbi_server/templates/admin/user_list.html:96
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:36
 msgid "verified"
 msgstr "Verifiziert"
 
 #: ../app/gbi_server/forms/admin.py:28 ../app/gbi_server/forms/admin.py:44
 #: ../app/gbi_server/templates/admin/user_detail.html:51
-#: ../app/gbi_server/templates/admin/user_list.html:89
+#: ../app/gbi_server/templates/admin/user_list.html:94
 msgid "active"
 msgstr "Aktiviert"
 
@@ -179,7 +179,7 @@ msgstr "Status"
 
 #: ../app/gbi_server/forms/admin.py:44
 #: ../app/gbi_server/templates/admin/user_detail.html:53
-#: ../app/gbi_server/templates/admin/user_list.html:91
+#: ../app/gbi_server/templates/admin/user_list.html:96
 msgid "not active"
 msgstr "nicht aktiviert"
 
@@ -429,18 +429,18 @@ msgstr "Coverage auswhälen"
 msgid "external_wms_title"
 msgstr "GBI WMS"
 
-#: ../app/gbi_server/model/user.py:94 ../app/gbi_server/views/admin.py:61
-#: ../app/gbi_server/views/admin.py:217 ../app/gbi_server/views/user.py:92
+#: ../app/gbi_server/model/user.py:94 ../app/gbi_server/views/admin.py:62
+#: ../app/gbi_server/views/admin.py:219 ../app/gbi_server/views/user.py:92
 msgid "customer"
 msgstr "Landwirt"
 
-#: ../app/gbi_server/model/user.py:95 ../app/gbi_server/views/admin.py:62
-#: ../app/gbi_server/views/admin.py:218 ../app/gbi_server/views/user.py:95
+#: ../app/gbi_server/model/user.py:95 ../app/gbi_server/views/admin.py:63
+#: ../app/gbi_server/views/admin.py:220 ../app/gbi_server/views/user.py:95
 msgid "service_provider"
 msgstr "Dienstleister"
 
-#: ../app/gbi_server/model/user.py:96 ../app/gbi_server/views/admin.py:64
-#: ../app/gbi_server/views/admin.py:220 ../app/gbi_server/views/user.py:94
+#: ../app/gbi_server/model/user.py:96 ../app/gbi_server/views/admin.py:65
+#: ../app/gbi_server/views/admin.py:222 ../app/gbi_server/views/user.py:94
 msgid "consultant"
 msgstr "Berater"
 
@@ -448,7 +448,7 @@ msgstr "Berater"
 #: ../app/gbi_server/templates/admin/base.html:8
 #: ../app/gbi_server/templates/admin/base.html:12
 #: ../app/gbi_server/templates/admin/index.html:5
-#: ../app/gbi_server/views/admin.py:65 ../app/gbi_server/views/admin.py:221
+#: ../app/gbi_server/views/admin.py:66 ../app/gbi_server/views/admin.py:223
 msgid "admin"
 msgstr "Administrator"
 
@@ -647,8 +647,8 @@ msgstr "Benutzer editieren"
 #: ../app/gbi_server/templates/admin/wfs_edit.html:47
 #: ../app/gbi_server/templates/admin/wms_edit.html:91
 #: ../app/gbi_server/templates/admin/wmts_edit.html:50
-#: ../app/gbi_server/templates/user/edit_address.html:67
-#: ../app/gbi_server/templates/user/edit_password.html:15
+#: ../app/gbi_server/templates/user/edit_address.html:65
+#: ../app/gbi_server/templates/user/edit_password.html:13
 msgid "save"
 msgstr "Speichern"
 
@@ -708,7 +708,7 @@ msgstr ""
 
 #: ../app/gbi_server/templates/admin/user_detail.html:6
 #: ../app/gbi_server/templates/admin/user_detail.html:9
-#: ../app/gbi_server/templates/admin/user_list.html:96
+#: ../app/gbi_server/templates/admin/user_list.html:101
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:53
 #: ../app/gbi_server/templates/admin/user_log.html:5
 msgid "user details"
@@ -736,7 +736,7 @@ msgid "delete user"
 msgstr "Benutzer löschen"
 
 #: ../app/gbi_server/templates/admin/user_detail.html:55
-#: ../app/gbi_server/templates/admin/user_list.html:93
+#: ../app/gbi_server/templates/admin/user_list.html:98
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:38
 msgid "not verified"
 msgstr "nicht verifiziert"
@@ -786,6 +786,10 @@ msgstr "Registriert"
 #: ../app/gbi_server/templates/admin/user_list.html:63
 msgid "adresse"
 msgstr "Adresse"
+
+#: ../app/gbi_server/templates/admin/user_list.html:74
+msgid "No user found."
+msgstr "Keine Ergebnisse gefunden"
 
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:5
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:8
@@ -852,6 +856,17 @@ msgstr "Aktualisiert"
 
 #: ../app/gbi_server/templates/admin/user_log.html:23
 msgid "geometry"
+msgstr "Geometrie"
+
+#: ../app/gbi_server/templates/admin/user_log.html:42
+#: ../app/gbi_server/templates/admin/wms_edit.html:85
+#: ../app/gbi_server/templates/admin/wmts_edit.html:45
+msgid "Show Geojson"
+msgstr "Geojson anzeigen"
+
+#: ../app/gbi_server/templates/admin/user_log.html:45
+#, fuzzy
+msgid "No Geometry"
 msgstr "Geometrie"
 
 #: ../app/gbi_server/templates/admin/wfs_edit.html:7
@@ -978,11 +993,6 @@ msgid "geojson.io infotext"
 msgstr ""
 "Auf der Webseite <a href='http://geojson.io'>geojson.io</a> können Sie "
 "eine Geometry einzeichnen und per Copy & Paste hier einfügen."
-
-#: ../app/gbi_server/templates/admin/wms_edit.html:85
-#: ../app/gbi_server/templates/admin/wmts_edit.html:45
-msgid "Show Geojson"
-msgstr "Geojson anzeigen"
 
 #: ../app/gbi_server/templates/admin/wms_list.html:18
 #: ../app/gbi_server/templates/admin/wmts_list.html:18
@@ -1405,26 +1415,26 @@ msgstr "Ihr Konto wurde soeben von einem Administrator aktiviert."
 
 #: ../app/gbi_server/templates/user/base_edit.html:7
 #: ../app/gbi_server/templates/user/base_edit.html:11
-#: ../app/gbi_server/templates/user/index.html:5
+#: ../app/gbi_server/templates/user/index.html:3
 msgid "User settings"
 msgstr "Benutzereinstellungen"
 
 #: ../app/gbi_server/templates/user/base_edit.html:26
-#: ../app/gbi_server/templates/user/edit_address.html:6
-#: ../app/gbi_server/templates/user/edit_address.html:12
+#: ../app/gbi_server/templates/user/edit_address.html:4
+#: ../app/gbi_server/templates/user/edit_address.html:10
 msgid "edit address"
 msgstr "Adresse bearbeiten"
 
 #: ../app/gbi_server/templates/user/base_edit.html:31
-#: ../app/gbi_server/templates/user/edit_password.html:5
-#: ../app/gbi_server/templates/user/edit_password.html:10
+#: ../app/gbi_server/templates/user/edit_password.html:3
+#: ../app/gbi_server/templates/user/edit_password.html:8
 msgid "edit password"
 msgstr "Passwort bearbeiten"
 
 #: ../app/gbi_server/templates/user/base_edit.html:36
-#: ../app/gbi_server/templates/user/remove.html:6
-#: ../app/gbi_server/templates/user/remove.html:12
-#: ../app/gbi_server/templates/user/remove.html:18
+#: ../app/gbi_server/templates/user/remove.html:4
+#: ../app/gbi_server/templates/user/remove.html:10
+#: ../app/gbi_server/templates/user/remove.html:16
 msgid "remove account"
 msgstr "Konto löschen"
 
@@ -1502,7 +1512,7 @@ msgstr ""
 msgid "goto login"
 msgstr "Zur Anmeldung"
 
-#: ../app/gbi_server/templates/user/remove.html:14
+#: ../app/gbi_server/templates/user/remove.html:12
 msgid "remove account notes"
 msgstr ""
 "Achtung! Sie sind dabei Ihr Benutzerkonto vollständig zu löschen. Alle "
@@ -1552,45 +1562,45 @@ msgstr ""
 "die Anmeldung abzuschließen.<p>Mail nicht erhalten? <a "
 "href=\"%(verify_url)s\">Fordern Sie hier einen erneute E-Mail an.</a></p>"
 
-#: ../app/gbi_server/views/admin.py:174
+#: ../app/gbi_server/views/admin.py:175
 msgid "Account activated mail subject"
 msgstr "GeoBox – Ihr Zugang wurde freigeschaltet."
 
-#: ../app/gbi_server/views/admin.py:179
+#: ../app/gbi_server/views/admin.py:180
 #, python-format
 msgid "User activated %(email)s"
 msgstr ""
 "Konto vom Nutzer mit der E-Mail-Adresse %(email)s wurde aktiviert. Der "
 "Nutzer wurde per E-Mail darüber benachrichtigt."
 
-#: ../app/gbi_server/views/admin.py:188
+#: ../app/gbi_server/views/admin.py:189
 #, python-format
 msgid "User deactivate %(email)s"
 msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s wurde deaktiviert."
 
-#: ../app/gbi_server/views/admin.py:197
+#: ../app/gbi_server/views/admin.py:198
 msgid "Self-User cannot be removed"
 msgstr "Der eigene Benutzer kann nicht gelöscht werden."
 
-#: ../app/gbi_server/views/admin.py:204
+#: ../app/gbi_server/views/admin.py:205
 #, python-format
 msgid "User was removed %(email)s"
 msgstr "Der Benutzer mit der E-Mail-Adresse %(email)s wurde gelöscht."
 
-#: ../app/gbi_server/views/admin.py:232 ../app/gbi_server/views/user.py:112
+#: ../app/gbi_server/views/admin.py:234 ../app/gbi_server/views/user.py:112
 #: ../app/gbi_server/views/user.py:162
 msgid "Email verification mail subject"
 msgstr "E-Mail-Adresse bestätigen"
 
-#: ../app/gbi_server/views/admin.py:250
+#: ../app/gbi_server/views/admin.py:252
 msgid "User created"
 msgstr "Benutzer erstellt"
 
-#: ../app/gbi_server/views/admin.py:264
+#: ../app/gbi_server/views/admin.py:266
 msgid "User edited"
 msgstr "Benutzerdaten erfolgreich bearbeitet"
 
-#: ../app/gbi_server/views/admin.py:275
+#: ../app/gbi_server/views/admin.py:277
 msgid "Password reset"
 msgstr "Passwort zurückgesetzt"
 
@@ -1761,3 +1771,4 @@ msgstr "Ihr Passwort wurde geändert"
 #: ../app/gbi_server/views/user.py:272
 msgid "Old password is not correct"
 msgstr "Das eingegebene Passwort ist nicht korrekt"
+
