@@ -105,6 +105,7 @@ def get_context_document():
             "username": wmts.username,
             "password": wmts.password,
             "is_protected": wmts.is_protected,
+            "is_background_layer": wmts.is_background_layer,
             "max_tiles": wmts.max_tiles,
             "view_restriction": {
                 "zoom_level_start": wmts.view_level_start,

@@ -53,10 +53,6 @@ def wmts_edit(id=None):
         if not wmts:
             wmts = WMTS()
             db.session.add(wmts)
-        if form.data['is_background_layer']:
-            old_background_layer = WMTS.query.filter_by(is_background_layer=True).first()
-            if old_background_layer:
-                old_background_layer.is_background_layer = False
         wmts.url = form.data['url']
         wmts.username = form.data['username']
         wmts.password = form.data['password']
@@ -158,10 +154,6 @@ def wms_edit(id=None):
         if not wms:
             wms = WMS()
             db.session.add(wms)
-        if form.data['is_background_layer']:
-            old_background_layer = WMS.query.filter_by(is_background_layer=True).first()
-            if old_background_layer:
-                old_background_layer.is_background_layer = False
         wms.url = form.data['url']
         wms.username = form.data['username']
         wms.password = form.data['password']
