@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-11-30 10:11+0100\n"
+"POT-Creation-Date: 2015-11-30 10:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -121,7 +121,7 @@ msgstr ""
 
 #: ../app/gbi_server/forms/admin.py:26 ../app/gbi_server/forms/admin.py:40
 #: ../app/gbi_server/forms/user.py:74
-#: ../app/gbi_server/templates/admin/user_list.html:57
+#: ../app/gbi_server/templates/admin/user_list.html:65
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:14
 #: ../app/gbi_server/templates/macros/user.html:9
 msgid "type"
@@ -129,14 +129,14 @@ msgstr ""
 
 #: ../app/gbi_server/forms/admin.py:27
 #: ../app/gbi_server/templates/admin/user_detail.html:53
-#: ../app/gbi_server/templates/admin/user_list.html:96
+#: ../app/gbi_server/templates/admin/user_list.html:104
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:36
 msgid "verified"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:28 ../app/gbi_server/forms/admin.py:44
+#: ../app/gbi_server/forms/admin.py:28 ../app/gbi_server/forms/admin.py:46
 #: ../app/gbi_server/templates/admin/user_detail.html:51
-#: ../app/gbi_server/templates/admin/user_list.html:94
+#: ../app/gbi_server/templates/admin/user_list.html:102
 msgid "active"
 msgstr ""
 
@@ -150,7 +150,7 @@ msgstr ""
 
 #: ../app/gbi_server/forms/admin.py:34 ../app/gbi_server/forms/user.py:34
 #: ../app/gbi_server/forms/user.py:76 ../app/gbi_server/forms/user.py:91
-#: ../app/gbi_server/templates/admin/user_list.html:54
+#: ../app/gbi_server/templates/admin/user_list.html:62
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:13
 #: ../app/gbi_server/templates/boxes/overview.html:19
 #: ../app/gbi_server/templates/macros/user.html:6
@@ -173,156 +173,164 @@ msgstr ""
 
 #: ../app/gbi_server/forms/admin.py:43
 #: ../app/gbi_server/templates/admin/user_detail.html:46
-#: ../app/gbi_server/templates/admin/user_list.html:66
+#: ../app/gbi_server/templates/admin/user_list.html:74
 msgid "status"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:44
+#: ../app/gbi_server/forms/admin.py:47
 #: ../app/gbi_server/templates/admin/user_detail.html:53
-#: ../app/gbi_server/templates/admin/user_list.html:96
+#: ../app/gbi_server/templates/admin/user_list.html:104
 msgid "not active"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:48
+#: ../app/gbi_server/forms/admin.py:50
+msgid "access_start"
+msgstr ""
+
+#: ../app/gbi_server/forms/admin.py:51
+msgid "access_end"
+msgstr ""
+
+#: ../app/gbi_server/forms/admin.py:55
 #: ../app/gbi_server/templates/admin/wms_list.html:13
 #: ../app/gbi_server/templates/admin/wmts_list.html:13
 msgid "rastersource_url"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:49
+#: ../app/gbi_server/forms/admin.py:56
 msgid "rastersource_username"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:50
+#: ../app/gbi_server/forms/admin.py:57
 msgid "rastersource_password"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:51
+#: ../app/gbi_server/forms/admin.py:58
 msgid "rastersource_name"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:52
+#: ../app/gbi_server/forms/admin.py:59
 #: ../app/gbi_server/templates/admin/wms_list.html:12
 #: ../app/gbi_server/templates/admin/wmts_list.html:12
 msgid "rastersource_title"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:53
+#: ../app/gbi_server/forms/admin.py:60
 #: ../app/gbi_server/templates/admin/wms_list.html:14
 msgid "rastersource_layer"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:54
+#: ../app/gbi_server/forms/admin.py:61
 #: ../app/gbi_server/templates/admin/wms_list.html:15
 #: ../app/gbi_server/templates/admin/wmts_list.html:14
 msgid "rastersource_format"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:55
+#: ../app/gbi_server/forms/admin.py:62
 msgid "rastersource_srs"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:56
+#: ../app/gbi_server/forms/admin.py:63
 msgid "rastersource_max_tiles"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:58
+#: ../app/gbi_server/forms/admin.py:65
 msgid "rastersource_view_coverage"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:59
+#: ../app/gbi_server/forms/admin.py:66
 #: ../app/gbi_server/templates/admin/wms_list.html:16
 #: ../app/gbi_server/templates/admin/wmts_list.html:15
 msgid "rastersource_view_level_start"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:60
+#: ../app/gbi_server/forms/admin.py:67
 #: ../app/gbi_server/templates/admin/wms_list.html:17
 #: ../app/gbi_server/templates/admin/wmts_list.html:16
 msgid "rastersource_view_level_end"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:62
+#: ../app/gbi_server/forms/admin.py:69
 msgid "rastersource_background_layer"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:63
+#: ../app/gbi_server/forms/admin.py:70
 msgid "rastersource_transparent"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:64
+#: ../app/gbi_server/forms/admin.py:71
 msgid "rastersource_visibility"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:65
+#: ../app/gbi_server/forms/admin.py:72
 msgid "rastersource_public"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:66
+#: ../app/gbi_server/forms/admin.py:73
 msgid "rastersource_accessible"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:67
+#: ../app/gbi_server/forms/admin.py:74
 msgid "rastersource_protected"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:71
+#: ../app/gbi_server/forms/admin.py:78
 msgid "level needs to be bigger or equal to start level"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:80
+#: ../app/gbi_server/forms/admin.py:87
 msgid "wms_version"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:85
+#: ../app/gbi_server/forms/admin.py:92
 msgid "wfs_host"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:86
+#: ../app/gbi_server/forms/admin.py:93
 msgid "wfs_url"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:87
+#: ../app/gbi_server/forms/admin.py:94
 msgid "wfs_geometry"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:88 ../app/gbi_server/forms/wfs.py:30
+#: ../app/gbi_server/forms/admin.py:95 ../app/gbi_server/forms/wfs.py:30
 msgid "wfs_layer"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:89
+#: ../app/gbi_server/forms/admin.py:96
 msgid "wfs_name"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:91
+#: ../app/gbi_server/forms/admin.py:98
 msgid "wfs_srs"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:93
+#: ../app/gbi_server/forms/admin.py:100
 msgid "wfs_ns_prefix"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:94
+#: ../app/gbi_server/forms/admin.py:101
 msgid "wfs_ns_uri"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:96
+#: ../app/gbi_server/forms/admin.py:103
 msgid "wfs_search_property"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:97
+#: ../app/gbi_server/forms/admin.py:104
 msgid "wfs_max_features"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:99
+#: ../app/gbi_server/forms/admin.py:106
 msgid "rvectorsource_username"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:100
+#: ../app/gbi_server/forms/admin.py:107
 msgid "vectorsource_password"
 msgstr ""
 
-#: ../app/gbi_server/forms/admin.py:101
+#: ../app/gbi_server/forms/admin.py:108
 msgid "vectorsoure_protected"
 msgstr ""
 
@@ -572,7 +580,7 @@ msgstr ""
 
 #: ../app/gbi_server/templates/admin/base.html:23
 #: ../app/gbi_server/templates/admin/user_list.html:3
-#: ../app/gbi_server/templates/admin/user_list.html:43
+#: ../app/gbi_server/templates/admin/user_list.html:51
 msgid "user list"
 msgstr ""
 
@@ -690,7 +698,7 @@ msgstr ""
 
 #: ../app/gbi_server/templates/admin/user_detail.html:6
 #: ../app/gbi_server/templates/admin/user_detail.html:9
-#: ../app/gbi_server/templates/admin/user_list.html:101
+#: ../app/gbi_server/templates/admin/user_list.html:109
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:53
 #: ../app/gbi_server/templates/admin/user_log.html:5
 msgid "user details"
@@ -718,7 +726,7 @@ msgid "delete user"
 msgstr ""
 
 #: ../app/gbi_server/templates/admin/user_detail.html:55
-#: ../app/gbi_server/templates/admin/user_list.html:98
+#: ../app/gbi_server/templates/admin/user_list.html:106
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:38
 msgid "not verified"
 msgstr ""
@@ -740,36 +748,36 @@ msgstr ""
 msgid "Search in users list"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/user_list.html:36
+#: ../app/gbi_server/templates/admin/user_list.html:44
 msgid "Search"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/user_list.html:37
+#: ../app/gbi_server/templates/admin/user_list.html:45
 msgid "Refresh search"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/user_list.html:49
+#: ../app/gbi_server/templates/admin/user_list.html:57
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:12
 #: ../app/gbi_server/templates/macros/user.html:3
 msgid "id"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/user_list.html:51
+#: ../app/gbi_server/templates/admin/user_list.html:59
 #: ../app/gbi_server/templates/boxes/overview.html:18
 msgid "name"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/user_list.html:60
+#: ../app/gbi_server/templates/admin/user_list.html:68
 #: ../app/gbi_server/templates/admin/user_list_inactive.html:15
 #: ../app/gbi_server/templates/macros/user.html:12
 msgid "registered"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/user_list.html:63
+#: ../app/gbi_server/templates/admin/user_list.html:71
 msgid "adresse"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/user_list.html:74
+#: ../app/gbi_server/templates/admin/user_list.html:82
 msgid "No user found."
 msgstr ""
 

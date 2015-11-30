@@ -33,6 +33,14 @@
                 </div>
             </div>
             <div class="row-fluid">
+                <div class="span2">
+                {{ input(form.access_start, class="span12", placeholder='01-01-2015') }}
+                </div>
+                <div class="span2">
+                {{ input(form.access_end, class="span12", placeholder='01-10-2015') }}
+                </div>
+            </div>
+            <div class="row-fluid">
                 {{ button(_('Search'), submit=True, btn_class='success') }}
                 <a href="{{ url_for('.user_list', refresh=True)}}" class="btn btn-small">{{ _('Refresh search') }}</a>
             </div>

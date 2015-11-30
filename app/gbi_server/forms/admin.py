@@ -13,7 +13,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from wtforms.fields import TextField, TextAreaField, IntegerField, PasswordField, SelectField, BooleanField
+from wtforms.fields import TextField, TextAreaField, IntegerField, PasswordField, SelectField, BooleanField, DateField
 from wtforms import validators
 
 from flask.ext.wtf import Form
@@ -41,8 +41,15 @@ class SearchUserForm(Form):
     company_number = TextField(_l('company_number'),)
     status = SelectField(
         _l('status'),
-        choices=[('', ''), (True, _l('active')), ('False', _l('not active')),]
+        choices=[
+            ('', ''),
+            (True, _l('active')),
+            ('False', _l('not active')),
+        ]
     )
+    access_start = DateField(_l('access_start'), format='%d-%m-%Y')
+    access_end = DateField(_l('access_end'), format='%d-%m-%Y')
+
 
 class RasterSourceForm(Form):
     url = TextField(_l('rastersource_url'), [validators.Required()])

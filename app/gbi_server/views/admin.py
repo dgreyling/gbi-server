@@ -13,6 +13,8 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+from datetime import datetime
+
 from flask import render_template, Blueprint, flash, redirect, \
     url_for, request, current_app, session
 from flask.ext.login import current_user
@@ -84,6 +86,9 @@ def user_list(page=1):
         sort_key = search_requests.get('sort_key', False)
         order = search_requests.get('order', 'asc')
 
+        access_start = search_requests.get('access_start', False)
+        access_end = search_requests.get('access_end', False)
+
         # set requests to form fields
         form.name.data = name
         form.email.data = email
@@ -92,7 +97,12 @@ def user_list(page=1):
         form.type.data = type_
         form.company_number.data = company_number
         form.status.data = status
+        if access_start:
+            form.access_start.data = datetime.strptime(access_start, '%d-%m-%Y')
+        if access_end:
+            form.access_end.data = datetime.strptime(access_end, '%d-%m-%Y')
 
+        # query user join log for access start and end search options
         query = User.query
         if status:
             query = query.filter(User.active == status)
@@ -119,6 +129,15 @@ def user_list(page=1):
 
         if company_number:
             query = query.filter(User.company_number.like('%'+company_number+'%'))
+
+        if access_start or access_end:
+            query = query.join(Log)
+
+        if access_start:
+            query = query.filter(Log.time >= access_start)
+
+        if access_end:
+            query = query.filter(Log.time < access_end)
 
         if order == 'asc':
             order_func = asc
