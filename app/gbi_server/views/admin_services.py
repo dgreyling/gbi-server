@@ -19,8 +19,6 @@ from flask import render_template, flash, redirect, \
 from flask.ext.babel import gettext as _
 from sqlalchemy.exc import IntegrityError
 
-from geoalchemy2.elements import WKTElement
-from geoalchemy2.functions import ST_AsGeoJSON
 from geoalchemy2.shape import from_shape, to_shape
 from shapely.geometry import asShape
 from shapely.geometry import mapping
@@ -34,7 +32,6 @@ from gbi_server.model import WMTS, WMS, WFS
 from gbi_server.forms.admin import WMTSForm, WMSForm, WFSForm
 from gbi_server.lib.external_wms import write_mapproxy_config
 from gbi_server.lib.capabilites import parse_capabilities_url
-from gbi_server.lib.transform import transform_bbox
 
 
 @admin.route('/admin/wmts/list', methods=["GET"])
