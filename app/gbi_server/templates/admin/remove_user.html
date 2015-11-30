@@ -15,7 +15,7 @@
     {{ confirm_delete_modal(
         	id=user.id,
             btn_text=_('Delete'),
-            url=url_for('admin.remove_user', user_id=user.id),
+            url=url_for('admin.remove_user', user_id=user.id, next=url_for('admin.user_list') ),
         )
      }}
      </div>

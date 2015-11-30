@@ -58,11 +58,11 @@
                 </div>
                 <div class="span4">
                     {% if not user.active %}
-                    <a href="{{ url_for('admin.activate_user', user_id=user.id) }}" class="btn btn-small btn-success">
+                    <a href="{{ url_for('admin.activate_user', user_id=user.id, next=request.url) }}" class="btn btn-small btn-success">
                         {{ _('activate') }}
                     </a>
                     {% else %}
-                    <a href="{{ url_for('admin.deactivate_user', user_id=user.id) }}" class="btn btn-small">
+                    <a href="{{ url_for('admin.deactivate_user', user_id=user.id, next=request.url) }}" class="btn btn-small">
                         {{ _('deactivate') }}
                     </a>
                     {% endif %}

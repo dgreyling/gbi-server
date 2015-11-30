@@ -177,7 +177,7 @@ def activate_user(user_id):
     )
 
     flash(_('User activated %(email)s', email=user.email), 'success')
-    return redirect(url_for("admin.inactive_users_list"))
+    return redirect(request.args.get("next") or url_for("admin.inactive_users_list"))
 
 
 @admin.route('/admin/user/<int:user_id>/deactivate', methods=["GET"])
@@ -186,7 +186,7 @@ def deactivate_user(user_id):
     user.active = False
     db.session.commit()
     flash(_('User deactivate %(email)s', email=user.email), 'success')
-    return redirect(url_for("admin.inactive_users_list"))
+    return redirect(request.args.get("next") or url_for("admin.inactive_users_list"))
 
 
 @admin.route('/admin/user/<int:user_id>/remove', methods=["GET", "POST"])
@@ -202,7 +202,8 @@ def remove_user(user_id):
         db.session.delete(user)
         db.session.commit()
         flash(_('User was removed %(email)s', email=email), 'success')
-        return redirect(url_for("admin.inactive_users_list"))
+        return redirect(request.args.get("next") or url_for("admin.inactive_users_list"))
+
     return render_template('admin/remove_user.html', user=user)
 
 
