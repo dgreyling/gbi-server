@@ -16,22 +16,22 @@
     {% block content_left %}
     <div class="span3">
         <ul class="nav nav-pills nav-stacked">
-            <li class="{% if subpagename == 'user_index' %}active{% endif%}">
+            <li class="{% if url_for('user.index') == request.path %}active{% endif%}">
                 <a href="{{ url_for('user.index') }}">
                     {{_('overview')}}
                 </a>
             </li>
-            <li class="{% if subpagename == 'user_edit_address' %}active{% endif%}">
+            <li class="{% if url_for('user.edit_address') == request.path %}active{% endif%}">
                 <a href="{{ url_for('user.edit_address') }}">
                     {{_('edit address')}}
                 </a>
             </li>
-            <li class="{% if subpagename == 'user_edit_password' %}active{% endif%}">
+            <li class="{% if url_for('user.edit_password') == request.path %}active{% endif%}">
                 <a href="{{ url_for('user.edit_password') }}">
                     {{_('edit password')}}
                 </a>
             </li>
-            <li class="{% if subpagename == 'user_remove' %}active{% endif%}">
+            <li class="{% if url_for('user.remove') == request.path  %}active{% endif%}">
                 <a href="{{ url_for('user.remove') }}">
                     {{_('remove account')}}
                 </a>

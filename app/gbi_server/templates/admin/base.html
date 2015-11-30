@@ -18,17 +18,17 @@
     <div class="span3">
         <h5>{{ _('User') }}</h5>
         <ul class="nav nav-pills nav-stacked">
-            <li>
+            <li class="{% if url_for('admin.user_list') == request.path %}active{% endif%}">
                 <a href="{{ url_for('admin.user_list', refresh=True) }}">
                     {{ _('user list') }}
                 </a>
             </li>
-            <li>
+            <li class="{% if url_for('admin.inactive_users_list') == request.path %}active{% endif%}">
                 <a href="{{ url_for('admin.inactive_users_list') }}">
                     {{ _('user list inactive') }}
                 </a>
             </li>
-            <li>
+            <li class="{% if url_for('admin.create_user') == request.path %}active{% endif%}">
                 <a href="{{ url_for('admin.create_user') }}">
                     {{ _('create user') }}
                 </a>
@@ -37,12 +37,12 @@
 
         <h5>{{ _('Services') }}</h5>
         <ul class="nav nav-pills nav-stacked">
-            <li>
+            <li class="{% if url_for('admin.wmts_list') == request.path %}active{% endif%}">
                 <a href="{{ url_for('admin.wmts_list') }}">
                     {{ _('WMTS list') }}
                 </a>
             </li>
-            <li>
+            <li class="{% if url_for('admin.wmts_edit') == request.path %}active{% endif%}">
                 <a href="{{ url_for('admin.wmts_edit') }}">
                     {{ _('create WMTS') }}
                 </a>
@@ -50,12 +50,12 @@
 
             <hr>
 
-            <li>
+            <li class="{% if url_for('admin.wms_list') == request.path %}active{% endif%}">
                 <a href="{{ url_for('admin.wms_list') }}">
                     {{ _('WMS list') }}
                 </a>
             </li>
-            <li>
+            <li class="{% if url_for('admin.wms_edit') == request.path %}active{% endif%}">
                 <a href="{{ url_for('admin.wms_edit') }}">
                     {{ _('create WMS') }}
                 </a>
@@ -63,12 +63,12 @@
 
             <hr>
 
-            <li>
+            <li class="{% if url_for('admin.wfs_list') == request.path %}active{% endif%}">
                 <a href="{{ url_for('admin.wfs_list') }}">
                     {{ _('WFS list') }}
                 </a>
             </li>
-            <li>
+            <li class="{% if url_for('admin.wfs_edit') == request.path %}active{% endif%}">
                 <a href="{{ url_for('admin.wfs_edit') }}">
                     {{ _('create WFS') }}
                 </a>
