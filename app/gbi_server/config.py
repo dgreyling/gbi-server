@@ -27,7 +27,7 @@ class DefaultConfig(object):
     DEBUG = True
 
     # config for pagination
-    USER_PER_PAGE = 2
+    USER_PER_PAGE = 20
 
     WTF_I18N_ENABLED = True
 
