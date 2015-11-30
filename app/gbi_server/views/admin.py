@@ -298,12 +298,6 @@ def reset_user_password(user_id):
     return render_template('admin/reset_user_password.html', form=form, user=user)
 
 
-# @admin.route('/admin/user_log/<int:user_id>', methods=["GET"])
-# def user_log(user_id):
-#     user = User.by_id(user_id)
-#     result = Log.query.filter_by(user=user).all()
-#     return render_template('admin/user_log.html', user=user, logs=result)
-
 @admin.route('/admin/logs/', methods=["GET"])
 @admin.route('/admin/logs/<int:page>', methods=["GET"])
 @admin.route('/admin/user_log/<int:user_id>/logs/', methods=["GET"])
