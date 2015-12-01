@@ -17,14 +17,15 @@ import os
 import re
 import uuid
 
-from flask import render_template, Blueprint, flash, redirect, url_for, current_app, abort, request, Response, make_response
+from flask import render_template, Blueprint, flash, \
+    redirect, url_for, current_app, abort, request, Response, make_response
 import psycopg2
 
 from flask.ext.babel import gettext as _
 from flask.ext.login import login_required, current_user
 
 from sqlalchemy.sql.expression import desc
-from geoalchemy2.functions import ST_AsEWKT, ST_Transform
+from geoalchemy2.functions import ST_Transform
 from geoalchemy2.shape import to_shape
 
 from gbi_server.lib.couchdb import extend_schema_for_couchdb, CouchDBBox, CouchDBError
@@ -41,27 +42,29 @@ from gbi_server.config import SystemConfig
 
 maps = Blueprint("maps", __name__, template_folder="../templates")
 
+
 @maps.route('/js/gbi_translations.js')
 def javascript_translation():
     response = make_response(render_template('js/translation.js'))
     response.headers['Content-type'] = 'application/javascript'
     return response
 
+
 @maps.route('/maps/wmts', methods=['GET'])
 @login_required
 def wmts():
     couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, current_user.id))
+    features = [feature for feature in couch.iter_features() if isinstance(feature['geometry'], dict)]
+
     vector_layers = []
-    couch_layers = couch.get_layer_names()
-    for layer, title in couch_layers:
-        features = [feature for feature in couch.iter_layer_features(layer) if isinstance(feature['geometry'], dict)]
-        vector_layers.append({
-            'name': title,
-            'features': features,
-            'readonly': True if layer != current_app.config.get('USER_WORKON_LAYER') else False
-        })
+    vector_layers.append({
+        'name': current_app.config.get('USER_READONLY_LAYER_TITLE'),
+        'features': features,
+        'readonly': True,
+    })
     wmts_layers = WMTS.query.all()
     return render_template('maps/map.html', wmts_layers=wmts_layers, vector_layers=vector_layers, user=current_user)
+
 
 @maps.route('/maps/wfs', methods=['GET', 'POST'])
 @login_required
@@ -91,6 +94,7 @@ def wfs_edit():
         else:
             return redirect(url_for('.wfs_session', layer=layer))
     return render_template('maps/wfs_edit.html', form=form, add_layer_form=add_layer_form, not_removable_layer=current_app.config.get('USER_WORKON_LAYER'))
+
 
 @maps.route('/maps/wfs/<layer>', methods=['GET'])
 @login_required
@@ -140,6 +144,7 @@ def wfs_edit_layer(layer=None):
         user=current_user
     )
 
+
 @maps.route('/maps/wfs/remove/<layer>', methods=['GET'])
 @login_required
 def wfs_remove_layer(layer=None):
@@ -161,6 +166,7 @@ def wfs_remove_layer(layer=None):
         flash(_('Could not remove layer %(layer)s', layer=layer), 'error')
 
     return redirect(url_for('.wfs_edit'))
+
 
 @maps.route('/maps/wfs/external/<layer>', methods=['GET'])
 @login_required
@@ -191,6 +197,7 @@ def cancel_changes(layer=None):
     flash(_('wfs changes discarded'))
     return redirect(url_for('.wfs_edit'))
 
+
 @maps.route('/maps/wfs/write_back/<layer>')
 @login_required
 def write_back(layer=None, ajax=True):
@@ -219,6 +226,7 @@ def write_back(layer=None, ajax=True):
 
     if ajax:
         return Response(response='success', status=200, headers=None, mimetype='application/json', content_type=None)
+
 
 @maps.route('/maps/wfs/save_changes/<layer>')
 @login_required
@@ -317,6 +325,7 @@ def create_wfs(user=None, editable_layers=None):
         })
 
     return wfs, wfs_layer_token
+
 
 @maps.route('/maps/wfs/<token>/service', methods=['GET', 'POST'])
 def tinyows_wfs(token):

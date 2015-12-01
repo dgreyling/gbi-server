@@ -85,8 +85,8 @@ class DefaultConfig(object):
     TEMP_PG_PASSWORD = "igreen"
     TEMP_PG_PORT = "5432"
 
-    USER_READONLY_LAYER = "florlp"
-    USER_READONLY_LAYER_TITLE = "FLOrlp"
+    USER_READONLY_LAYER = "flrorlp"
+    USER_READONLY_LAYER_TITLE = "Berechtigungslayer"
     USER_WORKON_LAYER = "baselayer"
     USER_WORKON_LAYER_TITLE ="Basis Layer"
 

@@ -46,6 +46,7 @@ def geojson_feature_to_geocouch(feature):
         result['_rev'] = _rev
     return result
 
+
 def geocouch_feature_to_geojson(feature):
     """
     Convert GeoCouch to GeoJON feature:
@@ -59,7 +60,8 @@ def geocouch_feature_to_geojson(feature):
 
     This function reuses and modifies the `feature` dictionary.
     """
-    feature.pop('layer')
+    if 'layer' in feature:
+        feature.pop('layer')
     geometry = feature.pop('geometry')
     properties = feature['properties'] if feature.has_key('properties') else feature
     if not properties.has_key('_id'):
@@ -255,6 +257,12 @@ class CouchDBBox(CouchDB):
             url += '&include_docs=true'
         return url
 
+    def features_url(self, include_docs=False):
+        url = self.couchdb_url + '/_design/features/_view/all?'
+        if include_docs:
+            url += '&include_docs=true'
+        return url
+
 
     def update_or_create_features_view_doc(self):
         feature_view_doc = {
@@ -316,6 +324,15 @@ class CouchDBBox(CouchDB):
         for row in data.get('rows', []):
             feature = row['doc']
             if feature.get('layer') == layer and 'geometry' in feature:
+                yield geocouch_feature_to_geojson(feature)
+
+    def iter_features(self):
+        resp = self.session.get(self.features_url(include_docs=True))
+        data = resp.json()
+
+        for row in data.get('rows', []):
+            feature = row['doc']
+            if 'geometry' in feature:
                 yield geocouch_feature_to_geojson(feature)
 
     def get_layer_names(self):
