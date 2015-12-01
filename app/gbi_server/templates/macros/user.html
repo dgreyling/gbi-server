@@ -26,6 +26,8 @@
         <dt>{{ _('address') }}</dt>
         <dd>
             {{ user.realname }}<br>
+            {% if user.company_name %} {{ user.company_name }}<br> {% endif %}
+
             {{ user.address }} <br>
             {% if user.address_extend %} {{ user.address_extend }} {% endif %}<br>
             {{ user.zipcode }} {{ user.city }} {{ user.federal_state_name }}

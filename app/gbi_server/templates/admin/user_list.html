@@ -93,6 +93,9 @@
                         {% endif %}
                     </td>
                     <td>
+                        {% if user.company_name %}
+                        {{ user.company_name }}<br>
+                        {% endif %}
                         {{ user.address }} <br>
                         {% if user.address_extend %}
                         {{ user.address_extend }}<br>

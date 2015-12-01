@@ -52,6 +52,8 @@ class User(db.Model, UserMixin):
     country = db.Column(db.String())
     phone = db.Column(db.String())
     fax = db.Column(db.String())
+
+    company_name = db.Column(db.String())
     company_number = db.Column(db.String())
     commercial_register_number = db.Column(db.String())
 
@@ -195,6 +197,7 @@ class User(db.Model, UserMixin):
         self.lastname = data['lastname']
         self.address = data['address']
         self.address_extend = data['address_extend']
+        self.company_name = data['company_name']
         self.zipcode = data['zipcode']
         self.city = data['city']
         self.federal_state = data['federal_state']

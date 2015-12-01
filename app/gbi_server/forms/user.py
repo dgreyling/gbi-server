@@ -47,6 +47,8 @@ class EditAddressForm(Form):
 
     address = TextField(_l('address'), [validators.Required()])
     address_extend = TextField(_l('address_extend'))
+    company_name = TextField(_l('company_name'))
+
     zipcode = TextField(_l('zipcode'), [validators.Required()])
     city = TextField(_l('city'), [validators.Required()])
     federal_state = TextField(_l('federal_state'))
