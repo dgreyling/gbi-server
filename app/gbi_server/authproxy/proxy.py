@@ -166,10 +166,9 @@ class CouchDBProxy(object):
             # encode it manually
             native_chunk_support = 'gunicorn' in request.environ['SERVER_SOFTWARE']
             if not native_chunk_support:
-                headers.append(('Transfer-Encoding', 'chunked'))
+                headers['Transfer-Encoding'] = 'chunked'
 
-            resp_iter = chunked_response_iterator(resp, native_chunk_support,
-                line_based)
+            resp_iter = chunked_response_iterator(resp, native_chunk_support, line_based)
         else:
             resp_iter = response_iterator(resp)
         return Response(resp_iter, direct_passthrough=True,
@@ -211,7 +210,7 @@ class TileProxy(object):
             raise exceptions.BadGateway('source returned: %s' % ex)
 
         headers = end_to_end_headers(resp.headers)
-        headers.append(('Access-Control-Allow-Origin', '*'))
+        headers['Access-Control-Allow-Origin'] = '*'
 
         return Response(response_iterator(resp), headers=headers, status=resp.status_code)
 
