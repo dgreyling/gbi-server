@@ -158,6 +158,9 @@ def user_list(page=1):
         if sort_key == 'registered':
             query = query.order_by(order_func(User.registered))
 
+        if sort_key == 'lastlogin':
+            query = query.order_by(order_func(User.last_login))
+
         if sort_key == 'zipcode':
             query = query.order_by(order_func(User.zipcode))
 

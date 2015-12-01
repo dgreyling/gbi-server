@@ -64,8 +64,8 @@
                     <th class='sort-header' data-sort-key='type'>
                         {{ _('type') }}
                     </th>
-                    <th class='sort-header' data-sort-key='registered'>
-                        {{ _('registered') }}
+                    <th class='sort-header' data-sort-key='lastlogin'>
+                        {{ _('last login') }}
                     </th>
                     <th class='sort-header' data-sort-key='zipcode'>
                         {{ _('adresse') }}
@@ -88,7 +88,10 @@
                     <td>{{ user.firstname }} {{ user.lastname }} </td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.type_name }}</td>
-                    <td>{{ user.registered.strftime('%d.%m.%Y %H:%M ') }}</td>
+                    <td>{% if user.last_login %}
+                        {{ user.last_login.strftime('%d.%m.%Y %H:%M ') }}
+                        {% endif %}
+                    </td>
                     <td>
                         {{ user.address }} <br>
                         {% if user.address_extend %}
