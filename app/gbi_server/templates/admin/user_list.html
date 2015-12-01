@@ -6,7 +6,7 @@
 <h4>{{ _('Search in users list') }}</h4>
 <div class="row-fluid">
     <div class="span12">
-        <form method="GET">
+        <form method="GET" action="{{ url_for('admin.user_list') }}">
             <div class="row-fluid">
                 <div class="span3">
                 {{ input(form.name, class="span12") }}
