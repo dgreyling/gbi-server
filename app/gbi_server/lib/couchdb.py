@@ -255,6 +255,23 @@ class CouchDBBox(CouchDB):
             url += '&include_docs=true'
         return url
 
+
+    def update_or_create_features_view_doc(self):
+        feature_view_doc = {
+            "_id":"_design/features",
+            "language": "javascript",
+            "views":
+            {
+                "all": {
+                    "map": "function(doc) { if (doc.type == 'Feature') {emit(doc.type, doc.drawType); } }"
+                },
+            }
+        }
+        existing_features_doc = self.get('_design/features')
+        if existing_features_doc:
+            feature_view_doc['_rev'] = existing_features_doc['_rev']
+        self.put('_design/features', feature_view_doc)
+
     def update_layer_view_doc(self):
         design_doc = {
           "_id":"_design/layers",
@@ -462,6 +479,7 @@ def init_user_boxes(user, couchdb_url):
         couch = CouchDBBox(couchdb_url, '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
         couch.create()
         couch.update_layer_view_doc()
+        couch.update_or_create_features_view_doc()
         couch.update_user(username, password)
         couch.update_auth_doc(username, writable=True, read_roles=['consultants'])
 
