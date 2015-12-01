@@ -14,9 +14,9 @@
                 <li><a href="{{ url_for('maps.wmts') }}">{{ _('WMTS map') }}</a>
                    <p class="help-block"> {{ _('info text wmts map') }}</p>
                 </li>
-                <li><a href="{{ url_for('maps.wfs_edit') }}">{{ _('WFS Edit') }}</a>
+<!--             <li><a href="{{ url_for('maps.wfs_edit') }}">{{ _('WFS Edit') }}</a>
                    <p class="help-block"> {{ _('info text wfs edit') }}</p>
-                </li>
+                </li> -->
                 {% endif %}
                 {% if user.is_consultant %}
                 <li><a href="{{ url_for('boxes.overview') }}">{{ _('overview over all boxes') }}</a>

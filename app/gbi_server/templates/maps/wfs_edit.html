@@ -17,12 +17,12 @@
             {% endif %}
             {{ form.external_editor }}
             {{ form.edit_form }}
-            {{ button(_('edit internal'), True, 'internal') }}
+            <!-- {{ button(_('edit internal'), True, 'internal') }} -->
             {{ button(_('edit external'), True, 'external') }}
             {{ button(_('remove selected layer'), False, 'remove_layer') }}
         </form>
     </div>
-    <div class="span5">
+<!--     <div class="span5">
         <p> {{_('create wfs layer infotext')}}</p>
         <form method="POST">
             {{ add_layer_form.csrf_token }}
@@ -30,7 +30,7 @@
             {{ add_layer_form.add_form }}
             {{ button(_('add layer'), True, 'add_layer') }}
         </form>
-    </div>
+    </div> -->
 </div>
 {% endblock %}
 
