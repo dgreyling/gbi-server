@@ -14,8 +14,8 @@
 
 {% block content %}
 <div class="row">
-    {% block content_left %}
     <div class="span3">
+    {% block content_left %}
         <h5>{{ _('User') }}</h5>
         <ul class="nav nav-pills nav-stacked">
             <li class="{% if url_for('admin.user_list') == request.path %}active{% endif%}">
@@ -82,10 +82,10 @@
             </li>
 
         </ul>
-    </div>
     {% endblock %}
+    </div>
 
-    <div class="span12">
+    <div class="span9">
     {% block content_right %}
     {% endblock %}
     </div>
