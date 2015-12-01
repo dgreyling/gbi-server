@@ -131,7 +131,7 @@ def new():
         "user/new.html",
         form=form,
         customer_id=User.Type.CUSTOMER,
-        consultant_id=User.Type.CONSULTANT,
+        service_provider_id=User.Type.SERVICE_PROVIDER,
     )
 
 
