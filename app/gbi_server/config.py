@@ -158,7 +158,7 @@ class SystemConfig(object):
     FILE_BOX_NAME = 'gbi_filebox'
 
     # name of the databases on the client
-    AREA_BOX_NAME_LOCAL = 'flaechen-box'
-    UPLOAD_BOX_NAME_LOCAL = 'upload-box'
-    DOWNLOAD_BOX_NAME_LOCAL = 'download-box'
+    AREA_BOX_NAME_LOCAL = 'flaechenbox'
+    UPLOAD_BOX_NAME_LOCAL = 'uploadbox'
+    DOWNLOAD_BOX_NAME_LOCAL = 'downloadbox'
     FILE_BOX_NAME_LOCAL = 'filebox'
