@@ -16,10 +16,12 @@
 import json
 
 from flask import Blueprint, request, current_app, jsonify
-from geoalchemy2.elements import WKTElement
 
 from sqlalchemy.exc import SQLAlchemyError, DataError
 from shapely.geometry import asShape
+
+from geoalchemy2.shape import from_shape
+from geoalchemy2.functions import ST_Transform
 
 from gbi_server.lib.exceptions import json_abort
 from gbi_server.model import User, Log
@@ -31,6 +33,7 @@ for code in [401, 403, 404, 405]:
     @logserv.errorhandler(code)
     def on_error(error):
         return error
+
 
 @logserv.route("/log/<string:user_token>", methods=['POST'])
 def log(user_token):
@@ -59,8 +62,9 @@ def log(user_token):
     if 'geometry' in log_record:
         if log_record['geometry']['type'] != 'MultiPolygon':
             json_abort(400, "geometry not a MultiPolygon")
-        geom =  asShape(log_record['geometry'])
-        log.geometry = WKTElement(geom.wkt, srid=3857, geometry_type='MULTIPOLYGON')
+        geom = asShape(log_record['geometry'])
+        wkb = from_shape(geom, srid=3857)
+        log.geometry = ST_Transform(wkb, 4326)
 
     log.source = log_record.get('source')
     log.layer = log_record.get('layer')
