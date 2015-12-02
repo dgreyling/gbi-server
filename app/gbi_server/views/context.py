@@ -82,19 +82,10 @@ def get_context_document():
     }
 
     couchdb = CouchDBBox(current_app.config['COUCH_DB_URL'], '%s_%s' % (SystemConfig.AREA_BOX_NAME, g.user.id))
-    user_geom = couchdb.layer_extent(current_app.config['USER_WORKON_LAYER'])
-    if user_geom:
-        user_geom = optimize_geometry(user_geom)
-        user_geom = shapely.geometry.mapping(user_geom)
 
     for source in wmts_sources:
         wmts, view_coverage = source
-        if wmts.is_public:
-            geom = json.loads(view_coverage)
-        elif user_geom:
-            geom = user_geom
-        else:
-            continue
+        geom = json.loads(view_coverage)
         response['wmts_sources'].append({
             "name": wmts.name,
             "title": wmts.title,
@@ -103,6 +94,7 @@ def get_context_document():
             "overlay": wmts.is_overlay,
             "username": wmts.username,
             "password": wmts.password,
+            "is_public": wmts.is_public,
             "is_protected": wmts.is_protected,
             "is_background_layer": wmts.is_background_layer,
             "max_tiles": wmts.max_tiles,
@@ -114,18 +106,12 @@ def get_context_document():
             "download_restriction": {
                 "zoom_level_start": wmts.view_level_start,
                 "zoom_level_end": wmts.view_level_end,
-                "geometry": geom
             }
         })
 
     for source in wms_sources:
         wms, view_coverage = source
-        if wms.is_public:
-            geom = json.loads(view_coverage)
-        elif user_geom:
-            geom = user_geom
-        else:
-            continue
+        geom = json.loads(view_coverage)
         response['wms_sources'].append({
             "name": wms.name,
             "title": wms.title,
@@ -135,6 +121,7 @@ def get_context_document():
             "overlay": wms.is_overlay,
             "username": wms.username,
             "password": wms.password,
+            "is_public": wms.is_public,
             "is_protected": wms.is_protected,
             "srs": wms.srs,
             "wms_version": wms.version,
@@ -146,7 +133,6 @@ def get_context_document():
             "download_restriction": {
                 "zoom_level_start": wms.view_level_start,
                 "zoom_level_end": wms.view_level_end,
-                "geometry": geom
             }
         })
 

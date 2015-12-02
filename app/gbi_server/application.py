@@ -123,7 +123,8 @@ def configure_authproxies(app):
     coverages = authproxy.TileCoverages(
         cache_dir=app.config['AUTHPROXY_CACHE_DIR'],
         couchdb_url=app.config['COUCH_DB_URL'],
-        geometry_layer=app.config['USER_WORKON_LAYER'],
+        geometry_layer=None,
+        # geometry_layer=app.config['USER_WORKON_LAYER'],
     )
     tileproxy.tile_coverages = coverages
 
