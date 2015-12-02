@@ -222,7 +222,7 @@ def write_back(layer=None, ajax=True):
     # write changes back to PostGIS to prevent multiple inserts
     create_wfs(user, [layer])
 
-    signals.features_updated.send(user, layer=layer)
+    signals.features_updated.send(user)
 
     if ajax:
         return Response(response='success', status=200, headers=None, mimetype='application/json', content_type=None)

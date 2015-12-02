@@ -22,15 +22,13 @@ from flask.ext.babel import gettext as _
 from sqlalchemy.sql.expression import desc
 from geoalchemy2.functions import ST_AsGeoJSON, ST_Transform
 
-import shapely.geometry
-
 from gbi_server.config import SystemConfig
 from gbi_server.model import WMTS, WMS, WFS, User
 from gbi_server.extensions import db
 from gbi_server.lib.couchdb import CouchDBBox, init_user_boxes
-from gbi_server.lib.geometry import optimize_geometry
 
 context = Blueprint("context", __name__, template_folder="../templates")
+
 
 def check_auth(username, password):
     user = User.by_email(username)
@@ -40,12 +38,14 @@ def check_auth(username, password):
     else:
         return False
 
+
 def authenticate():
     """Sends a 401 response that enables basic auth"""
     return Response(
     'Could not verify your access level for that URL.\n'
     'You have to login with proper credentials', 401,
     {'WWW-Authenticate': 'Basic realm="Login Required"'})
+
 
 def requires_auth(f):
     @wraps(f)
@@ -58,6 +58,7 @@ def requires_auth(f):
                 {'WWW-Authenticate': 'Basic realm="Login Required"'})
         return f(*args, **kwargs)
     return decorated
+
 
 @context.route('/context')
 @requires_auth
@@ -198,6 +199,13 @@ def get_context_document():
 
     response['logging'] = {
         'url': url_for('logserv.log', user_token=g.user.authproxy_token, _external=True),
+    }
+
+    response['update_coverage'] = {
+        'url': url_for('authproxy.update_download_coverage',
+            user_token=g.user.authproxy_token,
+            _external=True
+        ),
     }
 
     response['user'] = {

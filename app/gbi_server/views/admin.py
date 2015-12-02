@@ -324,6 +324,7 @@ def logs(page=1, user_id=False):
     if access_end:
         query = query.filter(Log.time < access_end)
 
+    query = query.order_by(desc(Log.time))
     if button_action == 'show-table':
         results = query.paginate(page, current_app.config["USER_PER_PAGE"])
     else:

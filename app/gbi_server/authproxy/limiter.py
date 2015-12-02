@@ -31,7 +31,7 @@ class LimiterCache(object):
     def __init__(self, cache_dir, file_pattern='*'):
         self.cache_dir = cache_dir
         self.file_pattern = file_pattern
-        self.max_cache_time = 60*60 # 60min
+        self.max_cache_time = 5*60 # 5min
 
     def cache_path(self, user_token):
         return os.path.join(self.cache_dir, user_token[:2], user_token)

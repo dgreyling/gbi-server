@@ -13,10 +13,13 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-from flask import Blueprint, request, session, abort
+from flask import Blueprint, request, session, abort, jsonify
 
 from gbi_server.extensions import tileproxy
 from gbi_server.extensions import couchdbproxy
+from gbi_server import signals
+from gbi_server.model import User
+from gbi_server.lib.exceptions import json_abort
 
 authproxy = Blueprint("authproxy", __name__)
 
@@ -29,6 +32,7 @@ for code in [401, 403, 404, 405]:
 @authproxy.route('/authproxy/<string:user_token>/couchdb/<path:url>', methods=['GET', 'POST', 'PUT', 'DELETE'])
 def couchdb_proxy(url, user_token):
     return couchdbproxy.on_proxy(request, user_token=user_token, url=url)
+
 
 @authproxy.route('/authproxy/couchdb/<path:url>', methods=['GET'])
 def couchdb_proxy_file(url):
@@ -50,3 +54,14 @@ def tile_proxy(url, user_token=None):
         if user_token is None:
             abort(401)
     return tileproxy.on_proxy(request, user_token=user_token, url=url)
+
+
+@authproxy.route('/authproxy/<string:user_token>/update_coverage', methods=['GET'])
+def update_download_coverage(user_token):
+    user = User.by_authproxy_token(user_token)
+    if not user:
+        json_abort(401, 'unknown user token')
+
+    signals.features_updated.send(user)
+
+    return jsonify({'sucess': True})

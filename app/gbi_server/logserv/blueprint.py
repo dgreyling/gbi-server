@@ -26,6 +26,7 @@ from geoalchemy2.functions import ST_Transform
 from gbi_server.lib.exceptions import json_abort
 from gbi_server.model import User, Log
 from gbi_server.extensions import db
+from gbi_server import signals
 
 logserv = Blueprint("logserv", __name__)
 
@@ -85,4 +86,5 @@ def log(user_token):
         current_app.logger.error(ex)
         json_abort(500)
 
+    signals.features_updated.send(user)
     return jsonify({'sucess': True})

@@ -129,7 +129,7 @@ def configure_authproxies(app):
     tileproxy.tile_coverages = coverages
 
     # clear authproxy cache after features where updated
-    def clear_coverage_cache(user, layer):
+    def clear_coverage_cache(user):
         coverages.clear(user.authproxy_token)
     signals.features_updated.connect(clear_coverage_cache, weak=False)
 
