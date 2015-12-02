@@ -102,7 +102,6 @@ def all():
             view_level_start=7,
             view_level_end=18,
             is_background_layer=True,
-            is_baselayer=True,
             is_overlay=False,
             is_transparent=False,
             is_visible=True),

@@ -51,12 +51,12 @@ class TileCoverages(LimiterCache):
 
     def create(self, user_token, layer):
         from gbi_server.model import User
-
         user = User.by_authproxy_token(user_token)
         if not user:
             raise InvalidUserToken()
 
         result = db.session.query(WMTS, ST_Transform(WMTS.view_coverage, 3857)).filter_by(name=layer).first()
+
         if result:
             wmts, view_coverage = result
             if wmts and wmts.is_public:

@@ -37,10 +37,6 @@ class WMTS(db.Model):
     view_level_start = db.Column(db.Integer)
     view_level_end = db.Column(db.Integer)
 
-    # used in context document but not in gbi-client
-    # check we can delete it
-    is_baselayer = db.Column(db.Boolean(), default=False)
-
     # used in context document
     # used on for gbi-client for export in mapproxy mbtiles etc.
     is_overlay = db.Column(db.Boolean(), default=True)
@@ -105,7 +101,6 @@ class WMS(db.Model):
     view_level_end = db.Column(db.Integer)
 
     is_background_layer = db.Column(db.Boolean(), default=False)
-    is_baselayer = db.Column(db.Boolean(), default=False)
     is_overlay = db.Column(db.Boolean(), default=True)
     is_transparent = db.Column(db.Boolean(), default=True)
     is_visible = db.Column(db.Boolean(), default=True)
