@@ -13,11 +13,9 @@ Registrierung
 
 Um die Anwendung nutzen zu können ist eine Registrierung erforderlich. Durch Auswahl von `Konto erstellen` in der Navigationsleiste gelangen Sie zu dem Registrierungsformular. Für die Registrierung werden Name und Anschrift, sowie eine gültige E-Mail-Adresse benötigt. Zudem müssen Sie ein persönliches Passwort festlegen.
 
-In dem Feld `Benutzertyp` können Sie zwischen `Landwirt` und `Dienstleister` auswählen. Bei der Auswahl `Landwirt` werden zwei zusätzliche Felder, `FLOrlp Benutzername` und `FLOrlp Passwort`, eingeblendet. Durch diese Angaben werden Sie gegenüber FLOrlp authentifiziert und haben Zugriff auf Ihre hier hinterlegten Flächendaten.
+In dem Feld `Benutzertyp` können Sie zwischen `Landwirt`, `Dienstleister` und `Berater` auswählen. Um die Registrierung abzuschließen müssen Sie die `Nutzungsbedingungen` akzeptieren.
 
-Um die Registrierung abzuschließen müssen Sie die `Nutzungsbedingungen` akzeptieren.
-
-Im Anschluss an Ihre Registrierung erhalten Sie eine E-Mail zur Bestätigung der Richtigkeit Ihrer E-Mail-Adresse. Dies geschieht durch Aufruf des in der E-Mail befindlichen Links. Sollten Sie sich als externer `Dienstleister` angemeldet haben, muss des weiteren ein Administrator Ihr Benutzerkonto freischalten. Sie werden per E-Mail benachrichtigt, sobald dies erfolgt ist.
+Im Anschluss an Ihre Registrierung erhalten Sie eine E-Mail zur Bestätigung der Richtigkeit Ihrer E-Mail-Adresse. Dies geschieht durch Aufruf des in der E-Mail befindlichen Links. Alle Anmeldungen müssen außerdem durch einen Administrator freigeschaltet werden. Sie werden per E-Mail benachrichtigt, sobald dies erfolgt ist.
 
 Anmeldung
 ---------
@@ -30,11 +28,10 @@ Startseite
 Nach erfolgreicher Anmeldung gelangen Sie auf die Startseite. Hier können Sie die Funktionen der Anwendung auswählen. Folgende Funktionen stehen Ihnen zur Auswahl:
 
   - Kartenansicht
-  - Flächeneditor
   - Downloadbox
   - Uploadbox
   - GeoBox-Client herunterladen
 
-Durch betätigen der Auswahl `GeoBox-Client herunterladen` können Sie den GeoBox-Client herunterladen um ihn auf Ihren PC zu installieren.
+Durch betätigen der Auswahl `GeoBox-Client herunterladen` können Sie den GeoBox-Client herunterladen um anschließend Ihren PC zu installieren.
 
 Die weiteren Funktionen werden in der Benutzerdokumentation näher erläutert.
