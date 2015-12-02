@@ -27,13 +27,6 @@ from gbi_server.authproxy.limiter import InvalidUserToken
 ProxyTile = namedtuple('ProxyTile', ['url', 'layer', 'tile_coord'])
 ProxyCouch = namedtuple('ProxyCouch', ['url', 'dbname'])
 
-tile_proxy_urls = [
-    (
-        re.compile('http://igreendemo.omniscale.net/wmts/(?P<layer>[^/]+)/GoogleMapsCompatible-(?P<z>[^/]+)-(?P<x>[^/]+)-(?P<y>[^/]+)/tile$'),
-        'http://igreendemo.omniscale.net/wmts/%(layer)s/GoogleMapsCompatible-%(z)s-%(x)s-%(y)s/tile'
-        # 'http://localhost:8099/%(layer)s/GoogleMapsCompatible-%(z)s-%(x)s-%(y)s/tile'
-    ),
-]
 couch_proxy_urls = [
     (
         re.compile('(?P<dbname>[^/]+)(?P<req>.*)'),
@@ -215,7 +208,7 @@ class TileProxy(object):
         return Response(response_iterator(resp), headers=headers, status=resp.status_code)
 
     def proxy_url_and_coords(self, req_url):
-        for req_url_re, target_url_template in tile_proxy_urls:
+        for req_url_re, target_url_template in current_app.config['TILE_PROXY_URLS']:
             match = req_url_re.match(req_url)
             if match:
                 params = match.groupdict()

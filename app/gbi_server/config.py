@@ -14,6 +14,7 @@
 # limitations under the License.
 
 # -:- encoding: utf8 -:-
+import re
 from os import path as p
 from flask.ext.babel import lazy_gettext as _l
 
@@ -148,6 +149,13 @@ class DefaultConfig(object):
 
     LOG_CSV_HEADER = ["time", "action", "format", "srs", "mapping", "source", "layer", "zoom_level_start", "zoom_level_end", "refreshed", "geometry_as_geojson"]
 
+    TILE_PROXY_URLS = [
+        (
+            re.compile('http://igreendemo.omniscale.net/wmts/(?P<layer>[^/]+)/GoogleMapsCompatible-(?P<z>[^/]+)-(?P<x>[^/]+)-(?P<y>[^/]+)/tile$'),
+            'http://igreendemo.omniscale.net/wmts/%(layer)s/GoogleMapsCompatible-%(z)s-%(x)s-%(y)s/tile'
+            # 'http://localhost:8099/%(layer)s/GoogleMapsCompatible-%(z)s-%(x)s-%(y)s/tile'
+        ),
+    ]
 
 class SystemConfig(object):
     # name of the databases on the server
