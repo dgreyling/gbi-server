@@ -36,7 +36,7 @@ from gbi_server.forms.wfs import WFSEditForm, WFSAddLayerForm, WFSSearchForm
 
 from gbi_server import signals
 from gbi_server.extensions import db
-from gbi_server.lib import tinyows, florlp
+from gbi_server.lib import tinyows
 from gbi_server.util import ensure_dir
 from gbi_server.config import SystemConfig
 
@@ -78,7 +78,7 @@ def wfs_edit():
         title = add_layer_form.data.get('new_layer')
         layer = re.sub(r'[^a-z0-9]*', '',  title.lower())
         couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, user.id))
-        schema = florlp.base_schema()
+        schema = tinyows.base_schema()
         if couch.layer_schema(layer):
             flash(_('Layer %(title)s already exists', title=title), 'error')
         else:

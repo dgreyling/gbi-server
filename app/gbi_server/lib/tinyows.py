@@ -25,6 +25,23 @@ from urlparse import urlparse
 
 from xml.etree import ElementTree as ET
 
+def base_schema():
+    return {
+        "properties": {
+            "nuar": "str",
+            "slfl": "float",
+            "slnr": "str",
+            "jahr": "float",
+            "styp": "str",
+            "sung": "float",
+            "bena": "str",
+            "exte": "str",
+            "suna": "float",
+            "id": "float",
+            "btnr": "str",
+        }
+    }
+
 # layers must be list of dict
 # layer dict must contain:
 #   writable <string [1||0]>
