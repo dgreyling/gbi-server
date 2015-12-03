@@ -1,6 +1,6 @@
 {{_('activate user mail intro')}}
 
-{{ url_for('admin.user_detail', id=user.id, _external=True) }}
+{{ url_for('admin.user_detail', user_id=user.id, _external=True) }}
 
 {{_('mail regards')}}
 
