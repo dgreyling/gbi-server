@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-01 08:07+0100\n"
+"POT-Creation-Date: 2015-12-03 13:02+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -546,7 +546,7 @@ msgstr ""
 
 #: ../app/gbi_server/templates/index.html:31
 #: ../app/gbi_server/templates/boxes/upload.html:11
-#: ../app/gbi_server/views/context.py:206
+#: ../app/gbi_server/views/context.py:191
 msgid "uploadbox"
 msgstr "Uploadbox"
 
@@ -659,7 +659,7 @@ msgstr "Erstellen"
 msgid "Edit user"
 msgstr "Benutzer editieren"
 
-#: ../app/gbi_server/templates/admin/edit_user.html:40
+#: ../app/gbi_server/templates/admin/edit_user.html:71
 #: ../app/gbi_server/templates/admin/wfs_edit.html:47
 #: ../app/gbi_server/templates/admin/wms_edit.html:91
 #: ../app/gbi_server/templates/admin/wmts_edit.html:50
@@ -674,7 +674,6 @@ msgstr "Administrator"
 
 #: ../app/gbi_server/templates/admin/logs.html:5
 #: ../app/gbi_server/templates/admin/logs.html:8
-#: ../app/gbi_server/templates/admin/logs.html:33
 msgid "access list"
 msgstr "Liste der Zugriffe"
 
@@ -686,7 +685,7 @@ msgstr "In Tabelle anzeigen"
 msgid "Download as CSV"
 msgstr "Download CSV"
 
-#: ../app/gbi_server/templates/admin/logs.html:35
+#: ../app/gbi_server/templates/admin/logs.html:33
 msgid "Table"
 msgstr "Tabelle"
 
@@ -717,9 +716,9 @@ msgstr "Neues Passwort setzen"
 #: ../app/gbi_server/templates/admin/user_activate_mail.txt:1
 msgid "activate user mail intro"
 msgstr ""
-"Guten Tag,\n"
-" es hat sich ein neuer Benuzter in der Anwendung angemeldet. Klicken Sie "
-"auf den Link um den Benutzer zu aktivieren oder zu bearbeiten."
+"Ein neuer Benutzer hat sich am Geobox-Server angemeldet und wartet auf "
+"die Freischaltung seines Accounts. Klicken Sie auf den folgenden Link um "
+"den Benutzer zu aktivieren oder zu bearbeiten."
 
 #: ../app/gbi_server/templates/admin/user_activate_mail.txt:5
 #: ../app/gbi_server/templates/user/activated_mail.txt:5
@@ -728,7 +727,7 @@ msgstr ""
 msgid "mail regards"
 msgstr ""
 "Mit freundlichen Grüßen,\n"
-"Ihr GBI Team"
+"Ihr GeoBox-Team"
 
 #: ../app/gbi_server/templates/admin/user_activate_mail.txt:7
 #: ../app/gbi_server/templates/user/activated_mail.txt:7
@@ -738,7 +737,7 @@ msgid "mail footer"
 msgstr ""
 "-- \n"
 "\n"
-"...Impressum hier..."
+"Internet: https://map.rlps.de"
 
 #: ../app/gbi_server/templates/admin/user_detail.html:6
 #: ../app/gbi_server/templates/admin/user_detail.html:9
@@ -1448,11 +1447,15 @@ msgstr "Editieren beenden und Änderungen verwerfen"
 
 #: ../app/gbi_server/templates/user/activated_mail.txt:1
 msgid "mail activated intro"
-msgstr "Guten Tag"
+msgstr "Sehr geehrte Damen und Herren."
 
 #: ../app/gbi_server/templates/user/activated_mail.txt:3
 msgid "mail activated content"
-msgstr "Ihr Konto wurde soeben von einem Administrator aktiviert."
+msgstr ""
+"Ihr GeoBox-Konto wurde soeben von einem Administrator aktiviert. Sie "
+"können sich nun mit Hilfe des Geobox-Clients anmelden und diesen Nutzen. "
+"Bei weiteren Fragen wenden Sie sich einfach direkt an Ihren "
+"Administrator."
 
 #: ../app/gbi_server/templates/user/base_edit.html:7
 #: ../app/gbi_server/templates/user/base_edit.html:11
@@ -1529,17 +1532,15 @@ msgstr "Wiederherstellen"
 #: ../app/gbi_server/templates/user/recover_mail.txt:1
 msgid "password recover mail intro"
 msgstr ""
-"Guten Tag,\n"
-"\n"
-"Sie haben Ihr Passwort zur GBI-Anwendung vergessen? Sie können es mit dem"
-" unten stehenden Link neusetzen. Wenn Sie diese E-Mail nicht angefordert "
-"haben, dann ignorieren Sie bitte diese E-Mail."
+"Sie haben Ihr Passwort für den Geobox-Server vergessen? Sie können es mit"
+" dem unten stehenden Link neu setzen. Sollten Sie diese Email nicht "
+"angefordert haben, dann müssen Sie nichts unternehmen."
 
 #: ../app/gbi_server/templates/user/recover_mail.txt:3
 msgid "password recover mail instructions"
 msgstr ""
 "Um ein neues Passwort für Ihren Zugang zu setzen, klicken Sie auf den "
-"folgenden Link. Der Link ist 24 Stunden gültig.\n"
+"folgenden Link. Der Link ist 25 Stunden Tage gültig.\n"
 "%(url)s"
 
 #: ../app/gbi_server/templates/user/recover_sent.html:11
@@ -1563,7 +1564,7 @@ msgstr ""
 #: ../app/gbi_server/templates/user/verify_mail.txt:1
 msgid "mail verify intro"
 msgstr ""
-"Willkommen beim GBI-Dienst! \n"
+"Willkommen bei der Geobox! \n"
 "\n"
 "Sie haben sich erfolgreich mit folgendem Benutzernamen angemeldet: "
 "%(email)s"
@@ -1576,15 +1577,15 @@ msgstr ""
 "%(verify_url)s \n"
 "\n"
 "Dieser Link ist 24 Stunden lang gültig. Falls Sie die Anmeldung "
-"innerhalbdieser Zeit nicht abschließen können, melden Sie sich bitte "
-"erneut an."
+"innerhalbdieser Zeit nicht abschließen können, fordern Sie diese E-Mail "
+"bitte erneut an."
 
 #: ../app/gbi_server/templates/user/verify_mail.txt:6
 msgid "mail verify activate info"
 msgstr ""
-"Bitte beachten Sie, dass Ihr Zugang erst noch von einem Administrator "
-"freigeschaltet werden muss. Dieser wurder per E-Mail bereits über Ihre "
-"Anmeldung informiert."
+"Bitte beachten Sie, dass Ihr Zugang nach der Bestätigung der E-Mail noch "
+"von einem Administrator freigeschaltet werden muss. Dieser wird "
+"automatisch per E-Mail über Ihre Anmeldung informiert."
 
 #: ../app/gbi_server/templates/user/verify_wait.html:3
 msgid "Email verification"
@@ -1641,57 +1642,57 @@ msgstr "Benutzer erstellt"
 msgid "User edited"
 msgstr "Benutzerdaten erfolgreich bearbeitet"
 
-#: ../app/gbi_server/views/admin.py:300
+#: ../app/gbi_server/views/admin.py:301
 msgid "Password reset"
 msgstr "Passwort zurückgesetzt"
 
 #: ../app/gbi_server/views/admin_services.py:82
-#: ../app/gbi_server/views/admin_services.py:186
+#: ../app/gbi_server/views/admin_services.py:185
 msgid "Only the first geometry was used for view coverage"
 msgstr ""
 
 #: ../app/gbi_server/views/admin_services.py:87
-#: ../app/gbi_server/views/admin_services.py:191
+#: ../app/gbi_server/views/admin_services.py:190
 msgid "Geometry not correct"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:102
+#: ../app/gbi_server/views/admin_services.py:101
 msgid "Saved WMTS"
 msgstr "WMTS gespeichert"
 
-#: ../app/gbi_server/views/admin_services.py:106
+#: ../app/gbi_server/views/admin_services.py:105
 msgid "WMTS with this name already exist"
 msgstr "WMTS mit diesem Namen existiert bereits"
 
-#: ../app/gbi_server/views/admin_services.py:121
+#: ../app/gbi_server/views/admin_services.py:120
 msgid "WMTS removed"
 msgstr "WMTS gelöscht"
 
-#: ../app/gbi_server/views/admin_services.py:129
+#: ../app/gbi_server/views/admin_services.py:128
 msgid "Need url for capabilities"
 msgstr "URL für Capabilities wird benötigt"
 
-#: ../app/gbi_server/views/admin_services.py:209
+#: ../app/gbi_server/views/admin_services.py:207
 msgid "Saved WMS"
 msgstr "WMS wurde gespeichert"
 
-#: ../app/gbi_server/views/admin_services.py:214
+#: ../app/gbi_server/views/admin_services.py:212
 msgid "WMS with this name already exist"
 msgstr "WMS mit diesem Namen existiert bereits"
 
-#: ../app/gbi_server/views/admin_services.py:229
+#: ../app/gbi_server/views/admin_services.py:227
 msgid "WMS removed"
 msgstr "WMS wurde gelöscht"
 
-#: ../app/gbi_server/views/admin_services.py:265
+#: ../app/gbi_server/views/admin_services.py:263
 msgid "Saved WFS"
 msgstr "WFS wurde erfolgreich gespeichert"
 
-#: ../app/gbi_server/views/admin_services.py:269
+#: ../app/gbi_server/views/admin_services.py:267
 msgid "WFS with this name already exist"
 msgstr "WFS mit diesem Namen existiert bereits"
 
-#: ../app/gbi_server/views/admin_services.py:279
+#: ../app/gbi_server/views/admin_services.py:277
 msgid "WFS removed"
 msgstr "WFS wurde gelöscht"
 
@@ -1715,55 +1716,55 @@ msgstr "Daten konnten nicht kopiert werden"
 msgid "file copied"
 msgstr "Datei wurde erfolgreich kopiert"
 
-#: ../app/gbi_server/views/context.py:175
+#: ../app/gbi_server/views/context.py:160
 msgid "area box"
 msgstr "Flächen-Box"
 
-#: ../app/gbi_server/views/context.py:187
+#: ../app/gbi_server/views/context.py:172
 msgid "file box"
 msgstr "Beraterbox"
 
-#: ../app/gbi_server/views/context.py:197
+#: ../app/gbi_server/views/context.py:182
 msgid "consultant box"
 msgstr "Downloadbox"
 
-#: ../app/gbi_server/views/maps.py:80
+#: ../app/gbi_server/views/maps.py:83
 #, python-format
 msgid "Layer %(title)s already exists"
 msgstr "Layer '%(title)s' existiert bereits"
 
-#: ../app/gbi_server/views/maps.py:83
+#: ../app/gbi_server/views/maps.py:86
 #, python-format
 msgid "Layer %(title)s created"
 msgstr "Layer '%(title)s' wurde erstellt"
 
-#: ../app/gbi_server/views/maps.py:103 ../app/gbi_server/views/maps.py:153
+#: ../app/gbi_server/views/maps.py:107 ../app/gbi_server/views/maps.py:158
 msgid "external edit in progress"
 msgstr "Externer Editiervorgang aktiv."
 
-#: ../app/gbi_server/views/maps.py:111 ../app/gbi_server/views/maps.py:175
+#: ../app/gbi_server/views/maps.py:115 ../app/gbi_server/views/maps.py:181
 msgid "layer unknown or without schema"
 msgstr "Unbekannter Layer oder fehlendes Layer-Schema"
 
-#: ../app/gbi_server/views/maps.py:148
+#: ../app/gbi_server/views/maps.py:153
 msgid "not allowed to remove this layer"
 msgstr "Dieser Layer darf nicht gelöscht werden"
 
-#: ../app/gbi_server/views/maps.py:159
+#: ../app/gbi_server/views/maps.py:164
 #, python-format
 msgid "Layer %(layer)s removed"
 msgstr "Layer %(layer)s gelöscht"
 
-#: ../app/gbi_server/views/maps.py:161
+#: ../app/gbi_server/views/maps.py:166
 #, python-format
 msgid "Could not remove layer %(layer)s"
 msgstr "Layer '%(layer)s' kann nicht gelöscht werden."
 
-#: ../app/gbi_server/views/maps.py:191
+#: ../app/gbi_server/views/maps.py:197
 msgid "wfs changes discarded"
 msgstr "Änderungen verworfen"
 
-#: ../app/gbi_server/views/maps.py:233
+#: ../app/gbi_server/views/maps.py:241
 msgid "wfs changes saved"
 msgstr "Änderungen gespeichert"
 

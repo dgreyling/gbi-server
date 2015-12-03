@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-01 08:07+0100\n"
+"POT-Creation-Date: 2015-12-03 13:02+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -542,7 +542,7 @@ msgstr ""
 
 #: ../app/gbi_server/templates/index.html:31
 #: ../app/gbi_server/templates/boxes/upload.html:11
-#: ../app/gbi_server/views/context.py:206
+#: ../app/gbi_server/views/context.py:191
 msgid "uploadbox"
 msgstr ""
 
@@ -652,7 +652,7 @@ msgstr ""
 msgid "Edit user"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/edit_user.html:40
+#: ../app/gbi_server/templates/admin/edit_user.html:71
 #: ../app/gbi_server/templates/admin/wfs_edit.html:47
 #: ../app/gbi_server/templates/admin/wms_edit.html:91
 #: ../app/gbi_server/templates/admin/wmts_edit.html:50
@@ -667,7 +667,6 @@ msgstr ""
 
 #: ../app/gbi_server/templates/admin/logs.html:5
 #: ../app/gbi_server/templates/admin/logs.html:8
-#: ../app/gbi_server/templates/admin/logs.html:33
 msgid "access list"
 msgstr ""
 
@@ -679,7 +678,7 @@ msgstr ""
 msgid "Download as CSV"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/logs.html:35
+#: ../app/gbi_server/templates/admin/logs.html:33
 msgid "Table"
 msgstr ""
 
@@ -1514,57 +1513,57 @@ msgstr ""
 msgid "User edited"
 msgstr ""
 
-#: ../app/gbi_server/views/admin.py:300
+#: ../app/gbi_server/views/admin.py:301
 msgid "Password reset"
 msgstr ""
 
 #: ../app/gbi_server/views/admin_services.py:82
-#: ../app/gbi_server/views/admin_services.py:186
+#: ../app/gbi_server/views/admin_services.py:185
 msgid "Only the first geometry was used for view coverage"
 msgstr ""
 
 #: ../app/gbi_server/views/admin_services.py:87
-#: ../app/gbi_server/views/admin_services.py:191
+#: ../app/gbi_server/views/admin_services.py:190
 msgid "Geometry not correct"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:102
+#: ../app/gbi_server/views/admin_services.py:101
 msgid "Saved WMTS"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:106
+#: ../app/gbi_server/views/admin_services.py:105
 msgid "WMTS with this name already exist"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:121
+#: ../app/gbi_server/views/admin_services.py:120
 msgid "WMTS removed"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:129
+#: ../app/gbi_server/views/admin_services.py:128
 msgid "Need url for capabilities"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:209
+#: ../app/gbi_server/views/admin_services.py:207
 msgid "Saved WMS"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:214
+#: ../app/gbi_server/views/admin_services.py:212
 msgid "WMS with this name already exist"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:229
+#: ../app/gbi_server/views/admin_services.py:227
 msgid "WMS removed"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:265
+#: ../app/gbi_server/views/admin_services.py:263
 msgid "Saved WFS"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:269
+#: ../app/gbi_server/views/admin_services.py:267
 msgid "WFS with this name already exist"
 msgstr ""
 
-#: ../app/gbi_server/views/admin_services.py:279
+#: ../app/gbi_server/views/admin_services.py:277
 msgid "WFS removed"
 msgstr ""
 
@@ -1588,55 +1587,55 @@ msgstr ""
 msgid "file copied"
 msgstr ""
 
-#: ../app/gbi_server/views/context.py:175
+#: ../app/gbi_server/views/context.py:160
 msgid "area box"
 msgstr ""
 
-#: ../app/gbi_server/views/context.py:187
+#: ../app/gbi_server/views/context.py:172
 msgid "file box"
 msgstr ""
 
-#: ../app/gbi_server/views/context.py:197
+#: ../app/gbi_server/views/context.py:182
 msgid "consultant box"
-msgstr ""
-
-#: ../app/gbi_server/views/maps.py:80
-#, python-format
-msgid "Layer %(title)s already exists"
 msgstr ""
 
 #: ../app/gbi_server/views/maps.py:83
 #, python-format
+msgid "Layer %(title)s already exists"
+msgstr ""
+
+#: ../app/gbi_server/views/maps.py:86
+#, python-format
 msgid "Layer %(title)s created"
 msgstr ""
 
-#: ../app/gbi_server/views/maps.py:103 ../app/gbi_server/views/maps.py:153
+#: ../app/gbi_server/views/maps.py:107 ../app/gbi_server/views/maps.py:158
 msgid "external edit in progress"
 msgstr ""
 
-#: ../app/gbi_server/views/maps.py:111 ../app/gbi_server/views/maps.py:175
+#: ../app/gbi_server/views/maps.py:115 ../app/gbi_server/views/maps.py:181
 msgid "layer unknown or without schema"
 msgstr ""
 
-#: ../app/gbi_server/views/maps.py:148
+#: ../app/gbi_server/views/maps.py:153
 msgid "not allowed to remove this layer"
 msgstr ""
 
-#: ../app/gbi_server/views/maps.py:159
+#: ../app/gbi_server/views/maps.py:164
 #, python-format
 msgid "Layer %(layer)s removed"
 msgstr ""
 
-#: ../app/gbi_server/views/maps.py:161
+#: ../app/gbi_server/views/maps.py:166
 #, python-format
 msgid "Could not remove layer %(layer)s"
 msgstr ""
 
-#: ../app/gbi_server/views/maps.py:191
+#: ../app/gbi_server/views/maps.py:197
 msgid "wfs changes discarded"
 msgstr ""
 
-#: ../app/gbi_server/views/maps.py:233
+#: ../app/gbi_server/views/maps.py:241
 msgid "wfs changes saved"
 msgstr ""
 
