@@ -293,6 +293,7 @@ def edit_user(user_id):
 
 @admin.route('/admin/reset_user_password/<int:user_id>', methods=["GET", "POST"])
 def reset_user_password(user_id):
+    user = User.by_id(user_id)
     form = RecoverSetForm()
     if form.validate_on_submit():
         user.update_password(form.password.data)
