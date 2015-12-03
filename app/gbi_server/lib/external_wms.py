@@ -68,7 +68,7 @@ class MapProxyConfiguration(object):
             'GoogleMapsCompatible': {
                 'base': 'GLOBAL_MERCATOR',
                 'srs': 'EPSG:3857',
-                'num_levels': 19,
+                'num_levels': 20,
                 'origin': 'nw'
             }
         }

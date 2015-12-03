@@ -68,8 +68,8 @@ class RasterSourceForm(Form):
     max_tiles = TextField(_l('rastersource_max_tiles'), [validators.Regexp('^\d*$')])
 
     view_coverage = TextAreaField(_l('rastersource_view_coverage'), [validators.Required()]) #XXX kai: geojson validator?
-    view_level_start = SelectField(_l('rastersource_view_level_start'), coerce=int, choices=[(x, x) for x in range(21)])
-    view_level_end = SelectField(_l('rastersource_view_level_end'), coerce=int, choices=[(x, x) for x in range(21)])
+    view_level_start = SelectField(_l('rastersource_view_level_start'), coerce=int, choices=[(x, x) for x in range(20)])
+    view_level_end = SelectField(_l('rastersource_view_level_end'), coerce=int, choices=[(x, x) for x in range(20)])
 
     is_background_layer = BooleanField(_l('rastersource_background_layer'))
     is_transparent = BooleanField(_l('rastersource_transparent'))
