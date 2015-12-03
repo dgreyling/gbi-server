@@ -40,4 +40,4 @@ In der Downloadbox eines Landwirtes können Sie diesem Dateien zur Verfügung st
 Beraterbox
 ----------
 
-Hier können Sie Ihre Dokumente verwalten. Die Dateien in Ihrer Beraterbox werden mit dem GBI-Client abgeglichen. Nutzen Sie die Beraterbox um z.B. Dokumente der Landwirte auf Ihrem GBI-Client zu kopieren und diese dort zu bearbeiten. Nach dem Bearbeiten können Sie die Dateien über die Beraterbox wieder auf dem GBI-Server verfügbar machen und diese z.B. anschließend über die `Kopieren`-Funktion wieder dem Landwirt zur Verfügung stellen.
+Hier können Sie Ihre Dokumente verwalten. Die Dateien in Ihrer Beraterbox werden mit dem GeoBox-Client abgeglichen. Nutzen Sie die Beraterbox um z.B. Dokumente der Landwirte auf Ihrem GeoBox-Client zu kopieren und diese dort zu bearbeiten. Nach dem Bearbeiten können Sie die Dateien über die Beraterbox wieder auf dem GBI-Server verfügbar machen und diese z.B. anschließend über die `Kopieren`-Funktion wieder dem Landwirt zur Verfügung stellen.

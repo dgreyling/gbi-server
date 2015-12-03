@@ -716,7 +716,7 @@ msgstr "Neues Passwort setzen"
 #: ../app/gbi_server/templates/admin/user_activate_mail.txt:1
 msgid "activate user mail intro"
 msgstr ""
-"Ein neuer Benutzer hat sich am Geobox-Server angemeldet und wartet auf "
+"Ein neuer Benutzer hat sich am GeoBox-Server angemeldet und wartet auf "
 "die Freischaltung seines Accounts. Klicken Sie auf den folgenden Link um "
 "den Benutzer zu aktivieren oder zu bearbeiten."
 
@@ -1005,7 +1005,7 @@ msgstr "WMTS Editieren"
 #: ../app/gbi_server/templates/admin/wmts_edit.html:34
 msgid "tooltip - is background layer"
 msgstr ""
-"Hintergrundlayer wird dem Nutzer standardmässig im GBI-Client angezeigt. "
+"Hintergrundlayer wird dem Nutzer standardmässig in dem GeoBox-Client angezeigt. "
 "Es kann nur ein Hintergrundlayer pro Server definiert werden."
 
 #: ../app/gbi_server/templates/admin/wmts_edit.html:36
@@ -1453,7 +1453,7 @@ msgstr "Sehr geehrte Damen und Herren."
 msgid "mail activated content"
 msgstr ""
 "Ihr GeoBox-Konto wurde soeben von einem Administrator aktiviert. Sie "
-"können sich nun mit Hilfe des Geobox-Clients anmelden und diesen Nutzen. "
+"können sich nun mit Hilfe des GeoBox-Clients anmelden und diesen Nutzen. "
 "Bei weiteren Fragen wenden Sie sich einfach direkt an Ihren "
 "Administrator."
 
@@ -1532,7 +1532,7 @@ msgstr "Wiederherstellen"
 #: ../app/gbi_server/templates/user/recover_mail.txt:1
 msgid "password recover mail intro"
 msgstr ""
-"Sie haben Ihr Passwort für den Geobox-Server vergessen? Sie können es mit"
+"Sie haben Ihr Passwort für den GeoBox-Server vergessen? Sie können es mit"
 " dem unten stehenden Link neu setzen. Sollten Sie diese Email nicht "
 "angefordert haben, dann müssen Sie nichts unternehmen."
 
@@ -1564,7 +1564,7 @@ msgstr ""
 #: ../app/gbi_server/templates/user/verify_mail.txt:1
 msgid "mail verify intro"
 msgstr ""
-"Willkommen bei der Geobox! \n"
+"Willkommen bei der GeoBox! \n"
 "\n"
 "Sie haben sich erfolgreich mit folgendem Benutzernamen angemeldet: "
 "%(email)s"
