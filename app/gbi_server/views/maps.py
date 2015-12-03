@@ -58,7 +58,7 @@ def wmts():
 
     vector_layers = []
     vector_layers.append({
-        'name': current_app.config.get('USER_READONLY_LAYER_TITLE'),
+        'name': SystemConfig.AREA_BOX_TITLE,
         'features': features,
         'readonly': True,
     })
@@ -137,7 +137,7 @@ def wfs_edit_layer(layer=None):
         layers=WMTS.query.all(),
         read_only_features=features,
         read_only_schema=couch.layer_schema(layer)['properties'],
-        read_only_layer_name=current_app.config.get('USER_READONLY_LAYER_TITLE'),
+        read_only_layer_name=current_app.config.get('AREA_BOX_TITLE'),
         editable_layer=layer,
         editable_layer_title=titles[layer],
         data_extent=data_extent.bounds if data_extent else None,

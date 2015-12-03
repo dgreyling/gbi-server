@@ -203,6 +203,23 @@ class CouchDB(object):
                 % (resp.status_code, self.couchdb_url + '/_bulk_docs', resp.content)
             )
 
+    def update_or_create_doc(self, doc_id, doc):
+        doc_url = self.couchdb_url + '/' + doc_id
+        resp = self.session.get(doc_url)
+
+        if resp.status_code == 200:
+            rev = resp.json()['_rev']
+            doc['_rev'] = rev
+        elif resp.status_code != 404:
+            raise UnexpectedResponse('got unexpected resp (%d) from CouchDB: %s' % (resp.status_code, resp.content))
+
+        resp = self.session.put(doc_url,
+            headers={'Accept': 'application/json'},
+            data=json.dumps(doc),
+        )
+        if resp.status_code != 201:
+            raise UnexpectedResponse('got unexpected resp (%d) from CouchDB: %s' % (resp.status_code, resp.content))
+
     def update_auth_doc(self, user, writable=True, read_roles=[], write_roles=[]):
         auth_doc = {
           "_id":"_design/auth",
@@ -497,6 +514,16 @@ def init_user_boxes(user, couchdb_url):
         couch.create()
         couch.update_layer_view_doc()
         couch.update_or_create_features_view_doc()
+
+        # add metadata document for gbi client
+        name = '%s_%s' % (current_app.config['PORTAL_PREFIX'], SystemConfig.AREA_BOX_NAME_LOCAL)
+        metadata = {
+            'name': name.lower(),
+            'title': SystemConfig.AREA_BOX_TITLE,
+            'type': 'GeoJSON',
+        }
+        couch.update_or_create_doc('metadata', metadata)
+
         couch.update_user(username, password)
         couch.update_auth_doc(username, writable=True, read_roles=['consultants'])
 

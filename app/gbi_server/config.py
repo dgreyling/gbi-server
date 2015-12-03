@@ -86,10 +86,9 @@ class DefaultConfig(object):
     TEMP_PG_PASSWORD = "igreen"
     TEMP_PG_PORT = "5432"
 
+    # remove this one if we remove the editor completly
     USER_READONLY_LAYER = "florlp"
-    USER_READONLY_LAYER_TITLE = "Berechtigungslayer"
     USER_WORKON_LAYER = "baselayer"
-    USER_WORKON_LAYER_TITLE ="Basis Layer"
 
     COUCH_DB_URL = "http://127.0.0.1:5984"
     # user name and password for db admin that is allowed to
@@ -164,6 +163,9 @@ class SystemConfig(object):
     UPLOAD_BOX_NAME = 'gbi_uploadbox'
     DOWNLOAD_BOX_NAME = 'gbi_downloadbox'
     FILE_BOX_NAME = 'gbi_filebox'
+
+    # title for area box
+    AREA_BOX_TITLE = "Berechtigungslayer"
 
     # name of the databases on the client
     AREA_BOX_NAME_LOCAL = 'flaechenbox'
