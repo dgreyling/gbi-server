@@ -61,6 +61,14 @@ select {
     padding: 5px;
 }
 
+.footer,
+.footer a,
+.footer a:visited,
+.footer a:hover {
+    color: #9B9B9B;
+    text-decoration: none;
+}
+
 /** Map css **/
 .map {
     height: 768px;

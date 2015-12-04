@@ -60,10 +60,12 @@
             {% block content %}{% endblock %}
             <hr>
             <footer class="footer">
-                <div class="container-fluid">
+                <div class="container">
                     {% if g.user and not g.user.is_anonymous %}
                     <p class="pull-left">{{ _('logged in as') }}: {{g.user.realname}} ({{ g.user.email }})</p>
                     {% endif %}
+                    <a href="{{ url_for('pages.page', lang='de', name='imprint.html') }}" class="pull-right">{{ _('Imprint') }}</a>
+
                 </div>
             </footer>
         </div>
