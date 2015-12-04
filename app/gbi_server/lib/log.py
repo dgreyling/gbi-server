@@ -27,6 +27,7 @@ def log_spec_to_csv(logs, csv_headers=[]):
     # add logs to csv
     for log in logs:
         writer.writerow([
+            log.user.email,
             log.time,
             log.action,
             log.format,
