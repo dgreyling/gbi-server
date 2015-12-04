@@ -19,7 +19,7 @@
 
         <div class="navbar navbar-inverse navbar-fixed-top">
             <div class="navbar-inner">
-                <div class="container-fluid">
+                <div class="container">
                     <a class="brand" href="/">{{ _('GeoBox Server') }}</a>
                     <div class="nav-collapse collapse">
                         <ul class="nav">
@@ -42,10 +42,12 @@
             </div>
         </div>
 
-        <div class="container-fluid">
+        <div class="container head-container">
             <div class="head">
                 {% block content_head %}{% endblock %}
             </div>
+        </div>
+        <div class="container">
             {% with messages = get_flashed_messages(with_categories=true) %}
                 {% if messages %}
                     {% for category, message in messages %}

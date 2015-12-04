@@ -25,13 +25,18 @@ select {
 .info {
     display: none;
 }
+.head-container {
+  padding-left: 0;
+  padding-right: 0;
+  background: #FEFEFE;
+  margin-bottom: 4px;
+  border-bottom: 1px solid #EEE;
+  margin-bottom: 15px;
+}
 
 .head {
-  padding: 20px;
-  background-color: #eeeeee;
-  -webkit-border-radius: 6px;
-     -moz-border-radius: 6px;
-          border-radius: 6px;
+  padding-bottom: 15px;
+  padding-top: 15px;
 }
 
 .head h1 {
@@ -76,9 +81,6 @@ select {
 
 /** Bootstrap overwrites / customizations **/
 
-.head {
-    margin-bottom: 20px;
-}
 
 .wfs_edit .form-horizontal .control-label {
     width: 90px;
