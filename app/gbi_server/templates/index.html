@@ -14,9 +14,6 @@
                 <li><a href="{{ url_for('maps.wmts') }}">{{ _('WMTS map') }}</a>
                    <p class="help-block"> {{ _('info text wmts map') }}</p>
                 </li>
-<!--             <li><a href="{{ url_for('maps.wfs_edit') }}">{{ _('WFS Edit') }}</a>
-                   <p class="help-block"> {{ _('info text wfs edit') }}</p>
-                </li> -->
                 {% endif %}
                 {% if user.is_consultant %}
                 <li><a href="{{ url_for('boxes.overview') }}">{{ _('overview over all boxes') }}</a>
@@ -29,7 +26,7 @@
                        <p class="help-block"> {{ _('info text downloadbox') }}</p>
                     </li>
                     <li><a href="{{ url_for('boxes.files', box_name='upload') }}">{{ _('uploadbox') }}</a>
-                       <p class="help-block"> {{ _('info text uploadboxbox') }}</p>
+                       <p class="help-block"> {{ _('info text uploadbox') }}</p>
                     </li>
                     {% else %}
                     <li><a href="{{ url_for('boxes.files', box_name='file') }}">{{ _('filebox') }}</a>
