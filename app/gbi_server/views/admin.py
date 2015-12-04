@@ -100,9 +100,9 @@ def user_list(page=1):
         form.company_number.data = company_number
         form.status.data = status
         if access_start:
-            form.access_start.data = datetime.strptime(access_start, '%d-%m-%Y')
+            form.access_start.data = datetime.strptime(access_start, '%d.%m.%Y')
         if access_end:
-            form.access_end.data = datetime.strptime(access_end, '%d-%m-%Y')
+            form.access_end.data = datetime.strptime(access_end, '%d.%m.%Y')
 
         # query user join log for access start and end search options
         query = User.query
@@ -350,13 +350,13 @@ def logs(page=1, user_id=False):
     # fill forms
     try:
         if access_start:
-            form.access_start.data = datetime.strptime(access_start, '%d-%m-%Y')
+            form.access_start.data = datetime.strptime(access_start, '%d.%m.%Y')
     except ValueError:
         form.access_start.data = ''
 
     try:
         if access_end:
-            form.access_end.data = datetime.strptime(access_end, '%d-%m-%Y')
+            form.access_end.data = datetime.strptime(access_end, '%d.%m.%Y')
     except ValueError:
         form.access_end.data = ''
 

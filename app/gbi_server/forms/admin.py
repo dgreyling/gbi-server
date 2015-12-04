@@ -47,13 +47,13 @@ class SearchUserForm(Form):
             ('False', _l('not active')),
         ]
     )
-    access_start = DateField(_l('access_start'), format='%d-%m-%Y')
-    access_end = DateField(_l('access_end'), format='%d-%m-%Y')
+    access_start = DateField(_l('access_start'), format='%d.%m.%Y')
+    access_end = DateField(_l('access_end'), format='%d.%m.%Y')
 
 
 class DownloadLogsForm(Form):
-    access_start = DateField(_l('access_start'), format='%d-%m-%Y')
-    access_end = DateField(_l('access_end'), format='%d-%m-%Y')
+    access_start = DateField(_l('access_start'), format='%d.%m.%Y')
+    access_end = DateField(_l('access_end'), format='%d.%m.%Y')
 
 
 class RasterSourceForm(Form):
