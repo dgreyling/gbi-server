@@ -180,7 +180,10 @@ def verify_wait(id):
 def verify(uuid):
     verify = EmailVerification.by_hash(uuid)
     if not verify or not verify.is_verify:
-        raise NotFound()
+        return render_template(
+            "errors/404.html",
+            error_msg=_('infotext verify not possible')
+        )
 
     user = verify.user
     user.verified = True
@@ -226,7 +229,10 @@ def recover_sent():
 def recover_new_password(uuid):
     verify = EmailVerification.by_hash(uuid)
     if not verify or not (verify.is_import or verify.is_recover):
-        return NotFound()
+        return render_template(
+            "errors/404.html",
+            error_msg=_('infotext recover not possible')
+        )
 
     user = verify.user
     form = RecoverSetForm()

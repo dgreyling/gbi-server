@@ -1,5 +1,15 @@
 {% extends "base.html" %}
+
 {% block title %}{{ _('internal error')}}{% endblock %}
+
+{% block content_head %}
+    <h2>{{ _('internal error')}}</h2>
+{% endblock %}
+
 {% block content %}
-<h1>{{ _('internal error')}}</h1>
+<div class="row">
+    <div class="span6">
+        <p>{{ _('internal error infotext')}}</p>
+    </div>
+</div>
 {% endblock %}

@@ -1,5 +1,15 @@
 {% extends "base.html" %}
+
 {% block title %}{{ _('method not allowed')}}{% endblock %}
+
+{% block content_head %}
+    <h2>{{ _('method not allowed')}}</h2>
+{% endblock %}
+
 {% block content %}
-<h1>{{ _('method not allowed')}}</h1>
+<div class="row">
+    <div class="span6">
+        <p>{{ _('method not allowed infotext')}}</p>
+    </div>
+</div>
 {% endblock %}

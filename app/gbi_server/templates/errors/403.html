@@ -2,7 +2,14 @@
 
 {% block title %}{{ _('not allowed')}}{% endblock %}
 
+{% block content_head %}
+    <h2>{{ _('not allowed')}}</h2>
+{% endblock %}
+
 {% block content %}
-<h1>{{ _('not allowed')}}</h1>
-</p>
+<div class="row">
+    <div class="span6">
+        <p>{{ _('not allowed infotext')}}</p>
+    </div>
+</div>
 {% endblock %}
