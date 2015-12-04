@@ -5,18 +5,23 @@
 {% block title %} {{_('create user')}} {% endblock %}
 
 {% block content_right %}
-<h4>{{_('create user')}}</h4>
-
 <form method="POST">
     <div class="row-fluid">
-        <div class="span6">
-            {{ form.csrf_token }}
-
+    <div class="span8">
+        <h4>{{_('create user')}}</h4>
+        {{ form.csrf_token }}
+        <fieldset>
+            <legend>{{ _('personal') }}</legend>
             {{ input(form.title) }}
             {{ input(form.firstname) }}
             {{ input(form.lastname) }}
-
             {{ input(form.company_name) }}
+            {{ input(form.type) }}
+        </fieldset>
+
+        <fieldset>
+            <legend>{{ _('address & contact') }}</legend>
+
             {{ input(form.address) }}
             {{ input(form.address_extend) }}
 
@@ -27,21 +32,24 @@
             {{ input(form.phone) }}
             {{ input(form.fax) }}
 
-        </div>
-        <div class="span6">
-            {{ input(form.type) }}
             {{ input(form.company_number, class='toggle-input hide') }}
             {{ input(form.commercial_register_number, class='toggle-input hide') }}
 
+            </fieldset>
+
             <!--  Login Data -->
-            {{ input(form.email) }}
-            {{ input(form.password) }}
-            {{ input(form.password2) }}
+            <fieldset>
+                <legend>{{ _('login') }}</legend>
+                {{ input(form.email) }}
+                {{ input(form.password) }}
+                {{ input(form.password2) }}
+            </fieldset>
 
             {{ checkbox(form.verified) }}
             {{ checkbox(form.activate) }}
         </div>
     </div>
+    <hr>
     <div class="row-fluid">
         <div class="span6">
             {{ button(_('create'), submit=True, btn_class='success') }}

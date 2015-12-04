@@ -8,43 +8,92 @@
 
 
 {% block content_right %}
-<h4>
-    {% if id %}
-        {{_('edit WMTS')}}
-    {% else %}
-        {{_('create WMTS')}}
-    {% endif %}
-</h4>
+<div class="row-fluid">
+    <div class="span12">
+        <h4>
+            {% if id %}
+                {{_('edit WMTS')}}
+            {% else %}
+                {{_('create WMTS')}}
+            {% endif %}
+        </h4>
+    </div>
+</div>
+
 <form method="POST">
     {{ form.csrf_token }}
-    <div class="row-fluid">
-        <div class="span4">
-            {{ input(form.name) }}
-            {{ input(form.title) }}
-            {{ input(form.url) }}
-            {{ input(form.format, class="span9") }}
-            {{ checkbox_tooltip(form.is_transparent, _('tooltip - wmts is transparent ')) }}
+    <fieldset>
+        <legend>{{ _('Map settings')}}</legend>
+        <div class="row-fluid">
+            <div class="span4">
+                {{ input(form.name, class="span12") }}
+            </div>
+            <div class="span4">
+                {{ input(form.title, class="span12") }}
+            </div>
+            <div class="span4">
+                {{ input(form.format, class="span12") }}
+            </div>
         </div>
 
-        <div class="span4">
-            {{ input(form.view_level_start) }}
-            {{ input(form.view_level_end) }}
-            {{ input(form.max_tiles) }}
-            {{ checkbox_tooltip(form.is_visible, _('tooltip - is_visible')) }}
-            {{ checkbox_tooltip(form.is_background_layer, _('tooltip - is background layer')) }}
-            {{ checkbox_tooltip(form.is_public, _('tooltip - is public')) }}
-            {{ checkbox_tooltip(form.is_accessible, _('tooltip - is accessible')) }}
-            <hr>
-            {{ checkbox_tooltip(form.is_protected, _('tooltip - protected service')) }}
-            {{ input(form.username) }}
-            {{ input(form.password) }}
+        <div class="row-fluid">
+            <div class="span12">
+                {{ input(form.url, class="span12") }}
+            </div>
         </div>
-        <div class="span4">
-            {{ textarea(form.view_coverage, rows=15, cols=12, class='span12') }}
-            <p>{{ _('geojson.io infotext') }}</p>
-            <a id="load-geojson-io" href=# target="_blank">{{ _('Show Geojson') }}</a>
+    </fieldset>
+
+    <fieldset class="top-buffer-2">
+        <legend>{{ _('GeoBox settings')}}</legend>
+
+        <div class="row-fluid">
+            <div class="span2">
+                {{ input(form.view_level_start, class="span12") }}
+            </div>
+            <div class="span2">
+                {{ input(form.view_level_end, class="span12") }}
+            </div>
+            <div class="span4 offset2">
+                {{ input(form.max_tiles, class="span12") }}
+            </div>
         </div>
-    </div>
+
+        <div class="row-fluid">
+            <div class="span6">
+            {{ textarea(form.view_coverage, rows=10, cols=12) }}
+            </div>
+            <div class="span6 top-buffer-3">
+                <p>{{ _('geojson.io infotext') }}</p>
+                <a id="load-geojson-io" href=# target="_blank">{{ _('Show Geojson') }}</a>
+            </div>
+        </div>
+        <div class="row-fluid">
+            <div class="span6">
+                {{ checkbox_tooltip(form.is_transparent, _('tooltip - wmts is transparent ')) }}
+
+                {{ checkbox_tooltip(form.is_visible, _('tooltip - is_visible')) }}
+                {{ checkbox_tooltip(form.is_background_layer, _('tooltip - is background layer')) }}
+            </div>
+            <div class="span4">
+                {{ checkbox_tooltip(form.is_public, _('tooltip - is public')) }}
+                {{ checkbox_tooltip(form.is_accessible, _('tooltip - is accessible')) }}
+            </div>
+        </div>
+    </fieldset>
+
+    <fieldset class="top-buffer-2">
+        <legend>{{ _('Account settings')}}</legend>
+        <div class="row-fluid">
+            <div class="span5">
+                {{ checkbox(form.is_protected) }}
+                {{ input(form.username, class="span12") }}
+                {{ input(form.password, class="span12") }}
+            </div>
+            <div class="span6 offset1 top-buffer-1">
+                {{ _('tooltip - protected service') }}
+            </div>
+        </div>
+    </fieldset>
     <div class="row-fluid">
         <div class="span12">
             {{ button(_('save'), submit=True, btn_class='success') }}
