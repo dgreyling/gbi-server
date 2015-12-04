@@ -248,8 +248,12 @@ class CouchDB(object):
         # self.put but self.session.put
         resp = self.session.put(self.couchdb_url + '/_security',
             data=json.dumps({
-                'members': {
+                'admins': {
                     'names': [user],
+                    'roles': ['_admin'],
+                },
+                'members': {
+                    'names': [],
                     'roles': read_roles + ['_admin'],
                 }
             }),
