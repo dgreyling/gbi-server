@@ -84,7 +84,11 @@ def logout():
 def new():
     form = NewUserForm()
     form.type.choices = []
-    form.federal_state.choices = current_app.config['FEDERAL_STATES']
+
+    form.federal_state.choices.append(('', _('Please select')))
+    for state in current_app.config['FEDERAL_STATES']:
+        form.federal_state.choices.append((state[0], state[1]))
+
     form.title.choices = current_app.config['SALUTATIONS']
 
     # add choice wich account types are possible
