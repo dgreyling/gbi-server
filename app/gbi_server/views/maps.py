@@ -53,7 +53,11 @@ def javascript_translation():
 @maps.route('/maps/wmts', methods=['GET'])
 @login_required
 def wmts():
-    couch = CouchDBBox(current_app.config.get('COUCH_DB_URL'), '%s_%s' % (SystemConfig.AREA_BOX_NAME, current_user.id))
+    couch = CouchDBBox(
+        current_app.config.get('COUCH_DB_URL'),
+        '%s_%s' % (SystemConfig.AREA_BOX_NAME, current_user.id)
+    )
+
     features = [feature for feature in couch.iter_features() if isinstance(feature['geometry'], dict)]
 
     vector_layers = []
@@ -63,7 +67,13 @@ def wmts():
         'readonly': True,
     })
     wmts_layers = WMTS.query.all()
-    return render_template('maps/map.html', wmts_layers=wmts_layers, vector_layers=vector_layers, user=current_user)
+
+    return render_template(
+        'maps/map.html',
+        wmts_layers=wmts_layers,
+        vector_layers=vector_layers,
+        user=current_user
+    )
 
 
 @maps.route('/maps/wfs', methods=['GET', 'POST'])

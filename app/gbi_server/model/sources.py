@@ -15,8 +15,10 @@
 
 from flask import g, url_for
 from gbi_server.extensions import db
-from geoalchemy2.types import Geometry
 
+from geoalchemy2.types import Geometry
+from geoalchemy2.shape import to_shape
+from gbi_server.lib.transform import transform_bbox
 
 class WMTS(db.Model):
     __tablename__ = 'wmts'
@@ -69,6 +71,14 @@ class WMTS(db.Model):
     def by_name(cls, name):
         q = cls.query.filter(cls.name == name)
         return q.first_or_404()
+
+    @property
+    def bbox(self):
+        if self.view_coverage != '':
+            geometry = to_shape(self.view_coverage)
+            return transform_bbox(from_srs=4326, to_srs=3857, bbox=geometry.bounds)
+        return False
+
 
     def client_url(self, external=False):
         if self.is_public and self.is_accessible:
