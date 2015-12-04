@@ -34,12 +34,27 @@
                 showActiveLayer: false
             });
             editor.zoomToMaxExtent();
+            var hasNoData = true
+
             $.each(editor.layerManager.layers(), function(idx, layer) {
                 if(layer instanceof gbi.Layers.GeoJSON && layer.options.read_only) {
-                    layer.zoomToDataExtent();
-                    return false;
+                    if (!jQuery.isEmptyObject(layer.data)) {
+                        layer.zoomToDataExtent();
+                        hasNoData = false;
+                        return false;
+                    }
                 }
             });
+
+            if (hasNoData) {
+                $.each(editor.layerManager.layers(), function(idx, layer) {
+                    if (layer.isBackground) {
+                        editor.map.olMap.zoomToExtent(layer.olLayer.restrictedExtent)
+                        return false;
+                    }
+                });
+            }
+
   		 });
     </script>
 {% endblock %}

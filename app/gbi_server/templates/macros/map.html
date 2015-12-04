@@ -12,7 +12,12 @@
             layer: '{{ layer.name }}',
             format: '{{ layer.format }}',
             {% if layer.bbox %}
-                restrictedExtent: new OpenLayers.Bounds{{ layer.bbox }},
+                restrictedExtent: new OpenLayers.Bounds(
+                    {{ layer.bbox[0] }},
+                    {{ layer.bbox[1] }},
+                    {{ layer.bbox[2] }},
+                    {{ layer.bbox[3] }}
+                ),
             {% endif %}
             maxExtent: max_extent,
             background: {{ layer.is_background_layer|tojson }},
