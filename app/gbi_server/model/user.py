@@ -17,6 +17,8 @@ import bcrypt
 import uuid
 import datetime
 
+from sqlalchemy import func
+
 from flask import current_app, url_for
 from flask.ext.login import UserMixin
 from flask.ext.babel import gettext as _
@@ -150,7 +152,7 @@ class User(db.Model, UserMixin):
 
     @classmethod
     def by_email(cls, email):
-        q = User.query.filter(User.email == email)
+        q = User.query.filter(func.lower(cls.email) == func.lower(email))
         return q.first()
 
     @classmethod
