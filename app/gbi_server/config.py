@@ -69,6 +69,11 @@ class DefaultConfig(object):
     MAIL_PASSWORD = 'XXXXX'
     MAIL_DEBUG = DEBUG
     MAIL_DEFAULT_SENDER = "GeoBox Server <gbi_server@example.org>"
+    MAIL_FOOTER = '''
+--
+Internet: https://map.rlp.de
+E-Mail: info@map.rlp.de
+'''
 
     TINYOWS_NAME = "TinyOWS Server"
     TINYOWS_TITLE = "TinyOWS Server - Demo Service"
@@ -155,6 +160,8 @@ class DefaultConfig(object):
             # 'http://localhost:8099/%(layer)s/GoogleMapsCompatible-%(z)s-%(x)s-%(y)s/tile'
         ),
     ]
+
+
 
 class SystemConfig(object):
     # name of the databases on the server

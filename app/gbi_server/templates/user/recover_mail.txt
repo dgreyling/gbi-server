@@ -4,4 +4,4 @@
 
 {{_('mail regards')}}
 
-{{_('mail footer')}}
+{{ config.get('MAIL_FOOTER') }}
