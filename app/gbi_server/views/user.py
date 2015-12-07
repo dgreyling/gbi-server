@@ -83,14 +83,15 @@ def logout():
 @user.route("/user/new", methods=["GET", "POST"])
 def new():
     form = NewUserForm()
-    form.type.choices = []
 
+    form.federal_state.choices = []
     form.federal_state.choices.append(('', _('Please select')))
     for state in current_app.config['FEDERAL_STATES']:
-        form.federal_state.choices.append((state[0], state[1]))
+        form.federal_state.choices.append(state)
 
     form.title.choices = current_app.config['SALUTATIONS']
 
+    form.type.choices = []
     # add choice wich account types are possible
     if current_app.config['FEATURE_CUSTOMER_USERS']:
         form.type.choices.append((User.Type.CUSTOMER, _('customer')))
