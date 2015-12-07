@@ -1597,7 +1597,7 @@ msgstr ""
 msgid "password recover mail instructions"
 msgstr ""
 "Um ein neues Passwort für Ihren Zugang zu setzen, klicken Sie auf den "
-"folgenden Link. Der Link ist 25 Stunden Tage gültig.\n"
+"folgenden Link. Der Link ist 24 Stunden gültig.\n"
 "%(url)s"
 
 #: ../app/gbi_server/templates/user/recover_sent.html:10
