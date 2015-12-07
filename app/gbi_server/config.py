@@ -109,7 +109,7 @@ E-Mail: info@example.org
     GBI_CLIENT_DOWNLOAD_URL = "http://download.omniscale.de/geobox/dist/setup-geobox-0.2.7.exe"
 
     STATIC_PAGES_DIR = p.join(p.dirname(__file__), '..', 'pages')
-    USERMANUAL_FILENAME = 'usermanual-gbi-server.pdf'
+    USERMANUAL_URL = 'usermanual-gbi-server.pdf'
 
     # enable/disable document boxes (CUSTOMER/CONSULTANT)
     FEATURE_DOC_BOXES = True

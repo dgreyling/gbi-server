@@ -37,9 +37,9 @@
                 <li><a href="{{ config.get('GBI_CLIENT_DOWNLOAD_URL')}}">{{ _('geobox client download') }}</a>
                    <p class="help-block"> {{ _('info text geobox client download') }}</p>
                 </li>
-                {% if config['USERMANUAL_FILENAME'] %}
+                {% if config['USERMANUAL_URL'] %}
                 <li>
-                    <a href="{{ url_for('pages.page', lang='de', name=config['USERMANUAL_FILENAME']) }}">{{ _('geobox server user manual') }}</a>
+                    <a href="{{ config['USERMANUAL_URL'] }}">{{ _('geobox server user manual') }}</a>
                    <p class="help-block"> {{ _('user manual') }}</p>
                 </li>
                 {% endif %}
