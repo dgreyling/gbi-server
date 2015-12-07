@@ -71,8 +71,8 @@ class DefaultConfig(object):
     MAIL_DEFAULT_SENDER = "GeoBox Server <gbi_server@example.org>"
     MAIL_FOOTER = '''
 --
-Internet: https://map.rlp.de
-E-Mail: info@map.rlp.de
+Internet: https://example.org
+E-Mail: info@example.org
 '''
 
     TINYOWS_NAME = "TinyOWS Server"
