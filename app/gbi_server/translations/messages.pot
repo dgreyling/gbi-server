@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-04 17:23+0100\n"
+"POT-Creation-Date: 2015-12-07 08:08+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -473,6 +473,7 @@ msgid "create account"
 msgstr ""
 
 #: ../app/gbi_server/templates/base.html:31
+#: ../app/gbi_server/templates/admin/create_user.html:42
 #: ../app/gbi_server/templates/user/login.html:5
 #: ../app/gbi_server/templates/user/login.html:8
 #: ../app/gbi_server/templates/user/login.html:18
@@ -585,7 +586,7 @@ msgstr ""
 
 #: ../app/gbi_server/templates/admin/base.html:33
 #: ../app/gbi_server/templates/admin/create_user.html:5
-#: ../app/gbi_server/templates/admin/create_user.html:8
+#: ../app/gbi_server/templates/admin/create_user.html:11
 msgid "create user"
 msgstr ""
 
@@ -634,7 +635,17 @@ msgstr ""
 msgid "Download logs"
 msgstr ""
 
-#: ../app/gbi_server/templates/admin/create_user.html:47
+#: ../app/gbi_server/templates/admin/create_user.html:14
+#: ../app/gbi_server/templates/user/new.html:16
+msgid "personal"
+msgstr ""
+
+#: ../app/gbi_server/templates/admin/create_user.html:23
+#: ../app/gbi_server/templates/user/new.html:25
+msgid "address & contact"
+msgstr ""
+
+#: ../app/gbi_server/templates/admin/create_user.html:55
 msgid "create"
 msgstr ""
 
@@ -1443,14 +1454,6 @@ msgstr ""
 #: ../app/gbi_server/templates/user/new.html:5
 #: ../app/gbi_server/templates/user/new.html:7
 msgid "create new account"
-msgstr ""
-
-#: ../app/gbi_server/templates/user/new.html:16
-msgid "personal"
-msgstr ""
-
-#: ../app/gbi_server/templates/user/new.html:25
-msgid "address & contact"
 msgstr ""
 
 #: ../app/gbi_server/templates/user/new.html:51

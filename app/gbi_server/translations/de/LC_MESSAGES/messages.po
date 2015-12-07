@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PROJECT VERSION\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2015-12-04 17:23+0100\n"
+"POT-Creation-Date: 2015-12-07 08:08+0100\n"
 "PO-Revision-Date: 2013-09-26 18:02+0100\n"
 "Last-Translator: \n"
 "Language-Team: de <LL@li.org>\n"
@@ -475,6 +475,7 @@ msgid "create account"
 msgstr "Konto erstellen"
 
 #: ../app/gbi_server/templates/base.html:31
+#: ../app/gbi_server/templates/admin/create_user.html:42
 #: ../app/gbi_server/templates/user/login.html:5
 #: ../app/gbi_server/templates/user/login.html:8
 #: ../app/gbi_server/templates/user/login.html:18
@@ -500,7 +501,7 @@ msgstr "Angemeldet als"
 
 #: ../app/gbi_server/templates/base.html:69
 msgid "Imprint"
-msgstr ""
+msgstr "Impressum"
 
 #: ../app/gbi_server/templates/index.html:6
 msgid "Welcome to GeoBox Server"
@@ -592,7 +593,7 @@ msgstr "Inaktive Benutzer"
 
 #: ../app/gbi_server/templates/admin/base.html:33
 #: ../app/gbi_server/templates/admin/create_user.html:5
-#: ../app/gbi_server/templates/admin/create_user.html:8
+#: ../app/gbi_server/templates/admin/create_user.html:11
 msgid "create user"
 msgstr "Neuen Benutzer erstellen"
 
@@ -641,7 +642,17 @@ msgstr "WFS erstellen"
 msgid "Download logs"
 msgstr "Zugriffe"
 
-#: ../app/gbi_server/templates/admin/create_user.html:47
+#: ../app/gbi_server/templates/admin/create_user.html:14
+#: ../app/gbi_server/templates/user/new.html:16
+msgid "personal"
+msgstr "Persönliche Daten"
+
+#: ../app/gbi_server/templates/admin/create_user.html:23
+#: ../app/gbi_server/templates/user/new.html:25
+msgid "address & contact"
+msgstr "Adresse & Kontakt"
+
+#: ../app/gbi_server/templates/admin/create_user.html:55
 msgid "create"
 msgstr "Erstellen"
 
@@ -857,7 +868,7 @@ msgstr "WFS Editieren"
 #: ../app/gbi_server/templates/admin/wms_edit.html:46
 #: ../app/gbi_server/templates/admin/wmts_edit.html:26
 msgid "Map settings"
-msgstr "Karten-Einstellungen"
+msgstr "Dienst-Einstellungen"
 
 #: ../app/gbi_server/templates/admin/wfs_edit.html:62
 #: ../app/gbi_server/templates/admin/wms_edit.html:100
@@ -1037,13 +1048,13 @@ msgstr "Hintergrund"
 #: ../app/gbi_server/templates/admin/wmts_list.html:43
 #: ../app/gbi_server/templates/admin/wmts_list.html:50
 msgid "Yes"
-msgstr ""
+msgstr "Ja"
 
 #: ../app/gbi_server/templates/admin/wmts_list.html:37
 #: ../app/gbi_server/templates/admin/wmts_list.html:45
 #: ../app/gbi_server/templates/admin/wmts_list.html:52
 msgid "No"
-msgstr ""
+msgstr "Nein"
 
 #: ../app/gbi_server/templates/boxes/base.html:5
 msgid "box"
@@ -1548,14 +1559,6 @@ msgstr "Passwort vergessen?"
 #: ../app/gbi_server/templates/user/new.html:7
 msgid "create new account"
 msgstr "Neues Konto einrichten"
-
-#: ../app/gbi_server/templates/user/new.html:16
-msgid "personal"
-msgstr "Persönliche Daten"
-
-#: ../app/gbi_server/templates/user/new.html:25
-msgid "address & contact"
-msgstr "Adresse & Kontakt"
 
 #: ../app/gbi_server/templates/user/new.html:51
 msgid "create accout"
