@@ -8,13 +8,14 @@
 <h4>{{ _('access list') }}</h4>
 <div class="row-fluid">
     <div class="span12">
-        <form method="GET">
+        <form method="POST" action="{{ url_for('admin.logs')}}">
+            {{ form.csrf_token }}
             <div class="row-fluid">
-                <div class="span2">
-                {{ input(form.access_start, class="span12", placeholder='01.01.2015') }}
+                <div class="span3">
+                {{ input(form.access_start, class="span12", placeholder='01.01.2015 00:00:00') }}
                 </div>
-                <div class="span2">
-                {{ input(form.access_end, class="span12", placeholder='10.12.2015') }}
+                <div class="span3">
+                {{ input(form.access_end, class="span12", placeholder='10.12.2015  00:00:00') }}
                 </div>
             </div>
             <div class="row-fluid">

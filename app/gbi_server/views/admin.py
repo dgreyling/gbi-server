@@ -302,62 +302,51 @@ def reset_user_password(user_id):
     return render_template('admin/reset_user_password.html', form=form, user=user)
 
 
-@admin.route('/admin/logs/', methods=["GET"])
-@admin.route('/admin/logs/<int:page>', methods=["GET"])
-@admin.route('/admin/user_log/<int:user_id>/logs/', methods=["GET"])
-@admin.route('/admin/user_log/<int:page>/logs/<int:user_id>', methods=["GET"])
+@admin.route('/admin/logs/', methods=["GET", "POST"])
+@admin.route('/admin/logs/<int:page>', methods=["GET", "POST"])
+@admin.route('/admin/user_log/<int:user_id>/logs/', methods=["GET", "POST"])
+@admin.route('/admin/user_log/<int:page>/logs/<int:user_id>', methods=["GET", "POST"])
 def logs(page=1, user_id=False):
     form = DownloadLogsForm()
-
-    access_start = request.args.get('access_start', False)
-    access_end = request.args.get('access_end', False)
-
-    button_action = request.args.get('button-action', 'show-table')
 
     query = Log.query
     if user_id:
         user = User.by_id(user_id)
         query = query.filter_by(user=user)
 
-    if access_start:
-        query = query.filter(Log.time >= access_start)
+    if request.method == 'POST' and form.validate():
+        data = request.form
+        access_start = data.get('access_start', False)
+        access_end = data.get('access_end', False)
+        button_action = data.get('button-action', 'show-table')
 
-    if access_end:
-        query = query.filter(Log.time < access_end)
+        if access_start:
+            query = query.filter(Log.time >= access_start)
 
-    query = query.order_by(desc(Log.time))
-    if button_action == 'show-table':
-        results = query.paginate(page, current_app.config["USER_PER_PAGE"])
+        if access_end:
+            query = query.filter(Log.time < access_end)
+
+        query = query.order_by(desc(Log.time))
+        if button_action == 'show-table':
+            results = query.paginate(page, current_app.config["USER_PER_PAGE"])
+        else:
+            results = query.all()
+            csv = log_spec_to_csv(
+                logs=results,
+                csv_headers=current_app.config['LOG_CSV_HEADER']
+            )
+            filename = 'geobox-access-%s.csv' % (to_user_timezone(datetime.utcnow()).strftime('%Y%m%d-%H%M%S'))
+
+            resp = Response(
+                csv,
+                headers={
+                    'Content-type': 'application/octet-stream',
+                    'Content-disposition': 'attachment; filename=%s' % filename})
+
+            return resp
     else:
-        results = query.all()
-        csv = log_spec_to_csv(
-            logs=results,
-            csv_headers=current_app.config['LOG_CSV_HEADER']
-        )
-        filename = 'geobox-access-%s.csv' % (to_user_timezone(datetime.utcnow()).strftime('%Y%m%d-%H%M%S'))
-
-        resp = Response(
-            csv,
-            headers={
-                'Content-type': 'application/octet-stream',
-                'Content-disposition': 'attachment; filename=%s' % filename})
-
-        return resp
-
+        results = query.paginate(page, current_app.config["USER_PER_PAGE"])
     if user_id:
         return render_template('admin/user_log.html', user=user, logs=results)
-
-    # fill forms
-    try:
-        if access_start:
-            form.access_start.data = datetime.strptime(access_start, '%d.%m.%Y')
-    except ValueError:
-        form.access_start.data = ''
-
-    try:
-        if access_end:
-            form.access_end.data = datetime.strptime(access_end, '%d.%m.%Y')
-    except ValueError:
-        form.access_end.data = ''
 
     return render_template('admin/logs.html', form=form, logs=results)

@@ -33,7 +33,7 @@
 
 {% macro log_table_row(log_line) -%}
 <tr>
-    <td>{{ log_line.time or '' }}</td>
+    <td>{{ log_line.time.strftime('%d.%m.%Y %H:%M:%S')  or '' }}</td>
     <td>{{ log_line.user.email or '' }}</td>
     <td>{{ log_line.action or '' }}</td>
     <td>{{ log_line.format or '' }}</td>

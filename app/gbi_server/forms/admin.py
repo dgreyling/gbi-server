@@ -51,9 +51,18 @@ class SearchUserForm(Form):
     access_end = DateField(_l('access_end'), format='%d.%m.%Y')
 
 
-class DownloadLogsForm(Form):
-    access_start = DateField(_l('access_start'), format='%d.%m.%Y')
-    access_end = DateField(_l('access_end'), format='%d.%m.%Y')
+class SearchForm(Form):
+    """
+    We expect search queries to come externally, thus we don't want CSRF
+    even though it's set up on the base form.
+    """
+    class Meta:
+        # This overrides the value from the base form.
+        csrf = False
+
+class DownloadLogsForm(SearchForm):
+    access_start = DateField(_l('access_start'), format='%d.%m.%Y %H:%M:%S')
+    access_end = DateField(_l('access_end'), format='%d.%m.%Y %H:%M:%S')
 
 
 class RasterSourceForm(Form):
