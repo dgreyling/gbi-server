@@ -13,8 +13,7 @@
                     <th>{{ _('rastersource_url') }}</th>
                     <th>{{ _('rastersource_layer') }}</th>
                     <th>{{ _('rastersource_format') }}</th>
-                    <th>{{ _('rastersource_view_level_start') }}</th>
-                    <th>{{ _('rastersource_view_level_end') }}</th>
+                    <th>{{ _('rastersource_view_level') }}</th>
                     <th>{{ _('rastersource_is_transparent') }}</th>
                     <th>{{ _('rastersource_is_public')}}
                     <th></th>
@@ -35,10 +34,21 @@
                     <td>{{ elem.url }}</td>
                     <td>{{ elem.layer }}</td>
                     <td>{{ elem.format }}</td>
-                    <td>{{ elem.view_level_start }}</td>
-                    <td>{{ elem.view_level_end }}</td>
-                    <td>{{ elem.is_transparent }}</td>
-                    <td>{{ elem.is_public }}</td>
+                    <td>{{ elem.view_level_start }}-{{ elem.view_level_end }}</td>
+                    <td>
+                        {% if elem.is_transparent %}
+                            {{ _('Yes') }}
+                        {% else %}
+                            {{ _('No') }}
+                        {% endif %}
+                    </td>
+                    <td>
+                        {% if elem.is_public %}
+                            {{ _('Yes') }}
+                        {% else %}
+                            {{ _('No') }}
+                        {% endif %}
+                    </td>
                     <td>
                         <a class="btn btn-small" href="{{ url_for('admin.wms_edit', id=elem.id) }}">{{ _('edit') }}</a>
 

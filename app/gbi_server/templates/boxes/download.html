@@ -3,12 +3,12 @@
 {% block title %}{{ _('downloadbox title') }}{% endblock %}
 
 {% block content_head %}
-    <h1>
+    <h2>
     {% if  current_user.is_consultant %}
       {{_('downloadbox for')}}
         {{ user.name }} ( {{ user.email }} ) {{ tooltip(_('tooltip - downloadbox for consultant ')) }}
     {% else %}
       {{_('downloadbox')}} {{ tooltip(_('tooltip - downloadbox for customer ')) }}
     {% endif %}
-    </h1>
+    </h2>
 {% endblock %}

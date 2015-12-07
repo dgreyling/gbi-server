@@ -50,23 +50,22 @@
         <div class="row-fluid">
             <div class="span4">
                 {{ input(form.layer) }}
+                {{ input(form.ns_prefix) }}
             </div>
             <div class="span4">
                 {{ input(form.srs) }}
+                {{ input(form.ns_uri) }}
             </div>
         </div>
-
     </fieldset>
 
     <fieldset class="top-buffer-2">
         <legend>{{ _('GeoBox settings')}}</legend>
         <div class="row-fluid">
             <div class="span4">
-                {{ input(form.ns_prefix) }}
-                {{ input(form.ns_uri) }}
+                {{ input(form.search_property) }}
             </div>
             <div class="span4 offset2">
-                {{ input(form.search_property) }}
                 {{ input(form.max_features) }}
             </div>
         </div>

@@ -3,6 +3,7 @@
    <thead>
        <tr>
            <th>{{ _('time') }}</th>
+           <th>{{ _('user') }}</th>
            <th>{{ _('action') }}</th>
            <th>{{ _('format') }}</th>
            <th>{{ _('srs') }}</th>
@@ -33,6 +34,7 @@
 {% macro log_table_row(log_line) -%}
 <tr>
     <td>{{ log_line.time or '' }}</td>
+    <td>{{ log_line.user.email or '' }}</td>
     <td>{{ log_line.action or '' }}</td>
     <td>{{ log_line.format or '' }}</td>
     <td>{{ log_line.srs or '' }}</td>

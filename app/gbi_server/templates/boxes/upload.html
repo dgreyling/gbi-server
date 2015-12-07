@@ -3,12 +3,12 @@
 {% block title %}{{ _('uploadbox title') }}{% endblock %}
 
 {% block content_head %}
-    <h1>
+    <h2>
     {% if current_user.is_consultant %}
       {{_('uploadbox for')}}
         {{ user.realname }} ( {{ user.email }} ) {{ tooltip(_('tooltip - uploadbox for consultant ')) }}
     {% else %}
       {{_('uploadbox')}} {{ tooltip(_('tooltip - uploadbox for customer ')) }}
     {% endif %}
-    </h1>
+    </h2>
 {% endblock %}
