@@ -25,8 +25,17 @@ import webassets.env
 from gbi_server import authproxy
 from gbi_server import logserv
 from gbi_server import signals
+from gbi_server import search
 from gbi_server.config import DefaultConfig
-from gbi_server.extensions import db, login_manager, mail, assets, tileproxy, couchdbproxy
+from gbi_server.extensions import (
+    db,
+    login_manager,
+    mail,
+    assets,
+    tileproxy,
+    couchdbproxy,
+    parcel_search,
+)
 from gbi_server.lib.helper import css_alert_category, request_for_static, add_auth_to_url
 from gbi_server.model import User, DummyUser
 
@@ -53,6 +62,7 @@ def create_app(config=None):
 
     configure_jinja(app)
     configure_authproxies(app)
+    configure_parcel_search(app)
     configure_extensions(app)
     configure_errorhandlers(app)
     configure_before_handlers(app)
@@ -142,6 +152,11 @@ def configure_authproxies(app):
         coverages.clear(user.authproxy_token)
         dblimit.clear(user.authproxy_token)
     signals.authtoken_changes.connect(clear_cache, weak=False)
+
+def configure_parcel_search(app):
+
+    parcel_search.init_app(app)
+    app.register_blueprint(search.blueprint)
 
 
 def configure_extensions(app):

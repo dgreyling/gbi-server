@@ -20,6 +20,7 @@ from flask.ext.assets import Environment
 from flask.ext.login import LoginManager
 
 from gbi_server.authproxy import proxy
+from gbi_server.search import search
 
 __all__ = ['mail', 'db', 'assets', 'tileproxy', 'couchdbproxy']
 
@@ -31,3 +32,5 @@ login_manager = LoginManager()
 
 couchdbproxy = proxy.CouchDBProxy()
 tileproxy = proxy.TileProxy()
+
+parcel_search = search.ParcelSearch()
