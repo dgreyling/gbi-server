@@ -61,3 +61,17 @@ def _transform_coordinates(from_srs, to_srs, coordinates):
         return [_transform_coordinates(from_srs, to_srs, coords) for coords in coordinates]
 
     return from_srs.transform_to(to_srs, coordinates)
+
+
+if __name__ == '__main__':
+    import json
+    import sys
+
+    from_srs = 'EPSG:4326'
+    to_srs = 'EPSG:3857'
+    if len(sys.argv) > 1 and sys.argv[1] == '--towgs':
+        from_srs, to_srs = to_srs, from_srs
+
+    input = json.load(sys.stdin)
+    output = transform_geojson(from_srs, to_srs, input)
+    print json.dumps(output, indent=2)
