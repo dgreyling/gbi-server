@@ -15,6 +15,7 @@
 
 import json
 import shapely
+import datetime
 
 from sqlalchemy.orm import backref
 from geoalchemy2.types import Geometry
@@ -51,3 +52,26 @@ class Log(db.Model):
             )
             return geom
         return False
+
+
+class SearchLog(db.Model):
+    __tablename__ = 'search_logs'
+
+    id = db.Column(db.Integer, primary_key=True)
+    time = db.Column(db.DateTime, default=datetime.datetime.utcnow, nullable=False)
+
+    user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
+    user = db.relationship('User', backref=backref('search_logs', cascade="all,delete,delete-orphan"))
+
+
+class SearchLogGeometry(db.Model):
+    __tablename__ = 'search_log_geometries'
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    search_log_id = db.Column(db.Integer, db.ForeignKey('search_logs.id'), nullable=False)
+    search_log = db.relationship('SearchLog', backref=backref('geometries', cascade="all,delete,delete-orphan"))
+
+    geometry = db.Column(Geometry('POLYGON', srid=3857))
+    identifier = db.Column(db.String)
+

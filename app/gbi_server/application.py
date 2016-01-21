@@ -25,7 +25,7 @@ import webassets.env
 from gbi_server import authproxy
 from gbi_server import logserv
 from gbi_server import signals
-from gbi_server import search
+from gbi_server.search import blueprint as search
 from gbi_server.config import DefaultConfig
 from gbi_server.extensions import (
     db,
@@ -156,7 +156,7 @@ def configure_authproxies(app):
 def configure_parcel_search(app):
 
     parcel_search.init_app(app)
-    app.register_blueprint(search.blueprint)
+    app.register_blueprint(search.search)
 
 
 def configure_extensions(app):

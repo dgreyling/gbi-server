@@ -18,6 +18,8 @@ from flask import Blueprint, request, jsonify
 from shapely.geometry import asShape
 from shapely import geometry
 
+from gbi_server.extensions import db
+from gbi_server.model import User, SearchLog, SearchLogGeometry
 
 search = Blueprint("search", __name__)
 
@@ -47,11 +49,27 @@ def query(token):
 
     features = parcel_search.search(q, token)
 
+    if features:
+        db.session.add(search_log_from_features(token, features))
+        db.session.commit()
+
     return jsonify({
         "type": "FeatureCollection",
         "features": features,
     })
 
+
+def search_log_from_features(token, features):
+    user = User.by_authproxy_token(token)
+    sl = SearchLog(user=user)
+    for f in features:
+        g = SearchLogGeometry(
+            identifier=f['properties']['id'],
+            geometry='SRID=3857;' + asShape(f['geometry']).wkt,
+        )
+        sl.geometries.append(g)
+
+    return sl
 
 def geometry_from_feature_collection(feature_collection):
     polygons = []
