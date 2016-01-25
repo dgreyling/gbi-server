@@ -197,6 +197,9 @@ def get_context_document():
                 "dbname_user":  SystemConfig.UPLOAD_BOX_NAME_LOCAL,
             })
 
+    if current_app.config['PARCEL_SEARCH_DATABASE_URI']:
+        response['parcel_search_url'] = url_for('search.query', token=g.user.authproxy_token, _external=True)
+
     response['logging'] = {
         'url': url_for('logserv.log', user_token=g.user.authproxy_token, _external=True),
     }
